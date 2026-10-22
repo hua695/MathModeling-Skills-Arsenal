@@ -1,0 +1,348 @@
+# 节点交接提示词模板
+# 当用户明确表示当前节点通过时，论文辅助生成下一节点的提示词
+# 用户复制提示词给主agent，加强约束防止主agent不执行
+# 每个节点的提示词包含：职责、必读输入、必调skill、硬约束（检查器BLOCK级）、暂停点、输出产物、禁止行为
+
+H0:
+  next_node: "H1"
+  prompt: |
+    【H1 题意理解节点】
+
+    你的角色：题意理解 agent（gpt-5.6-terra / medium）
+
+    必须执行：
+    1. 读取原始题面文件（用户提供的 PDF/图片/文本），完整提取题目内容
+    2. 读取所有附件数据文件，确认格式、字段、缺失值
+    3. 产出 problem_statement.md（题面翻译+结构化摘要+歧义清单）
+    4. 产出 unified_problem_package.yaml（机器可读事实权威，含 subproblems 列表）
+    5. 调用 superpowers:using-superpowers 创建 H5/H6/H7/H8 四个子 agent（spawn_roles，after_node=H1），每个子 agent 预载 problem_statement.md 和对应预热包
+    6. 将创建记录写入 harness_control.yaml.bootstrap.invocations（含 task_id、created 列表、agent_ids）
+
+    硬约束（检查器 BLOCK 级，不满足无法通过）：
+    - problem_statement.md 和 unified_problem_package.yaml 必须实际存在且非空
+    - H1 任务卡 inputs 必须含原始题面文件且实际存在
+    - spawn_roles 必须 after_node=H1，created 必须包含 H5/H6/H7/H8 且不重复
+    - 每个子 agent 的 agent_ids 必须登记到 spawn_roles 条目
+    - 预热包文件必须实际存在（references/warmup/h5_solver_warmup.md 等）
+
+    输出产物：
+    - problem_statement.md
+    - unified_problem_package.yaml
+    - .contest/task_cards/H1.yaml
+    - harness_control.yaml（更新 bootstrap.invocations 和 agent_instances）
+
+    禁止行为：
+    - 禁止跳过题面读取直接开始建模
+    - 禁止不创建子 agent 就进入 H2
+    - 禁止子 agent 不预载题面和预热包
+
+H1:
+  next_node: "H2"
+  prompt: |
+    【H2 规格冻结节点】
+
+    你的角色：主 agent（controller_only）
+
+    必须执行：
+    1. 读取 H1 产出的 problem_statement.md 和 unified_problem_package.yaml
+    2. 确认题目—数据—接口映射完整，每个小问的输入输出清晰
+    3. 产出规格冻结包：假设清单、符号表、数据接口、约束条件
+    4. 生成 H2 审查包（review_packet），提交用户确认
+    5. 用户批准后，将批准记录写入 .contest/approval_log.yaml
+
+    硬约束（检查器 BLOCK 级）：
+    - H2 必须有 review_packet 且文件存在
+    - 用户批准记录必须存在且 artifact_digests 与 review_packet 哈希匹配
+    - 前置 agent 节点（H1）不能为 not_started 状态
+
+    暂停点：
+    - 规格冻结审查包必须等用户确认才能进入 H3
+
+    输出产物：
+    - .contest/reviews/H2_review_packet.yaml
+    - .contest/approval_log.yaml（更新）
+
+    禁止行为：
+    - 禁止用户未确认就进入建模
+    - 禁止歧义未解决就带入建模
+
+H2:
+  next_node: "H3"
+  prompt: |
+    【H3 文献阅读节点】
+
+    你的角色：主 agent（controller_only），调用外部文献阅读子 agent
+
+    必须执行：
+    1. 生成 literature_agent_prompt.md，明确检索方向、小问覆盖要求、回传字段要求
+    2. 将用户下载的文献全文交给文献阅读子 agent
+    3. 文献阅读子 agent 必须阅读全文，产出 literature_sources.yaml（12 字段结构化摘要）
+    4. 文献数量：总数 6-11 篇，推荐 8-10 篇；中文每小问至少 1 篇；英文至少 1 篇
+    5. 每篇文献必须有 citation_key、语言标注、可迁移小问标注
+
+    硬约束：
+    - 每篇文献必须阅读全文，不得仅基于摘要或题名
+    - doi_or_url 必须是 DOI 或官方链接，禁止博客/搜索结果页/竞赛题面
+    - evidence_locators 必须包含页码/章节/公式编号
+
+    输出产物：
+    - literature_agent_prompt.md
+    - literature_sources.yaml
+
+    禁止行为：
+    - 禁止文献子 agent 做模型路线决策或方法 adopt/adapt/reject（那是 H4 的事）
+    - 禁止联网检索或替用户下载文献
+
+H3:
+  next_node: "H4"
+  prompt: |
+    【H4 建模完整性门节点】
+
+    你的角色：主 agent（controller_only）
+
+    必须执行：
+    1. 读取 H2 规格冻结包 + H3 literature_sources.yaml
+    2. 调用 math-model-selector 进行模型路线选择
+    3. 产出 model_blueprint.yaml（建模蓝图，含每问候选模型比较、假设映射、变量单位）
+    4. 产出 model_contract.yaml（模型契约，含符号表、约束、目标函数）
+    5. 十项闭环检查：假设、符号、原始关系、中间推导、目标/约束、算法、参数、结果、校验，每项齐全
+    6. 生成 H4 审查包，提交用户确认
+
+    硬约束（检查器 BLOCK 级）：
+    - H4 必须调用 math-model-selector（skill_invocations 非空且含 math-model-selector）
+    - 前置 agent 节点不能为 not_started
+
+    暂停点：
+    - 建模蓝图审查包必须等用户确认才能进入 H5
+
+    输出产物：
+    - model_blueprint.yaml
+    - model_contract.yaml
+    - symbol_table.md
+    - .contest/reviews/H4_review_packet.yaml
+
+    禁止行为：
+    - 禁止未定义符号、凭空公式、不可解释黑箱
+    - 禁止参数无来源凭空设定
+
+H4:
+  next_node: "H5"
+  prompt: |
+    【H5 解题节点】
+
+    你的角色：解题 agent（gpt-5.6-sol / high），唯一 solver_instance_id，负责全部小问和跨问接口
+
+    必须执行：
+    1. 读取已预载的 problem_statement.md + h5_solver_warmup.md + H4 model_contract.yaml
+    2. 按小问执行建模与求解，每问产出：模型建立、全链路推导、算法代码、真实结果
+    3. 全链路推导铁律：从问题到最终模型每步有话语解释（因为...所以.../由...可得.../代入...得...），禁止跳步黑箱，禁止纯公式罗列，禁止"易知/显然/经过复杂推导"等黑箱词汇
+    4. 推导链落盘：每问完整推导链写入推导文件（如 02_模型/Q1_推导.md），供 H8 通过素材索引取用
+    5. 调用至少一个求解 skill：heuristic-algorithms / data-science-stack / pyomo
+    6. 产出 paper_narrative.yaml（每问方法+创新+问题+关键结果，只收摘要不收原始数据）
+    7. 产出 validation_contract.yaml，必须 status=verified（禁止 draft）
+    8. 跨问接口：共享符号、单位、参数、数据版本必须一致
+    9. 所有随机算法固定 seed，结果落盘 results/
+
+    硬约束（检查器 BLOCK 级）：
+    - solver_instance_id 必须唯一，覆盖全部小问
+    - validation_contract 必须 status=verified
+    - skill_invocations 必须含至少一个求解 skill
+    - 前置 agent 节点不能为 not_started
+    - dispatch_records 必须登记，与任务卡 SHA-256 一致
+
+    输出产物：
+    - 每问模型代码和结果（results/）
+    - paper_narrative.yaml
+    - validation_contract.yaml
+    - .contest/task_cards/H5.yaml
+
+    禁止行为：
+    - 禁止多个 solver_instance_id 并行
+    - 禁止 validation_contract 为 draft 就进入 H6
+    - 禁止不设 seed、不报参数（不可复现）
+    - 禁止无收敛曲线就声称算法收敛
+    - 禁止无 baseline 对比就宣称算法最优
+    - 禁止黑箱推导：只给最终模型省略推导过程，用"易知/显然/经过复杂推导"跳过关键步骤
+    - 禁止推导不落盘（H8 需要通过素材索引取用推导链）
+
+H5:
+  next_node: "H6"
+  prompt: |
+    【H6 独立验证节点】
+
+    你的角色：验证 agent（gpt-5.6-sol / high），agent_instance_id 必须不同于 H5
+
+    必须执行：
+    1. 读取已预载的 problem_statement.md + h6_verifier_warmup.md
+    2. 读取 H5 的 paper_narrative.yaml、validation_contract.yaml、结果文件
+    3. 调用 data-science-stack 进行独立验证
+    4. 产出 global_interface_check.yaml，必须包含：
+       - status=PASS/PAUSE
+       - verified_by=H6
+       - verification_agent_instance_id 与当前实例一致
+       - 九项检查全部为 true：shared_symbols、units、data_versions、upstream_downstream_fields、time_scales、parameters、cross_question_constraints、conclusions、provenance
+       - task_card_path + task_card_sha256（绑定 H6 任务卡）
+       - per_subproblem 逐问接口明细，覆盖全部小问，每项 interface_fields 非空
+       - status=PASS 时 issues 必须为空
+    5. 独立复核关键推导、代码—结果一致性、单位统一性
+
+    硬约束（检查器 BLOCK 级）：
+    - H6 agent_instance_id 必须不同于 H5 solver_instance_id（独立验证）
+    - global_interface_check 必须有 task_card_sha256 且与 H6 任务卡匹配
+    - per_subproblem 必须覆盖 problem_scope 全部小问
+    - 九项接口检查有 false 则 status 不能为 PASS
+    - skill_invocations 必须含 data-science-stack
+
+    输出产物：
+    - global_interface_check.yaml
+    - .contest/task_cards/H6.yaml
+
+    禁止行为：
+    - 禁止与 H5 使用同一实例（违反独立验证原则）
+    - 禁止验证 agent 参与原方案设计
+    - 禁止九项检查有 false 但 status 标 PASS
+
+H6:
+  next_node: "H7"
+  prompt: |
+    【H7 图表节点】
+
+    你的角色：图表 agent（gpt-5.6-terra / medium）
+
+    必须执行：
+    1. 读取已预载的 problem_statement.md + h7_figure_warmup.md
+    2. 读取 H5 冻结的结果文件和 H6 global_interface_check.yaml
+    3. 阶段一（暂停等用户确认）：SciPilot 基于冻结数据生成图表决策卡和清单，含：图号、图型、数据源、论证目标、数量、每张图的 caption_claim 和 paper_location
+    4. 提交图表决策审查包，等用户确认后才进入阶段二
+    5. 阶段二：按四类路由执行生成：
+       - 数据结果图：SciPilot → ModelViz → SciPilot（decision_author=scipilot-figure-skill，semantic_qa=scipilot-figure-skill）
+       - 问题分析流程图/技术路线图：tech-route-maker
+       - 机理/受力/几何示意图：tikz-scientific-figures
+       - Draw.io：仅用户明确请求时使用（user_requested=true）
+    6. 产出 figure_registry.yaml，必须包含：
+       - pipeline_audit 三阶段：scipilot_decision、modelviz_generation、scipilot_qa，每阶段 status=passed
+       - 每张图：figure_id、kind、generator、formats=[svg,png]、insertion_format=svg、source_files（实际存在）、script（源文件存在且对应 svg/png 输出存在）、caption_claim、paper_location、qa_status、visual_qa
+       - data 类图额外：decision_author=scipilot-figure-skill、decision_card（文件存在）
+       - drawio 类图额外：user_requested=true
+
+    硬约束（检查器 BLOCK 级）：
+    - formats 必须精确等于 [svg, png]，禁止 pdf/json 混入
+    - insertion_format 必须为 svg
+    - 每张图必须有 caption_claim 和 paper_location
+    - data 图必须有 decision_author 和 decision_card
+    - pipeline_audit 三阶段必须完整且状态 passed
+    - source_files 和 script 输出文件必须实际存在
+    - 前置 agent 节点不能为 not_started
+
+    暂停点：
+    - 阶段一图表决策卡必须等用户确认才能生成
+
+    输出产物：
+    - figure_registry.yaml
+    - 每张图的 svg + png + 可编辑源
+    - .contest/task_cards/H7.yaml
+
+    禁止行为：
+    - 禁止未经过用户确认就直接生成全部图表
+    - 禁止单图 PDF 作为输出
+    - 禁止饼图、双Y轴、彩虹色图、无单位坐标轴
+    - 禁止孤儿图表（无正文引用）
+
+H7:
+  next_node: "H8"
+  prompt: |
+    【H8 论文写作节点】
+
+    你的角色：论文 agent（gpt-5.6-sol / high）
+
+    必须执行：
+    1. 读取已预载的 problem_statement.md + h8_writer_warmup.md（含分章写作框架、图片浮动预防、摘要专项规范）
+    2. 素材准入检查：paper_material_readiness.yaml（status=PASS）、paper_claim_coverage.yaml（status=PASS）、global_interface_check.yaml（status=PASS）必须齐全
+    3. 若素材不足，生成 evidence_gap_matrix.yaml（每条有唯一 gap_id，responsible_node 限 H5/H6/H7，return_to 与 responsible_node 一致），回流补齐后再写作
+    4. 阶段一（暂停等用户确认）：生成写作计划 writing_plan.yaml，含：
+       - 章节清单和每章页数分配
+       - 正文总页数（规划 25-30，硬上限 30）
+       - 全文总页数（推荐 35-51，硬上限 51）
+       - 图片位置规划（每张图放在哪章哪小节及前后文字）
+       - 生成 plan_review_packet.yaml，等用户批准（plan_approved=true）后才开始写作
+    5. 阶段二：按固定写作顺序执行：
+       - 先写正文各章（按章节素材索引逐章取用，写哪章读哪章；任务卡 inputs 中原始数据文件不得超过 3 个，禁止一次性把所有原始数据读进上下文）
+       - 建模与求解章节必须全链路推导（从 H5 推导文件取用，不得自己编推导）
+       - 非建模章节（摘要/问题分析/模型检验/模型评价/结论）禁公式堆砌：摘要禁止任何公式，其他非建模章公式密度 ≤2个/500字
+       - 再写附录
+       - 最后写摘要（必须在正文和附录定稿后撰写，概括全文）
+    6. 调用 academic-writing 执行论文链路，含：
+       - claim-centered-editing 论证中心编辑
+       - 摘要专项检查（每问必有精确数、方法与结果绑定、7段结构完整、禁止公式堆砌）
+       - 图片浮动预防（[!htbp] 禁止 [H]、两图间至少一段正文、图随文走不跨章、\FloatBarrier 章末、图宽 0.6-0.85\textwidth）
+    7. 主张覆盖：paper_claim_coverage 的 claims 必须覆盖且只能覆盖准入主张，禁止重复 claim_id
+
+    硬约束（检查器 BLOCK 级）：
+    - writing_started=true 时必须有 writing_plan（文件存在+哈希匹配）、plan_review_packet（存在）、plan_approved=true
+    - 素材准入必须 PASS，禁止未准入就开始写作
+    - 主张覆盖表禁止重复 claim_id
+    - 正文硬上限 30 页，总 PDF 硬上限 51 页
+    - 前置 agent 节点不能为 not_started
+    - skill_invocations 必须含 academic-writing
+
+    暂停点：
+    - 写作计划必须等用户确认才能开始写作
+
+    输出产物：
+    - writing_plan.yaml + plan_review_packet.yaml
+    - paper.tex（正文+附录+摘要）
+    - paper.pdf
+    - paper_material_readiness.yaml + paper_claim_coverage.yaml
+    - .contest/task_cards/H8.yaml
+
+    禁止行为：
+    - 禁止先写摘要再补正文
+    - 禁止摘要公式堆砌（摘要必须写清用了什么模型、有什么创新、解决了什么问题、量化结果）
+    - 禁止 H8 新增未冻结的模型结论或数字
+    - 禁止元话语（"本文将""我们采用"）和负向回声（"v1""尝试了""agent"）残留正文
+    - 禁止图片浮动（多图连排无正文、[H] 锁浮动、图跨章）
+    - 禁止用重复表述、泛泛背景、空洞评价补足篇幅
+
+H8:
+  next_node: "H9"
+  prompt: |
+    【H9 交付审计节点】
+
+    你的角色：主 agent（controller_only）
+
+    必须执行：
+    1. 调用 delivery_all.py --strict 执行交付审计
+    2. 产出 delivery_report.yaml，必须包含：
+       - status=PASS
+       - command 必须为真实 python 执行（python.*delivery_all.py.*--strict），禁止 echo/cat 伪造
+       - project_root 必须与当前项目根目录一致
+       - input_sha256 必须为 64 位十六进制字符串
+       - run_at 必须为 ISO 时间戳
+       - artifacts 列表非空，每项有 path（文件实际存在）+ sha256（64位hex）
+    3. PDF 最终检查：无编译错误、无未解析引用、无超宽盒子、无孤页、无空白页
+    4. PDF 文本层：文字可复制、无乱码、公式渲染正确
+    5. PDF 文件大小 ≤ 20MB
+    6. 页数最终确认：正文 ≤30 页，总 PDF ≤51 页
+    7. 支撑材料与附录清单一一对应，ZIP/RAR ≤20MB，完整可运行
+    8. 匿名检查：无团队信息、学校名称、个人姓名泄露
+    9. AI 工具使用声明：正文在参考文献前放置，支撑材料提供 AI工具使用详情.pdf
+    10. 调用 bzd-review-paper 进行论文评审
+
+    硬约束（检查器 BLOCK 级）：
+    - delivery_report 必须 status=PASS
+    - command 必须为真实 python 执行，禁止 echo 伪造
+    - project_root 必须匹配当前项目
+    - artifacts 必须有 path+sha256 且文件存在
+    - skill_invocations 必须含 bzd-review-paper
+    - 前置 agent 节点不能为 not_started
+
+    输出产物：
+    - delivery_report.yaml
+    - 最终论文 PDF
+    - 支撑材料压缩包
+    - AI工具使用详情.pdf
+
+    禁止行为：
+    - 禁止修改任何被审计文件（严格只读）
+    - 禁止隐瞒编译错误或未解析引用
+    - 禁止 AI 工具使用声明内容不真实

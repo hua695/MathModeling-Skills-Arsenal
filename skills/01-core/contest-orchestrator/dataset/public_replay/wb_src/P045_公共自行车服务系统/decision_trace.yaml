@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P045
+# 来源: 全国大学生数学建模竞赛2013年D题
+case_id: P045
+steps:
+  - step: 1
+    action: "借还数据时空分析"
+    reason: "识别站点潮汐规律"
+    abandoned: "无"
+  - step: 2
+    action: "聚类划分调度分区"
+    reason: "降低调度复杂度"
+    abandoned: "全局统一调度"
+  - step: 3
+    action: "建立整数规划调度模型"
+    reason: "最小化调度成本"
+    abandoned: "经验调度"
+  - step: 4
+    action: "站点容量优化建议"
+    reason: "缓解高需求站点缺车"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

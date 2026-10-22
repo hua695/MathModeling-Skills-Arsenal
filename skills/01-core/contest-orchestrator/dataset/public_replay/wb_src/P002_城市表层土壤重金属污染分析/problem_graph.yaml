@@ -1,0 +1,37 @@
+# problem_graph.yaml - 经验卡片 #P002
+# 来源: 全国大学生数学建模竞赛2011年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P002
+title: "城市表层土壤重金属污染分析"
+competition: CUMCM
+year: 2011
+problem_code: "A"
+category: 数据预测
+domain: 环境科学/空间分析
+objective: "分析城市表层土壤重金属污染空间分布, 确定污染源, 并评价污染程度"
+variables:
+  - name: As/Cd/Cr/Cu/Hg/Ni/Pb/Zn浓度
+    type: 未指定
+    description: 未指定
+  - name: 采样点坐标(x,y)
+    type: 未指定
+    description: 未指定
+  - name: 海拔
+    type: 未指定
+    description: 未指定
+  - name: 功能区分类
+    type: 未指定
+    description: 未指定
+constraints:
+  - 采样点空间分布不均匀
+  - 重金属浓度非负约束
+  - 污染源数量未知
+assumptions:
+  - 采样点浓度代表周边区域
+  - 重金属传播以大气沉降为主
+  - 功能区内部污染源相同
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2011

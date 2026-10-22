@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P014
+# 来源: 全国大学生数学建模竞赛2019年E题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P014
+title: "薄利多销分析"
+competition: CUMCM
+year: 2019
+problem_code: "E"
+category: 数据预测
+domain: 商业运营/定价策略
+objective: "分析薄利多销策略的适用条件, 建立最优定价模型"
+variables:
+  - name: 商品价格
+    type: 未指定
+    description: 未指定
+  - name: 销售量
+    type: 未指定
+    description: 未指定
+  - name: 利润率
+    type: 未指定
+    description: 未指定
+  - name: 成本
+    type: 未指定
+    description: 未指定
+  - name: 需求弹性
+    type: 未指定
+    description: 未指定
+  - name: 竞争价格
+    type: 未指定
+    description: 未指定
+constraints:
+  - 价格非负
+  - 需求弹性约束
+  - 市场竞争约束
+assumptions:
+  - 需求与价格存在函数关系
+  - 成本随产量变化
+  - 市场竞争状态不变
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2019年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2019

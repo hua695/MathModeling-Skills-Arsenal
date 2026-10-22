@@ -1,0 +1,129 @@
+# MB-004 聚类/分组 母蓝图（Math Reasoning Scaffold · 通用版）
+# 用途：solving 阶段按 problem_type=聚类/分组 注入，先给"无标签样本如何数学化为划分问题"再写代码。
+# 原则：聚类题的分水岭是"类别数与相似性度量有依据、结果可解释可验证"还是"直接 K-Means 给几个簇不验证"。
+
+blueprint_id: MB-004
+problem_type: 聚类/分组
+competition_variant: 通用版
+summary: "核心矛盾是把无标签对象映射到特征空间的相似性结构，并确定簇数、度量与划分准则；防止不验证簇数、不标准化、不解释簇含义的机械聚类。"
+
+abstraction_map:
+  objects:
+    - "待分对象（样本/区域/品类）→ 样本下标 i"
+    - "对象的刻画维度 → 特征向量 x_i ∈ R^p"
+    - "分组结果 → 簇标签 c_i ∈ {1,…,K}"
+  relationships:
+    - "对象间相似程度 → 距离 d(x_i,x_j) 或相似度 s_ij"
+    - "簇内紧凑、簇间分离 → 类内离差 W、类间离差 B"
+    - "层级归属 → 合并树或隶属概率"
+  decision:
+    - "簇数 K → 由肘部法、轮廓系数、间隙统计或业务约束确定"
+    - "划分准则 → 最小化类内离差或最大化密度连通"
+    - "度量与权重 → 由量纲和分布决定，必要时先标准化"
+
+symbols:
+  - {sym: "x_i", meaning: "第 i 个对象的特征向量", unit: "标准化后无量纲"}
+  - {sym: "d(x_i,x_j)", meaning: "两对象距离，常用欧氏/曼哈顿/余弦", unit: ""}
+  - {sym: "K", meaning: "簇的个数", unit: "个"}
+  - {sym: "C_k", meaning: "第 k 个簇的样本集合", unit: ""}
+  - {sym: "μ_k", meaning: "第 k 个簇中心", unit: "同特征空间"}
+  - {sym: "S(i)", meaning: "样本 i 的轮廓系数", unit: "[-1,1]"}
+
+steps:
+  - step: 1
+    name: 特征与预处理
+    template: "明确聚类依据的特征，处理缺失与异常；量纲不一致时做标准化或归一化，说明选择依据，避免大量纲特征支配距离"
+    required: true
+  - step: 2
+    name: 相似性度量
+    template: "按特征类型选距离：连续用欧氏或曼哈顿，方向型用余弦，类别型用匹配距离；给出选择理由"
+    required: true
+  - step: 3
+    name: 簇数确定
+    template: "用肘部法、轮廓系数或间隙统计在候选范围内定 K，结合业务可解释性，不能只凭主观指定"
+    required: true
+  - step: 4
+    name: 聚类求解
+    template: "按簇形状与规模选算法，K-Means 需多次初始化取最优，记录初始策略与迭代收敛情况"
+    required: true
+  - step: 5
+    name: 簇画像与验证
+    template: "给出每簇中心、规模和特征画像；用轮廓系数、类内类间比或外部标签验证划分质量，做稳定性检查"
+    required: true
+  - step: 6
+    name: 下游衔接
+    template: "若聚类结果用于后续评价、分类或优化，明确簇标签如何传递，避免标签顺序被当成有序等级"
+    required: false
+    alternative: [簇画像, 下游接口说明]
+
+selection_logic:
+  - if: {shape: "近似球形凸簇", scale: "中小规模"}
+    choose: K-Means
+    because: "目标函数明确、实现简单、可解释；多次初始化可降低初值敏感"
+  - if: {shape: "任意形状或噪声多"}
+    choose: DBSCAN
+    because: "基于密度连通，能识别非凸簇和噪声点，无需指定 K"
+  - if: {requirement: "需要层次或树状结构"}
+    choose: 层次聚类
+    because: "输出合并树，可在不同切割高度得到不同粒度分组"
+  - if: {need: "软归属或重叠簇"}
+    choose: 高斯混合模型
+    because: "给出隶属概率，可用信息准则定成分数，适合椭球形簇"
+  - if: {dimension: "高维稀疏"}
+    choose: "先降维（PCA）再聚类"
+    because: "高维距离趋同，降维后簇结构更清晰且可可视化"
+
+propositions:
+  - name: K-Means 目标函数
+    template: "最小化类内离差平方和 J = Σ_{k=1}^{K} Σ_{i∈C_k} ||x_i − μ_k||²，簇中心 μ_k 为该簇样本均值，迭代由分配步和更新步交替至中心稳定。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 轮廓系数判据
+    template: "样本轮廓系数 S(i)=(b_i−a_i)/max(a_i,b_i)，a_i 为到同簇样本平均距离，b_i 为到最近异簇平均距离；S 越接近 1 划分越好，平均轮廓可用于比较不同 K。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 标准化必要性
+    template: "当特征量纲差异大时，距离被大量纲特征支配；标准化使各维贡献均衡，但二值或已经可比的特征不应盲目标准化。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 密度可达与噪声
+    template: "DBSCAN 以邻域半径 eps 和最小点数 MinPts 定义核心点、密度直达与密度连通，未被任何簇覆盖的点标为噪声，参数用 k 距离曲线辅助确定。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 簇稳定性验证
+    template: "对样本做有放回抽样或微扰动后重聚，用调整兰德指数或簇成员重合度衡量稳定性；稳定性差说明划分依赖个别样本，结论需弱化。"
+    provenance: "专家模板（建库时手工编写）"
+
+theory_checks:
+  - name: 簇数依据
+    note: "K 由定量准则结合业务确定，不能只给结论"
+    required: true
+  - name: 度量与预处理匹配
+    note: "距离选择与特征类型、标准化方案自洽"
+    required: true
+  - name: 聚类有效性
+    note: "至少一个内部指标，如轮廓系数或类内类间比"
+    required: true
+  - name: 可解释性
+    note: "每簇有明确画像，簇标签不被误当连续量"
+    required: false
+
+antipattern:
+  bad: "对数据直接调用 K-Means 取 K=3，画出散点即结束，未标准化、未说明为何是 3 类、无有效性指标、不解释每类含义。"
+  good: "标准化后在 K=2 到 8 用轮廓系数比较，K=4 时平均轮廓 0.62 最高且肘部对应；K-Means 运行 20 次取最小离差解，给出四簇中心画像与规模，微扰动重聚调整兰德指数 0.91，划分稳定。"
+
+failure_modes:
+  - mode: wrong_k
+    symptom: "主观指定簇数，换 K 结论就变"
+    guard: "用轮廓系数、肘部或间隙统计在候选范围定量比较"
+  - mode: scale_dominated
+    symptom: "大量纲特征单独决定距离，聚类结果等价于按该特征排序"
+    guard: "先审查量纲，必要时标准化并对比标准化前后结果"
+  - mode: shape_mismatch
+    symptom: "K-Means 把环形或带状非凸簇错误切开"
+    guard: "先可视化或用密度聚类验证簇形状"
+  - mode: label_as_order
+    symptom: "把簇编号 1、2、3 当成有大小顺序的等级参与计算"
+    guard: "簇标签是名义量，下游用独热或簇画像而非编号数值"
+
+readability_guard:
+  - "给出聚类目标函数后，用一句中文说明它对应类内紧凑、类间分离的直观含义"
+  - "符号首次出现带中文含义，距离度量写清公式而非只写名字"
+  - "连续公式不超过 3 个，第 4 个前插入解释段落"
+  - "簇画像用表格列每簇规模、中心或典型特征，让分组结论可核验"

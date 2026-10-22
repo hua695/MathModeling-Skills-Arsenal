@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P018
+# 来源: 全国大学生数学建模竞赛2005年A题
+case_id: P018
+steps:
+  - step: 1
+    action: "水质数据评价分析"
+    reason: "了解长江水质现状"
+    abandoned: "无"
+  - step: 2
+    action: "建立一维水质传播模型"
+    reason: "模拟污染物沿程变化"
+    abandoned: "无"
+  - step: 3
+    action: "参数估计与模型校准"
+    reason: "用实测数据标定降解系数"
+    abandoned: "无"
+  - step: 4
+    action: "水质预测与趋势分析"
+    reason: "预测未来水质变化"
+    abandoned: "无"
+  - step: 5
+    action: "污染防治建议"
+    reason: "基于模型提出控制策略"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

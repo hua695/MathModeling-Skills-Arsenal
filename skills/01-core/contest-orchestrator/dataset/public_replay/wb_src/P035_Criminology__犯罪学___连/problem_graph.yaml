@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P035
+# 来源: 2010 MCM Problem B: Criminology
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P035
+title: "Criminology (犯罪学 - 连环犯罪地理画像)"
+competition: MCM/ICM
+year: 2010
+problem_code: "B"
+category: 数据预测
+domain: 犯罪学/空间分析
+objective: "建立连环犯罪地理画像模型, 辅助警方预测罪犯居住地"
+variables:
+  - name: 犯罪地点坐标
+    type: 未指定
+    description: 未指定
+  - name: 犯罪时间
+    type: 未指定
+    description: 未指定
+  - name: 犯罪类型
+    type: 未指定
+    description: 未指定
+  - name: 道路网络
+    type: 未指定
+    description: 未指定
+  - name: 嫌疑犯特征
+    type: 未指定
+    description: 未指定
+constraints:
+  - 地理范围约束
+  - 犯罪数量有限
+  - 数据精度约束
+assumptions:
+  - 罪犯在熟悉区域作案
+  - 犯罪地点与居住地有空间规律
+  - 距离衰减效应存在
+confidence: 中
+source:
+  title: "2010 MCM Problem B: Criminology"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2010

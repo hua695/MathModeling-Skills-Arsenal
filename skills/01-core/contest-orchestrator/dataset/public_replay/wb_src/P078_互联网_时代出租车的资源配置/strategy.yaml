@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P078
+# 来源: 全国大学生数学建模竞赛2015年B题
+case_id: P078
+applicable_scenarios:
+  - 出租车/网约车调度
+  - 供需匹配评价
+  - 动态补贴优化
+strategy: "供需评价+热点聚类+定向调度补贴"
+why_effective: "评价定位失衡, 聚类聚焦热点, 定向调度提升匹配效率"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

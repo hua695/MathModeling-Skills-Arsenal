@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P054
+# 来源: 2014 MCM Problem A: Keep-Right-Except-to-Pass Rule
+case_id: P054
+failures:
+  - method: "仅用宏观流量模型"
+    root_cause: "无法刻画换道微观行为"
+    signal: "规则影响失真"
+    lesson: "需微观仿真"
+    reference: "美赛赛题分析"
+  - method: "忽略换道安全"
+    root_cause: "频繁换道致拥堵"
+    signal: "效率估计偏高"
+    lesson: "需安全约束"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2014 MCM Problem A: Keep-Right-Except-to-Pass Rule"
+  url: https://www.contest.comap.com/undergraduate/contests/

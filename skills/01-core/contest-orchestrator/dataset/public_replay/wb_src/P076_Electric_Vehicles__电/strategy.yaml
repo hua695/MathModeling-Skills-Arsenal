@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P076
+# 来源: 2011 ICM Problem: Electric Vehicles
+case_id: P076
+applicable_scenarios:
+  - 电动汽车推广评价
+  - 生命周期评价
+  - 政策情景分析
+strategy: "LCA全周期环境核算+AHP多维政策评价"
+why_effective: "LCA避免局部视角, AHP统筹经济电网环境, 支撑推广决策"
+confidence: 中
+source:
+  title: "2011 ICM Problem: Electric Vehicles"
+  url: http://www.madio.net/thread-290074-1-1.html

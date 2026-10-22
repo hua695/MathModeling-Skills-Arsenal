@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P031
+# 来源: 2020 ICM Problem F: The Place I Called Home
+case_id: P031
+applicable_scenarios:
+  - 气候移民预测
+  - 人口迁移建模
+  - 气候适应规划
+strategy: "重力模型+系统动力学+政策分析"
+why_effective: "重力模型量化迁移, 系统动力学描述动态, 政策分析提供对策"
+confidence: 中
+source:
+  title: "2020 ICM Problem F: The Place I Called Home"
+  url: https://www.contest.comap.com/undergraduate/contests/

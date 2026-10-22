@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P012
+# 来源: 全国大学生数学建模竞赛2018年C题
+case_id: P012
+failures:
+  - method: "仅用消费金额聚类"
+    root_cause: "维度单一无法全面刻画会员"
+    signal: "分群效果差"
+    lesson: "需多维特征"
+    reference: "国赛赛题分析"
+  - method: "忽略时间特征"
+    root_cause: "消费时间模式反映重要行为"
+    signal: "预测不准"
+    lesson: "需引入时间特征"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

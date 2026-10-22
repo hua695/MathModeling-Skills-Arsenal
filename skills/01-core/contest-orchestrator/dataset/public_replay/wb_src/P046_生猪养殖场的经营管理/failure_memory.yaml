@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P046
+# 来源: 全国大学生数学建模竞赛2014年C题
+case_id: P046
+failures:
+  - method: "固定经验配比"
+    root_cause: "未随价格结构调整"
+    signal: "利润非最优"
+    lesson: "需优化求解"
+    reference: "国赛赛题分析"
+  - method: "忽略资金约束"
+    root_cause: "扩大规模受资金限制"
+    signal: "方案不可行"
+    lesson: "须加约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

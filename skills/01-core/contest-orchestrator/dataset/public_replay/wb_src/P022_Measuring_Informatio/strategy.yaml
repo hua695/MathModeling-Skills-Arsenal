@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P022
+# 来源: 2016 ICM Problem D: Measuring Information in a Social Network
+case_id: P022
+applicable_scenarios:
+  - 社交网络信息传播
+  - 影响力最大化
+  - 舆情分析
+strategy: "多层网络+动态流模型+信息度量指标"
+why_effective: "多层网络刻画结构, 动态模型描述过程, 度量指标量化价值"
+confidence: 中
+source:
+  title: "2016 ICM Problem D: Measuring Information in a Social Network"
+  url: http://www.madio.net/thread-290074-1-1.html

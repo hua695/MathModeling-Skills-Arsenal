@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P074
+# 来源: 2008 ICM Problem: Health Care System
+case_id: P074
+candidate_models:
+  - 熵值法
+  - 神经网络
+  - 主成分分析(PCA)
+  - TOPSIS
+final_choice: "熵值法客观赋权 + 神经网络综合评价"
+reason: "熵值法客观赋权避免主观, 神经网络拟合复杂指标与绩效的非线性关系"
+alternatives:
+  - AHP
+  - 模糊综合评价
+  - 数据包络分析
+limitations:
+  - 数据年份不一
+  - 因果难辨
+  - 文化背景差异
+confidence: 中
+source:
+  title: "2008 ICM Problem: Health Care System"
+  url: http://www.madio.net/thread-290074-1-1.html

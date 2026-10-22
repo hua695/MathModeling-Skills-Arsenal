@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P086
+# 来源: 全国大学生数学建模竞赛2017年A题
+case_id: P086
+failures:
+  - method: "直接反投影不滤波"
+    root_cause: "高频噪声放大致模糊"
+    signal: "图像不清"
+    lesson: "需滤波反投影"
+    reference: "国赛赛题分析"
+  - method: "忽略旋转中心标定"
+    root_cause: "重建错位"
+    signal: "图像失真"
+    lesson: "需先标定"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

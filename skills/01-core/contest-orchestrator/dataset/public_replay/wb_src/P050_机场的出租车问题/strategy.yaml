@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P050
+# 来源: 全国大学生数学建模竞赛2019年C题
+case_id: P050
+applicable_scenarios:
+  - 机场/枢纽接驳调度
+  - 供需匹配优化
+  - 司机收益决策
+strategy: "排队论供需建模+MDP动态决策"
+why_effective: "排队论描述系统状态, MDP给出最优行动策略, 兼顾收益与等待成本"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

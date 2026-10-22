@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P032
+# 来源: 2016 MCM Problem B: Space Junk
+case_id: P032
+applicable_scenarios:
+  - 太空碎片预测
+  - 碰撞风险评估
+  - 空间政策分析
+strategy: "随机过程建模+概率风险评估+方案评价"
+why_effective: "随机过程描述增长, 概率模型量化风险, 评价提供决策支持"
+confidence: 中
+source:
+  title: "2016 MCM Problem B: Space Junk"
+  url: http://www.madio.net/thread-290074-1-1.html

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P058
+# 来源: 2020 MCM Problem D: The Teaming Strategy
+case_id: P058
+failures:
+  - method: "仅按技能最优组队"
+    root_cause: "团队过大沟通成本飙升"
+    signal: "效率下降"
+    lesson: "需多目标权衡"
+    reference: "美赛赛题分析"
+  - method: "忽略技能缺口"
+    root_cause: "任务需求未被覆盖"
+    signal: "项目失败"
+    lesson: "须约束覆盖"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2020 MCM Problem D: The Teaming Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

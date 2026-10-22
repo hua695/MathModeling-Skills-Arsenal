@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P007
+# 来源: 全国大学生数学建模竞赛2015年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P007
+title: "太阳影子定位"
+competition: CUMCM
+year: 2015
+problem_code: "A"
+category: 数据预测
+domain: 天体物理/几何建模
+objective: "根据直杆的太阳影子变化数据, 反推影子的拍摄地点和日期"
+variables:
+  - name: 杆长
+    type: 未指定
+    description: 未指定
+  - name: 影子长度
+    type: 未指定
+    description: 未指定
+  - name: 影子方位角
+    type: 未指定
+    description: 未指定
+  - name: 太阳高度角
+    type: 未指定
+    description: 未指定
+  - name: 太阳方位角
+    type: 未指定
+    description: 未指定
+  - name: 经度/纬度
+    type: 未指定
+    description: 未指定
+  - name: 日期
+    type: 未指定
+    description: 未指定
+constraints:
+  - 天文几何关系约束
+  - 地球自转/公转参数约束
+  - 杆子垂直假设
+assumptions:
+  - 杆子垂直于水平面
+  - 地面水平
+  - 不考虑大气折射
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2015

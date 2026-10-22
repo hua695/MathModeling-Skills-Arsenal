@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P001
+# 来源: 全国大学生数学建模竞赛2010年B题
+case_id: P001
+steps:
+  - step: 1
+    action: "收集世博会相关经济/社会数据"
+    reason: "建立定量评估的数据基础"
+    abandoned: "无"
+  - step: 2
+    action: "构建多维度评价指标体系"
+    reason: "系统化评估影响力"
+    abandoned: "单一指标评估"
+  - step: 3
+    action: "因子分析降维"
+    reason: "消除指标间共线性, 提取主因子"
+    abandoned: "直接使用全部指标"
+  - step: 4
+    action: "神经网络拟合与预测"
+    reason: "捕捉非线性映射关系"
+    abandoned: "线性回归"
+  - step: 5
+    action: "模型检验与对比分析"
+    reason: "验证模型可靠性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

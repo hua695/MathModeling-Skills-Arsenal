@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P016
+# 来源: 全国大学生数学建模竞赛2020年E题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P016
+title: "校园供水系统智能管理"
+competition: CUMCM
+year: 2020
+problem_code: "E"
+category: 数据预测
+domain: 智能水务/时间序列预测
+objective: "根据用水数据预测供水需求, 识别异常用水并优化调度"
+variables:
+  - name: 各楼宇用水量
+    type: 未指定
+    description: 未指定
+  - name: 时间(小时/日/周)
+    type: 未指定
+    description: 未指定
+  - name: 温度
+    type: 未指定
+    description: 未指定
+  - name: 节假日标记
+    type: 未指定
+    description: 未指定
+  - name: 供水压力
+    type: 未指定
+    description: 未指定
+constraints:
+  - 供水管网容量约束
+  - 水压约束
+  - 泵站能力约束
+assumptions:
+  - 用水规律可从历史数据学习
+  - 异常用水可识别
+  - 天气影响用水量
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2020年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2020

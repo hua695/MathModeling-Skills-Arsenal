@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P061
+# 来源: 全国大学生数学建模竞赛2010年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P061
+title: "学生宿舍设计方案的评价"
+competition: CUMCM
+year: 2010
+problem_code: "D"
+category: 评价分类
+domain: 建筑设计/综合评价
+objective: "建立学生宿舍设计方案综合评价指标体系, 对候选方案排序并选出最优"
+variables:
+  - name: 各方案指标值(面积/造价/舒适度等)
+    type: 未指定
+    description: 未指定
+  - name: 指标权重
+    type: 未指定
+    description: 未指定
+  - name: 功能分区
+    type: 未指定
+    description: 未指定
+  - name: 经济性
+    type: 未指定
+    description: 未指定
+  - name: 安全性
+    type: 未指定
+    description: 未指定
+constraints:
+  - 指标可量化
+  - 方案须可行
+  - 权重归一化
+  - 多指标冲突
+assumptions:
+  - 指标可比较
+  - 专家打分可靠
+  - 方案特征已知
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年D题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2010

@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>多模态光伏缺陷检测方法技术路线图</title>
+  <style>
+    body { margin: 0; font-family: Arial, Helvetica, sans-serif; color: #1f2937; background: #f8fafc; }
+    .wrap { display: grid; grid-template-columns: minmax(0, 1fr) 340px; min-height: 100vh; }
+    .diagram { overflow: auto; padding: 24px; background: #ffffff; }
+    .panel { border-left: 1px solid #e5e7eb; padding: 20px; background: #f8fafc; }
+    .panel h2 { margin: 0 0 8px; font-size: 18px; }
+    .panel p { line-height: 1.45; }
+    .evidence { margin-top: 12px; padding: 10px; border: 1px solid #e5e7eb; background: #fff; border-radius: 8px; }
+    .muted { color: #64748b; font-size: 13px; }
+    svg { max-width: none; }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <main class="diagram"><svg xmlns="http://www.w3.org/2000/svg" width="1380" height="1030" viewBox="0 0 1380 1030">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748B"/></marker>
+<filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#CBD5E1" flood-opacity="0.32"/></filter>
+</defs>
+<rect width="100%" height="100%" fill="#F8FAFC"/>
+<rect x="10.0" y="10.0" width="1360.0" height="1010.0" rx="18" fill="none" stroke="#CBD5E1" stroke-width="1.0" />
+<rect x="460.0" y="18.0" width="460.0" height="54.0" rx="28" fill="#FFFFFF" stroke="#F0FDF4" stroke-width="2.2" filter="url(#softShadow)"/>
+<text x="690.0" y="52.0" text-anchor="middle" font-size="23" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#0F172A" >多模态光伏缺陷检测方法技术路线图</text>
+<text x="690.0" y="99.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="400" fill="#64748B" >中文论文方法框架示例：从图像证据到可验证检测结果</text>
+<rect x="250.0" y="160.0" width="1046.0" height="136.0" rx="18" fill="#EFF6FF" stroke="#E2E8F0" stroke-width="1.4" opacity="0.70"/>
+<rect x="58.0" y="200.0" width="148.0" height="56.0" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="1.0" filter="url(#softShadow)"/>
+<text x="132.0" y="232.0" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#FFFFFF" >研究目标</text>
+<rect x="250.0" y="326.0" width="1046.0" height="136.0" rx="18" fill="#F0FDF4" stroke="#E2E8F0" stroke-width="1.4" opacity="0.70"/>
+<rect x="58.0" y="366.0" width="148.0" height="56.0" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="1.0" filter="url(#softShadow)"/>
+<text x="132.0" y="398.0" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#FFFFFF" >数据证据</text>
+<rect x="250.0" y="492.0" width="1046.0" height="136.0" rx="18" fill="#FEFCE8" stroke="#E2E8F0" stroke-width="1.4" opacity="0.70"/>
+<rect x="58.0" y="532.0" width="148.0" height="56.0" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="1.0" filter="url(#softShadow)"/>
+<text x="132.0" y="564.0" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#FFFFFF" >方法设计</text>
+<rect x="250.0" y="658.0" width="1046.0" height="136.0" rx="18" fill="#FFF7ED" stroke="#E2E8F0" stroke-width="1.4" opacity="0.70"/>
+<rect x="58.0" y="698.0" width="148.0" height="56.0" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="1.0" filter="url(#softShadow)"/>
+<text x="132.0" y="730.0" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#FFFFFF" >训练验证</text>
+<rect x="250.0" y="824.0" width="1046.0" height="136.0" rx="18" fill="#FDF2F8" stroke="#E2E8F0" stroke-width="1.4" opacity="0.70"/>
+<rect x="58.0" y="864.0" width="148.0" height="56.0" rx="12" fill="#2563EB" stroke="#2563EB" stroke-width="1.0" filter="url(#softShadow)"/>
+<text x="132.0" y="896.0" text-anchor="middle" font-size="14" font-family="Arial, Helvetica, sans-serif" font-weight="700" fill="#FFFFFF" >结果输出</text>
+<line x1="773.0" y1="296.0" x2="773.0" y2="326.0" stroke="#64748B" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.66"/>
+<line x1="773.0" y1="462.0" x2="773.0" y2="492.0" stroke="#64748B" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.66"/>
+<line x1="773.0" y1="628.0" x2="773.0" y2="658.0" stroke="#64748B" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.66"/>
+<line x1="773.0" y1="794.0" x2="773.0" y2="824.0" stroke="#64748B" stroke-width="2.2" marker-end="url(#arrow)" opacity="0.66"/>
+<g class="node" data-node="goal_task" style="cursor:pointer">
+<rect x="286.0" y="192.0" width="478.0" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="300.0" cy="206.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="525.0" y="229.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >明确缺陷检测任务</text>
+</g>
+<g class="node" data-node="goal_metric" style="cursor:pointer">
+<rect x="782.0" y="192.0" width="478.0" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="796.0" cy="206.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="1021.0" y="229.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >设定评价指标</text>
+</g>
+<g class="node" data-node="data_collect" style="cursor:pointer">
+<rect x="286.0" y="358.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="300.0" cy="372.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="442.3" y="395.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >采集多模态图像</text>
+</g>
+<g class="node" data-node="data_align" style="cursor:pointer">
+<rect x="616.7" y="358.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="630.7" cy="372.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="773.0" y="395.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >配准并标注缺陷</text>
+</g>
+<g class="node" data-node="data_split" style="cursor:pointer">
+<rect x="947.3" y="358.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="961.3" cy="372.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="1103.7" y="395.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >划分训练样本</text>
+</g>
+<g class="node" data-node="method_baseline" style="cursor:pointer">
+<rect x="286.0" y="524.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="300.0" cy="538.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="442.3" y="561.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >建立基线检测器</text>
+</g>
+<g class="node" data-node="method_fusion" style="cursor:pointer">
+<rect x="616.7" y="524.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="630.7" cy="538.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="773.0" y="561.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >构建跨模态融合</text>
+</g>
+<g class="node" data-node="method_attention" style="cursor:pointer">
+<rect x="947.3" y="524.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="961.3" cy="538.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="1103.7" y="561.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >增强关键区域感知</text>
+</g>
+<g class="node" data-node="training_loss" style="cursor:pointer">
+<rect x="286.0" y="690.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="300.0" cy="704.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="442.3" y="727.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >优化检测损失</text>
+</g>
+<g class="node" data-node="training_ablation" style="cursor:pointer">
+<rect x="616.7" y="690.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="630.7" cy="704.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="773.0" y="727.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >开展消融实验</text>
+</g>
+<g class="node" data-node="training_infer" style="cursor:pointer">
+<rect x="947.3" y="690.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="961.3" cy="704.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="1103.7" y="727.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >推理并筛选结果</text>
+</g>
+<g class="node" data-node="output_metrics" style="cursor:pointer">
+<rect x="286.0" y="856.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="300.0" cy="870.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="442.3" y="893.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >完成指标评估</text>
+</g>
+<g class="node" data-node="output_visual" style="cursor:pointer">
+<rect x="616.7" y="856.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="630.7" cy="870.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="773.0" y="893.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >生成可视化解释</text>
+</g>
+<g class="node" data-node="output_report" style="cursor:pointer">
+<rect x="947.3" y="856.0" width="312.7" height="64.0" rx="10" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.25" filter="url(#softShadow)"/>
+<circle cx="961.3" cy="870.0" r="4.2" fill="#1D4ED8" opacity="0.86"/>
+<text x="1103.7" y="893.0" text-anchor="middle" font-size="12" font-family="Arial, Helvetica, sans-serif" font-weight="600" fill="#0F172A" >输出缺陷报告</text>
+</g>
+</svg></main>
+  <aside class="panel">
+    <h2 id="node-title">Select a node</h2>
+    <p id="node-detail" class="muted">Click any diagram node to inspect its detail and evidence.</p>
+    <div id="node-evidence"></div>
+  </aside>
+</div>
+<script>
+const route = {"title": "多模态光伏缺陷检测方法技术路线图", "subtitle": "中文论文方法框架示例：从图像证据到可验证检测结果", "selected_preset": "academic-paper-framework-cn", "layout": "cn-research-method-matrix", "style": "research-ppt-blue", "domain_context": {"discipline": "计算机科学与新能源工程", "subfield": "光伏缺陷检测中的计算机视觉方法", "project_type": "论文方法框架图", "research_object": "光伏组件表面与热异常缺陷", "method_family": "深度学习目标检测与多模态特征融合", "application_area": "光伏电站巡检与智能运维", "data_or_materials": ["可见光图像", "红外图像", "缺陷标注", "测试样本"], "technical_objects": ["数据标注", "样本增强", "特征融合", "检测网络", "消融实验"], "domain_constraints": ["小目标缺陷", "样本不均衡", "现场成像差异", "实时推理"], "evaluation_metrics": ["mAP", "Precision", "Recall", "FPS", "参数量"], "expected_outputs": ["论文方法图", "检测模型", "对比实验结果", "缺陷诊断报告"], "terminology": {}, "domain_profile": {"task_type": "object detection", "data_modalities": ["RGB", "infrared"], "model_family": ["YOLO", "CNN", "attention", "feature fusion"]}, "source": "demo brief", "confidence": "high"}, "reader_question": "该方法如何从多源图像证据走向可验证的缺陷检测结果？", "reader_path": ["研究目标", "数据证据", "方法设计", "训练验证", "结果输出"], "metadata": {"created_by": "tech-route-maker", "selected_output_formats": ["pptx", "svg", "drawio", "html", "markdown", "json"], "source_type": "paper", "source_files": [{"path": "examples/academic-paper-demo/brief.md", "kind": "document", "description": "Chinese academic paper demo brief", "id": "source_1", "sha256": "4c00ff59c95a450bd22ce22e86c4f2d7a6412f53df2b3b08b7434ea5116e3cd7"}], "source_hashes": [{"source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "algorithm": "sha256", "value": "4c00ff59c95a450bd22ce22e86c4f2d7a6412f53df2b3b08b7434ea5116e3cd7"}], "language": "zh-CN", "audience": "research", "demo": true}, "stages": [{"id": "goal", "title": "研究目标", "summary": "明确检测任务、指标体系和论文图需要回答的问题。", "nodes": [{"id": "goal_task", "label": "明确缺陷检测任务", "detail": "识别光伏组件可见光和红外图像中的缺陷类别、位置与置信度。", "tag": "objective", "node_type": "objective", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Detection task", "quote_or_note": "Detection task"}]}, {"id": "goal_metric", "label": "设定评价指标", "detail": "围绕 precision、recall、mAP、推理速度和失败案例组织验证逻辑。", "tag": "objective", "node_type": "objective", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Evaluation metrics", "quote_or_note": "Evaluation metrics"}]}]}, {"id": "data", "title": "数据证据", "summary": "建立 RGB 与红外图像输入，并形成可训练样本。", "nodes": [{"id": "data_collect", "label": "采集多模态图像", "detail": "收集 RGB 图像和红外热图，作为缺陷检测的互补输入。", "tag": "input", "node_type": "input", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Multimodal images", "quote_or_note": "Multimodal images"}]}, {"id": "data_align", "label": "配准并标注缺陷", "detail": "对齐 RGB/IR 图像，并标注缺陷边界或类别。", "tag": "input", "node_type": "input", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Alignment and annotation", "quote_or_note": "Alignment and annotation"}]}, {"id": "data_split", "label": "划分训练样本", "detail": "清洗低质量样本，划分训练、验证和测试数据。", "tag": "implementation", "node_type": "implementation", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Dataset split", "quote_or_note": "Dataset split"}]}]}, {"id": "method", "title": "方法设计", "summary": "突出论文方法的主要创新模块。", "nodes": [{"id": "method_baseline", "label": "建立基线检测器", "detail": "以通用目标检测器作为基础框架和对照基线。", "tag": "method", "node_type": "method", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Baseline detector", "quote_or_note": "Baseline detector"}]}, {"id": "method_fusion", "label": "构建跨模态融合", "detail": "融合 RGB 与红外特征，提升缺陷区域表达能力。", "tag": "method", "node_type": "method", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Feature fusion", "quote_or_note": "Feature fusion"}]}, {"id": "method_attention", "label": "增强关键区域感知", "detail": "通过特征增强模块突出弱纹理、小目标或热异常区域。", "tag": "method", "node_type": "method", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Region enhancement", "quote_or_note": "Region enhancement"}]}]}, {"id": "training", "title": "训练验证", "summary": "从模型训练走向稳定推理。", "nodes": [{"id": "training_loss", "label": "优化检测损失", "detail": "平衡分类、定位和置信度损失，提升检测稳定性。", "tag": "implementation", "node_type": "implementation", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Loss optimization", "quote_or_note": "Loss optimization"}]}, {"id": "training_ablation", "label": "开展消融实验", "detail": "逐项验证融合模块、增强模块和训练策略的贡献。", "tag": "validation", "node_type": "validation", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Ablation plan", "quote_or_note": "Ablation plan"}]}, {"id": "training_infer", "label": "推理并筛选结果", "detail": "对未见图像执行推理，并按置信度筛选缺陷结果。", "tag": "implementation", "node_type": "implementation", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Inference plan", "quote_or_note": "Inference plan"}]}]}, {"id": "output", "title": "结果输出", "summary": "把技术路线连接到论文证据和应用结果。", "nodes": [{"id": "output_metrics", "label": "完成指标评估", "detail": "通过基线对比、mAP、precision 和 recall 验证方法有效性。", "tag": "validation", "node_type": "validation", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Metric report", "quote_or_note": "Metric report"}]}, {"id": "output_visual", "label": "生成可视化解释", "detail": "输出检测框、热区响应和失败案例，支撑论文图表。", "tag": "output", "node_type": "output", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Visual explanation", "quote_or_note": "Visual explanation"}]}, {"id": "output_report", "label": "输出缺陷报告", "detail": "形成缺陷类别、位置、置信度和维护建议。", "tag": "output", "node_type": "output", "confidence": "high", "is_inferred": false, "evidence": [{"kind": "source", "source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "locator": "Defect report", "quote_or_note": "Defect report"}]}]}], "edges": [{"id": "e1", "from": "goal_task", "to": "goal_metric", "label": "定义指标", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e2", "from": "goal_metric", "to": "data_collect", "label": "指导采集", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e3", "from": "data_collect", "to": "data_align", "label": "配准标注", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e4", "from": "data_align", "to": "data_split", "label": "形成样本", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e5", "from": "data_split", "to": "method_baseline", "label": "输入模型", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e6", "from": "method_baseline", "to": "method_fusion", "label": "扩展", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e7", "from": "method_fusion", "to": "method_attention", "label": "增强", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e8", "from": "method_attention", "to": "training_loss", "label": "优化", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e9", "from": "training_loss", "to": "training_ablation", "label": "验证贡献", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e10", "from": "training_ablation", "to": "training_infer", "label": "选择方案", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e11", "from": "training_infer", "to": "output_metrics", "label": "评价", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e12", "from": "output_metrics", "to": "output_visual", "label": "解释", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}, {"id": "e13", "from": "output_visual", "to": "output_report", "label": "汇总", "kind": "flow", "confidence": "medium", "evidence": [], "valid": true}], "route_version": "0.3.0", "assumptions": [], "unresolved_questions": [], "citations": [], "renderer_overrides": {}, "quality_report": {"route_version": "0.3.0", "selected_preset": "academic-paper-framework-cn", "selected_output_formats": ["pptx", "svg", "drawio", "html", "markdown", "json"], "domain_context_status": "complete", "domain_context_missing_fields": [], "domain_context": {"discipline": "计算机科学与新能源工程", "subfield": "光伏缺陷检测中的计算机视觉方法", "project_type": "论文方法框架图", "research_object": "光伏组件表面与热异常缺陷", "method_family": "深度学习目标检测与多模态特征融合", "application_area": "光伏电站巡检与智能运维", "data_or_materials": ["可见光图像", "红外图像", "缺陷标注", "测试样本"], "technical_objects": ["数据标注", "样本增强", "特征融合", "检测网络", "消融实验"], "domain_constraints": ["小目标缺陷", "样本不均衡", "现场成像差异", "实时推理"], "evaluation_metrics": ["mAP", "Precision", "Recall", "FPS", "参数量"], "expected_outputs": ["论文方法图", "检测模型", "对比实验结果", "缺陷诊断报告"], "terminology": {}, "domain_profile": {"task_type": "object detection", "data_modalities": ["RGB", "infrared"], "model_family": ["YOLO", "CNN", "attention", "feature fusion"]}, "source": "demo brief", "confidence": "high"}, "stage_count": 5, "node_count": 14, "edge_count": 13, "evidence_node_count": 14, "evidence_coverage": 1.0, "inferred_node_count": 0, "inferred_coverage": 0.0, "linked_inferred_node_count": 0, "unlinked_inferred_nodes": [], "accounted_coverage": 1.0, "unresolved_question_count": 0, "long_label_nodes": [], "stages_with_too_many_nodes": [], "stages_with_too_few_nodes": [], "missing_evidence_nodes": [], "evidence_issues": [], "source_verification": {"status": "verified", "declared_count": 1, "verified_count": 1, "missing_sources": [], "unhashed_sources": [], "hash_mismatches": [], "duplicate_source_ids": [], "records": [{"source_id": "source_1", "path": "examples/academic-paper-demo/brief.md", "kind": "document", "expected_sha256": "4c00ff59c95a450bd22ce22e86c4f2d7a6412f53df2b3b08b7434ea5116e3cd7", "actual_sha256": "4c00ff59c95a450bd22ce22e86c4f2d7a6412f53df2b3b08b7434ea5116e3cd7", "status": "verified"}]}, "confidence_summary": {"high": 14}, "warnings": [], "suggested_manual_review": ["Check whether the diagram matches the stated discipline, subfield, research object, method family, constraints, and metrics.", "Check every technical term and evidence locator against the authoritative source.", "Replace or approve inferred nodes before treating the diagram as final.", "Check edge labels, route logic, spacing, text wrapping, and final deliverables.", "Edit the PPTX, SVG, or Draw.io output before publication; generated files are editable drafts."]}};
+const nodes = {};
+for (const stage of route.stages) {
+  for (const node of stage.nodes) {
+    nodes[node.id] = node;
+  }
+}
+document.querySelectorAll("[data-node]").forEach(el => {
+  el.addEventListener("click", () => {
+    const node = nodes[el.dataset.node];
+    if (!node) return;
+    document.getElementById("node-title").textContent = node.label;
+    document.getElementById("node-detail").textContent = node.detail || "No detail recorded.";
+    const evidence = node.evidence || [];
+    document.getElementById("node-evidence").innerHTML = evidence.map(item => {
+      const path = item.path ? `<div><b>Path:</b> ${item.path}</div>` : "";
+      const symbol = item.symbol ? `<div><b>Symbol:</b> ${item.symbol}</div>` : "";
+      const note = item.note ? `<div><b>Note:</b> ${item.note}</div>` : "";
+      return `<div class="evidence"><div><b>Kind:</b> ${item.kind || "unknown"}</div>${path}${symbol}${note}</div>`;
+    }).join("") || '<p class="muted">No evidence recorded.</p>';
+  });
+});
+</script>
+</body>
+</html>

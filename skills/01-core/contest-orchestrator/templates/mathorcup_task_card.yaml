@@ -1,0 +1,20 @@
+task_id: <unique-dispatch-id>
+node_id: M1
+owner_role: data
+agent_instance_id: <current-instance-id>
+model: gpt-6-luna
+reasoning_effort: max
+objective: <one-node-objective>
+inputs:
+  - {path: <project-relative-path>, sha256: <sha256>}
+scope:
+  phase: node-work
+  chapter_id: null
+  subproblems: []
+  cross_question_interface: false
+  allowed_files: []
+required_outputs: []
+verification: []
+prohibited_actions: []
+evidence_handoff: []
+dispatch_kind: node_specialist

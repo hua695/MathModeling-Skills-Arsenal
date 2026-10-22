@@ -1,0 +1,275 @@
+# contest-orchestrator manifest（机器可读路由）
+name: contest-orchestrator
+version: "4.18"
+schema_version: "2.0"
+entry:
+  skill: SKILL.md
+  version_file: VERSION
+references:
+  - references/figure_policy.md
+  - references/citation_policy.md
+  - references/literature_method_traceability.md
+  - references/delivery_contract.md
+  - references/evidence_integrity.md
+  - references/mode_state_machine.md
+  - references/paper_replay_lessons.md
+  - references/layout_and_delivery_drift.md
+  - references/excellent_paper_patterns.md
+  - references/content_budget_policy.md
+  - references/collab_gate_policy.md
+  - references/appendix_coverage_policy.md
+  - references/v418_paper_integrity.md
+  - references/evidence_first_planning.md
+  - references/guosai_slot_priors.md
+  - references/task_scope_routing.md
+  - references/paper_claim_review.md
+  - references/modes/full-contest-legacy.md
+  - references/modes/full-contest-4-18.md
+  - references/modes/full-contest-harness.md
+  - references/modes/full-contest-mathorcup.md
+  - references/mathorcup_artifact_contract.md
+  - references/modes/subproblem.md
+  - references/modes/paper.md
+  - references/h8_writer_first_protocol.md
+  - references/h8_chapter_execution.md
+  - references/model_summary_protocol.md
+  - references/incremental_validation_policy.md
+  - references/modes/figures.md
+  - references/modes/delivery-audit.md
+  - references/modes/skills-optimization.md
+  - core/modeling_chapter_contract.md
+  - core/universal_modeling_contract.md
+  - core/appendix_contract.md
+  - core/code_style.yaml
+  - planner/modeling_profiles.yaml
+  - planner/paper_profiles.yaml
+  - planner/problem_essence_taxonomy.md
+  - planner/problem_condition_ledger.md
+  - schemas/modeling_contract.schema.json
+  - schemas/model_contract.schema.json
+  - schemas/derivation_registry.schema.json
+  - schemas/model_blueprint.schema.json
+  - schemas/interface_contract.schema.json
+  - schemas/appendix_manifest.schema.json
+  - schemas/citation_contract.schema.json
+  - schemas/method_transfer_map.schema.json
+  - schemas/result_code_map.schema.json
+  - schemas/modeling_solution_contract.schema.json
+  - schemas/algorithm_manifest.schema.json
+  - schemas/dimension_contract.schema.json
+  - schemas/problem_condition_ledger.schema.json
+  - schemas/run_manifest.schema.json
+  - schemas/numeric_source_map.schema.json
+  - schemas/readiness.schema.json
+  - schemas/change_impact_card.schema.json
+  - schemas/evidence_index.schema.json
+  - schemas/appendix_contract.schema.json
+  - schemas/appendix_plan.schema.json
+  - schemas/visual_argument_plan.schema.json
+  - schemas/visual_evidence_packet.schema.json
+  - templates/appendix_contract.yaml
+  - templates/appendix_plan.yaml
+  - templates/collab_gate_policy.yaml
+  - templates/problem_condition_ledger.yaml
+  - templates/harness_control.yaml
+  - templates/harness_task_card.yaml
+  - templates/harness_review_packet.yaml
+  - templates/mathorcup_control.yaml
+  - templates/mathorcup_task_card.yaml
+  - templates/mathorcup_review_packet.yaml
+  - templates/competition_run_profile.yaml
+  - templates/change_impact_card.yaml
+  - templates/global_interface_check.yaml
+  - templates/paper_material_readiness.yaml
+  - templates/paper_author_brief.yaml
+  - templates/abstract_argument_card.yaml
+  - templates/abstract_contract_report.yaml
+  - templates/chapter_writing_card.yaml
+  - templates/model_summary_cards.yaml
+  - templates/paper_continuity_context.yaml
+  - templates/evidence_gap_matrix.yaml
+  - templates/paper_claim_coverage.yaml
+  - templates/visual_argument_plan.yaml
+  - templates/visual_evidence_packet.yaml
+  - templates/visual_plan_review_packet.yaml
+  - templates/b_project_template/run_manifest.yaml
+  - scripts/script_registry.yaml
+  - references/skill_catalog.md
+  - references/architecture.md
+  - references/multi_agent_setup.md
+  - references/script_catalog.md
+  - references/paper_review_and_absorption_lessons.md
+  - references/replay_template.md
+  - planner/capability_registry.yaml
+  - schemas/problem_profile.schema.json
+  - knowledge/playbooks/playbook-data-insight.md
+  - knowledge/playbooks/playbook-evaluation-decision.md
+  - knowledge/playbooks/playbook-geometric-kinematics.md
+  - knowledge/playbooks/playbook-ml-classification.md
+  - knowledge/playbooks/playbook-ml-regression.md
+  - knowledge/playbooks/playbook-path-planning.md
+  - knowledge/playbooks/playbook-physics-ode.md
+  - knowledge/playbooks/playbook-scheduling-opt.md
+  - knowledge/playbooks/playbook-strategy-game.md
+  - knowledge/cookbooks/cookbook-mechanistic.md
+  - knowledge/cookbooks/cookbook-network.md
+  - knowledge/cookbooks/cookbook-clustering.md
+  - knowledge/cookbooks/cookbook-game-theory.md
+  - knowledge/cookbooks/cookbook-evaluation.md
+
+modules:
+  core:
+    always:
+      - core/permission.md
+      - core/controller.md
+      - core/time_engine.md
+      - core/state_machine.md
+      - core/frozen_numbers.md
+      - core/paper_postfix_checklist.md
+      - scripts/scope_router.py
+      - token_policy.md
+
+  planner:
+    trigger: [problem, topic, model, 选题, 理解, 架构, 符号, 风险, literature, 文献, survey]
+    files:
+      - planner/problem_parser.md
+      - planner/planning.md
+      - planner/symbol_table.md
+      - core/risk_probe.md
+      - planner/literature_survey.py
+      - planner/literature_survey_template.md
+      - planner/paper_profiles.yaml
+      - templates/content_budget_plan.yaml
+      - templates/collab_gate_policy.yaml
+
+  executor:
+    trigger: [solve, baseline, experiment, 求解, 建模, 出图, 写作]
+    files:
+      - executor/execution.md
+      - executor/result_registry.md
+
+  critic:
+    trigger: [check, review, proof, consistency, submit, 检查, 评审, 一致性]
+    files:
+      - critic/criticism.md
+      - critic/score_calibration.py
+      - memory/calibration_db/
+
+  writer:
+    trigger: [写论文, 输出, writer, report, 生成docx, 生成word, 呈现先验, 论文板块]
+    contract: core/output_contract.md
+    files:
+      - core/output_contract.md
+      - core/presentation_polish.md
+      - core/competition_gates.yaml
+      - core/paper_hard_requirements.md
+      - core/modeling_chapter_contract.md
+      - core/universal_modeling_contract.md
+      - core/appendix_contract.md
+      - core/code_style.yaml
+      - planner/modeling_profiles.yaml
+      - planner/paper_profiles.yaml
+      - planner/appendix_capabilities.yaml
+      - executor/execution.md
+      - memory/paper_retrieval.py
+      - memory/writing_database.md
+
+  delivery:
+    trigger: [交付, 门禁, delivery, submit, 提交, 数字一致性, 视觉契约, 硬性核对]
+    files:
+      - scripts/check_core_execution.py          # F1 核心功能自检（各阶段产物+留痕+AI词扫描）
+      - scripts/consistency_check.py             # F2 数字一致性（论文数字 vs 结果 JSON）
+      - scripts/docx_pipeline.py                 # F3 docx 一键管线（8 步全 PASS）
+      - scripts/check_visual_contract.py         # F3/F4 视觉契约核对
+      - scripts/check_paper_hard_requirements.py # F4 硬性要求核对
+      - scripts/check_page_margins.py            # 国赛四边页边距至少 2.5 cm
+      - scripts/check_abstract_contract.py
+      - scripts/check_result_code_consistency.py
+      - scripts/check_algorithm_manifest.py
+      - scripts/check_dimension_consistency.py
+      - scripts/check_modeling_solution_contract.py
+      - scripts/delivery_gate.py                 # F5 交付门禁
+      - scripts/visual_critic.py                 # F5 视觉批评；P0 成品泄漏/内部交付文字
+      - scripts/check_literature_citation.py
+      - scripts/check_modeling_contract.py
+      - scripts/check_model_evidence.py
+      - scripts/check_derivation_chain.py
+      - scripts/init_model_contract.py
+      - scripts/compile_model_blueprint.py
+      - scripts/check_symbol_consistency.py
+      - scripts/check_interface_contract.py
+      - scripts/check_tex_layout_patterns.py
+      - scripts/check_tex_references.py
+      - scripts/check_model_traceability.py
+      - scripts/check_submission_meta_text.py
+      - scripts/check_appendix_contract.py
+      - scripts/check_code_appendix.py
+      - scripts/check_latex_appendix_contract.py
+      - scripts/appendix_planner.py           # 能力驱动附录计划生成/校验
+      - scripts/collab_gate.py                # 协作决策门与哈希批准记录
+      - scripts/check_visual_evidence.py      # 图表主张覆盖与图/表失衡复核
+      - scripts/check_content_budget.py        # 前置内容预算、三阶段预测与正文目标门禁
+      - scripts/build_evidence_index.py
+      - scripts/check_anonymity.py
+      - scripts/compile_paper.py                 # 编译与 XeLaTeX/BibTeX 回退链
+      - scripts/delivery_manifest.py             # 稳定交付清单与哈希防漂移
+      - scripts/capture_run.py
+      - scripts/check_run_manifest.py
+      - scripts/check_h5_result_traceability.py
+      - scripts/check_stale_evidence.py
+      - scripts/audit_numeric_sources.py
+      - scripts/check_research_evidence.py       # 候选研究证据链严格检查
+      - scripts/compute_readiness.py
+      - scripts/verify_doi.py                    # DOI 离线/在线核验
+      - scripts/latex_warning_check.py           # 正文/附录 LaTeX 警告分级
+      - scripts/figure_registry.py               # 图表来源、格式与 QA 审计
+      - scripts/check_formal_delivery_drift.py
+      - scripts/release_audit.py                 # 发布前基线与保护清单
+      - scripts/migrate_figure_registry.py       # 旧图表登记表迁移（不伪造来源）
+      - scripts/skill_health_check.py            # 技能结构与依赖健康检查
+      - scripts/check_skill_consistency.py
+      - scripts/check_harness_control.py
+      - scripts/check_mathorcup_control.py
+      - scripts/validation_router.py
+      - scripts/check_h6_verification_scope.py
+      - scripts/script_registry.yaml
+      - scripts/scope_router.py
+      - scripts/mode_router.py                   # 模式选择后按需加载模式规则
+      - scripts/route_problem_profile.py        # 题号弱先验 + 能力强路由
+      - scripts/audit_project.py
+      - core/delivery_gate.md                    # 交付门禁六步验收说明
+
+  memory:
+    trigger: [replay, 复盘, 晨报, snapshot, handoff]
+    files:
+      - memory/memory.md
+      - memory/index.yaml
+      - memory/decision_memory.md
+      - memory/ranking.py
+      - memory/retrieval.py
+      - memory/semantic.py
+      - memory/topic_intelligence.py
+      - memory/blueprint_retrieval.py
+      - memory/math_blueprints/
+      - memory/paper_retrieval.py
+      - memory/writing_database.md
+      - memory/strategy_prior_template.md
+      - memory/decision_trace/
+      - memory/replay/
+
+  team:
+    trigger: [对齐, 编程手, data package, 数据包]
+    files:
+      - team/interface.md
+
+memory_lookup:
+  always:
+    - memory/index.yaml
+  on_hit:
+    - failure_database.md
+    - success_database.md
+    - strategy_memory.md
+
+never_auto_load:
+  - SKILL_v*_backup.md
+  - scripts/archive/*

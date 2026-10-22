@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P047
+# 来源: 全国大学生数学建模竞赛2014年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P047
+title: "储药柜的设计"
+competition: CUMCM
+year: 2014
+problem_code: "D"
+category: 优化决策
+domain: 工业优化/多目标设计
+objective: "在药盒尺寸与取药效率约束下, 优化储药柜栅格布局使空间利用率与取药效率最优"
+variables:
+  - name: 药盒长宽高规格
+    type: 未指定
+    description: 未指定
+  - name: 柜体尺寸
+    type: 未指定
+    description: 未指定
+  - name: 使用频率
+    type: 未指定
+    description: 未指定
+  - name: 分类规则
+    type: 未指定
+    description: 未指定
+  - name: 通道宽度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 栅格须容纳整数个药盒
+  - 高频药品就近易取
+  - 柜体尺寸上限
+  - 分类隔离要求
+assumptions:
+  - 药盒规格已知离散
+  - 使用频率可统计
+  - 取药路径为直线
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2014

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P035
+# 来源: 2010 MCM Problem B: Criminology
+case_id: P035
+failures:
+  - method: "简单重心法"
+    root_cause: "忽略距离衰减效应"
+    signal: "预测中心偏移"
+    lesson: "需用加权距离模型"
+    reference: "美赛赛题分析"
+  - method: "忽略道路网络"
+    root_cause: "实际出行受路网约束"
+    signal: "距离计算不准"
+    lesson: "需用网络距离"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2010 MCM Problem B: Criminology"
+  url: http://www.madio.net/thread-290074-1-1.html

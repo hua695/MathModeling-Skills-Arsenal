@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P077
+# 来源: 2013 MCM Problem C: Earth Health Network Model
+case_id: P077
+applicable_scenarios:
+  - 地球/生态健康评价
+  - 系统关联分析
+  - 关键风险识别
+strategy: "网络关联建模+PCA降维+AHP综合评价"
+why_effective: "网络揭示耦合, PCA去冗余, AHP量化健康, 适合复杂巨系统评价"
+confidence: 中
+source:
+  title: "2013 MCM Problem C: Earth Health Network Model"
+  url: https://www.contest.comap.com/undergraduate/contests/

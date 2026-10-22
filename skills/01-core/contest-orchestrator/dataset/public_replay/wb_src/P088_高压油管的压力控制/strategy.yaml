@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P088
+# 来源: 全国大学生数学建模竞赛2019年A题
+case_id: P088
+applicable_scenarios:
+  - 燃油/液压压力控制
+  - ODE动力学建模
+  - 时序优化控制
+strategy: "质量守恒微分方程+状态方程+控制时序优化"
+why_effective: "机理方程刻画压力动态, 数值求解揭示波动, 优化时序实现稳定控制"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

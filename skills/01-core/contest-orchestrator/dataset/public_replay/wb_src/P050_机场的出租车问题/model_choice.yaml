@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P050
+# 来源: 全国大学生数学建模竞赛2019年C题
+case_id: P050
+candidate_models:
+  - 排队论
+  - 马尔可夫决策过程(MDP)
+  - 整数规划
+  - 博弈论
+final_choice: "MDP决策 + 排队论供需匹配"
+reason: "用MDP刻画司机在不同状态下的选择, 排队论描述蓄车池与乘客排队"
+alternatives:
+  - 仿真优化
+  - 强化学习
+  - 动态规划
+limitations:
+  - 需求预测误差
+  - 司机异质性忽略
+  - 机场规则简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

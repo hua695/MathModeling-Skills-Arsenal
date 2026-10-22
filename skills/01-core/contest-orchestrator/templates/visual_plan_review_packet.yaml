@@ -1,0 +1,11 @@
+# H7 阶段一视觉论证方案审查包：仅在用户批准后进入图型选择与成图。
+node_id: H7_VISUAL_PLAN
+summary: <供用户审查的视觉论证方案摘要>
+important_artifacts:
+  - path: visual_argument_plan.yaml
+    sha256: <visual_argument_plan.yaml 的 SHA-256>
+checks:
+  - 逐小问 reader_question、视觉义务、证据引用和读者收获检查
+  - 模型事实推断的硬性视觉槽位检查
+requested_decision: approve
+proposed_next_node: H7_GENERATE

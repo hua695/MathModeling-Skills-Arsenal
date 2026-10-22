@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P034
+# 来源: 2019 ICM Problem E: What is the Cost of Environmental Degradation?
+case_id: P034
+candidate_models:
+  - 生态系统服务价值评估(ESV)
+  - 成本效益分析
+  - 灰色关联分析
+  - 系统动力学
+final_choice: "ESV模型 + 成本效益分析"
+reason: "ESV量化生态价值, 成本效益分析比较项目得失"
+alternatives:
+  - 条件价值评估法(CVM)
+  - 影子价格法
+  - 能值分析
+limitations:
+  - 生态价值货币化有争议
+  - 参数不确定性
+  - 尺度效应未充分考虑
+confidence: 中
+source:
+  title: "2019 ICM Problem E: What is the Cost of Environmental Degradation?"
+  url: https://www.contest.comap.com/undergraduate/contests/

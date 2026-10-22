@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P032
+# 来源: 2016 MCM Problem B: Space Junk
+case_id: P032
+steps:
+  - step: 1
+    action: "太空碎片数据分析"
+    reason: "了解碎片增长趋势"
+    abandoned: "无"
+  - step: 2
+    action: "建立马尔可夫碎片增长模型"
+    reason: "预测碎片数量变化"
+    abandoned: "无"
+  - step: 3
+    action: "泊松分布碰撞概率计算"
+    reason: "估算碰撞风险"
+    abandoned: "无"
+  - step: 4
+    action: "商业清理方案评价"
+    reason: "评估不同方案可行性和成本"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2016 MCM Problem B: Space Junk"
+  url: http://www.madio.net/thread-290074-1-1.html

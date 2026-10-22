@@ -1,0 +1,33 @@
+# 论文叙事蓝图：每个子问题的方法、创新点、关键结果
+status: verified
+key_result: 方案A成本52500元，优于方案B
+narrative:
+  global:
+    storyline: 从问题分析到模型建立，再到求解和灵敏度分析，最后得出结论
+    validation_story: 通过灵敏度分析验证了模型的稳健性
+    paper_spine:
+      core_chapters: [Q1, Q2, Q3]
+      support_chapters: [problem_analysis, assumptions, symbols, conclusion]
+      chapter_order: [problem_analysis, assumptions, symbols, Q1, Q2, Q3, conclusion]
+      chapter_edges:
+        - {from: problem_analysis, to: assumptions, relation: prepares, handoff_question: 题意分析如何转化为可接受的建模假设？}
+        - {from: assumptions, to: symbols, relation: prepares, handoff_question: 建模假设如何约束统一符号和变量口径？}
+        - {from: symbols, to: Q1, relation: feeds, handoff_question: 统一符号如何进入第一问模型？}
+        - {from: Q1, to: Q2, relation: extends, handoff_question: 第一问结果如何支撑网络结构优化？}
+        - {from: Q2, to: Q3, relation: extends, handoff_question: 网络优化结果如何进入稳健性分析？}
+        - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: 各问结果如何汇总回答总问题？}
+  Q1:
+    method: 线性规划
+    innovation: 考虑了发车间隔和车辆数的联合优化
+    problem_solved: 公交线路优化
+    key_result: 方案A成本52500元
+  Q2:
+    method: 网络优化
+    innovation: 考虑了乘客换乘时间
+    problem_solved: 线路网络结构优化
+    key_result: 换乘时间减少15%
+  Q3:
+    method: 灵敏度分析
+    innovation: 多参数联合扰动分析
+    problem_solved: 模型稳健性评估
+    key_result: 需求变化10%时最优解变化5%

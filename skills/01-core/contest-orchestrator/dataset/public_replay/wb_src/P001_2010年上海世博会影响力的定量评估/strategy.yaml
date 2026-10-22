@@ -1,0 +1,12 @@
+# strategy.yaml - 经验卡片 #P001
+# 来源: 全国大学生数学建模竞赛2010年B题
+case_id: P001
+applicable_scenarios:
+  - 多指标综合影响力评估
+  - 社会经济现象定量评价
+strategy: "多指标体系+因子分析降维+神经网络预测的组合策略"
+why_effective: "兼顾维度约简的统计严谨性和非线性建模能力, 适用于指标多且关系复杂的评估问题"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

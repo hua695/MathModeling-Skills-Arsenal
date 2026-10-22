@@ -1,0 +1,38 @@
+# problem_graph.yaml - 经验卡片 #P042
+# 来源: 全国大学生数学建模竞赛2011年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P042
+title: "天然肠衣搭配问题"
+competition: CUMCM
+year: 2011
+problem_code: "D"
+category: 优化决策
+domain: 工业优化/组合优化
+objective: "在原料长度与等级约束下, 合理安排原料搭配使成品捆数最多、损耗最小"
+variables:
+  - name: 各长度档原料数量
+    type: 未指定
+    description: 未指定
+  - name: 原料等级
+    type: 未指定
+    description: 未指定
+  - name: 成品规格(长度区间/根数)
+    type: 未指定
+    description: 未指定
+  - name: 废料率
+    type: 未指定
+    description: 未指定
+constraints:
+  - 成品须满足长度与根数规格
+  - 同捆等级一致
+  - 原料不可重复使用
+  - 原料长度离散
+assumptions:
+  - 原料长度已知无误差
+  - 搭配仅受规格约束
+  - 余料视为损耗
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2011

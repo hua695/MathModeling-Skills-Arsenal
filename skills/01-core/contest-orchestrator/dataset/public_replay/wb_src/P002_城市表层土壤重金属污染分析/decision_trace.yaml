@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P002
+# 来源: 全国大学生数学建模竞赛2011年A题
+case_id: P002
+steps:
+  - step: 1
+    action: "数据预处理与异常值剔除"
+    reason: "保证后续分析可靠性"
+    abandoned: "无"
+  - step: 2
+    action: "空间插值绘制污染分布图"
+    reason: "可视化污染空间格局"
+    abandoned: "仅用表格统计"
+  - step: 3
+    action: "主成分/因子分析识别污染源"
+    reason: "降维并提取主要污染因子"
+    abandoned: "逐元素分析"
+  - step: 4
+    action: "Nemerow指数计算综合污染等级"
+    reason: "定量评价污染程度"
+    abandoned: "单因子指数"
+  - step: 5
+    action: "污染源反演与验证"
+    reason: "确定污染源位置"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

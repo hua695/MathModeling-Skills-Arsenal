@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P021
+# 来源: 2015 MCM Problem B: Searching for a Lost Plane
+case_id: P021
+failures:
+  - method: "固定搜索区域不更新"
+    root_cause: "搜索未发现后概率应更新"
+    signal: "搜索效率低"
+    lesson: "需用贝叶斯更新"
+    reference: "美赛赛题分析"
+  - method: "忽略残骸漂移"
+    root_cause: "残骸随海流移动, 搜索区域应移动"
+    signal: "搜索位置偏移"
+    lesson: "需引入漂移模型"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2015 MCM Problem B: Searching for a Lost Plane"
+  url: https://www.jingsailian.com/news/233612.html

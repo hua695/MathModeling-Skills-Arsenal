@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P067
+# 来源: 全国大学生数学建模竞赛2004年D题
+case_id: P067
+failures:
+  - method: "仅按笔试排序"
+    root_cause: "忽视岗位匹配与面试"
+    signal: "人岗错配"
+    lesson: "需综合评价"
+    reference: "国赛赛题分析"
+  - method: "忽略志愿约束"
+    root_cause: "录用违背意愿"
+    signal: "方案不可行"
+    lesson: "需匹配建模"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P050
+# 来源: 全国大学生数学建模竞赛2019年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P050
+title: "机场的出租车问题"
+competition: CUMCM
+year: 2019
+problem_code: "C"
+category: 优化决策
+domain: 交通决策/排队优化
+objective: "在航班到达与出租需求时空分布下, 优化出租车司机蓄车与接客策略使收益最大"
+variables:
+  - name: 航班到港时刻/客流量
+    type: 未指定
+    description: 未指定
+  - name: 出租乘车需求
+    type: 未指定
+    description: 未指定
+  - name: 蓄车池容量
+    type: 未指定
+    description: 未指定
+  - name: 等待成本
+    type: 未指定
+    description: 未指定
+  - name: 空驶成本
+    type: 未指定
+    description: 未指定
+constraints:
+  - 蓄车池容量约束
+  - 司机时间窗约束
+  - 供需时空不匹配
+  - 机场调度规则
+assumptions:
+  - 航班客流可预测
+  - 司机决策以收益最大
+  - 需求服从统计规律
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2019

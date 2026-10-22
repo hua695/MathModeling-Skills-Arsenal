@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P082
+# 来源: 全国大学生数学建模竞赛2014年A题
+case_id: P082
+candidate_models:
+  - 二体/多体轨道力学
+  - 最优控制(庞特里亚金极大值)
+  - 数值积分
+  - 滑模控制
+final_choice: "轨道动力学 + 最优制动控制剖面设计"
+reason: "用轨道力学描述下降轨迹, 最优控制求解最小燃料的安全制动策略"
+alternatives:
+  - PID控制
+  - 分段匀速下降
+  - 遗传算法优化
+limitations:
+  - 引力模型简化
+  - 未考虑月球摄动细节
+  - 避障为理想化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

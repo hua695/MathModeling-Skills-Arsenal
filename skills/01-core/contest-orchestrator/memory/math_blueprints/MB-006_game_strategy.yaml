@@ -1,0 +1,129 @@
+# MB-006 博弈/策略 母蓝图（Math Reasoning Scaffold · 通用版）
+# 用途：solving 阶段按 problem_type=博弈/策略 注入，先把规则转成参与者、策略集、收益与均衡结构再求解。
+# 原则：博弈题的分水岭是"博弈三要素与解概念明确、均衡可验证"还是"套个博弈名词做单目标优化"。
+
+blueprint_id: MB-006
+problem_type: 博弈/策略
+competition_variant: 通用版
+summary: "核心矛盾是把对抗或合作规则数学化为参与者、策略空间和收益函数，并选择匹配信息结构的解概念；防止博弈要素不全、把单方最优误当均衡、不验证均衡性质。"
+
+abstraction_map:
+  objects:
+    - "决策主体 → 参与者 i ∈ N"
+    - "可选行动方案 → 纯策略 s_i 或混合策略 p_i"
+    - "博弈结果的评价 → 收益 u_i(s_1,…,s_n)"
+  relationships:
+    - "策略组合决定各方收益 → 收益函数或收益矩阵"
+    - "信息先后 → 静态同时、动态序贯或不完全信息"
+    - "合作分配 → 联盟价值 v(S) 与分配向量"
+  decision:
+    - "解概念 → Nash 均衡、子博弈完美均衡、贝叶斯均衡或合作解"
+    - "策略选择 → 最优反应与不动点"
+    - "混合概率 → 由无差异条件求解"
+
+symbols:
+  - {sym: "N", meaning: "参与者集合", unit: ""}
+  - {sym: "S_i", meaning: "参与者 i 的纯策略集", unit: ""}
+  - {sym: "s_i, s_{-i}", meaning: "i 的策略与其余人策略组合", unit: ""}
+  - {sym: "u_i", meaning: "参与者 i 的收益函数", unit: "依题意"}
+  - {sym: "p_i", meaning: "i 的混合策略概率分布", unit: "和为1"}
+  - {sym: "v(S)", meaning: "联盟 S 的特征函数（合作博弈）", unit: "依题意"}
+
+steps:
+  - step: 1
+    name: 博弈三要素
+    template: "列清参与者、各参与者策略集和收益函数或矩阵，说明是同时还是序贯、信息是否完全，缺要素则不是规范博弈模型"
+    required: true
+  - step: 2
+    name: 解概念选择
+    template: "完全信息静态找 Nash 均衡，动态用逆向归纳求子博弈完美均衡，不完全信息用贝叶斯均衡，合作用 Shapley 或核"
+    required: true
+  - step: 3
+    name: 最优反应分析
+    template: "写出每个参与者对他人策略的最优反应函数或划线，纯策略无解时由无差异条件求混合策略概率"
+    required: true
+  - step: 4
+    name: 均衡求解
+    template: "联立最优反应求不动点，或对序贯博弈逆向归纳；给出均衡策略组合和各方均衡收益"
+    required: true
+  - step: 5
+    name: 均衡验证与性质
+    template: "验证无人能通过单方面偏离获益，讨论均衡个数、效率（是否囚徒困境）与稳定性"
+    required: true
+  - step: 6
+    name: 有限理性扩展
+    template: "当参与者无法完全理性或群体演化时，用演化稳定策略或复制动态，说明与完全理性均衡的关系"
+    required: false
+    alternative: [演化博弈, 重复博弈, 机制设计]
+
+selection_logic:
+  - if: {timing: "同时行动", information: "完全信息"}
+    choose: 纯策略或混合策略 Nash 均衡
+    because: "标准式博弈的基本解概念，无纯策略时必在混合策略中存在"
+  - if: {timing: "行动有先后"}
+    choose: 逆向归纳求子博弈完美均衡
+    because: "排除不可信威胁，保证每段子博弈最优"
+  - if: {information: "类型未知"}
+    choose: 贝叶斯 Nash 均衡
+    because: "引入类型分布和期望收益处理私有信息"
+  - if: {relation: "可结盟合作"}
+    choose: Shapley 值或核
+    because: "按边际贡献公平分配联盟收益，核保证联盟稳定"
+  - if: {rationality: "群体有限理性"}
+    choose: 演化博弈复制动态
+    because: "刻画策略频率随收益差的演化和稳定状态"
+
+propositions:
+  - name: Nash 均衡定义
+    template: "策略组合 s* 是 Nash 均衡，当且仅当对每个 i 都有 u_i(s_i*,s_{-i}*) ≥ u_i(s_i,s_{-i}*) 对所有 s_i∈S_i 成立，即无人可单方面偏离获益。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 混合策略无差异原理
+    template: "混合策略均衡中，参与者以正概率选择的每个纯策略给其带来相同期望收益，利用这一无差异条件联立求解概率。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 逆向归纳
+    template: "从最后一个决策点开始逐点选最优行动并向前折叠，得到的策略组合构成子博弈完美均衡，可剔除不可信威胁。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: Shapley 值
+    template: "参与者 i 的 Shapley 值 φ_i=Σ_{S⊆N∖{i}} |S|!(n−|S|−1)!/n!·[v(S∪{i})−v(S)]，按加入各联盟的边际贡献平均分配，满足有效、对称、虚参与人和可加性。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 复制动态
+    template: "策略 k 频率 x_k 的变化率 dx_k/dt=x_k(E_k−Ē)，收益高于平均的策略频率上升，稳态处雅可比特征值判稳定性，得到演化稳定策略。"
+    provenance: "专家模板（建库时手工编写）"
+
+theory_checks:
+  - name: 三要素完整
+    note: "参与者、策略集、收益缺一不可，收益矩阵行列对齐"
+    required: true
+  - name: 解概念匹配信息结构
+    note: "静态、动态、不完全信息、合作用对应解概念，不错用"
+    required: true
+  - name: 偏离验证
+    note: "显式验证单方面偏离不会提高收益"
+    required: true
+  - name: 多均衡讨论
+    note: "存在多个均衡时说明选择依据或效率比较"
+    required: false
+
+antipattern:
+  bad: "把双方决策写成一个总目标函数求最大，称之为博弈均衡，没有收益矩阵、没有最优反应、不验证偏离，实质是单方优化。"
+  good: "列出双方收益矩阵，划线得无纯策略均衡，由无差异条件求得行方以 0.6 和 0.4 混合、列方以 0.5 混合，验证任一方偏离期望收益不变，均衡收益各为 2.4，并说明该混合均衡唯一。"
+
+failure_modes:
+  - mode: missing_elements
+    symptom: "策略集或收益函数缺失，博弈无法求解"
+    guard: "先补齐三要素表，再谈解概念"
+  - mode: optimization_in_disguise
+    symptom: "把多方博弈写成单目标优化"
+    guard: "为每个参与者分别建收益和最优反应"
+  - mode: wrong_solution_concept
+    symptom: "动态博弈只找静态 Nash，保留不可信威胁"
+    guard: "按行动次序改用逆向归纳"
+  - mode: equilibrium_unverified
+    symptom: "给出策略组合但不验证偏离"
+    guard: "逐参与者检查单方面偏离收益"
+
+readability_guard:
+  - "收益矩阵或函数给出后，用一句中文说明各方利益冲突点在哪里"
+  - "符号首次出现带中文含义，混合概率注明和为 1"
+  - "连续公式不超过 3 个，第 4 个前插入解释段落"
+  - "均衡结论同时给策略组合与各方收益，并回报验证过程"

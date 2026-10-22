@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P031
+# 来源: 2020 ICM Problem F: The Place I Called Home
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P031
+title: "The Place I Called Home (我称之为家的地方 - 气候移民)"
+competition: MCM/ICM
+year: 2020
+problem_code: "F"
+category: 数据预测
+domain: 社会预测/气候变化
+objective: "建立气候移民预测模型, 评估气候变化对人口迁移的影响"
+variables:
+  - name: 海平面上升
+    type: 未指定
+    description: 未指定
+  - name: 极端天气频率
+    type: 未指定
+    description: 未指定
+  - name: 人口数量
+    type: 未指定
+    description: 未指定
+  - name: 迁移率
+    type: 未指定
+    description: 未指定
+  - name: 经济状况
+    type: 未指定
+    description: 未指定
+  - name: 基础设施
+    type: 未指定
+    description: 未指定
+constraints:
+  - 人口守恒约束
+  - 迁移能力约束
+  - 接收地容量约束
+assumptions:
+  - 气候恶化驱动移民
+  - 移民有方向性
+  - 接收地容量有限
+confidence: 中
+source:
+  title: "2020 ICM Problem F: The Place I Called Home"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2020

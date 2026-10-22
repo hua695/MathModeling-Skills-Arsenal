@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P014
+# 来源: 全国大学生数学建模竞赛2019年E题
+case_id: P014
+failures:
+  - method: "假设需求线性下降"
+    root_cause: "实际需求曲线可能非线性"
+    signal: "最优价格偏差"
+    lesson: "需用非线性需求函数"
+    reference: "国赛赛题分析"
+  - method: "忽略竞争反应"
+    root_cause: "降价可能引发价格战"
+    signal: "利润预测偏高"
+    lesson: "需引入博弈模型"
+    reference: "国赛赛题分析"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2019年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

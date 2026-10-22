@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P025
+# 来源: 2018 MCM Problem C: Energy Production
+case_id: P025
+steps:
+  - step: 1
+    action: "能源数据分析与可视化"
+    reason: "了解能源生产结构"
+    abandoned: "无"
+  - step: 2
+    action: "建立能源-经济回归模型"
+    reason: "量化GDP/人口对能源需求影响"
+    abandoned: "无"
+  - step: 3
+    action: "灰色预测能源生产趋势"
+    reason: "预测未来能源结构变化"
+    abandoned: "无"
+  - step: 4
+    action: "政策情景分析"
+    reason: "评估不同能源政策效果"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2018 MCM Problem C: Energy Production"
+  url: https://www.contest.comap.com/undergraduate/contests/

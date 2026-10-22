@@ -1,0 +1,170 @@
+% =====================================================================
+% 国赛论文写作模板 v1.0
+% 用法: 复制本文件为 <replay>/paper.tex，替换各章内容即可。
+% 模板已内置主要结构与交付约束，写作完成后运行 scripts/paper_check.py：
+%   项1  一级"一、"中文编号        项2  不跳级         项3  同级≥2
+%   项4  无四级                    项5  标题无句号      项6  附录A
+%   项7  一级固定八章              项8  图必有解读      项9  关键词加粗+参考文献/附录分页
+%   P7b 摘要直接进入问题背景       P9  附录代码脱敏     INTERNAL 交付文本洁净
+%   F2  表格/正文数字一律从 results/*.json 抄录，禁止手写估算
+% 框架: 一~八 固定八章; 各问并入第五章作二级标题; 附录 A-E
+% 写作完必跑: python scripts/paper_check.py <论文目录> 一键自检（D4.5/F2）, 全 PASS 才交付
+% =====================================================================
+\documentclass[12pt]{ctexart}
+\usepackage{graphicx}
+\usepackage{svg}
+\usepackage{adjustbox}
+\usepackage{placeins}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{amsmath,amssymb}
+\usepackage{geometry}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{xparse}
+\geometry{margin=2.5cm}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.7}
+
+% ── 受控图表入口：按 figure_registry.layout_mode 选择，不直接手写浮动体 ──
+\newcommand{\PaperFigureMaxHeight}{0.40\textheight}
+\newcommand{\PaperPanelMaxHeight}{0.36\textheight}
+\NewDocumentCommand{\PaperSvg}{O{\linewidth} m}{%
+  \adjustbox{max width=#1,max height=\PaperFigureMaxHeight,center}{\includesvg{#2}}%
+}
+\NewDocumentCommand{\PaperFigure}{O{0.76\textwidth} m m m}{%
+  \begin{figure}[!htbp]
+    \centering
+    \PaperSvg[#1]{#4}%
+    \caption{#2}\label{#3}%
+  \end{figure}%
+}
+\NewDocumentCommand{\PaperTwoColumn}{O{0.47\textwidth} O{0.47\textwidth} m m}{%
+  \begin{figure}[!htbp]
+    \centering
+    \begin{minipage}[t]{#1}\vspace{0pt}#3\end{minipage}%
+    \hfill
+    \begin{minipage}[t]{#2}\vspace{0pt}#4\end{minipage}%
+  \end{figure}%
+}
+\NewDocumentCommand{\PaperWrapFigure}{O{r} O{0.34\textwidth} m m m}{%
+  \begin{wrapfigure}{#1}{#2}
+    \centering
+    \adjustbox{max width=\linewidth,max height=\PaperPanelMaxHeight,center}{\includesvg{#3}}%
+    \caption{#4}\label{#5}%
+  \end{wrapfigure}%
+}
+\NewDocumentCommand{\PaperTallFigure}{O{0.36\textheight} m m m}{%
+  \begin{figure}[!htbp]
+    \centering
+    \adjustbox{max width=0.85\textwidth,max height=#1,center}{\includesvg{#4}}%
+    \caption{#2}\label{#3}%
+  \end{figure}%
+}
+
+% 章节切换前自动清空上一章节浮动体，避免图片漂移到下一章节。
+\newcommand{\PaperSectionBarrier}{\FloatBarrier}
+\ifdefined\AddToHook
+  \AddToHook{cmd/section/before}{\PaperSectionBarrier}
+\else
+  \usepackage{etoolbox}
+  \pretocmd{\section}{\PaperSectionBarrier}{}{}
+\fi
+\AtEndDocument{\PaperSectionBarrier}
+\lstset{basicstyle=\ttfamily\small, breaklines=true, frame=single, backgroundcolor=\color{gray!12}, numbers=left, numberstyle=\tiny\color{gray}, keywordstyle=\color{blue}\bfseries, commentstyle=\color{green!50!black}\itshape, stringstyle=\color{red!70!black}, showstringspaces=false}
+\graphicspath{{figs/}}
+% --- 项1/项7: 标题层级: 一级"一、"中文数字+顿号; 二级/三级小四黑体 ---
+\ctexset{
+  section = {name = {,、}, number = \chinese{section}, format = \heiti\zihao{4}},
+  subsection = {format = \heiti\zihao{-4}},
+  subsubsection = {format = \heiti\zihao{-4}},
+}
+\setcounter{secnumdepth}{3}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+% --- 项5: 标题后不加句号; 项4: 不用 \paragraph ---
+\title{\textbf{论文题目（自拟, 不含竞赛名/年份）}}
+% 匿名：\author 留空，正文与元数据不得出现真实身份信息。
+\date{}
+
+\begin{document}
+\maketitle
+
+% ================= 摘要 =================
+% P7b: 禁止"针对XX年全国大学生数学建模竞赛X题"开头——直接进入问题背景
+% H8C 最后写摘要：依据 abstract_argument_card.yaml 与各章 abstract_contribution 汇总。
+% 550-800 字, 4-6 段(背景/方法/逐问结论/验证与总评, 不自我评价)
+% 9a2: 摘要正文中与关键词相同的核心术语必须 \textbf 加粗
+\begin{abstract}
+【背景段】……（直接进入问题背景，不提竞赛名）
+
+【方法段】针对问题一，……【数字结论】。
+
+针对问题二，……
+
+针对问题三，……
+
+综上，……（总评段，以"综上"开头）
+
+\noindent\textbf{关键词}：\textbf{词1}；\textbf{词2}；\textbf{词3}；\textbf{词4}；\textbf{词5}；\textbf{词6}
+% 9a: 关键词行: "关键词:"标签 + 全部词条逐个 \textbf 加粗, 4-6 个
+\end{abstract}
+
+% ================= 正文: 一级标题使用中文序号；问题假设与符号说明分章 =================
+\section{问题重述}          % 一
+\section{问题分析}          % 二（含机理分析+总体思路, 算法总体流程图放此）
+\section{模型假设}          % 三（A1-AN, 每条含合理性依据）
+\section{符号说明}          % 四（三线表）
+\section{模型建立与求解}    % 五
+% 各问一律并入本章作二级标题（项7: 禁止"问题一"作一级）:
+% \subsection{问题一模型与求解}
+%   \subsubsection{...}  （项2: 不跳级; 项3: 同级≥2）
+% \subsection{问题二模型与求解}
+% ...
+% 算法呈现: 用流程图(矩形+箭头+判断) + Step 1/2/3 描述（禁正文代码）
+% 表格数字规则（F2 数字一致性）: 表内数值一律从代码生成的 results/*.json 抄录, 禁手写/估算;
+% 每张表在 caption 上方注释数据源文件+键路径（如 % 数据源: results/q1_results.json monthly[].eta_noon）;
+% 写作完跑 scripts/paper_check.py，核对数字来源与正文/代码一致性。
+% 正文公式中的模型常量、系数和边界参数必须登记到 model_assumptions.md；
+% 附录代码顶层常量赋值须与正文参数一致。
+% 每张图后必须有解读（项8: 由图可知+数值+解释）。示例：
+% \PaperFigure[0.76\textwidth]{图题}{fig:fig1}{figs/fig1}
+% 由图可知，……（数值解读，禁连续图无文字）
+\section{模型检验与灵敏度分析}  % 六（模型验证对比+灵敏度扫描）
+\section{模型评价与改进}        % 七
+\section{结论}                  % 八（逐问数字结论 + 主要贡献 + 展望）
+
+% --- 参考文献前的 AI 工具使用声明 ---
+\section*{AI工具使用声明}
+【请按实际使用情况填写官方声明。使用 AI 时，说明实际工具、用途与环节、关键交互摘要、采纳、人工修改和核验；未使用时填写官方“未使用”声明。不得隐瞒已使用工具或虚构未使用。】
+
+% --- 参考文献 ---
+\clearpage
+\begin{thebibliography}{9}
+% 8-11 条唯一正文引用; 题面和附件不进入正式参考文献, 禁任何内部流程痕迹
+\bibitem{ref1} 作者. 标题[J]. 期刊, 年, 卷(期): 页.
+\end{thebibliography}
+
+% --- 项9c: 附录前 \clearpage; 项6: 附录恢复字母编号"附录A" ---
+\clearpage
+\appendix
+\ctexset{section={name={附录,}, number=\Alph{section}}}
+
+% 仅取消注释 appendix_plan.yaml 中真实触发的模块；禁止保留空章节。
+\section{支撑材料文件列表}    % 附录A：有支撑材料时保留；无支撑材料时写明无支撑材料
+\section{核心源代码}          % 附录B：程序题展示与小问直接相关的核心代码
+% 每个代码块前说明文件、功能、输入、输出和对应小问。
+% \medskip
+% \inputminted[bgcolor=codebg,linenos,breaklines,tabsize=4,fontsize=\small,framesep=6pt]{python}{src/q1_model.py}
+% \medskip
+% 完整可运行源码由支撑材料包提供，并在附录A登记。
+% \section{公式推导}          % 有长推导模块时启用
+% \section{数据验证报告}      % 有补充数据/结果/验证模块时启用
+% \section{完整源程序索引}     % 有程序时登记完整源码文件、入口、运行命令和支撑材料路径
+% \section{AI 工具使用说明}    % 详细说明文件按当前官方 profile 放入支撑材料包
+\end{document}

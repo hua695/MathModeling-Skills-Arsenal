@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P067
+# 来源: 全国大学生数学建模竞赛2004年D题
+case_id: P067
+applicable_scenarios:
+  - 招聘人岗匹配
+  - 多指标人才评价
+  - 资源-需求分类
+strategy: "综合评价+稳定匹配的人岗分配"
+why_effective: "综合评价保证公平打分, 匹配模型实现人岗双赢分配"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

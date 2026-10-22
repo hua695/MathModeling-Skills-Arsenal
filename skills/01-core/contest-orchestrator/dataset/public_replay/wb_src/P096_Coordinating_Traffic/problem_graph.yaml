@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P096
+# 来源: 2017 MCM Problem C: Coordinating Traffic Signals
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P096
+title: "Coordinating Traffic Signals (交通信号协调控制)"
+competition: MCM/ICM
+year: 2017
+problem_code: "C"
+category: 图模型
+domain: 交通网络/绿波优化
+objective: "在路网信号约束下优化配时与相位差, 形成绿波带使主干道延误最小"
+variables:
+  - name: 交叉口位置
+    type: 未指定
+    description: 未指定
+  - name: 周期时长
+    type: 未指定
+    description: 未指定
+  - name: 绿信比
+    type: 未指定
+    description: 未指定
+  - name: 相位差
+    type: 未指定
+    description: 未指定
+  - name: 车流速度
+    type: 未指定
+    description: 未指定
+  - name: 延误
+    type: 未指定
+    description: 未指定
+constraints:
+  - 周期协调约束
+  - 最小绿灯约束
+  - 安全距离
+  - 双向绿波
+  - 路网连通
+assumptions:
+  - 车流匀速
+  - 信号可协调
+  - 到达稳定
+  - 路网拓扑已知
+confidence: 中
+source:
+  title: "2017 MCM Problem C: Coordinating Traffic Signals"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2017

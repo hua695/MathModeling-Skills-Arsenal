@@ -1,0 +1,14 @@
+status: PAUSE
+readiness_sha256: <paper_material_readiness.yaml sha256>
+claims:
+  - id: <claim-id>
+    type: <conclusion|quantified_result|figure_claim|citation_use>
+    paper_anchor: <section-or-caption-anchor>
+    evidence_refs:
+      - path: <project-relative-path>
+        sha256: <sha256>
+    # 以下为可选内容层标注，供主张证据审查参考，不参与必填校验，分类见 references/paper_claim_review.md
+    claim_subtype: "<optional: main|comparison|mechanism|sensitivity|boundary|innovation>"
+    evidence_status: "<optional: supported|partial|unsupported>"
+    counter_test_note: "<optional: 反方测试结论或留空>"
+    argument_id: "<paper_argument_blueprint.yaml 中的 argument_id>"

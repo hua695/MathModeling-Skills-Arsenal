@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P050
+# 来源: 全国大学生数学建模竞赛2019年C题
+case_id: P050
+steps:
+  - step: 1
+    action: "航班与客流时空分析"
+    reason: "识别高峰供需缺口"
+    abandoned: "无"
+  - step: 2
+    action: "建立蓄车池排队模型"
+    reason: "刻画供需平衡"
+    abandoned: "无"
+  - step: 3
+    action: "MDP建模司机决策"
+    reason: "优化蓄车/接客策略"
+    abandoned: "经验策略"
+  - step: 4
+    action: "策略收益仿真评估"
+    reason: "比较不同决策"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

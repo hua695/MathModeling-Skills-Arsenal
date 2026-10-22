@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P027
+# 来源: 2019 MCM Problem C: The Opioid Crisis
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P027
+title: "The Opioid Crisis (阿片危机)"
+competition: MCM/ICM
+year: 2019
+problem_code: "C"
+category: 数据预测
+domain: 公共卫生/社会问题
+objective: "建立阿片类药物滥用传播模型, 评估干预策略效果"
+variables:
+  - name: 阿片处方量
+    type: 未指定
+    description: 未指定
+  - name: 滥用人数
+    type: 未指定
+    description: 未指定
+  - name: 过量死亡人数
+    type: 未指定
+    description: 未指定
+  - name: 人口特征
+    type: 未指定
+    description: 未指定
+  - name: 社会经济指标
+    type: 未指定
+    description: 未指定
+  - name: 干预政策
+    type: 未指定
+    description: 未指定
+constraints:
+  - 人口约束
+  - 政策可行性约束
+  - 数据可得性约束
+assumptions:
+  - 滥用传播有空间和社会网络效应
+  - 处方量与滥用相关
+  - 干预措施可量化评估
+confidence: 中
+source:
+  title: "2019 MCM Problem C: The Opioid Crisis"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2019

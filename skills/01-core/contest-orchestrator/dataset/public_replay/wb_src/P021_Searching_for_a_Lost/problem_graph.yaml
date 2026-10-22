@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P021
+# 来源: 2015 MCM Problem B: Searching for a Lost Plane
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P021
+title: "Searching for a Lost Plane (寻找失联飞机)"
+competition: MCM/ICM
+year: 2015
+problem_code: "B"
+category: 数据预测
+domain: 搜救优化/概率建模
+objective: "建立通用搜索模型, 协助规划失联飞机的搜救方案"
+variables:
+  - name: 飞机最后位置
+    type: 未指定
+    description: 未指定
+  - name: 飞行速度
+    type: 未指定
+    description: 未指定
+  - name: 风向风速
+    type: 未指定
+    description: 未指定
+  - name: 燃油量
+    type: 未指定
+    description: 未指定
+  - name: 残骸漂移速度
+    type: 未指定
+    description: 未指定
+  - name: 搜索区域面积
+    type: 未指定
+    description: 未指定
+constraints:
+  - 搜索资源有限
+  - 时间窗口约束
+  - 海流影响残骸位置
+assumptions:
+  - 残骸漂移服从风海流模型
+  - 搜索概率与覆盖面积成正比
+  - 飞机失事位置概率分布已知
+confidence: 中
+source:
+  title: "2015 MCM Problem B: Searching for a Lost Plane"
+  url: https://www.jingsailian.com/news/233612.html
+  year: 2015

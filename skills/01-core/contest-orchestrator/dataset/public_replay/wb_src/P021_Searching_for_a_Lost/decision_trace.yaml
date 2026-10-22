@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P021
+# 来源: 2015 MCM Problem B: Searching for a Lost Plane
+case_id: P021
+steps:
+  - step: 1
+    action: "建立失事位置概率分布"
+    reason: "基于飞行数据推断可能区域"
+    abandoned: "无"
+  - step: 2
+    action: "蒙特卡洛模拟残骸漂移"
+    reason: "预测残骸随时间的位置分布"
+    abandoned: "无"
+  - step: 3
+    action: "贝叶斯更新搜索概率"
+    reason: "根据搜索结果动态更新概率"
+    abandoned: "固定概率"
+  - step: 4
+    action: "优化搜索路线规划"
+    reason: "在有限资源下最大化发现概率"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2015 MCM Problem B: Searching for a Lost Plane"
+  url: https://www.jingsailian.com/news/233612.html

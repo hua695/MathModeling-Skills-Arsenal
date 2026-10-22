@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P092
+# 来源: 全国大学生数学建模竞赛2013年B题
+case_id: P092
+candidate_models:
+  - 图匹配(最小生成树/哈密顿圈)
+  - 动态规划
+  - 像素相关分析
+  - 聚类分行
+final_choice: "边缘相似度图 + 哈密顿路径/最小生成树复原"
+reason: "由边缘相似度构图, 用最小生成树或哈密顿路径确定碎片的相邻顺序"
+alternatives:
+  - 贪心匹配
+  - 遗传算法
+  - 匈牙利算法
+limitations:
+  - 噪声与脏污干扰
+  - 相似度歧义
+  - 缺失碎片难补
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P001
+# 来源: 全国大学生数学建模竞赛2010年B题
+case_id: P001
+candidate_models:
+  - 逐步回归
+  - 灰色预测GM(1,1)
+  - 因子分析
+  - BP神经网络
+final_choice: "因子分析 + BP神经网络"
+reason: "因子分析降维消除指标间共线性, 神经网络捕捉非线性映射关系"
+alternatives:
+  - 层次分析法(AHP)
+  - TOPSIS
+  - 熵权法
+limitations:
+  - 指标选择存在主观性
+  - 训练样本量有限影响泛化
+  - 未考虑突发事件影响
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

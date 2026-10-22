@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P061
+# 来源: 全国大学生数学建模竞赛2010年D题
+case_id: P061
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - TOPSIS
+  - 熵权法
+final_choice: "AHP赋权 + 模糊综合评价"
+reason: "AHP系统确定指标权重, 模糊综合评价处理指标模糊性并排序方案"
+alternatives:
+  - 灰色关联
+  - 主成分分析
+  - 数据包络分析
+limitations:
+  - 权重主观性
+  - 指标量化难
+  - 未考虑动态使用
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年D题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P053
+# 来源: 2012 MCM Problem B: Camping along the Big Long River
+case_id: P053
+steps:
+  - step: 1
+    action: "整理营地位置与容量"
+    reason: "建立河道网络"
+    abandoned: "无"
+  - step: 2
+    action: "建立行程可行性模型"
+    reason: "校验每日可达营地"
+    abandoned: "无"
+  - step: 3
+    action: "整数规划分配营地"
+    reason: "避免冲突并满足容量"
+    abandoned: "手工排程"
+  - step: 4
+    action: "多队调度仿真验证"
+    reason: "检查冲突与溢出"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2012 MCM Problem B: Camping along the Big Long River"
+  url: https://www.contest.comap.com/undergraduate/contests/

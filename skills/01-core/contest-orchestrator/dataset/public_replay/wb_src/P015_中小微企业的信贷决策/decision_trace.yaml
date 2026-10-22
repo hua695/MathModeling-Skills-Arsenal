@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P015
+# 来源: 全国大学生数学建模竞赛2020年C题
+case_id: P015
+steps:
+  - step: 1
+    action: "数据探索与特征工程"
+    reason: "提取有效信贷特征"
+    abandoned: "无"
+  - step: 2
+    action: "XGBoost违约概率预测"
+    reason: "量化企业违约风险"
+    abandoned: "逻辑回归"
+  - step: 3
+    action: "整数规划信贷分配优化"
+    reason: "在风险约束下最大化收益"
+    abandoned: "无"
+  - step: 4
+    action: "模型评估与策略分析"
+    reason: "验证决策方案合理性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

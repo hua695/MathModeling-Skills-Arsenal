@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P025
+# 来源: 2018 MCM Problem C: Energy Production
+case_id: P025
+applicable_scenarios:
+  - 能源需求预测
+  - 能源结构分析
+  - 能源政策评估
+strategy: "回归分析+灰色预测+政策情景"
+why_effective: "回归量化经济关系, 灰色预测处理小样本, 情景分析评估政策"
+confidence: 中
+source:
+  title: "2018 MCM Problem C: Energy Production"
+  url: https://www.contest.comap.com/undergraduate/contests/

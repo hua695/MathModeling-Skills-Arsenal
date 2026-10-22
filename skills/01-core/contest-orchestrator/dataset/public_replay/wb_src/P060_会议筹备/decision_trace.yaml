@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P060
+# 来源: 全国大学生数学建模竞赛2009年D题
+case_id: P060
+steps:
+  - step: 1
+    action: "分析回执与到会分布"
+    reason: "估计参会规模区间"
+    abandoned: "无"
+  - step: 2
+    action: "建立整数规划预订模型"
+    reason: "最小化费用满足条件"
+    abandoned: "经验预订"
+  - step: 3
+    action: "蒙特卡洛模拟到会波动"
+    reason: "检验配置鲁棒性"
+    abandoned: "无"
+  - step: 4
+    action: "敏感性分析预算与价格"
+    reason: "评估方案弹性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

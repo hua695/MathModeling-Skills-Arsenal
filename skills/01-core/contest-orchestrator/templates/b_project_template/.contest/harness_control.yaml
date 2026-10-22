@@ -1,0 +1,404 @@
+# 主控配置：节点状态、dispatch_records、skill_invocations 等
+schema_version: '1.0'
+reader_evidence_protocol: '1.0'
+harness_run_id: run-20260905-001
+solver_instance_id: solver-001
+problem_scope:
+  subproblems:
+  - Q1
+  - Q2
+  - Q3
+bootstrap:
+  invocations:
+  - skill: superpowers:using-superpowers
+    task_id: H0-bootstrap
+    purpose: bootstrap
+    completed: true
+    status: completed
+    created:
+    - H1
+    agent_ids:
+      H1: H1-agent-01
+  - skill: superpowers:using-superpowers
+    task_id: sp-spawn-001
+    purpose: spawn_roles
+    completed: true
+    status: completed
+    after_node: H1
+    created:
+    - H5
+    - H6
+    - H7
+    - H8
+    agent_ids:
+      H5: H5-agent-01
+      H6: H6-agent-01
+      H7: H7-agent-01
+      H8: H8-agent-01
+nodes:
+  H1:
+    status: approved
+    owner_role: 题意理解 agent
+    agent_policy: required
+    support_agent_policy: none
+    task_card: .contest/task_cards/H1.yaml
+    agent_instance_id: H1-agent-01
+    problem_statement: problem_statement.md
+    unified_problem_package: problem_profile.yaml
+    original_problem_file: problem_statement.md
+    original_problem_sha256: c55d9c5d19168f7a4b877de68cde979cb439dc364aedc391180f375152ed5a97
+  H5:
+    status: approved
+    owner_role: 解题 agent
+    agent_policy: required
+    support_agent_policy: none
+    task_card: .contest/task_cards/H5.yaml
+    agent_instance_id: H5-agent-01
+    solver_instance_id: solver-001
+    model_contract: model_contract.yaml
+    model_blueprint: model_blueprint.yaml
+    primary_solver_instance: solver-001
+    skill_invocations:
+    - skill: pyomo
+      task_id: H5-skill-001
+      completed: true
+      evidence_ref: results/sensitivity_report.yaml
+    review_packet: .contest/reviews/H5_review_packet.yaml
+    paper_narrative: paper_narrative.yaml
+    validation_contract: validation_contract.yaml
+    model_summary_cards: model_summary_cards.yaml
+    result_interpretation_cards: result_interpretation_cards.yaml
+    run_manifest: run_manifest.yaml
+    sensitivity_report: results/sensitivity_report.yaml
+    visual_evidence_packet: visual_evidence_packet.yaml
+  H6:
+    status: approved
+    owner_role: 验证 agent
+    agent_policy: required
+    support_agent_policy: none
+    task_card: .contest/task_cards/H6.yaml
+    agent_instance_id: H6-agent-01
+    skill_invocations:
+    - skill: data-science-stack
+      task_id: H6-skill-001
+      completed: true
+      evidence_ref: validation_contract.yaml
+    review_packet: .contest/reviews/H6_review_packet.yaml
+    global_interface_check: global_interface_check.yaml
+    model_summary_cards: model_summary_cards.yaml
+    visual_evidence_packet: visual_evidence_packet.yaml
+  H7:
+    status: approved
+    owner_role: 图表 agent
+    agent_policy: required
+    support_agent_policy: none
+    task_card: .contest/task_cards/H7.yaml
+    agent_instance_id: H7-agent-01
+    figure_registry: figure_registry.yaml
+    visual_argument_plan: visual_argument_plan.yaml
+    visual_plan_review_packet: .contest/reviews/H7_visual_plan_review_packet.yaml
+    visual_evidence_packet: visual_evidence_packet.yaml
+    skill_invocations:
+    - skill: scipilot-figure-skill
+      task_id: H7-skill-001
+      completed: true
+      evidence_ref: figure_registry.yaml
+    review_packet: .contest/reviews/H7_review_packet.yaml
+  H8:
+    status: approved
+    owner_role: 论文 agent
+    agent_policy: required
+    support_agent_policy: none
+    task_card: .contest/task_cards/H8.yaml
+    agent_instance_id: H8-agent-01
+    paper_material_readiness: paper_material_readiness.yaml
+    visual_argument_plan: visual_argument_plan.yaml
+    abstract_argument_card: abstract_argument_card.yaml
+    abstract_contract_report: null
+    abstract_written: false
+    paper_argument_blueprint: paper_argument_blueprint.yaml
+    paper_author_brief: paper_author_brief.yaml
+    chapter_writing_cards:
+    - chapter_writing_card.yaml
+    active_chapter_card: chapter_writing_card.yaml
+    paper_continuity_context: paper_continuity_context.yaml
+    model_summary_cards: model_summary_cards.yaml
+    paper_source: paper/paper.tex
+    paper_source_sha256: 285a64329c2803c2f6f1a037672891380008a31443a1e11c8555c8fa00a90407
+    writing_plan:
+      chapters:
+      - chapter_id: ch1
+        title: 问题分析
+        page_count: 3
+        material_refs:
+        - Q1.problem_mapping
+        figure_locations: []
+        claim_ids:
+        - claim-1
+      - chapter_id: ch2
+        title: 模型建立
+        page_count: 5
+        material_refs:
+        - Q1.assumptions
+        - Q1.symbols
+        - Q1.derivation
+        figure_locations: []
+        claim_ids:
+        - claim-2
+      - chapter_id: ch3
+        title: 求解结果
+        page_count: 4
+        material_refs:
+        - Q1.algorithm_and_parameters
+        - Q1.quantified_results
+        figure_locations:
+        - fig-q1-1
+        claim_ids:
+        - claim-3
+      - chapter_id: ch4
+        title: 灵敏度分析
+        page_count: 3
+        material_refs:
+        - Q1.sensitivity_or_robustness
+        figure_locations: []
+        claim_ids:
+        - claim-4
+      - chapter_id: ch5
+        title: 结论
+        page_count: 2
+        material_refs:
+        - Q1.conclusion_and_boundary
+        figure_locations: []
+        claim_ids:
+        - claim-5
+      approved: true
+    claim_coverage:
+      claims:
+      - claim_id: claim-1
+        paper_anchor: 公交线路优化需要在满足乘客需求的前提下最小化运营成本
+        material_ref: Q1.problem_mapping
+      - claim_id: claim-2
+        paper_anchor: 目标函数：最小化总成本
+        material_ref: Q1.derivation
+      - claim_id: claim-3
+        paper_anchor: 方案A成本为52500元
+        material_ref: Q1.quantified_results
+      - claim_id: claim-4
+        paper_anchor: 需求增加10%时，最优解变化5%
+        material_ref: Q1.sensitivity_or_robustness
+      - claim_id: claim-5
+        paper_anchor: 模型有效，方案A更优
+        material_ref: Q1.conclusion_and_boundary
+    skill_invocations:
+    - skill: academic-writing
+      task_id: H8-skill-001
+      completed: true
+      evidence_ref: paper/paper.tex
+    - skill: mathmodel-latex-skill
+      task_id: H8-skill-002
+      completed: true
+      evidence_ref: paper/paper.tex
+    review_packet: .contest/reviews/H8_review_packet.yaml
+    evidence_gap_matrix: evidence_gap_matrix.yaml
+  H9:
+    status: approved
+    owner_role: 主 agent
+    agent_policy: controller_only
+    support_agent_policy: none
+    delivery_report: delivery_report.yaml
+    skill_invocations:
+    - skill: bzd-review-paper
+      task_id: H9-skill-001
+      completed: true
+      evidence_ref: delivery_report.yaml
+    - skill: mathmodel-latex-skill
+      task_id: H9-skill-002
+      completed: true
+      evidence_ref: delivery_report.yaml
+    review_packet: .contest/reviews/H9_review_packet.yaml
+  H0:
+    status: approved
+    owner_role: 主 agent
+    agent_policy: controller_only
+    support_agent_policy: none
+    skill_invocations:
+    - skill: superpowers:using-superpowers
+      task_id: H0-bootstrap
+      completed: true
+      evidence_ref: .contest/harness_control.yaml
+  H2:
+    status: approved
+    owner_role: 主 agent
+    agent_policy: controller_only
+    support_agent_policy: none
+    review_packet: .contest/reviews/H2_review_packet.yaml
+  H3:
+    status: approved
+    owner_role: 主 agent
+    agent_policy: controller_only
+    support_agent_policy: none
+    literature_request: literature_request.yaml
+    literature_agent_prompt: literature_agent_prompt.md
+    literature_sources: literature_sources.yaml
+    review_packet: .contest/reviews/H3_review_packet.yaml
+  H4:
+    status: approved
+    owner_role: 主 agent
+    agent_policy: controller_only
+    support_agent_policy: none
+    method_transfer_map: method_transfer_map.json
+    model_blueprint: model_blueprint.yaml
+    chart_requirements: chart_requirements.yaml
+    review_packet: .contest/reviews/H4_review_packet.yaml
+    skill_invocations:
+    - skill: math-model-selector
+      task_id: H4-skill-001
+      completed: true
+      evidence_ref: model_blueprint.yaml
+dispatch_records:
+- task_id: H1-task-001
+  node_id: H1
+  owner_role: 题意理解 agent
+  agent_instance_id: H1-agent-01
+  model: gpt-5.6-terra
+  reasoning_effort: medium
+  dispatched_at: 2026-09-XXT00:00:00+00:00
+  task_card_path: .contest/task_cards/H1.yaml
+  task_card_sha256: 6d8d25c01d700f4df393c1e4f5a9da7910f8f533d817496b5d84a7dbb00dd204
+  solver_instance_id: null
+  harness_run_id: run-20260905-001
+  spawn_receipt:
+    task_id: H1-task-001
+    agent_instance_id: H1-agent-01
+    task_card_sha256: 6d8d25c01d700f4df393c1e4f5a9da7910f8f533d817496b5d84a7dbb00dd204
+    model: gpt-5.6-terra
+    reasoning_effort: medium
+    spawned_at: '2026-09-05T10:00:01+00:00'
+- task_id: H5-task-001
+  node_id: H5
+  owner_role: 解题 agent
+  agent_instance_id: H5-agent-01
+  model: gpt-5.6-sol
+  reasoning_effort: high
+  dispatched_at: 2026-09-XXT00:00:00+00:00
+  task_card_path: .contest/task_cards/H5.yaml
+  task_card_sha256: 70e16044829c13ef263f0f3b50eb46b08ad66d9e3da169ca557e770b4abb0200
+  solver_instance_id: solver-001
+  harness_run_id: run-20260905-001
+  spawn_receipt:
+    task_id: H5-task-001
+    agent_instance_id: H5-agent-01
+    task_card_sha256: 70e16044829c13ef263f0f3b50eb46b08ad66d9e3da169ca557e770b4abb0200
+    model: gpt-5.6-sol
+    reasoning_effort: high
+    spawned_at: '2026-09-05T10:00:01+00:00'
+- task_id: H6-task-001
+  node_id: H6
+  owner_role: 验证 agent
+  agent_instance_id: H6-agent-01
+  model: gpt-5.6-sol
+  reasoning_effort: high
+  dispatched_at: 2026-09-XXT00:00:00+00:00
+  task_card_path: .contest/task_cards/H6.yaml
+  task_card_sha256: 1d3bee7280b81a3ecfb3359c41cd2a596fef0cde42c2d481c7472a54a1e19c4b
+  solver_instance_id: null
+  harness_run_id: run-20260905-001
+  spawn_receipt:
+    task_id: H6-task-001
+    agent_instance_id: H6-agent-01
+    task_card_sha256: 1d3bee7280b81a3ecfb3359c41cd2a596fef0cde42c2d481c7472a54a1e19c4b
+    model: gpt-5.6-sol
+    reasoning_effort: high
+    spawned_at: '2026-09-05T10:00:01+00:00'
+- task_id: H7-task-001
+  node_id: H7
+  owner_role: 图表 agent
+  agent_instance_id: H7-agent-01
+  model: gpt-5.6-terra
+  reasoning_effort: medium
+  dispatched_at: 2026-09-XXT00:00:00+00:00
+  task_card_path: .contest/task_cards/H7.yaml
+  task_card_sha256: 8fef67389eff49de5a154ba4da162a17be642b290b965e5f8dc9d037b5048de2
+  solver_instance_id: null
+  harness_run_id: run-20260905-001
+  spawn_receipt:
+    task_id: H7-task-001
+    agent_instance_id: H7-agent-01
+    task_card_sha256: 8fef67389eff49de5a154ba4da162a17be642b290b965e5f8dc9d037b5048de2
+    model: gpt-5.6-terra
+    reasoning_effort: medium
+    spawned_at: '2026-09-05T10:00:01+00:00'
+- task_id: H8-task-001
+  node_id: H8
+  owner_role: 论文 agent
+  agent_instance_id: H8-agent-01
+  model: gpt-5.6-sol
+  reasoning_effort: high
+  dispatched_at: 2026-09-XXT00:00:00+00:00
+  task_card_path: .contest/task_cards/H8.yaml
+  task_card_sha256: c0b28a7e64c9f5bf8ef765801c1694bf1eebaca4231c4c97bbb2e2e37cf22773
+  solver_instance_id: null
+  harness_run_id: run-20260905-001
+  spawn_receipt:
+    task_id: H8-task-001
+    agent_instance_id: H8-agent-01
+    task_card_sha256: c0b28a7e64c9f5bf8ef765801c1694bf1eebaca4231c4c97bbb2e2e37cf22773
+    model: gpt-5.6-sol
+    reasoning_effort: high
+    spawned_at: '2026-09-05T10:00:01+00:00'
+agent_instances:
+  H1:
+    agent_instance_id: H1-agent-01
+    preloaded:
+    - problem_statement.md
+  H5:
+    agent_instance_id: H5-agent-01
+    preloaded:
+    - problem_statement.md
+    - references/warmup/h5_solver_warmup.md
+  H6:
+    agent_instance_id: H6-agent-01
+    preloaded:
+    - problem_statement.md
+    - references/warmup/h6_verifier_warmup.md
+  H7:
+    agent_instance_id: H7-agent-01
+    preloaded:
+    - problem_statement.md
+    - references/warmup/h7_figure_warmup.md
+  H8:
+    agent_instance_id: H8-agent-01
+    preloaded:
+    - problem_statement.md
+    - references/warmup/h8_writer_warmup.md
+    - references/h8_writer_first_protocol.md
+    - references/model_summary_protocol.md
+    - references/paper_author_evidence_protocol.md
+active_mode: full-contest-harness
+validation:
+  profile: competition_fast
+  change_impact_card: null
+  full_delivery_gate: H9
+roles:
+  主 agent: main-agent-01
+  题意理解 agent: H1-agent-01
+  解题 agent: H5-agent-01
+  验证 agent: H6-agent-01
+  图表 agent: H7-agent-01
+  论文 agent: H8-agent-01
+agent_runtime_routes:
+  H1:
+    model: gpt-5.6-terra
+    reasoning_effort: medium
+  H5:
+    model: gpt-5.6-sol
+    reasoning_effort: high
+  H6:
+    model: gpt-5.6-sol
+    reasoning_effort: high
+  H7:
+    model: gpt-5.6-terra
+    reasoning_effort: medium
+  H8:
+    model: gpt-5.6-sol
+    reasoning_effort: high

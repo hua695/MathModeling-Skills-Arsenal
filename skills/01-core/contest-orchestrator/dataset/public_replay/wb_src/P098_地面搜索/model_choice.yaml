@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P098
+# 来源: 全国大学生数学建模竞赛2008年C题
+case_id: P098
+candidate_models:
+  - 网格图搜索
+  - 贝叶斯更新
+  - 路径覆盖优化
+  - 整数规划
+final_choice: "网格覆盖路径 + 贝叶斯概率更新搜索"
+reason: "将区域网格化规划覆盖路径, 贝叶斯在未见后更新概率指导重点搜索"
+alternatives:
+  - A*搜索
+  - 遗传算法
+  - 随机游走
+limitations:
+  - 概率为主观先验
+  - 地形均匀假设
+  - 队伍协同简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

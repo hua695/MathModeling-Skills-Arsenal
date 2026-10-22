@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P053
+# 来源: 2012 MCM Problem B: Camping along the Big Long River
+case_id: P053
+candidate_models:
+  - 整数规划
+  - 调度算法
+  - 贪心分配
+  - 仿真
+final_choice: "整数规划营地分配 + 调度规则"
+reason: "以所有队伍可行行程为目标, 整数规划分配营地并满足容量与行程约束"
+alternatives:
+  - 贪心算法
+  - 模拟退火
+  - 动态规划
+limitations:
+  - 容量与速度简化
+  - 未考虑天气
+  - 多队并发复杂
+confidence: 中
+source:
+  title: "2012 MCM Problem B: Camping along the Big Long River"
+  url: https://www.contest.comap.com/undergraduate/contests/

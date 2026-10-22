@@ -1,0 +1,6 @@
+interface:
+  display_name: "Tech Route Maker"
+  short_description: "Create evidence-grounded editable route diagrams for research and engineering."
+  default_prompt: "Use $tech-route-maker to turn my research or engineering source material into an editable technical route diagram."
+policy:
+  allow_implicit_invocation: true

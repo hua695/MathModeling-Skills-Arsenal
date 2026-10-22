@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P009
+# 来源: 全国大学生数学建模竞赛2016年D题
+case_id: P009
+steps:
+  - step: 1
+    action: "数据清洗与异常值剔除"
+    reason: "保证数据质量"
+    abandoned: "无"
+  - step: 2
+    action: "拟合风速-功率曲线"
+    reason: "建立稳态功率预测模型"
+    abandoned: "无"
+  - step: 3
+    action: "神经网络短期功率预测"
+    reason: "捕捉动态变化"
+    abandoned: "仅用曲线"
+  - step: 4
+    action: "尾流效应分析与布局优化"
+    reason: "提高风电场整体效率"
+    abandoned: "忽略尾流"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

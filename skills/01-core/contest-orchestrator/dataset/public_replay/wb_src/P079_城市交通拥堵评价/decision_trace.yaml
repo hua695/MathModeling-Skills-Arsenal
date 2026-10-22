@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P079
+# 来源: 2018年亚太杯数学建模竞赛A题
+case_id: P079
+steps:
+  - step: 1
+    action: "构建拥堵评价指标体系"
+    reason: "覆盖速度/延时/饱和"
+    abandoned: "无"
+  - step: 2
+    action: "熵权法客观赋权"
+    reason: "消除主观偏差"
+    abandoned: "等权"
+  - step: 3
+    action: "模糊综合评价分级"
+    reason: "划分拥堵等级"
+    abandoned: "硬阈值"
+  - step: 4
+    action: "缓解策略建议"
+    reason: "针对高等级区域"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2018年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

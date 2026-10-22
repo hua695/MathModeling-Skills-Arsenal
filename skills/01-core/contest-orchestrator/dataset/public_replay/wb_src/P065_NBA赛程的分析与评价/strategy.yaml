@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P065
+# 来源: 全国大学生数学建模竞赛2008年D题
+case_id: P065
+applicable_scenarios:
+  - 赛程编排评价
+  - 公平性综合评价
+  - 体育赛事优化
+strategy: "主客观组合赋权+多指标赛程评价"
+why_effective: "组合赋权兼顾经验与数据, 多指标全面刻画赛程公平性"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

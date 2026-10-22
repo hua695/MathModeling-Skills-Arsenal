@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P029
+# 来源: 2020 MCM Problem C: A Data Analysis of Online Shopping
+case_id: P029
+failures:
+  - method: "忽略文本信息"
+    root_cause: "仅用数值特征预测评分"
+    signal: "信息丢失"
+    lesson: "需NLP提取文本特征"
+    reference: "美赛赛题分析"
+  - method: "忽略时间因素"
+    root_cause: "评分随时间变化"
+    signal: "预测偏差"
+    lesson: "需引入时间特征"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2020 MCM Problem C: A Data Analysis of Online Shopping"
+  url: https://www.contest.comap.com/undergraduate/contests/

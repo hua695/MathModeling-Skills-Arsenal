@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P099
+# 来源: 2017 ICM Problem F: Migration to Mars
+case_id: P099
+failures:
+  - method: "忽略网络容量"
+    root_cause: "运输超承载"
+    signal: "供应链断裂"
+    lesson: "需流约束"
+    reference: "美赛赛题分析"
+  - method: "单商品混流"
+    root_cause: "人员物资优先级混淆"
+    signal: "调度失衡"
+    lesson: "需多商品流"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2017 ICM Problem F: Migration to Mars"
+  url: https://www.contest.comap.com/undergraduate/contests/

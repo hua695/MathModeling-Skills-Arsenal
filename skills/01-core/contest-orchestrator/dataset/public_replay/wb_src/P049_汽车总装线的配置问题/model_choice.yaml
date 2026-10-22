@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P049
+# 来源: 全国大学生数学建模竞赛2018年D题
+case_id: P049
+candidate_models:
+  - 流水线平衡(ALB)
+  - 整数规划
+  - 0-1规划
+  - 遗传算法
+final_choice: "整数规划流水线平衡 + 多目标权衡"
+reason: "以节拍最短与平衡率为目标, 整数规划分配工序到工位并满足优先关系"
+alternatives:
+  - 分支定界
+  - 启发式排序
+  - 模拟退火
+limitations:
+  - 工序时间统计误差
+  - 未考虑设备换型
+  - 动态负荷未建模
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

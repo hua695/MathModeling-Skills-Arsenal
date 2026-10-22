@@ -1,0 +1,112 @@
+# 论文辅助与 contest-orchestrator 主 skill 脚本映射表
+# 规则：主 skill 脚本可用时优先调用；论文辅助脚本作为轻量初筛、快速替代或主 skill 未覆盖领域的补充。
+# 主 skill 脚本路径相对于 contest-orchestrator 安装根目录。
+
+mappings:
+  symbol_integrity:
+    description: "符号完整性检查"
+    primary_scripts:
+      - "scripts/check_symbol_consistency.py"
+      - "scripts/check_math_contract.py"
+      - "scripts/check_dimension_consistency.py"
+    fallback_script: "scripts/extract_symbols.py"
+    fallback_role: "轻量初筛：快速扫描未定义符号和 token 级匹配，主 skill 脚本不可用时替代"
+    coverage: "主 skill 全覆盖，论文辅助为补充"
+
+  meta_discourse:
+    description: "元话语检查"
+    primary_scripts: []
+    related_scripts:
+      - "scripts/check_paper_integrity.py"
+      - "scripts/check_submission_meta_text.py"
+    fallback_script: "scripts/scan_meta_discourse.py"
+    fallback_role: "主 skill 未专门覆盖的领域：系统性扫描元话语模式并给出判断指引"
+    coverage: "论文辅助为主，主 skill 部分相关"
+
+  negative_echo:
+    description: "负向回声检查"
+    primary_scripts: []
+    related_scripts:
+      - "scripts/check_ai_compliance.py"
+      - "scripts/check_submission_meta_text.py"
+    fallback_script: "scripts/scan_negative_echo.py"
+    fallback_role: "主 skill 未专门覆盖的领域：扫描被否决方案、旧版本、失败尝试、修改过程、内部讨论、AI协作痕迹"
+    coverage: "论文辅助为主，主 skill 部分相关"
+
+  model_evidence:
+    description: "模型证据检查"
+    primary_scripts:
+      - "scripts/check_model_evidence.py"
+      - "scripts/check_result_code_consistency.py"
+      - "scripts/check_derivation_chain.py"
+      - "scripts/check_model_traceability.py"
+      - "scripts/audit_numeric_sources.py"
+      - "scripts/check_stale_evidence.py"
+    fallback_script: "scripts/verify_results.py"
+    fallback_role: "轻量初筛：快速提取正文中的数字并与结果文件比对，主 skill 脚本不可用时替代"
+    coverage: "主 skill 全覆盖，论文辅助为补充"
+
+  compile_check:
+    description: "LaTeX 编译检查"
+    primary_scripts:
+      - "scripts/latex_warning_check.py"
+      - "scripts/check_tex_references.py"
+      - "scripts/check_paper_hard_requirements.py"
+    fallback_script: "scripts/compile_check.py"
+    fallback_role: "轻量替代：解析编译日志中的错误、未解析引用、重复标签、超宽盒子"
+    coverage: "主 skill 全覆盖，论文辅助为补充"
+
+  delivery_audit:
+    description: "交付审计"
+    primary_scripts:
+      - "scripts/delivery_all.py --strict"
+      - "scripts/audit_project.py"
+      - "scripts/check_formal_delivery_drift.py"
+      - "scripts/check_anonymity.py"
+      - "scripts/check_appendix_contract.py"
+      - "scripts/check_latex_appendix_contract.py"
+    fallback_script: null
+    fallback_role: "delivery-audit 模式下直接调用主 skill 脚本，论文辅助不重复实现"
+    coverage: "主 skill 全覆盖"
+
+# 调用优先级规则
+priority_rules:
+  - "主 skill 脚本存在且可执行时，优先调用主 skill 脚本"
+  - "主 skill 脚本不可用（未安装、路径错误、依赖缺失）时，使用论文辅助 fallback 脚本"
+  - "元话语和负向回声是主 skill 未专门覆盖的领域，论文辅助脚本为首选"
+  - "同一检查项可同时运行主 skill 脚本和论文辅助脚本，结果交叉验证"
+  - "论文辅助脚本只做初筛，最终结论必须人工复核上下文"
+  - "主 skill 脚本的检查结果是正式门禁依据，论文辅助脚本结果是辅助证据"
+
+# Critic 分类映射
+critic_mapping:
+  Math-Critic:
+    paper_assistant_checks: ["A_symbol_integrity", "D_model_evidence"]
+    orchestrator_scripts:
+      - "scripts/check_symbol_consistency.py"
+      - "scripts/check_math_contract.py"
+      - "scripts/check_derivation_chain.py"
+      - "scripts/check_dimension_consistency.py"
+      - "scripts/check_modeling_contract.py"
+  Code-Critic:
+    paper_assistant_checks: ["D_model_evidence"]
+    orchestrator_scripts:
+      - "scripts/check_result_code_consistency.py"
+      - "scripts/check_model_traceability.py"
+      - "scripts/check_run_manifest.py"
+      - "scripts/audit_numeric_sources.py"
+  Paper-Critic:
+    paper_assistant_checks: ["B_meta_discourse", "C_negative_echo"]
+    orchestrator_scripts:
+      - "scripts/check_paper_integrity.py"
+      - "scripts/check_abstract_contract.py"
+      - "scripts/check_heading_levels.py"
+  Compliance-Critic:
+    paper_assistant_checks: ["C_negative_echo", "E_compile"]
+    orchestrator_scripts:
+      - "scripts/check_anonymity.py"
+      - "scripts/check_ai_compliance.py"
+      - "scripts/check_literature_citation.py"
+      - "scripts/verify_doi.py"
+      - "scripts/check_appendix_contract.py"
+      - "scripts/check_paper_hard_requirements.py"

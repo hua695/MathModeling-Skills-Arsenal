@@ -1,0 +1,27 @@
+# H8A 摘要论证卡：只规划摘要需要回答的读者问题，不直接写摘要正文。
+schema_version: "1.0"
+status: draft
+prepared_by: academic-writing
+paper_argument_blueprint_sha256: <paper_argument_blueprint.yaml sha256>
+reader_contract: <摘要要让读者在有限篇幅内获得的完整回答>
+central_thesis: <全文中心主张>
+modeling_line: <题意—模型—求解—验证—结论的统一主线>
+questions:
+  - id: Q1
+    reader_question: <问题一要回答什么>
+    method: <采用的模型或方法>
+    innovation_or_boundary: <关键处理、创新点或适用边界>
+    result: <经冻结结果源核验的量化结果>
+    meaning: <结果对题目决策或结论的意义>
+    evidence_refs:
+      - path: <项目内结果、验证或图表证据路径>
+        sha256: <sha256>
+    abstract_sentence_role: <摘要中的逐问结论句>
+validation:
+  method: <独立验证、敏感性或稳健性方法>
+  result: <验证结论与边界>
+  evidence_refs:
+    - path: <项目内验证证据路径>
+      sha256: <sha256>
+final_synthesis: <全文总评、适用范围与主要价值>
+keywords: [<关键词1>, <关键词2>, <关键词3>, <关键词4>]

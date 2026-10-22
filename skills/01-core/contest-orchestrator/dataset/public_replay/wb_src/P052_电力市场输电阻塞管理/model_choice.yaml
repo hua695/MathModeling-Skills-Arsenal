@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P052
+# 来源: 全国大学生数学建模竞赛2004年B题
+case_id: P052
+candidate_models:
+  - 线性规划
+  - 灵敏度分析(功率转移分布因子)
+  - 排队阻塞管理
+  - 双边交易优化
+final_choice: "线性规划出力安排 + 灵敏度阻塞分析"
+reason: "以购电费用最小为目标, 线性规划安排机组, 灵敏度因子判定并消解阻塞"
+alternatives:
+  - 非线性规划
+  - 最优潮流(OPF)
+  - 启发式再调度
+limitations:
+  - 直流近似忽略无功
+  - 报价为分段线性
+  - 未考虑暂态安全
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

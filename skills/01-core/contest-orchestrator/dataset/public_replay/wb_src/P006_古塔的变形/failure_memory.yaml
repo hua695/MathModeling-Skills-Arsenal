@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P006
+# 来源: 全国大学生数学建模竞赛2013年C题
+case_id: P006
+failures:
+  - method: "直接使用原始坐标分析"
+    root_cause: "未消除观测系统误差"
+    signal: "变形量计算不准"
+    lesson: "需先进行坐标变换"
+    reference: "国赛赛题分析"
+  - method: "仅用线性回归预测"
+    root_cause: "变形可能非线性发展"
+    signal: "预测残差大"
+    lesson: "需比较多种预测模型"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

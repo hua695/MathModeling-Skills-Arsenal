@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P012
+# 来源: 全国大学生数学建模竞赛2018年C题
+case_id: P012
+applicable_scenarios:
+  - 用户画像与分群
+  - 消费行为预测
+  - 精准营销策略
+strategy: "特征工程+聚类分群+分类预测+关联分析的全流程"
+why_effective: "多方法组合覆盖画像刻画的全流程, 各方法互补"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

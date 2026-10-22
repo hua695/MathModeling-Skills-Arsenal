@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P053
+# 来源: 2012 MCM Problem B: Camping along the Big Long River
+case_id: P053
+applicable_scenarios:
+  - 户外行程调度
+  - 营地容量分配
+  - 多队资源管理
+strategy: "营地容量建模+整数规划分配+仿真验证"
+why_effective: "容量约束保证可行, 整数规划消除冲突, 仿真验证整体行程"
+confidence: 中
+source:
+  title: "2012 MCM Problem B: Camping along the Big Long River"
+  url: https://www.contest.comap.com/undergraduate/contests/

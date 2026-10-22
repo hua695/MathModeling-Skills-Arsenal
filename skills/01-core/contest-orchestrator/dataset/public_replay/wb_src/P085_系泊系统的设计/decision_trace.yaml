@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P085
+# 来源: 全国大学生数学建模竞赛2016年A题
+case_id: P085
+steps:
+  - step: 1
+    action: "建立浮标受力模型"
+    reason: "浮力重力与风浪载荷"
+    abandoned: "无"
+  - step: 2
+    action: "悬链线描述锚链"
+    reason: "确定链形与张力"
+    abandoned: "无"
+  - step: 3
+    action: "静力平衡求解吃水"
+    reason: "满足倾角约束"
+    abandoned: "无"
+  - step: 4
+    action: "参数优化设计"
+    reason: "在约束下选最优配置"
+    abandoned: "经验设计"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

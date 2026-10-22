@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P069
+# 来源: 2014 MCM Problem B: College Coaching Legends
+case_id: P069
+candidate_models:
+  - 层次分析法(AHP)
+  - 主成分分析(PCA)
+  - 模糊综合评价
+  - TOPSIS
+final_choice: "AHP+PCA降维 + 综合评价排名"
+reason: "AHP赋权体现价值, PCA消除指标相关并降维, 综合评价跨项目排名"
+alternatives:
+  - 熵权法
+  - 灰色关联
+  - 秩和比
+limitations:
+  - 项目难度校正难
+  - 时代不可比
+  - 权重主观
+confidence: 中
+source:
+  title: "2014 MCM Problem B: College Coaching Legends"
+  url: https://www.contest.comap.com/undergraduate/contests/

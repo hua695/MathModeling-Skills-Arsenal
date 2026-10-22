@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P025
+# 来源: 2018 MCM Problem C: Energy Production
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P025
+title: "Energy Production (能源生产)"
+competition: MCM/ICM
+year: 2018
+problem_code: "C"
+category: 数据预测
+domain: 能源经济/政策分析
+objective: "分析能源生产模式, 建立能源预测模型, 评估不同能源政策影响"
+variables:
+  - name: 各能源类型产量(煤/石油/天然气/核能/可再生能源)
+    type: 未指定
+    description: 未指定
+  - name: GDP
+    type: 未指定
+    description: 未指定
+  - name: 人口
+    type: 未指定
+    description: 未指定
+  - name: 能源价格
+    type: 未指定
+    description: 未指定
+  - name: 政策变量
+    type: 未指定
+    description: 未指定
+constraints:
+  - 能源储量约束
+  - 碳排放约束
+  - 技术进步约束
+assumptions:
+  - 能源需求与经济增长相关
+  - 可再生能源比例上升
+  - 政策可量化影响
+confidence: 中
+source:
+  title: "2018 MCM Problem C: Energy Production"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2018

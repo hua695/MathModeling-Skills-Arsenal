@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P042
+# 来源: 全国大学生数学建模竞赛2011年D题
+case_id: P042
+steps:
+  - step: 1
+    action: "整理原料长度-等级分布"
+    reason: "建立可搭配原料池"
+    abandoned: "无"
+  - step: 2
+    action: "建立整数规划搭配模型"
+    reason: "最大化成品捆数"
+    abandoned: "手工搭配"
+  - step: 3
+    action: "贪心预处理减少组合"
+    reason: "降低问题规模"
+    abandoned: "直接暴力枚举"
+  - step: 4
+    action: "求解与损耗核算"
+    reason: "输出搭配方案与废料率"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

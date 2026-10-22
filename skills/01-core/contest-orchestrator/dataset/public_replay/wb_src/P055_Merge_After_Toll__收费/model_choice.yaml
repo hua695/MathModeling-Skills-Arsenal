@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P055
+# 来源: 2017 MCM Problem B: Merge After Toll
+case_id: P055
+candidate_models:
+  - 排队论
+  - 元胞自动机
+  - 博弈论车道选择
+  - 仿真优化
+final_choice: "排队论瓶颈分析 + 合流仿真优化"
+reason: "排队论识别收费与合流瓶颈, 仿真优化车辆合流顺序提升吞吐"
+alternatives:
+  - 元胞自动机
+  - 动态规划
+  - 强化学习
+limitations:
+  - 驾驶员行为理想化
+  - 未考虑突发
+  - 参数地区依赖
+confidence: 中
+source:
+  title: "2017 MCM Problem B: Merge After Toll"
+  url: https://www.contest.comap.com/undergraduate/contests/

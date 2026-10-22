@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P068
+# 来源: 2010 MCM Problem A: The Sweet Spot
+case_id: P068
+steps:
+  - step: 1
+    action: "建立击球碰撞动力学"
+    reason: "描述动量/能量传递"
+    abandoned: "无"
+  - step: 2
+    action: "计算不同点出球速度"
+    reason: "定位高初速区"
+    abandoned: "无"
+  - step: 3
+    action: "量化震动与手感"
+    reason: "评估舒适度"
+    abandoned: "仅看出球"
+  - step: 4
+    action: "多目标评价甜区"
+    reason: "综合速度与舒适"
+    abandoned: "单指标"
+confidence: 中
+source:
+  title: "2010 MCM Problem A: The Sweet Spot"
+  url: https://www.contest.comap.com/undergraduate/contests/

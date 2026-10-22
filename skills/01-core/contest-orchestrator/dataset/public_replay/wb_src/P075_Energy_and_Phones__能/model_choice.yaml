@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P075
+# 来源: 2009 MCM Problem B: Energy and Phones
+case_id: P075
+candidate_models:
+  - 灰色预测
+  - 层次分析法(AHP)
+  - 多目标规划
+  - 成本效益分析
+final_choice: "灰色预测需求 + AHP多方案评价"
+reason: "灰色预测未来能源需求, AHP综合技术/经济/环境评价配置方案"
+alternatives:
+  - 模糊综合评价
+  - TOPSIS
+  - 系统动力学
+limitations:
+  - 数据有限
+  - 替代弹性难估
+  - 政策影响忽略
+confidence: 中
+source:
+  title: "2009 MCM Problem B: Energy and Phones"
+  url: https://www.contest.comap.com/undergraduate/contests/

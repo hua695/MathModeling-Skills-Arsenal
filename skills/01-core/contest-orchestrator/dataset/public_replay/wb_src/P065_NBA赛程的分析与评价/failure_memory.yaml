@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P065
+# 来源: 全国大学生数学建模竞赛2008年D题
+case_id: P065
+failures:
+  - method: "仅主观赋权"
+    root_cause: "忽略数据客观差异"
+    signal: "权重偏颇"
+    lesson: "需组合赋权"
+    reference: "国赛赛题分析"
+  - method: "忽略背靠背疲劳"
+    root_cause: "密集赛程影响大"
+    signal: "评价失真"
+    lesson: "需疲劳指标"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P059
+# 来源: 2015 ICM Problem D: Is it smarter to be sustainable?
+case_id: P059
+failures:
+  - method: "单看经济收益"
+    root_cause: "忽视环境社会价值"
+    signal: "策略不可持续"
+    lesson: "需三重底线"
+    reference: "美赛赛题分析"
+  - method: "等权处理维度"
+    root_cause: "权重不匹配战略"
+    signal: "方案偏离目标"
+    lesson: "需AHP赋权"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2015 ICM Problem D: Is it smarter to be sustainable?"
+  url: http://www.madio.net/thread-290074-1-1.html

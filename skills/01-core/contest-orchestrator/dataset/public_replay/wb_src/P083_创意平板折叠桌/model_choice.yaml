@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P083
+# 来源: 全国大学生数学建模竞赛2014年B题
+case_id: P083
+candidate_models:
+  - 空间几何(三角函数)
+  - 静力学平衡
+  - 多目标规划
+  - 参数化建模
+final_choice: "几何参数化建模 + 静力学稳定性校核"
+reason: "用三角函数描述折叠几何, 静力学校核重心与支撑稳定性并优化槽位"
+alternatives:
+  - 有限元分析
+  - 运动学仿真
+  - 遗传算法
+limitations:
+  - 忽略材料变形
+  - 动态展开未建模
+  - 加工误差忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

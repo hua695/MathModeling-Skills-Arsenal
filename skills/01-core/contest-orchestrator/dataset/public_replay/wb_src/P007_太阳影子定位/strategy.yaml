@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P007
+# 来源: 全国大学生数学建模竞赛2015年A题
+case_id: P007
+applicable_scenarios:
+  - 天文定位反演
+  - 几何约束优化
+  - 多参数反演问题
+strategy: "机理模型+优化反演+多解验证"
+why_effective: "机理模型保证物理正确性, 优化反演高效求解, 多解分析避免遗漏"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

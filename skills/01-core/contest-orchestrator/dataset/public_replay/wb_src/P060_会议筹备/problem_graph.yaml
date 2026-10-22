@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P060
+# 来源: 全国大学生数学建模竞赛2009年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P060
+title: "会议筹备"
+competition: CUMCM
+year: 2009
+problem_code: "D"
+category: 优化决策
+domain: 会务管理/整数规划
+objective: "在发回执率不确定与预算约束下, 优化宾馆房间与会议室预订使总费用最小且满足需求"
+variables:
+  - name: 各类房间价格/数量
+    type: 未指定
+    description: 未指定
+  - name: 参会人数(含不确定性)
+    type: 未指定
+    description: 未指定
+  - name: 会议室容量/价格
+    type: 未指定
+    description: 未指定
+  - name: 预算上限
+    type: 未指定
+    description: 未指定
+  - name: 合住比例
+    type: 未指定
+    description: 未指定
+constraints:
+  - 房间数满足参会人
+  - 会议室容量满足规模
+  - 预算约束
+  - 房间类型搭配
+assumptions:
+  - 发回执率服从统计分布
+  - 合住比例已知
+  - 价格固定
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2009

@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P055
+# 来源: 2017 MCM Problem B: Merge After Toll
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P055
+title: "Merge After Toll (收费后合流优化)"
+competition: MCM/ICM
+year: 2017
+problem_code: "B"
+category: 优化决策
+domain: 交通优化/合流控制
+objective: "在收费车道合流瓶颈下, 优化车辆合流与收费策略使通行能力最大"
+variables:
+  - name: 收费车道数
+    type: 未指定
+    description: 未指定
+  - name: 车辆到达率
+    type: 未指定
+    description: 未指定
+  - name: 合流区长度
+    type: 未指定
+    description: 未指定
+  - name: 支付方式比例
+    type: 未指定
+    description: 未指定
+  - name: 行程时间
+    type: 未指定
+    description: 未指定
+constraints:
+  - 合流区容量约束
+  - 车道变换安全
+  - 收费服务时间差异
+  - 瓶颈不溢出
+assumptions:
+  - 到达可建模
+  - 支付方式影响服务时间
+  - 合流行为可仿真
+confidence: 中
+source:
+  title: "2017 MCM Problem B: Merge After Toll"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2017

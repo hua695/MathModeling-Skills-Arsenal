@@ -1,0 +1,10 @@
+# H8 节点审查包：节点产物、证据、检查结果
+node_id: H8
+summary: H8 论文审查包
+important_artifacts:
+- path: paper/paper.tex
+  sha256: 285a64329c2803c2f6f1a037672891380008a31443a1e11c8555c8fa00a90407
+checks:
+- 论文完整性检查
+requested_decision: approve
+proposed_next_node: H9

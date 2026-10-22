@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P051
+# 来源: 全国大学生数学建模竞赛2020年B题
+case_id: P051
+steps:
+  - step: 1
+    action: "构建地图与天气序列"
+    reason: "明确可行行进日"
+    abandoned: "无"
+  - step: 2
+    action: "最短路规划基础路线"
+    reason: "确定节点顺序"
+    abandoned: "盲目搜索"
+  - step: 3
+    action: "动态规划资源调度"
+    reason: "逐日分配水/食物"
+    abandoned: "无"
+  - step: 4
+    action: "多人博弈策略分析"
+    reason: "评估竞争情形"
+    abandoned: "单人模型"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

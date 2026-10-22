@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P003
+# 来源: 全国大学生数学建模竞赛2011年C题
+case_id: P003
+steps:
+  - step: 1
+    action: "建立人口预测Leslie矩阵模型"
+    reason: "预测未来在职/退休人口比"
+    abandoned: "简单趋势外推"
+  - step: 2
+    action: "计算养老金收支精算模型"
+    reason: "量化养老金缺口"
+    abandoned: "仅算总额"
+  - step: 3
+    action: "计算替代率变化趋势"
+    reason: "评价制度可持续性"
+    abandoned: "无"
+  - step: 4
+    action: "情景分析不同改革方案"
+    reason: "比较制度改革效果"
+    abandoned: "单一方案"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

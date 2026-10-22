@@ -1,0 +1,19 @@
+# H1 节点任务卡：输入、范围、输出、验证要求
+task_id: H1-task-001
+node_id: H1
+owner_role: 题意理解 agent
+objective: H1 节点任务
+inputs:
+- path: H1_input.md
+  sha256: 3a9263b632bfc08e49efd942815452217b16c90dda3cb3dd465c4409db3d42ba
+scope: 受控范围
+required_outputs:
+- 节点产物
+verification:
+- 节点检查
+prohibited_actions:
+- 越权
+evidence_handoff:
+- 回流记录
+model: gpt-5.6-terra
+reasoning_effort: medium

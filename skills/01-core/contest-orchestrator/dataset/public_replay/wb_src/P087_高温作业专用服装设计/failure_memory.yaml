@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P087
+# 来源: 全国大学生数学建模竞赛2018年A题
+case_id: P087
+failures:
+  - method: "稳态近似忽略瞬态"
+    root_cause: "升温过程皮肤超温"
+    signal: "安全误判"
+    lesson: "需瞬态求解"
+    reference: "国赛赛题分析"
+  - method: "忽略对流边界"
+    root_cause: "外表面换热失真"
+    signal: "温度场偏差"
+    lesson: "需边界条件"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

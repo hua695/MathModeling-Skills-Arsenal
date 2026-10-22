@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P099
+# 来源: 2017 ICM Problem F: Migration to Mars
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P099
+title: "Migration to Mars (火星移民网络流)"
+competition: MCM/ICM
+year: 2017
+problem_code: "F"
+category: 图模型
+domain: 空间网络/资源流优化
+objective: "建立火星移民供应链网络模型, 优化物资与人员流动使移民规模可持续"
+variables:
+  - name: 地球-火星节点
+    type: 未指定
+    description: 未指定
+  - name: 运载能力
+    type: 未指定
+    description: 未指定
+  - name: 物资需求
+    type: 未指定
+    description: 未指定
+  - name: 生命周期
+    type: 未指定
+    description: 未指定
+  - name: 成本
+    type: 未指定
+    description: 未指定
+  - name: 在轨中转
+    type: 未指定
+    description: 未指定
+constraints:
+  - 运载容量约束
+  - 发射窗口约束
+  - 物资平衡
+  - 网络连通
+  - 时间跨度
+assumptions:
+  - 运输沿网络边
+  - 需求可预测
+  - 中转可缓存
+  - 成本可量化
+confidence: 中
+source:
+  title: "2017 ICM Problem F: Migration to Mars"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2017

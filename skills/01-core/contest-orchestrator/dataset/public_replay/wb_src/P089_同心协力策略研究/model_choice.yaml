@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P089
+# 来源: 全国大学生数学建模竞赛2019年B题
+case_id: P089
+candidate_models:
+  - 刚体平面运动方程
+  - 碰撞冲量动量定理
+  - 受力平衡分析
+  - 多目标优化
+final_choice: "刚体受力+冲量分析 + 站位优化"
+reason: "用动量矩与受力平衡描述顶杆运动, 优化握点与发力使杆平动不翻转"
+alternatives:
+  - 有限元接触分析
+  - 多体动力学仿真
+  - 遗传算法
+limitations:
+  - 人体发力简化
+  - 碰撞非完全弹性
+  - 地面不平整忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

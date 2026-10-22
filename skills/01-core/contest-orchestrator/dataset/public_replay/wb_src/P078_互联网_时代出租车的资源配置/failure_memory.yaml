@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P078
+# 来源: 全国大学生数学建模竞赛2015年B题
+case_id: P078
+failures:
+  - method: "均匀补贴全城"
+    root_cause: "热点区域仍短缺"
+    signal: "配置低效"
+    lesson: "需定向调度"
+    reference: "国赛赛题分析"
+  - method: "忽视空驶率"
+    root_cause: "整体供给虚高"
+    signal: "评价失真"
+    lesson: "需供需比"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

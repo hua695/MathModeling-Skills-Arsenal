@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P045
+# 来源: 全国大学生数学建模竞赛2013年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P045
+title: "公共自行车服务系统"
+competition: CUMCM
+year: 2013
+problem_code: "D"
+category: 优化决策
+domain: 排队优化/调度管理
+objective: "分析公共自行车借还规律, 优化调度方案与站点规模使系统服务效率最高"
+variables:
+  - name: 各站点桩位容量
+    type: 未指定
+    description: 未指定
+  - name: 借车/还车时间序列
+    type: 未指定
+    description: 未指定
+  - name: 调度车容量
+    type: 未指定
+    description: 未指定
+  - name: 调度成本
+    type: 未指定
+    description: 未指定
+  - name: 骑行需求
+    type: 未指定
+    description: 未指定
+constraints:
+  - 桩位容量约束
+  - 调度车容量与工作时间约束
+  - 站点库存非负
+  - 需求时空不均衡
+assumptions:
+  - 借还服从一定时段规律
+  - 调度可在低峰进行
+  - 站点间需求可统计
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2013

@@ -1,0 +1,17 @@
+# H5 结果追溯清单：填写真实运行记录后方可将 H5 标记为 verified
+schema_version: '1.0'
+status: draft
+node_id: H5
+seed: null
+model_contract_path: model_contract.yaml
+model_contract_sha256: <model_contract.yaml SHA-256>
+offline_run:
+  command: <真实可执行命令>
+  execution_scope: offline_only
+  result:
+    path: <主结果文件相对路径>
+    sha256: <主结果文件 SHA-256>
+formal_tests:
+  record_fields: [case_code, result_file]
+  records: []
+formal_interpretation_boundary: <正式记录覆盖范围及解释边界>

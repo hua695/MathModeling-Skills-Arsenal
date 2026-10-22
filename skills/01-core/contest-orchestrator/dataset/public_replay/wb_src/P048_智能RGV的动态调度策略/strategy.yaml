@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P048
+# 来源: 全国大学生数学建模竞赛2018年B题
+case_id: P048
+applicable_scenarios:
+  - 柔性制造调度
+  - AGV/RGV路径分配
+  - 产线节拍优化
+strategy: "0-1任务分配+动态调度规则+仿真验证"
+why_effective: "分配模型给最优解, 动态规则应对实时扰动, 仿真保证可行性"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

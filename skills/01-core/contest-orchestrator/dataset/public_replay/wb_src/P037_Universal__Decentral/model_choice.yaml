@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P037
+# 来源: 2019 ICM Problem F: Universal, Decentralized, Circulating Currency
+case_id: P037
+candidate_models:
+  - 网络效应模型
+  - 博弈论
+  - 系统动力学
+  - 回归分析
+final_choice: "网络效应模型 + 博弈论分析"
+reason: "网络效应描述用户采用, 博弈论分析策略行为"
+alternatives:
+  - Agent-based模型
+  - DSGE模型
+  - 灰色预测
+limitations:
+  - 加密货币数据有限
+  - 行为假设简化
+  - 监管因素难量化
+confidence: 低
+source:
+  title: "2019 ICM Problem F: Universal, Decentralized, Circulating Currency"
+  url: https://www.contest.comap.com/undergraduate/contests/

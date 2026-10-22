@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P004
+# 来源: 全国大学生数学建模竞赛2012年C题
+case_id: P004
+steps:
+  - step: 1
+    action: "数据清洗与缺失值处理"
+    reason: "保证数据质量"
+    abandoned: "无"
+  - step: 2
+    action: "描述性统计分析发病规律"
+    reason: "了解发病的时间/人群分布"
+    abandoned: "无"
+  - step: 3
+    action: "灰色关联分析筛选关键环境因素"
+    reason: "确定主要影响因素"
+    abandoned: "直接全部使用"
+  - step: 4
+    action: "GLM建立发病预测模型"
+    reason: "量化环境因素影响"
+    abandoned: "线性回归"
+  - step: 5
+    action: "提出干预建议"
+    reason: "基于模型结果给出预防策略"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

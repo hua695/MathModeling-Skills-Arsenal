@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P057
+# 来源: 2018 MCM Problem D: Out of the Gas?
+case_id: P057
+failures:
+  - method: "均匀布点"
+    root_cause: "未匹配需求分布"
+    signal: "覆盖不足且浪费"
+    lesson: "需需求驱动选址"
+    reference: "美赛赛题分析"
+  - method: "忽略容量约束"
+    root_cause: "站点过载排队"
+    signal: "服务失效"
+    lesson: "需容量配置"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2018 MCM Problem D: Out of the Gas?"
+  url: https://www.contest.comap.com/undergraduate/contests/

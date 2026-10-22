@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P032
+# 来源: 2016 MCM Problem B: Space Junk
+case_id: P032
+failures:
+  - method: "忽略Kessler效应"
+    root_cause: "碰撞产生更多碎片形成级联"
+    signal: "低估碎片增长"
+    lesson: "需建模级联效应"
+    reference: "美赛赛题分析"
+  - method: "确定性碰撞模型"
+    root_cause: "碰撞是随机事件"
+    signal: "风险估计不准"
+    lesson: "需用概率模型"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2016 MCM Problem B: Space Junk"
+  url: http://www.madio.net/thread-290074-1-1.html

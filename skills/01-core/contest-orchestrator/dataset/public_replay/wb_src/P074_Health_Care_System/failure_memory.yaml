@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P074
+# 来源: 2008 ICM Problem: Health Care System
+case_id: P074
+failures:
+  - method: "主观等权评价"
+    root_cause: "忽视指标信息量差异"
+    signal: "排名偏颇"
+    lesson: "需客观赋权"
+    reference: "美赛赛题分析"
+  - method: "线性加权处理"
+    root_cause: "指标与绩效非线性"
+    signal: "拟合差"
+    lesson: "需非线性模型"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2008 ICM Problem: Health Care System"
+  url: http://www.madio.net/thread-290074-1-1.html

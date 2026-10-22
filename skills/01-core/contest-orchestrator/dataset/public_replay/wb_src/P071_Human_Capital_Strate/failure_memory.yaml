@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P071
+# 来源: 2015 MCM Problem C: Human Capital Strategy
+case_id: P071
+failures:
+  - method: "仅看成本"
+    root_cause: "忽视战略契合与产出"
+    signal: "战略错配"
+    lesson: "需综合评价"
+    reference: "美赛赛题分析"
+  - method: "固定配置不优化"
+    root_cause: "资源错配效率低"
+    signal: "人力浪费"
+    lesson: "需优化"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2015 MCM Problem C: Human Capital Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

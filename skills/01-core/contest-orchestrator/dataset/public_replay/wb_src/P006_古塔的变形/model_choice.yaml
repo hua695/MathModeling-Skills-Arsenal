@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P006
+# 来源: 全国大学生数学建模竞赛2013年C题
+case_id: P006
+candidate_models:
+  - 空间坐标变换
+  - 多元回归预测
+  - 灰色预测GM(1,1)
+  - 时间序列ARIMA
+final_choice: "空间坐标变换计算变形 + 回归/灰色预测变形趋势"
+reason: "坐标变换精确计算各期变形量, 回归/灰色模型预测未来变形趋势"
+alternatives:
+  - 有限元分析
+  - 神经网络
+  - 多项式拟合
+limitations:
+  - 刚性假设可能不满足
+  - 观测期数少影响预测精度
+  - 未考虑地基沉降因素
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest Modeling Contract",
+  "type": "object",
+  "required": ["schema_version", "subproblems"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "contract_version": {"type": "string"},
+    "evidence_quality": {"enum": ["legacy", "enhanced"]},
+    "research_evidence_version": {"type": "string"},
+    "expected_subproblems": {"type": "array", "items": {"type": "string", "pattern": "^Q[0-9]+$"}},
+    "project": {"type": "object"},
+    "subproblems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "capabilities", "evidence"],
+    "properties": {
+          "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+          "primary_capability": {"type": "string"},
+          "capabilities": {"type": "array", "items": {"type": "string"}},
+          "text_anchor": {"type": "string"},
+          "text_anchors": {"type": "array", "items": {"type": "string"}},
+          "evidence": {"type": "object"},
+          "limitations": {
+            "type": "object",
+            "required": ["assumptions", "applicable_conditions", "failure_conditions", "impact_direction", "mitigation"],
+            "properties": {
+              "assumptions": {"type": "string"},
+              "applicable_conditions": {"type": "string"},
+              "failure_conditions": {"type": "string"},
+              "impact_direction": {"type": "string"},
+              "mitigation": {"type": "string"}
+            }
+          },
+          "reader_evidence": {"$ref": "#/$defs/readerEvidence"}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "readerEvidence": {
+      "type": "object",
+      "required": ["problem_need", "model_choice_reason", "data_scope", "assumption_traceability", "derivation_arc", "final_model_reading", "evaluation"],
+      "properties": {
+        "problem_need": {"type": "string", "minLength": 1},
+        "model_choice_reason": {"type": "string", "minLength": 1},
+        "data_scope": {
+          "type": "object",
+          "required": ["mode", "shared_inputs", "question_specific_inputs", "placement_rationale"],
+          "properties": {
+            "mode": {"enum": ["shared", "independent", "hybrid"]},
+            "shared_inputs": {"type": "array", "items": {"type": "string"}},
+            "question_specific_inputs": {"type": "array", "items": {"type": "string"}},
+            "placement_rationale": {"type": "string", "minLength": 1}
+          }
+        },
+        "assumption_traceability": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/assumptionTrace"}},
+        "derivation_arc": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/derivationStep"}},
+        "final_model_reading": {"type": "string", "minLength": 1},
+        "evaluation": {
+          "type": "object",
+          "required": ["strengths", "limitations", "improvements"],
+          "properties": {
+            "strengths": {"type": "array", "minItems": 1},
+            "limitations": {"type": "array", "minItems": 1},
+            "improvements": {"type": "array", "minItems": 1}
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "assumptionTrace": {
+      "type": "object",
+      "required": ["assumption_id", "statement", "basis", "model_role", "impact_if_violated", "validation_refs"],
+      "properties": {
+        "assumption_id": {"type": "string", "minLength": 1},
+        "statement": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "model_role": {"type": "string", "minLength": 1},
+        "impact_if_violated": {"type": "string", "minLength": 1},
+        "validation_refs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "derivationStep": {
+      "type": "object",
+      "required": ["from", "to", "reason"],
+      "properties": {
+        "from": {"type": "string", "minLength": 1},
+        "to": {"type": "string", "minLength": 1},
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

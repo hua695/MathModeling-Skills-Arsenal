@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P049
+# 来源: 全国大学生数学建模竞赛2018年D题
+case_id: P049
+steps:
+  - step: 1
+    action: "梳理工序优先关系图"
+    reason: "明确装配逻辑"
+    abandoned: "无"
+  - step: 2
+    action: "建立流水线平衡模型"
+    reason: "最小化节拍/最大化平衡率"
+    abandoned: "平均分配"
+  - step: 3
+    action: "整数规划求解工位配置"
+    reason: "输出工序-工位分配"
+    abandoned: "无"
+  - step: 4
+    action: "灵敏度分析工序波动"
+    reason: "评估配置鲁棒性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

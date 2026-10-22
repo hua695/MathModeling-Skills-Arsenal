@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P011
+# 来源: 全国大学生数学建模竞赛2017年C题
+case_id: P011
+candidate_models:
+  - 多元线性回归
+  - 多项式回归
+  - 偏最小二乘(PLS)
+  - 层次分析法(AHP)
+final_choice: "多项式回归建立浓度-颜色关系 + AHP评价辨识能力"
+reason: "多项式回归捕捉非线性, AHP系统评价三种染料的辨识能力"
+alternatives:
+  - 支持向量机
+  - 神经网络
+  - 主成分回归
+limitations:
+  - 多物质混合时模型不适用
+  - pH/温度影响未充分建模
+  - 数据量有限
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年C题"
+  url: https://sxjm.yzu.edu.cn

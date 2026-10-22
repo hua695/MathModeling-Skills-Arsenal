@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P075
+# 来源: 2009 MCM Problem B: Energy and Phones
+case_id: P075
+failures:
+  - method: "仅看成本最低"
+    root_cause: "忽视碳与环境"
+    signal: "方案不可持续"
+    lesson: "需综合评价"
+    reference: "美赛赛题分析"
+  - method: "忽视需求增长"
+    root_cause: "供给不足"
+    signal: "方案失效"
+    lesson: "需预测"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2009 MCM Problem B: Energy and Phones"
+  url: https://www.contest.comap.com/undergraduate/contests/

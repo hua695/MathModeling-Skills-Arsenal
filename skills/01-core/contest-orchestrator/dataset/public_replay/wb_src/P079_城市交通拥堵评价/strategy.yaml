@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P079
+# 来源: 2018年亚太杯数学建模竞赛A题
+case_id: P079
+applicable_scenarios:
+  - 城市拥堵评价
+  - 路网健康分级
+  - 交通治理优先级
+strategy: "熵权客观赋权+模糊综合评价拥堵分级"
+why_effective: "客观赋权保证公正, 模糊评价贴合拥堵的渐变特征, 适合分级管理"
+confidence: 低
+source:
+  title: "2018年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

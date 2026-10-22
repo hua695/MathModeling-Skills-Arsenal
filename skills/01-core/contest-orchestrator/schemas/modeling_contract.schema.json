@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "profile", "model_ratio", "subproblems", "gate_status"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "profile": {"type": "string"},
+    "model_ratio": {"type": "number", "minimum": 0, "maximum": 1},
+    "measurement": {"type": "string"},
+    "gate_status": {"enum": ["PASS", "WARN", "BLOCK", "UNKNOWN"]},
+    "passed": {"type": "boolean"},
+    "issues": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "subproblems": {
+      "type": "array",
+      "items": {"type": "object", "required": ["problem_id", "sections", "missing", "result_evidence", "passed"],
+        "properties": {
+          "problem_id": {"type": "string"},
+          "heading": {"type": "string"},
+          "sections": {"type": "array", "items": {"type": "string"}},
+          "missing": {"type": "array", "items": {"type": "string"}},
+          "result_evidence": {"type": "integer", "minimum": 0},
+          "passed": {"type": "boolean"}
+        }}
+    },
+    "evidence": {"type": "object"}
+  }
+}

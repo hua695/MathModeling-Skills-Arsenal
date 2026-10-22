@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P088
+# 来源: 全国大学生数学建模竞赛2019年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P088
+title: "高压油管的压力控制"
+competition: CUMCM
+year: 2019
+problem_code: "A"
+category: 物理建模
+domain: 流体力学/微分方程
+objective: "建立高压油管燃油压力动力学模型, 优化凸轮与针阀控制使压力稳定在设计值"
+variables:
+  - name: 泵油速率
+    type: 未指定
+    description: 未指定
+  - name: 针阀开闭时序
+    type: 未指定
+    description: 未指定
+  - name: 管内压力
+    type: 未指定
+    description: 未指定
+  - name: 燃油密度/弹性
+    type: 未指定
+    description: 未指定
+  - name: 凸轮转速
+    type: 未指定
+    description: 未指定
+  - name: 残余压力
+    type: 未指定
+    description: 未指定
+constraints:
+  - 压力波动在允许范围
+  - 质量守恒
+  - 阀开闭周期约束
+  - 单向阀流动方向
+assumptions:
+  - 燃油可压缩(体积弹性模量)
+  - 一维管内均匀压力
+  - 流动为稳态小扰动
+  - 泄漏可忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2019

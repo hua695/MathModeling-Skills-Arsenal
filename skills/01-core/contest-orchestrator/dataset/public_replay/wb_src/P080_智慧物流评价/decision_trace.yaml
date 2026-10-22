@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P080
+# 来源: 2018年华数杯数学建模竞赛B题
+case_id: P080
+steps:
+  - step: 1
+    action: "构建智慧物流指标体系"
+    reason: "覆盖自动化/时效/成本"
+    abandoned: "无"
+  - step: 2
+    action: "AHP确定权重"
+    reason: "量化维度重要性"
+    abandoned: "等权"
+  - step: 3
+    action: "模糊综合评价方案"
+    reason: "打分排序优选"
+    abandoned: "无"
+  - step: 4
+    action: "改进建议输出"
+    reason: "针对短板指标"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2018年华数杯数学建模竞赛B题"
+  url: https://www.saikr.com/vse/huashubei2018

@@ -1,0 +1,6 @@
+{
+  "display_name": "Web Access（浏览器自动化）",
+  "display_name_en": "Web Access",
+  "description_zh": "CDP 直连本地 Chrome，智能调度联网工具，支持登录态、并行批量操作",
+  "description_en": "CDP-based web access: search, scrape, login-aware browsing, parallel ops"
+}

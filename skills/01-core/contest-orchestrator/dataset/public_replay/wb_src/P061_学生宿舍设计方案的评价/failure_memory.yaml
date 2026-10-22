@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P061
+# 来源: 全国大学生数学建模竞赛2010年D题
+case_id: P061
+failures:
+  - method: "等权简单加权"
+    root_cause: "忽略指标重要性差异"
+    signal: "排序失真"
+    lesson: "需AHP赋权"
+    reference: "国赛赛题分析"
+  - method: "硬性阈值判定"
+    root_cause: "设计指标具模糊性"
+    signal: "评价武断"
+    lesson: "需模糊评价"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年D题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

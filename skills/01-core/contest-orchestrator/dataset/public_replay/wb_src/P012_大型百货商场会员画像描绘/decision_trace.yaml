@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P012
+# 来源: 全国大学生数学建模竞赛2018年C题
+case_id: P012
+steps:
+  - step: 1
+    action: "数据清洗与特征工程"
+    reason: "提取RFM等特征"
+    abandoned: "无"
+  - step: 2
+    action: "K-means聚类会员分群"
+    reason: "识别不同类型会员"
+    abandoned: "无"
+  - step: 3
+    action: "决策树预测会员消费倾向"
+    reason: "预测未来消费行为"
+    abandoned: "无"
+  - step: 4
+    action: "关联规则分析购买模式"
+    reason: "发现商品关联关系"
+    abandoned: "无"
+  - step: 5
+    action: "画像可视化与策略建议"
+    reason: "形成可操作的用户画像"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

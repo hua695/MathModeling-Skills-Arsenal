@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P066
+# 来源: 全国大学生数学建模竞赛2005年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P066
+title: "雨量预报方法的评价"
+competition: CUMCM
+year: 2005
+problem_code: "C"
+category: 评价分类
+domain: 气象评价/统计检验
+objective: "建立评价指标比较不同雨量预报方法的准确性, 选出最优方法"
+variables:
+  - name: 预报雨量栅格
+    type: 未指定
+    description: 未指定
+  - name: 实测雨量栅格
+    type: 未指定
+    description: 未指定
+  - name: 空间分辨率
+    type: 未指定
+    description: 未指定
+  - name: 预报时段
+    type: 未指定
+    description: 未指定
+  - name: 误差分布
+    type: 未指定
+    description: 未指定
+constraints:
+  - 栅格空间匹配
+  - 时段对齐
+  - 误差非负
+  - 分辨率差异
+assumptions:
+  - 实测为真值
+  - 栅格可插值匹配
+  - 误差可量化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2005

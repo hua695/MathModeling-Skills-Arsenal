@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P043
+# 来源: 全国大学生数学建模竞赛2012年B题
+case_id: P043
+failures:
+  - method: "仅按面积最大铺设"
+    root_cause: "忽略朝向与遮挡导致实际出力低"
+    signal: "发电量估算虚高"
+    lesson: "须结合光照模型"
+    reference: "国赛赛题分析"
+  - method: "逆变器容量随意配"
+    root_cause: "容量不匹配降低转换效率"
+    signal: "系统效率损失"
+    lesson: "需容量匹配优化"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

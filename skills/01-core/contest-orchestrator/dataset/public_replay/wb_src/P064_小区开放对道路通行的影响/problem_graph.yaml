@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P064
+# 来源: 全国大学生数学建模竞赛2016年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P064
+title: "小区开放对道路通行的影响"
+competition: CUMCM
+year: 2016
+problem_code: "B"
+category: 评价分类
+domain: 交通评价/微观仿真
+objective: "评价小区开放对周边道路通行能力的影响, 给出开放策略建议"
+variables:
+  - name: 路网结构
+    type: 未指定
+    description: 未指定
+  - name: 小区内部道路
+    type: 未指定
+    description: 未指定
+  - name: 车流到达率
+    type: 未指定
+    description: 未指定
+  - name: 通行能力指标
+    type: 未指定
+    description: 未指定
+  - name: 延误
+    type: 未指定
+    description: 未指定
+constraints:
+  - 路网拓扑约束
+  - 小区开放条件
+  - 交通安全约束
+  - 信号配时
+assumptions:
+  - 开放后内部道路可通行
+  - 交通流可仿真
+  - 驾驶行为同质
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2016

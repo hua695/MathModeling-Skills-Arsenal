@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P093
+# 来源: 全国大学生数学建模竞赛2017年D题
+case_id: P093
+candidate_models:
+  - 中国邮递员问题(CPP)
+  - 图论欧拉回路
+  - TSP变体
+  - 整数规划
+final_choice: "欧拉回路(CPP) + 多员路线分配"
+reason: "用中国邮递员问题求遍历所有边的最短回路, 再分配给多巡检员并均衡"
+alternatives:
+  - 遗传算法
+  - 扫描算法
+  - 弧路由启发式
+limitations:
+  - 单向街道忽略
+  - 工作量权重简化
+  - 突发占用未考虑
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

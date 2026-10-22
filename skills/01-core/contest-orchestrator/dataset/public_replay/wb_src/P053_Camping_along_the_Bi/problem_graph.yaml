@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P053
+# 来源: 2012 MCM Problem B: Camping along the Big Long River
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P053
+title: "Camping along the Big Long River (沿大河露营调度)"
+competition: MCM/ICM
+year: 2012
+problem_code: "B"
+category: 优化决策
+domain: 行程调度/组合优化
+objective: "在河道营地容量与划行速度约束下, 安排多日漂流行程使各队都能获得合规营地"
+variables:
+  - name: 各营地位置/容量
+    type: 未指定
+    description: 未指定
+  - name: 每日划行时长
+    type: 未指定
+    description: 未指定
+  - name: 队伍数
+    type: 未指定
+    description: 未指定
+  - name: 出发间隔
+    type: 未指定
+    description: 未指定
+  - name: 水流速度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 营地过夜容量限制
+  - 每日行程距离约束
+  - 队伍不冲突占用
+  - 行程连续性
+assumptions:
+  - 营地容量固定
+  - 划行速度稳定
+  - 队伍按规则占用营地
+confidence: 中
+source:
+  title: "2012 MCM Problem B: Camping along the Big Long River"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2012

@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P046
+# 来源: 全国大学生数学建模竞赛2014年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P046
+title: "生猪养殖场的经营管理"
+competition: CUMCM
+year: 2014
+problem_code: "C"
+category: 优化决策
+domain: 农业经营/线性规划
+objective: "在存栏、母猪、育种与资金约束下, 优化养殖结构使净利润最大"
+variables:
+  - name: 存栏量
+    type: 未指定
+    description: 未指定
+  - name: 母猪数
+    type: 未指定
+    description: 未指定
+  - name: 出栏周期
+    type: 未指定
+    description: 未指定
+  - name: 饲料成本
+    type: 未指定
+    description: 未指定
+  - name: 仔猪/生猪价格
+    type: 未指定
+    description: 未指定
+  - name: 资金上限
+    type: 未指定
+    description: 未指定
+constraints:
+  - 栏舍容量约束
+  - 母猪比例约束
+  - 资金与饲料约束
+  - 市场价格波动
+assumptions:
+  - 养殖周期与成活率为常数
+  - 价格短期已知
+  - 需求可满足
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2014

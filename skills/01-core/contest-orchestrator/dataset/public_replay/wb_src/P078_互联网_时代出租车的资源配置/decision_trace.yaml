@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P078
+# 来源: 全国大学生数学建模竞赛2015年B题
+case_id: P078
+steps:
+  - step: 1
+    action: "时空供需指标计算"
+    reason: "量化失衡区域"
+    abandoned: "无"
+  - step: 2
+    action: "AHP+模糊评价配置"
+    reason: "综合打分排序"
+    abandoned: "无"
+  - step: 3
+    action: "聚类识别热点区域"
+    reason: "定向调度与补贴"
+    abandoned: "均匀补贴"
+  - step: 4
+    action: "调度方案评估"
+    reason: "检验匹配改善"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

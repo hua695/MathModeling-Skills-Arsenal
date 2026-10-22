@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest change impact card",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "change_id",
+    "profile",
+    "impact_level",
+    "reason",
+    "changed_artifacts",
+    "affected_subproblems",
+    "earliest_invalid_node",
+    "protected_fields"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "change_id": {"type": "string", "pattern": "^chg-[A-Za-z0-9][A-Za-z0-9_.-]{2,63}$"},
+    "profile": {"enum": ["competition_fast", "standard"]},
+    "impact_level": {"enum": ["L0", "L1", "L2", "L3"]},
+    "reason": {"type": "string", "minLength": 1},
+    "changed_artifacts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["path", "after_sha256", "artifact_kind"],
+        "properties": {
+          "path": {"type": "string", "pattern": "^(?![A-Za-z]:)(?!/)(?!\\\\)(?!.*(^|[/\\\\])\\.\\.([/\\\\]|$)).+$"},
+          "before_sha256": {"type": ["string", "null"], "pattern": "^[0-9a-fA-F]{64}$"},
+          "after_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+          "artifact_kind": {"type": "string"}
+        }
+      }
+    },
+    "affected_subproblems": {"type": "array", "items": {"type": "string"}},
+    "earliest_invalid_node": {"enum": ["H1", "H2", "H3", "H4", "H5", "H6", "H7", "H8"]},
+    "protected_fields": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "skill_code_changed": {"type": "boolean"}
+  }
+}

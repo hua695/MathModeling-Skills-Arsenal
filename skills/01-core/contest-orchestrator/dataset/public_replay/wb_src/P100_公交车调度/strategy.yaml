@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P100
+# 来源: 全国大学生数学建模竞赛2001年B题
+case_id: P100
+applicable_scenarios:
+  - 公交发车调度
+  - 分时运力配置
+  - 供需匹配优化
+strategy: "客流分析+整数规划分时调度+排班优化"
+why_effective: "客流分析定位高峰, 整数规划精确配置运力, 排班保证可执行"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2001年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

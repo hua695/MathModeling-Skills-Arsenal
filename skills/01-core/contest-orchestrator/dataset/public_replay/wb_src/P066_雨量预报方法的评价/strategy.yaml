@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P066
+# 来源: 全国大学生数学建模竞赛2005年C题
+case_id: P066
+applicable_scenarios:
+  - 预报方法评价
+  - 栅格数据一致性检验
+  - 模型精度对比
+strategy: "多维误差指标+空间一致性综合评判"
+why_effective: "多指标覆盖精度/偏差/空间结构, 综合评判避免单一指标误判"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

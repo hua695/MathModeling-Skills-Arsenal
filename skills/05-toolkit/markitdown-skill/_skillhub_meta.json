@@ -1,0 +1,20 @@
+{
+  "name": "MarkItDown",
+  "installedAt": 1787295019761,
+  "source": "marketplace",
+  "version": "1.0.1",
+  "skillId": "skill_2053083553754644480",
+  "examples_zh": [
+    "把这份PDF产品白皮书转换成Markdown，并保留标题层级、表格和图片OCR文字",
+    "批量将会议PPT和Word纪要转成Markdown，输出到同一个资料目录",
+    "从这个网页和配套音频中提取内容，生成可检索的Markdown笔记"
+  ],
+  "examples_en": [
+    "Convert this product whitepaper PDF to Markdown while preserving headings, tables, and OCR text from images",
+    "Batch-convert the meeting PowerPoint and Word minutes into Markdown files in one notes folder",
+    "Extract content from this URL and its accompanying audio, then create searchable Markdown notes"
+  ],
+  "description_zh": "文档转 Markdown(PDF/Word/PPT/图片OCR/音频转写/网页)",
+  "description_en": "Convert documents to Markdown (PDF, Word, PPT, images, audio, URLs)",
+  "iconSource": "letter:auto"
+}

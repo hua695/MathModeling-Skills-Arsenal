@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P042
+# 来源: 全国大学生数学建模竞赛2011年D题
+case_id: P042
+applicable_scenarios:
+  - 工业下料优化
+  - 离散资源组合搭配
+  - 库存最优利用
+strategy: "整数规划精确搭配+贪心降规模"
+why_effective: "整数规划保证全局最优, 贪心预处理提升可解性, 适合离散原料的搭配问题"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

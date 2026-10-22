@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P090
+# 来源: 全国大学生数学建模竞赛2020年A题
+case_id: P090
+candidate_models:
+  - 热传导方程
+  - 有限差分法
+  - 集总参数模型
+  - 参数优化
+final_choice: "导热PDE + 有限差分炉温曲线仿真"
+reason: "用导热方程模拟板上温度演化, 有限差分得炉温曲线并优化温区与速度"
+alternatives:
+  - 有限元分析
+  - 响应面优化
+  - 遗传算法
+limitations:
+  - 对流简化
+  - 物性随温度变
+  - 三维效应忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

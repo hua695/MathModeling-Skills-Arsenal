@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P011
+# 来源: 全国大学生数学建模竞赛2017年C题
+case_id: P011
+failures:
+  - method: "线性回归拟合"
+    root_cause: "颜色与浓度关系非线性"
+    signal: "残差有趋势"
+    lesson: "需用非线性回归"
+    reference: "国赛赛题分析"
+  - method: "忽略交互效应"
+    root_cause: "R/G/B间存在交互影响浓度"
+    signal: "模型偏差"
+    lesson: "需引入交互项"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年C题"
+  url: https://sxjm.yzu.edu.cn

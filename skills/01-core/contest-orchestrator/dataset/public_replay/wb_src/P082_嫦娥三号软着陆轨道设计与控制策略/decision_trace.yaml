@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P082
+# 来源: 全国大学生数学建模竞赛2014年A题
+case_id: P082
+steps:
+  - step: 1
+    action: "建立月球下降动力学"
+    reason: "描述位置速度演化"
+    abandoned: "无"
+  - step: 2
+    action: "确定制动初始点"
+    reason: "满足动力下降约束"
+    abandoned: "无"
+  - step: 3
+    action: "最优控制求解制动剖面"
+    reason: "最小化燃料与速度"
+    abandoned: "匀速下降"
+  - step: 4
+    action: "落点精度与避障校验"
+    reason: "确保软着陆安全"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

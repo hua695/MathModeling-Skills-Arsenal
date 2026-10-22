@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P089
+# 来源: 全国大学生数学建模竞赛2019年B题
+case_id: P089
+steps:
+  - step: 1
+    action: "建立杆受力模型"
+    reason: "合成各人发力与摩擦"
+    abandoned: "无"
+  - step: 2
+    action: "力矩平衡分析"
+    reason: "避免杆翻转"
+    abandoned: "无"
+  - step: 3
+    action: "碰撞冲量计算前移"
+    reason: "描述启动过程"
+    abandoned: "无"
+  - step: 4
+    action: "优化站位与发力"
+    reason: "使运动稳定高效"
+    abandoned: "经验站位"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P033
+# 来源: 2018 MCM Problem B: How Many Languages?
+case_id: P033
+failures:
+  - method: "简单线性预测"
+    root_cause: "语言消亡非线性"
+    signal: "长期预测偏差"
+    lesson: "需用非线性模型"
+    reference: "美赛赛题分析"
+  - method: "忽略语言接触效应"
+    root_cause: "语言间互相影响"
+    signal: "消亡率估计不准"
+    lesson: "需引入竞争模型"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2018 MCM Problem B: How Many Languages?"
+  url: https://www.contest.comap.com/undergraduate/contests/

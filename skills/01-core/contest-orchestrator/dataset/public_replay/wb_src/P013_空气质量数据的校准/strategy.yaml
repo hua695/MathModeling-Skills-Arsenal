@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P013
+# 来源: 全国大学生数学建模竞赛2019年D题
+case_id: P013
+applicable_scenarios:
+  - 传感器数据校准
+  - 空气质量监测
+  - 多源数据融合
+strategy: "线性基准+非线性增强的组合校准策略"
+why_effective: "线性模型提供可解释基准, 非线性模型提升精度, 组合更鲁棒"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

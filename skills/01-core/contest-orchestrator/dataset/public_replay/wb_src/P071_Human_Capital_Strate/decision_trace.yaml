@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P071
+# 来源: 2015 MCM Problem C: Human Capital Strategy
+case_id: P071
+steps:
+  - step: 1
+    action: "构建人力评价指标体系"
+    reason: "覆盖技能/产出/战略"
+    abandoned: "无"
+  - step: 2
+    action: "AHP评价战略契合"
+    reason: "量化各战略得分"
+    abandoned: "等权"
+  - step: 3
+    action: "遗传算法优化配置"
+    reason: "在预算下最优分配"
+    abandoned: "经验配置"
+  - step: 4
+    action: "方案对比与建议"
+    reason: "选最优人力战略"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2015 MCM Problem C: Human Capital Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

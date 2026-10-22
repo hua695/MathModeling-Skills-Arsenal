@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P092
+# 来源: 全国大学生数学建模竞赛2013年B题
+case_id: P092
+applicable_scenarios:
+  - 图像碎片复原
+  - 图匹配排序
+  - 文档数字化修复
+strategy: "边缘特征图+全局路径(哈密顿/最小生成树)复原"
+why_effective: "特征图量化匹配, 全局路径避免局部错误, 保证唯一可拼合顺序"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

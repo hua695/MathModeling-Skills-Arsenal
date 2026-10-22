@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P085
+# 来源: 全国大学生数学建模竞赛2016年A题
+case_id: P085
+candidate_models:
+  - 悬链线方程
+  - 静力平衡方程
+  - 受力分析
+  - 多目标优化
+final_choice: "悬链线力学 + 静力平衡优化设计"
+reason: "悬链线描述锚链形态, 静力平衡确定吃水与倾角, 优化满足约束"
+alternatives:
+  - 有限元分析
+  - 动态时域仿真
+  - 遗传算法
+limitations:
+  - 静力忽略动力
+  - 海床平坦假设
+  - 风浪耦合简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

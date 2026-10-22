@@ -1,0 +1,20 @@
+{
+  "name": "darwin-skill",
+  "installedAt": 1787402489674,
+  "source": "marketplace",
+  "version": "1.0.0",
+  "skillId": "skill_2053081519859650560",
+  "examples_zh": [
+    "请用 Darwin Skill 给这个 SKILL.md 做 8 维评分，并指出结构、触发条件和工具使用上的薄弱项。",
+    "对我的 agent skill 运行自动优化，使用棘轮机制保留评分更高的版本并生成对比结果。",
+    "帮我 review 一个新写的 skill，基于测试 prompts 验证改进后是否比原版更稳定。"
+  ],
+  "examples_en": [
+    "Use Darwin Skill to score this SKILL.md with the 8-dimension rubric and identify weaknesses in structure, triggers, and tool usage.",
+    "Run autonomous optimization on my agent skill, keep the higher-scoring version with the ratchet mechanism, and generate a comparison result.",
+    "Review a newly written skill and validate with test prompts whether the improved version is more stable than the original."
+  ],
+  "description_zh": "自主优化 Agent Skill（8维评分、棘轮机制、自动改进）",
+  "description_en": "Autonomous skill optimizer with 8-dim rubric and ratchet mechanism",
+  "iconSource": "letter:auto"
+}

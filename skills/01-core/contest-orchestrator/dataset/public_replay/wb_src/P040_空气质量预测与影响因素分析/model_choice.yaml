@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P040
+# 来源: 2019年华数杯数学建模竞赛B题
+case_id: P040
+candidate_models:
+  - 多元回归
+  - 随机森林
+  - LSTM
+  - 主成分分析(PCA)
+final_choice: "PCA降维 + LSTM时间序列预测"
+reason: "PCA降低维度, LSTM捕捉时间序列长期依赖"
+alternatives:
+  - ARIMA
+  - XGBoost
+  - 灰色预测
+limitations:
+  - 源排放数据缺失
+  - 极端天气影响
+  - 长期预测不确定性大
+confidence: 低
+source:
+  title: "2019年华数杯数学建模竞赛B题"
+  url: https://www.saikr.com/vse/huashubei2019

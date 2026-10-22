@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P093
+# 来源: 全国大学生数学建模竞赛2017年D题
+case_id: P093
+applicable_scenarios:
+  - 街道巡检路线
+  - 邮递/垃圾收集路径
+  - 弧路由优化
+strategy: "中国邮递员问题+多员均衡路线分配"
+why_effective: "CPP保证全边遍历最短, 均衡分配兼顾可行与公平"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

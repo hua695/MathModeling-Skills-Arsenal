@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P059
+# 来源: 2015 ICM Problem D: Is it smarter to be sustainable?
+case_id: P059
+steps:
+  - step: 1
+    action: "构建三重底线指标体系"
+    reason: "量化可持续收益"
+    abandoned: "无"
+  - step: 2
+    action: "AHP确定维度权重"
+    reason: "平衡三方面目标"
+    abandoned: "等权"
+  - step: 3
+    action: "多目标规划优化投入"
+    reason: "在预算下最大化综合效益"
+    abandoned: "单目标"
+  - step: 4
+    action: "情景与敏感性分析"
+    reason: "评估长期不确定性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2015 ICM Problem D: Is it smarter to be sustainable?"
+  url: http://www.madio.net/thread-290074-1-1.html

@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P010
+# 来源: 全国大学生数学建模竞赛2017年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P010
+title: "拍照赚钱的任务定价"
+competition: CUMCM
+year: 2017
+problem_code: "B"
+category: 数据预测
+domain: 运筹优化/定价策略
+objective: "分析拍照赚钱APP的任务定价规律, 建立定价模型并优化, 设计任务打包方案"
+variables:
+  - name: 任务位置(经纬度)
+    type: 未指定
+    description: 未指定
+  - name: 任务定价
+    type: 未指定
+    description: 未指定
+  - name: 会员位置
+    type: 未指定
+    description: 未指定
+  - name: 会员信誉值
+    type: 未指定
+    description: 未指定
+  - name: 会员预订任务时间
+    type: 未指定
+    description: 未指定
+constraints:
+  - 任务必须被完成
+  - 会员能力限制
+  - 定价成本约束
+assumptions:
+  - 定价与位置/密度相关
+  - 会员就近接单
+  - 任务可打包分配
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年B题"
+  url: https://sxjm.yzu.edu.cn
+  year: 2017

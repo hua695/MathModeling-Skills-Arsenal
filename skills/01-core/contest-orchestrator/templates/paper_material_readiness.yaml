@@ -1,0 +1,68 @@
+# 章节素材索引（paper_material_readiness.yaml）
+# 升级版：在原有素材准入基础上，按论文章节登记素材文件，供 H8 写哪章读哪章。
+# chapter_type:
+#   narrative_only: 摘要/问题分析/结论等只读叙事蓝图（paper_narrative.yaml），不强制素材文件
+#   evidence:        建模求解等章节，material_refs 必须登记该章真实素材文件（推导/符号/结果/验证/图表）
+schema_version: "2.0"
+status: PAUSE
+prepared_by: 主 agent
+verified_by: H6
+verification_agent_instance_id: <H6 agent_instance_id>
+narrative_source: <paper_narrative.yaml 项目相对路径>
+target_length:
+  whole_pdf_recommended_range: [35, 51]
+  sections:
+    - section_id: abstract
+      chapter_type: narrative_only
+      capacity_status: adequate
+      material_refs: []
+    - section_id: <6.x 建模求解章节ID，如 6_1_Q1>
+      chapter_type: evidence
+      capacity_status: adequate
+      material_refs:
+        - {path: <project-relative-path>, sha256: <sha256>}   # derivation/symbols/results/validation/figures/citations 逐项登记
+    - section_id: <问题分析>
+      chapter_type: narrative_only
+      capacity_status: adequate
+      material_refs: []
+    - section_id: <结论>
+      chapter_type: narrative_only
+      capacity_status: adequate
+      material_refs: []
+subproblems:
+  - id: <Q1>
+    materials:
+      problem_mapping: {path: <project-relative-path>, sha256: <sha256>}
+      assumptions: {path: <project-relative-path>, sha256: <sha256>}
+      symbols: {path: <project-relative-path>, sha256: <sha256>}
+      derivation: {path: <project-relative-path>, sha256: <sha256>}
+      algorithm_and_parameters: {path: <project-relative-path>, sha256: <sha256>}
+      quantified_results: {path: <project-relative-path>, sha256: <sha256>}
+      validation: {path: <project-relative-path>, sha256: <sha256>}
+      figures_or_tables: {path: <project-relative-path>, sha256: <sha256>}
+      literature_use: {path: <project-relative-path>, sha256: <sha256>}
+      conclusion_and_boundary: {path: <project-relative-path>, sha256: <sha256>}
+      # P0-03: 灵敏度/稳健性证据硬门；优化类子问题必须登记，非优化类登记 not_applicable+理由
+      sensitivity_or_robustness:
+        path: <sensitivity_report.yaml 或 robustness_report.yaml 项目相对路径>
+        sha256: <sha256>
+        # 若该子问题不需要灵敏度/稳健性分析，填写 not_applicable: true 并说明理由
+        not_applicable: false
+        not_applicable_reason: ""
+evidence_matrix:
+  # 该矩阵是 H8 入口摘要；状态必须与 materials 的新鲜哈希一致。
+  <Q1>:
+    problem_mapping: missing
+    assumptions: missing
+    symbols: missing
+    derivation: missing
+    algorithm_and_parameters: missing
+    quantified_results: missing
+    validation: missing
+    figures_or_tables: missing
+    literature_use: missing
+    conclusion_and_boundary: missing
+    sensitivity_or_robustness: missing
+  global:
+    target_length: missing
+claim_requirements: []

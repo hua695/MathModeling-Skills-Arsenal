@@ -1,0 +1,84 @@
+# Contest figure starter catalog. The hash covers the immutable starter source file.
+# A generated project source records this hash after adapting the starter to frozen evidence.
+schema_version: "1.0"
+templates:
+  - template_id: problem-analysis-flow
+    generation_route: tech-route-maker
+    starter_source: tech-route-maker/assets/contest-starters/problem-analysis-flow.json
+    template_sha256: a989c58f0fa1e4446e141ff4ced9cd09c9c32df8ce6b8c3bd9d8b2be6f471296
+    fixture_id: tech-route-maker/problem-analysis-flow
+    generator_preset: academic-paper-framework-cn
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: contest-mainline-route
+    generation_route: tech-route-maker
+    starter_source: tech-route-maker/assets/contest-starters/contest-mainline-route.json
+    template_sha256: 4c1e06c7ade1a1704cd649f248ea7cbd769245e686c0f316211c5a43b984f41c
+    fixture_id: tech-route-maker/contest-mainline-route
+    generator_preset: academic-paper-framework-cn
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: model-structure-roadmap
+    generation_route: tech-route-maker
+    starter_source: tech-route-maker/assets/contest-starters/model-structure-roadmap.json
+    template_sha256: 03db3d9e272dba7d9abab185499f1917fead5d982d7a88394d702ceea8bc2c6a
+    fixture_id: tech-route-maker/model-structure-roadmap
+    generator_preset: academic-paper-framework-cn
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: algorithm-iteration-flow
+    generation_route: tech-route-maker
+    starter_source: tech-route-maker/assets/contest-starters/algorithm-iteration-flow.json
+    template_sha256: f89f50c25708d91da67a11a3ed44d3ccfb7e09e8326527f6b481988e0e4d79c3
+    fixture_id: tech-route-maker/algorithm-iteration-flow
+    generator_preset: workflow-pipeline
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: validation-loop
+    generation_route: tech-route-maker
+    starter_source: tech-route-maker/assets/contest-starters/validation-loop.json
+    template_sha256: a33e8393040cef969b4d181229d5e104532e2ebe04baebf682f0a534dbcb1029
+    fixture_id: tech-route-maker/validation-loop
+    generator_preset: workflow-pipeline
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: model-summary-frame
+    generation_route: tikz-scientific-figures
+    starter_source: tikz-scientific-figures/assets/contest-starters/model-summary-frame.tex
+    template_sha256: fdb7816d6b3a0044ce26d7c0f1d2e2c7692fb8bc6930a0bd39ebf5b6ac79fb26
+    fixture_id: tikz-scientific-figures/model-summary-frame
+    recipe: model-summary-frame
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: variable-objective-constraint
+    generation_route: tikz-scientific-figures
+    starter_source: tikz-scientific-figures/assets/contest-starters/variable-objective-constraint.tex
+    template_sha256: 96568c1c8832dd30b1c8e5ef626695a70d5b839a639a753acd771b41edf4dc43
+    fixture_id: tikz-scientific-figures/variable-objective-constraint
+    recipe: variable-objective-constraint
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: coordinate-angle-coverage
+    generation_route: tikz-scientific-figures
+    starter_source: tikz-scientific-figures/assets/contest-starters/coordinate-angle-coverage.tex
+    template_sha256: e9ea5186ce0e3d5d28306f0b809322111f89f2eb6b2643becd880a02cfc4692a
+    fixture_id: tikz-scientific-figures/coordinate-angle-coverage
+    recipe: coordinate-angle-coverage
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: free-body-mechanism
+    generation_route: tikz-scientific-figures
+    starter_source: tikz-scientific-figures/assets/contest-starters/free-body-mechanism.tex
+    template_sha256: 71dc7a433cf50614ecc36875f0aef3e505b06e435599ba775830b87c16d2e5b3
+    fixture_id: tikz-scientific-figures/free-body-mechanism
+    recipe: free-body-mechanism
+    canvas_orientation: horizontal
+    min_visible_elements: 4
+  - template_id: validation-sensitivity-schematic
+    generation_route: tikz-scientific-figures
+    starter_source: tikz-scientific-figures/assets/contest-starters/validation-sensitivity-schematic.tex
+    template_sha256: f44e32834ab3f2952ae3e07e5360ebee2bee0b3cb528ec59bc068334b0833227
+    fixture_id: tikz-scientific-figures/validation-sensitivity-schematic
+    recipe: validation-sensitivity-schematic
+    canvas_orientation: horizontal
+    min_visible_elements: 4

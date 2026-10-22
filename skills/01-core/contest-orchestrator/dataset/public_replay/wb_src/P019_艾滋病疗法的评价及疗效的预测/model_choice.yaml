@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P019
+# 来源: 全国大学生数学建模竞赛2006年B题
+case_id: P019
+candidate_models:
+  - 混合效应模型
+  - 生存分析
+  - 回归预测
+  - 模糊综合评价
+final_choice: "混合效应模型分析疗效差异 + 回归预测疗效趋势"
+reason: "混合效应模型处理重复测量数据, 回归预测疗效变化"
+alternatives:
+  - 时间序列
+  - 神经网络
+  - 秩和检验
+limitations:
+  - 患者间差异大
+  - 未考虑耐药性
+  - 样本可能存在选择偏差
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2006年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

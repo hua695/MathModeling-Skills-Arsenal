@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P099
+# 来源: 2017 ICM Problem F: Migration to Mars
+case_id: P099
+steps:
+  - step: 1
+    action: "构建地火运输网络"
+    reason: "标节点能力与边权"
+    abandoned: "无"
+  - step: 2
+    action: "建立多商品流模型"
+    reason: "区分人员与物资"
+    abandoned: "无"
+  - step: 3
+    action: "最小费用流优化"
+    reason: "在容量下降成本"
+    abandoned: "经验调度"
+  - step: 4
+    action: "可持续规模分析"
+    reason: "评估长期承载"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2017 ICM Problem F: Migration to Mars"
+  url: https://www.contest.comap.com/undergraduate/contests/

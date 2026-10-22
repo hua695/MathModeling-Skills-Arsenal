@@ -1,0 +1,23 @@
+# model_choice.yaml - 经验卡片 #P012
+# 来源: 全国大学生数学建模竞赛2018年C题
+case_id: P012
+candidate_models:
+  - RFM模型
+  - K-means聚类
+  - 决策树
+  - 逻辑回归
+  - 关联规则(Apriori)
+final_choice: "RFM特征提取 + K-means会员分群 + 决策树预测消费倾向"
+reason: "RFM提取核心特征, K-means自动分群, 决策树提供可解释预测"
+alternatives:
+  - 层次聚类
+  - 随机森林
+  - 神经网络
+limitations:
+  - RFM仅考虑三个维度
+  - K-means需预设簇数
+  - 未考虑时间序列特征
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

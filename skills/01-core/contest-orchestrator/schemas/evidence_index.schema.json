@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Derived contest evidence index",
+  "type": "object",
+  "required": ["schema_version", "generated_at", "project_root", "stage", "derived", "kinds", "sources", "passed"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "generated_at": {"type": "string"},
+    "project_root": {"type": "string"},
+    "stage": {"enum": ["blueprint", "solution", "delivery"]},
+    "derived": {"const": true},
+    "source_of_truth": {"type": "string"},
+    "kinds": {"type": "object", "additionalProperties": {"enum": ["present", "missing", "invalid"]}},
+    "sources": {"type": "array", "items": {"type": "object", "required": ["kind", "path", "sha256", "status"]}},
+    "errors": {"type": "array", "items": {"type": "string"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "passed": {"type": "boolean"}
+  }
+}

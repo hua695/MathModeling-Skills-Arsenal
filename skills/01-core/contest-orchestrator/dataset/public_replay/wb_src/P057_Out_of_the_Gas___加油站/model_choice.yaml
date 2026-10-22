@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P057
+# 来源: 2018 MCM Problem D: Out of the Gas?
+case_id: P057
+candidate_models:
+  - 集合覆盖模型
+  - 最大覆盖模型
+  - p-中值模型
+  - 整数规划
+final_choice: "最大覆盖选址 + 整数规划容量配置"
+reason: "以覆盖需求最大为目标, 最大覆盖模型定位置, 整数规划配容量控成本"
+alternatives:
+  - p-中心模型
+  - 遗传算法
+  - 模拟退火
+limitations:
+  - 需求为估算
+  - 未考虑排队
+  - 路网静态
+confidence: 中
+source:
+  title: "2018 MCM Problem D: Out of the Gas?"
+  url: https://www.contest.comap.com/undergraduate/contests/

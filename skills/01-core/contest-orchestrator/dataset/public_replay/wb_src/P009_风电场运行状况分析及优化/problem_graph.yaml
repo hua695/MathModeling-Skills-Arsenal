@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P009
+# 来源: 全国大学生数学建模竞赛2016年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P009
+title: "风电场运行状况分析及优化"
+competition: CUMCM
+year: 2016
+problem_code: "D"
+category: 数据预测
+domain: 能源工程/风电
+objective: "分析风电场运行数据, 预测风电功率, 优化风电机组运行策略"
+variables:
+  - name: 风速
+    type: 未指定
+    description: 未指定
+  - name: 风向
+    type: 未指定
+    description: 未指定
+  - name: 风电机组功率
+    type: 未指定
+    description: 未指定
+  - name: 转速
+    type: 未指定
+    description: 未指定
+  - name: 桨距角
+    type: 未指定
+    description: 未指定
+  - name: 温度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 风机功率曲线约束
+  - 风速随机性约束
+  - 机组安全运行约束
+assumptions:
+  - 风速服从Weibull分布
+  - 机组间尾流效应可量化
+  - 功率曲线已知
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2016

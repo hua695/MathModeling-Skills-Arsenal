@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P097
+# 来源: 全国大学生数学建模竞赛1998年B题
+case_id: P097
+failures:
+  - method: "单一长回路不分组"
+    root_cause: "超时限无法完成"
+    signal: "巡视失败"
+    lesson: "需分区"
+    reference: "国赛赛题分析"
+  - method: "贪心巡游不优化"
+    root_cause: "回路非最短"
+    signal: "路程过长"
+    lesson: "需TSP求解"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛1998年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

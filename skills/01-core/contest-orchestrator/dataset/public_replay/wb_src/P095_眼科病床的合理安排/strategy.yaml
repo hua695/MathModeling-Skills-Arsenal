@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P095
+# 来源: 全国大学生数学建模竞赛2009年B题
+case_id: P095
+applicable_scenarios:
+  - 医院床位调度
+  - 手术排程优化
+  - 排队网络管理
+strategy: "排队网络建模+整数规划排程优化"
+why_effective: "排队网络定位瓶颈, 整数规划精确排程, 仿真验证等待改善"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

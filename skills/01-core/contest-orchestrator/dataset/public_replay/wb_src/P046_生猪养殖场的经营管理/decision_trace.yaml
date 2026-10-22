@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P046
+# 来源: 全国大学生数学建模竞赛2014年C题
+case_id: P046
+steps:
+  - step: 1
+    action: "建立成本-收益核算模型"
+    reason: "量化单头利润结构"
+    abandoned: "无"
+  - step: 2
+    action: "建立线性规划经营模型"
+    reason: "最大化净利润"
+    abandoned: "经验配比"
+  - step: 3
+    action: "求解最优养殖结构"
+    reason: "给出存栏与母猪数"
+    abandoned: "无"
+  - step: 4
+    action: "价格敏感性分析"
+    reason: "评估行情波动影响"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

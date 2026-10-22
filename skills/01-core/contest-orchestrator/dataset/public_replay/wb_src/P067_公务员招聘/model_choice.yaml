@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P067
+# 来源: 全国大学生数学建模竞赛2004年D题
+case_id: P067
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - 稳定匹配
+  - 整数规划
+final_choice: "AHP+模糊评价 + 匹配录用"
+reason: "AHP/模糊评价量化应聘者综合表现, 匹配模型完成人岗最优分配"
+alternatives:
+  - TOPSIS
+  - 数据包络分析
+  -  Gale-Shapley
+limitations:
+  - 主观打分偏差
+  - 志愿冲突难全满足
+  - 权重主观
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

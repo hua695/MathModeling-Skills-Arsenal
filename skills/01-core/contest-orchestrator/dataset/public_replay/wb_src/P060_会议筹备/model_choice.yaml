@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P060
+# 来源: 全国大学生数学建模竞赛2009年D题
+case_id: P060
+candidate_models:
+  - 整数规划
+  - 随机规划
+  - 蒙特卡洛模拟
+  - 稳健优化
+final_choice: "整数规划预订 + 蒙特卡洛应对不确定性"
+reason: "以总费用最小为目标, 整数规划确定房间与会议室配置, 蒙特卡洛评估到会波动"
+alternatives:
+  - 期望值规划
+  - 两阶段随机规划
+  - 贪心
+limitations:
+  - 回执率估计误差
+  - 未考虑临时增减
+  - 价格为简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

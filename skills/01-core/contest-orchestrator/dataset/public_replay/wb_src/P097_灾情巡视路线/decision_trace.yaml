@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P097
+# 来源: 全国大学生数学建模竞赛1998年B题
+case_id: P097
+steps:
+  - step: 1
+    action: "构建公路网图"
+    reason: "标节点与边权"
+    abandoned: "无"
+  - step: 2
+    action: "聚类分区到巡视组"
+    reason: "均衡各组规模"
+    abandoned: "随机分组"
+  - step: 3
+    action: "各组TSP求最短回路"
+    reason: "遍历分配点"
+    abandoned: "贪心巡游"
+  - step: 4
+    action: "时限与可行性校验"
+    reason: "确保按期完成"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛1998年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

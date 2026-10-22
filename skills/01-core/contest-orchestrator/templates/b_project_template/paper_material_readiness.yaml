@@ -1,0 +1,222 @@
+# 论文素材准入：每个子问题的素材文件、哈希、灵敏度证据（P0-03 新增字段）
+schema_version: '2.0'
+status: PASS
+prepared_by: H8-agent-01
+verified_by: H6
+verification_agent_instance_id: H6-agent-01
+target_length:
+  min_pages: 20
+  max_pages: 30
+  whole_pdf_recommended_range:
+  - 35
+  - 51
+  sections:
+  - chapter_id: ch1
+    title: 问题分析
+    page_count: 3
+    chapter_type: narrative_only
+    capacity_status: adequate
+  - chapter_id: ch2
+    title: 模型建立
+    page_count: 5
+    chapter_type: evidence
+    capacity_status: adequate
+    material_refs:
+    - path: paper/Q1_assumptions.md
+      sha256: 41454b761c4e25192a248c7768093ab159baf6512b188dc5dcc668b373078e57
+    - path: paper/Q1_symbols.md
+      sha256: 37f884874de79ce1b9ae2739961c20f52958c3991a229f8d8edaf76daa368f24
+  - chapter_id: ch3
+    title: 求解结果
+    page_count: 4
+    chapter_type: evidence
+    capacity_status: adequate
+    material_refs:
+    - path: paper/Q1_results.md
+      sha256: ae0d4f80465fca74db1cc6f4251973540792bab2d9af8d1bb1f93f3d3ba7ea23
+    - path: paper/Q1_figures.md
+      sha256: 4c67a0be27687555e57662f06354955ab9140fd47a201054bdfcc07c77a025ff
+  - chapter_id: ch4
+    title: 灵敏度分析
+    page_count: 3
+    chapter_type: evidence
+    capacity_status: adequate
+    material_refs:
+    - path: results/sensitivity_report.yaml
+      sha256: d5e684443a39ced4e6ac798e4fe6c0b8495b171115ab7b004c1a13e9121c9be0
+  - chapter_id: ch5
+    title: 结论
+    page_count: 2
+    chapter_type: narrative_only
+    capacity_status: adequate
+  - chapter_id: appendix
+    title: 附录
+    page_count: 10
+    chapter_type: evidence
+    capacity_status: adequate
+    material_refs:
+    - path: paper/Q1_literature.md
+      sha256: 4ec1ff5dcb0bf2fa69ba0681d07f3916b4022ed968c787e06060ca6aa5718d9f
+    - path: paper/Q1_conclusion.md
+      sha256: 1e2ceeb77c02c540132ddce014e38bbe0aad1a886d7daa6bbaab91e3cd8f5408
+claim_requirements:
+  min_claims: 5
+  require_paper_anchor: true
+problem_scope:
+  subproblems:
+  - Q1
+  - Q2
+  - Q3
+subproblems:
+- id: Q1
+  materials:
+    problem_mapping:
+      path: paper/Q1_mapping.md
+      sha256: PLACEHOLDER_SHA256
+    assumptions:
+      path: paper/Q1_assumptions.md
+      sha256: PLACEHOLDER_SHA256
+    symbols:
+      path: paper/Q1_symbols.md
+      sha256: PLACEHOLDER_SHA256
+    derivation:
+      path: paper/Q1_derivation.md
+      sha256: PLACEHOLDER_SHA256
+    algorithm_and_parameters:
+      path: paper/Q1_algorithm.md
+      sha256: PLACEHOLDER_SHA256
+    quantified_results:
+      path: paper/Q1_results.md
+      sha256: PLACEHOLDER_SHA256
+    validation:
+      path: paper/Q1_validation.md
+      sha256: PLACEHOLDER_SHA256
+    figures_or_tables:
+      path: paper/Q1_figures.md
+      sha256: PLACEHOLDER_SHA256
+    literature_use:
+      path: paper/Q1_literature.md
+      sha256: PLACEHOLDER_SHA256
+    conclusion_and_boundary:
+      path: paper/Q1_conclusion.md
+      sha256: PLACEHOLDER_SHA256
+    sensitivity_or_robustness:
+      path: results/sensitivity_report.yaml
+      sha256: PLACEHOLDER_SHA256
+      not_applicable: false
+- id: Q2
+  materials:
+    problem_mapping:
+      path: paper/Q2_mapping.md
+      sha256: PLACEHOLDER_SHA256
+    assumptions:
+      path: paper/Q2_assumptions.md
+      sha256: PLACEHOLDER_SHA256
+    symbols:
+      path: paper/Q2_symbols.md
+      sha256: PLACEHOLDER_SHA256
+    derivation:
+      path: paper/Q2_derivation.md
+      sha256: PLACEHOLDER_SHA256
+    algorithm_and_parameters:
+      path: paper/Q2_algorithm.md
+      sha256: PLACEHOLDER_SHA256
+    quantified_results:
+      path: paper/Q2_results.md
+      sha256: PLACEHOLDER_SHA256
+    validation:
+      path: paper/Q2_validation.md
+      sha256: PLACEHOLDER_SHA256
+    figures_or_tables:
+      path: paper/Q2_figures.md
+      sha256: PLACEHOLDER_SHA256
+    literature_use:
+      path: paper/Q2_literature.md
+      sha256: PLACEHOLDER_SHA256
+    conclusion_and_boundary:
+      path: paper/Q2_conclusion.md
+      sha256: PLACEHOLDER_SHA256
+    sensitivity_or_robustness:
+      not_applicable: true
+      not_applicable_reason: Q2为网络优化，灵敏度分析合并到Q1
+- id: Q3
+  materials:
+    problem_mapping:
+      path: paper/Q3_mapping.md
+      sha256: PLACEHOLDER_SHA256
+    assumptions:
+      path: paper/Q3_assumptions.md
+      sha256: PLACEHOLDER_SHA256
+    symbols:
+      path: paper/Q3_symbols.md
+      sha256: PLACEHOLDER_SHA256
+    derivation:
+      path: paper/Q3_derivation.md
+      sha256: PLACEHOLDER_SHA256
+    algorithm_and_parameters:
+      path: paper/Q3_algorithm.md
+      sha256: PLACEHOLDER_SHA256
+    quantified_results:
+      path: paper/Q3_results.md
+      sha256: PLACEHOLDER_SHA256
+    validation:
+      path: paper/Q3_validation.md
+      sha256: PLACEHOLDER_SHA256
+    figures_or_tables:
+      path: paper/Q3_figures.md
+      sha256: PLACEHOLDER_SHA256
+    literature_use:
+      path: paper/Q3_literature.md
+      sha256: PLACEHOLDER_SHA256
+    conclusion_and_boundary:
+      path: paper/Q3_conclusion.md
+      sha256: PLACEHOLDER_SHA256
+    sensitivity_or_robustness:
+      path: results/sensitivity_report.yaml
+      sha256: PLACEHOLDER_SHA256
+      not_applicable: false
+verification_task_card: .contest/task_cards/H6.yaml
+verification_timestamp: '2026-09-05T11:00:00+00:00'
+verification_task_card_sha256: 1d3bee7280b81a3ecfb3359c41cd2a596fef0cde42c2d481c7472a54a1e19c4b
+evidence_matrix:
+  Q1:
+    problem_mapping: ready
+    assumptions: ready
+    symbols: ready
+    derivation: ready
+    algorithm_and_parameters: ready
+    quantified_results: ready
+    validation: ready
+    figures_or_tables: ready
+    literature_use: ready
+    conclusion_and_boundary: ready
+    sensitivity_or_robustness: ready
+  Q2:
+    problem_mapping: ready
+    assumptions: ready
+    symbols: ready
+    derivation: ready
+    algorithm_and_parameters: ready
+    quantified_results: ready
+    validation: ready
+    figures_or_tables: ready
+    literature_use: ready
+    conclusion_and_boundary: ready
+    sensitivity_or_robustness: not_applicable
+  Q3:
+    problem_mapping: ready
+    assumptions: ready
+    symbols: ready
+    derivation: ready
+    algorithm_and_parameters: ready
+    quantified_results: ready
+    validation: ready
+    figures_or_tables: ready
+    literature_use: ready
+    conclusion_and_boundary: ready
+    sensitivity_or_robustness: ready
+  global:
+    target_length: ready
+whole_pdf_recommended_range:
+- 35
+- 51

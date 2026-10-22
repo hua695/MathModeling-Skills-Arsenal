@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P081
+# 来源: 全国大学生数学建模竞赛2010年A题
+case_id: P081
+applicable_scenarios:
+  - 储罐容积标定
+  - 几何反演问题
+  - 小角度变位修正
+strategy: "机理积分建模+最小二乘参数反演"
+why_effective: "积分保证容积精确, 反演从实测数据标定变位, 机理与数据结合"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

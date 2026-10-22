@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P058
+# 来源: 2020 MCM Problem D: The Teaming Strategy
+case_id: P058
+steps:
+  - step: 1
+    action: "量化成员技能与任务需求"
+    reason: "建立匹配特征"
+    abandoned: "无"
+  - step: 2
+    action: "建立0-1组队模型"
+    reason: "最大化技能覆盖"
+    abandoned: "随机组队"
+  - step: 3
+    action: "多目标权衡规模与沟通"
+    reason: "控制团队规模"
+    abandoned: "仅看技能"
+  - step: 4
+    action: "策略仿真评估成功率"
+    reason: "比较组队策略"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2020 MCM Problem D: The Teaming Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

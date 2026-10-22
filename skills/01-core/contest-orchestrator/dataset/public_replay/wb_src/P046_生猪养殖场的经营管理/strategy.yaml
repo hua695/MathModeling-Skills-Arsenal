@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P046
+# 来源: 全国大学生数学建模竞赛2014年C题
+case_id: P046
+applicable_scenarios:
+  - 养殖场经营优化
+  - 农业生产规划
+  - 线性规划决策
+strategy: "成本收益建模+线性规划+敏感性分析"
+why_effective: "机理核算给出目标, 线性规划求最优, 敏感性分析应对行情不确定"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

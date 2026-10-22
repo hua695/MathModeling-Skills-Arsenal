@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P076
+# 来源: 2011 ICM Problem: Electric Vehicles
+case_id: P076
+steps:
+  - step: 1
+    action: "界定评价维度与指标"
+    reason: "覆盖环境/经济/电网"
+    abandoned: "无"
+  - step: 2
+    action: "LCA量化环境效益"
+    reason: "全周期碳排放对比"
+    abandoned: "仅运行端"
+  - step: 3
+    action: "AHP综合多维评价"
+    reason: "比较推广策略"
+    abandoned: "单指标"
+  - step: 4
+    action: "政策情景建议"
+    reason: "给出推广路径"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2011 ICM Problem: Electric Vehicles"
+  url: http://www.madio.net/thread-290074-1-1.html

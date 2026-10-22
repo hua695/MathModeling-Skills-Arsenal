@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P036
+# 来源: 2017 ICM Problem E: Sustainable Cities Needed!
+case_id: P036
+candidate_models:
+  - 生态足迹模型
+  - 层次分析法(AHP)
+  - 系统动力学
+  - 多目标规划
+final_choice: "生态足迹 + AHP综合评价 + 系统动力学模拟"
+reason: "生态足迹量化资源消耗, AHP综合评价, 系统动力学模拟发展"
+alternatives:
+  - DEA数据包络分析
+  - 熵权法
+  - 模糊综合评价
+limitations:
+  - 指标选择主观
+  - 系统动力学参数多
+  - 不同城市可比性
+confidence: 中
+source:
+  title: "2017 ICM Problem E: Sustainable Cities Needed!"
+  url: https://www.contest.comap.com/undergraduate/contests/

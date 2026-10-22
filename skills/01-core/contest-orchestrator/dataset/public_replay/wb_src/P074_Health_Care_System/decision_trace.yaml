@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P074
+# 来源: 2008 ICM Problem: Health Care System
+case_id: P074
+steps:
+  - step: 1
+    action: "构建卫生系统指标体系"
+    reason: "覆盖投入/产出/公平"
+    abandoned: "无"
+  - step: 2
+    action: "熵值法客观赋权"
+    reason: "消除主观偏差"
+    abandoned: "等权"
+  - step: 3
+    action: "神经网络综合评分"
+    reason: "拟合非线性关系"
+    abandoned: "线性加权"
+  - step: 4
+    action: "跨国比较与建议"
+    reason: "识别优劣项"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2008 ICM Problem: Health Care System"
+  url: http://www.madio.net/thread-290074-1-1.html

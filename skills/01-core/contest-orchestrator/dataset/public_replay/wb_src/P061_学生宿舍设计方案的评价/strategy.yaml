@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P061
+# 来源: 全国大学生数学建模竞赛2010年D题
+case_id: P061
+applicable_scenarios:
+  - 建筑/方案综合评价
+  - 多指标决策排序
+  - 产品设计优选
+strategy: "指标体系+AHP赋权+模糊综合评价"
+why_effective: "体系保证全面, AHP客观赋权, 模糊评价贴合设计指标的模糊本质"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年D题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

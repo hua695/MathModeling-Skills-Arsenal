@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest Model Blueprint",
+  "type": "object",
+  "required": ["schema_version", "project", "subproblems"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "project": {
+      "type": "object",
+      "required": ["composition"],
+      "properties": {
+        "composition": {"enum": ["single", "hybrid"]},
+        "expected_subproblems": {"type": "array", "items": {"type": "string", "pattern": "^Q[0-9]+$"}}
+      }
+    },
+    "subproblems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "models"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+          "composition_mode": {"enum": ["alternative", "sequential", "joint", "validation"]},
+          "models": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": ["id", "family"],
+              "properties": {
+                "id": {"type": "string"},
+                "family": {"enum": ["mechanistic", "optimization", "prediction", "evaluation", "dynamics"]},
+                "modifiers": {"type": "array", "items": {"type": "string"}},
+                "inputs": {"type": "array"},
+                "outputs": {"type": "array"}
+              }
+            }
+          },
+          "connections": {"type": "array", "items": {"type": "object"}}
+        }
+      }
+    }
+  }
+}

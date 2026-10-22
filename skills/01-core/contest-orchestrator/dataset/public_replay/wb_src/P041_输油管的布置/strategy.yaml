@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P041
+# 来源: 全国大学生数学建模竞赛2010年C题
+case_id: P041
+applicable_scenarios:
+  - 管道/管廊网络优化
+  - 设施选址决策
+  - 分段计价下的路径规划
+strategy: "分区域计价建模+非线性规划求解汇合点"
+why_effective: "分区域刻画成本结构, 非线性规划给出全局最优的管材走向与汇合方案"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

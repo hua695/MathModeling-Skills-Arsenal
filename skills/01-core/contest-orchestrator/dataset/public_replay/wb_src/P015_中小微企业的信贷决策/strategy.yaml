@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P015
+# 来源: 全国大学生数学建模竞赛2020年C题
+case_id: P015
+applicable_scenarios:
+  - 信贷风险评估
+  - 金融决策优化
+  - 企业信用分类
+strategy: "机器学习风控预测+整数规划决策优化"
+why_effective: "机器学习准确预测风险, 整数规划给出最优决策, 两者形成预测-决策闭环"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

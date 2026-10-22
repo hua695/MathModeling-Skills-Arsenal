@@ -1,0 +1,39 @@
+# 用户批准日志：每个节点的审查包哈希和批准决定
+approvals:
+- gate: H2
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H2_review_packet.yaml: 824f4a83fea1decb7080f5ecff159aef647f6250b5c6eda5972d3105a3b6dc65
+- gate: H3
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H3_review_packet.yaml: f8ad6756902d68db09959c08af07724a757078c83a646ebf0206488f1ac28cda
+- gate: H4
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H4_review_packet.yaml: d248ddfe905f4a4fb9912b2d1b48eff39d48fd54545b353c08cf8a66a30cfeab
+- gate: H5
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H5_review_packet.yaml: 8182b073f750cf74230d52d1d06fbfee807b8c739a4ee8654a7b1d2eda16a6df
+- gate: H6
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H6_review_packet.yaml: b95d3fb5e58cc635e4deefe9b8aa1c7a6dfeecf852fc89ccf4b8774a15fb5508
+- gate: H7
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H7_review_packet.yaml: 0139c8b86893f96408a44d46139d8e310a0dc1a2e1608b76a068e76c12058749
+- gate: H7_VISUAL_PLAN
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H7_visual_plan_review_packet.yaml: <sha256>
+    visual_argument_plan.yaml: <sha256>
+- gate: H8
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H8_review_packet.yaml: d1e0b05c1e3dfd379f1ba7680218159378a01e271fd28697310e5389267ef106
+- gate: H9
+  decision: approved
+  artifact_digests:
+    .contest/reviews/H9_review_packet.yaml: e42d671acc905c8540fda48aeb64f5e33e83a77df0a977a962b442aa3dcd743a

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P084
+# 来源: 全国大学生数学建模竞赛2015年C题
+case_id: P084
+applicable_scenarios:
+  - 天文位置反演
+  - 球面三角几何
+  - 历法/月相推算
+strategy: "机理天文模型+坐标变换+边界求解"
+why_effective: "机理模型保证物理正确, 坐标变换连接天球与观测, 边界求解定位事件"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

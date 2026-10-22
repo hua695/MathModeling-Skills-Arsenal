@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P079
+# 来源: 2018年亚太杯数学建模竞赛A题
+case_id: P079
+failures:
+  - method: "单一速度指标"
+    root_cause: "忽略延时与饱和"
+    signal: "评价片面"
+    lesson: "需多指标"
+    reference: "亚太杯赛题分析"
+  - method: "等权简单相加"
+    root_cause: "指标信息量差异大"
+    signal: "等级失真"
+    lesson: "需客观赋权"
+    reference: "亚太杯赛题分析"
+confidence: 低
+source:
+  title: "2018年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

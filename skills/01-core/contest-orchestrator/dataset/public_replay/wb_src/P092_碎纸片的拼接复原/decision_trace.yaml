@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P092
+# 来源: 全国大学生数学建模竞赛2013年B题
+case_id: P092
+steps:
+  - step: 1
+    action: "提取碎片边缘像素"
+    reason: "构建灰度序列特征"
+    abandoned: "无"
+  - step: 2
+    action: "计算相邻相似度矩阵"
+    reason: "量化匹配强度"
+    abandoned: "无"
+  - step: 3
+    action: "构图并求复原路径"
+    reason: "哈密顿/最小生成树"
+    abandoned: "贪心配对"
+  - step: 4
+    action: "行列聚类与拼合"
+    reason: "恢复完整文件"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

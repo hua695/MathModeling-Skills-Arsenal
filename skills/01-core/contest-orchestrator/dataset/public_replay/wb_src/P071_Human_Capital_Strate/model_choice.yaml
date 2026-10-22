@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P071
+# 来源: 2015 MCM Problem C: Human Capital Strategy
+case_id: P071
+candidate_models:
+  - 层次分析法(AHP)
+  - 遗传算法
+  - 数据包络分析(DEA)
+  - 多目标规划
+final_choice: "AHP+遗传算法的人力资本优化评价"
+reason: "AHP评价战略契合度, 遗传算法在约束下优化人力配置方案"
+alternatives:
+  - DEA效率评价
+  - 模糊综合评价
+  - 系统动力学
+limitations:
+  - 技能量化难
+  - 战略指标主观
+  - 数据不完整
+confidence: 中
+source:
+  title: "2015 MCM Problem C: Human Capital Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

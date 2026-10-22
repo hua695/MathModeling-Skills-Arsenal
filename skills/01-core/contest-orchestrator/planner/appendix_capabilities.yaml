@@ -1,0 +1,40 @@
+schema_version: "1.0"
+# 附录需求由实际能力/证据类型触发；题型 profile 只提供默认能力提示。
+capabilities:
+  derivation:
+    module_kind: derivation
+    required_inputs: [long_derivation_files]
+  code:
+    module_kind: source_code
+    requires_program: true
+    required_inputs: [full_source_files, support_material_files]
+  optimization:
+    module_kind: optimization
+    required_inputs: []
+  prediction:
+    module_kind: prediction
+    required_inputs: []
+  statistics:
+    module_kind: statistical_inference
+    required_inputs: []
+  classification:
+    module_kind: classification
+    required_inputs: []
+  evaluation:
+    module_kind: evaluation
+    required_inputs: []
+  simulation:
+    module_kind: simulation
+    required_inputs: []
+  uncertainty:
+    module_kind: auxiliary_validation
+    required_inputs: []
+  raw_data:
+    module_kind: raw_data
+    required_inputs: [raw_data_files]
+  interface:
+    module_kind: interface
+    required_inputs: []
+  network:
+    module_kind: network
+    required_inputs: []

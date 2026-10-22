@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P029
+# 来源: 2020 MCM Problem C: A Data Analysis of Online Shopping
+case_id: P029
+applicable_scenarios:
+  - 电商评论分析
+  - 评分预测
+  - 产品推荐系统
+strategy: "NLP特征提取+机器学习预测+时间趋势分析"
+why_effective: "NLP挖掘文本信息, 机器学习预测评分, 时间分析揭示趋势"
+confidence: 中
+source:
+  title: "2020 MCM Problem C: A Data Analysis of Online Shopping"
+  url: https://www.contest.comap.com/undergraduate/contests/

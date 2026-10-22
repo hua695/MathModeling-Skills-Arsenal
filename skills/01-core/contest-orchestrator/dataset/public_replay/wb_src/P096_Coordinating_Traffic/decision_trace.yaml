@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P096
+# 来源: 2017 MCM Problem C: Coordinating Traffic Signals
+case_id: P096
+steps:
+  - step: 1
+    action: "构建干道信号网络"
+    reason: "标交叉口与距离"
+    abandoned: "无"
+  - step: 2
+    action: "建立绿波带模型"
+    reason: "描述带宽与相位差"
+    abandoned: "无"
+  - step: 3
+    action: "整数规划优化配时"
+    reason: "最大化绿波带宽"
+    abandoned: "单独定周期"
+  - step: 4
+    action: "路网仿真验证延误"
+    reason: "评估协调效果"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2017 MCM Problem C: Coordinating Traffic Signals"
+  url: https://www.contest.comap.com/undergraduate/contests/

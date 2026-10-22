@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P024
+# 来源: 2017 MCM Problem A: Managing the Zambezi River System
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P024
+title: "Managing the Zambezi River System (管理赞比西河水系)"
+competition: MCM/ICM
+year: 2017
+problem_code: "A"
+category: 数据预测
+domain: 水资源管理/优化
+objective: "建立赞比西河水系管理模型, 平衡水力发电、灌溉和生态需求"
+variables:
+  - name: 水库水位
+    type: 未指定
+    description: 未指定
+  - name: 入流量
+    type: 未指定
+    description: 未指定
+  - name: 发电量
+    type: 未指定
+    description: 未指定
+  - name: 灌溉用水量
+    type: 未指定
+    description: 未指定
+  - name: 生态流量
+    type: 未指定
+    description: 未指定
+  - name: 蒸发量
+    type: 未指定
+    description: 未指定
+constraints:
+  - 水量平衡约束
+  - 水库容量约束
+  - 最小生态流量约束
+assumptions:
+  - 入流量可预测
+  - 水库操作规则已知
+  - 各需求可量化
+confidence: 中
+source:
+  title: "2017 MCM Problem A: Managing the Zambezi River System"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2017

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P009
+# 来源: 全国大学生数学建模竞赛2016年D题
+case_id: P009
+candidate_models:
+  - 风速-功率曲线拟合
+  - ARMA时间序列
+  - 神经网络
+  - 尾流模型(Jensen)
+final_choice: "功率曲线拟合 + 神经网络短期预测 + 尾流模型优化布局"
+reason: "曲线拟合建立稳态关系, 神经网络处理动态预测, 尾流模型优化机组布局"
+alternatives:
+  - 支持向量机
+  - 随机森林
+  - 物理功率曲线模型
+limitations:
+  - 超短期预测精度有限
+  - 尾流模型简化较多
+  - 未考虑风机故障
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

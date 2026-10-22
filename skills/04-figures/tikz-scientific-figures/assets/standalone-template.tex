@@ -1,0 +1,33 @@
+% ============================================================
+% standalone-template.tex — single-figure source. Compiles to a
+% tightly-cropped one-page PDF (one figure = one file).
+%   compile:  bash scripts/compile.sh thisfile.tex
+%   preview:  bash scripts/preview.sh thisfile.pdf
+%   to SVG :  bash scripts/export_svg.sh thisfile.tex
+% ============================================================
+\documentclass[border=2pt]{standalone}
+\input{preamble.tex}   % keep preamble.tex beside this file (or fix the path)
+
+% ============================================================
+% ===== TUNABLES — non-experts edit only this block ==========
+\def\figwidth{89mm}    % 89mm single-column · 183mm double-column
+\def\xmin{0}\def\xmax{10}
+\def\ymin{0}\def\ymax{1}
+% ============================================================
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    width=\figwidth, height=0.66*\figwidth,
+    xmin=\xmin, xmax=\xmax, ymin=\ymin, ymax=\ymax,
+    xlabel={Time \si{(\second)}},     % ALWAYS label axes + units
+    ylabel={Amplitude \si{(\volt)}},
+    legend pos=north east,
+]
+% data lives in an external file so editing = editing the .csv
+% expected columns:  x  y
+\addplot table[x index=0, y index=1] {data.csv};
+\addlegendentry{measured}
+\end{axis}
+\end{tikzpicture}
+\end{document}

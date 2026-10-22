@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P028
+# 来源: 2020 MCM Problem A: Moving North
+case_id: P028
+applicable_scenarios:
+  - 物种栖息地预测
+  - 气候变化生态影响
+  - 海洋资源管理
+strategy: "动态栖息地建模+多因素耦合+情景分析"
+why_effective: "动态模型捕捉变化过程, 多因素提高准确性, 情景分析提供范围"
+confidence: 中
+source:
+  title: "2020 MCM Problem A: Moving North"
+  url: https://www.contest.comap.com/undergraduate/contests/

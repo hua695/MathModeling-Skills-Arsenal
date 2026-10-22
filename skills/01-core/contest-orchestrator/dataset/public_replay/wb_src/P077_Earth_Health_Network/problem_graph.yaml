@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P077
+# 来源: 2013 MCM Problem C: Earth Health Network Model
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P077
+title: "Earth Health Network Model (地球健康网络评价)"
+competition: MCM/ICM
+year: 2013
+problem_code: "C"
+category: 评价分类
+domain: 生态评价/网络建模
+objective: "建立地球健康评价指标网络, 量化各系统健康状态并识别关键风险环节"
+variables:
+  - name: 大气/海洋/陆地指标
+    type: 未指定
+    description: 未指定
+  - name: 生物多样性
+    type: 未指定
+    description: 未指定
+  - name: 资源存量
+    type: 未指定
+    description: 未指定
+  - name: 污染负荷
+    type: 未指定
+    description: 未指定
+  - name: 系统关联
+    type: 未指定
+    description: 未指定
+constraints:
+  - 指标可比性
+  - 系统耦合关系
+  - 数据可得性
+  - 阈值设定
+assumptions:
+  - 健康可指标化
+  - 系统互相关联
+  - 数据可整合
+confidence: 中
+source:
+  title: "2013 MCM Problem C: Earth Health Network Model"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2013

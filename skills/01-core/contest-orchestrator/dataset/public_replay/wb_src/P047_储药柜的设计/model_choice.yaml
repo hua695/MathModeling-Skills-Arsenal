@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P047
+# 来源: 全国大学生数学建模竞赛2014年D题
+case_id: P047
+candidate_models:
+  - 多目标规划
+  - 0-1规划
+  - 动态规划
+  - 布局优化
+final_choice: "多目标规划 + 频率加权布局"
+reason: "以空间利用率与取药效率为目标, 多目标规划确定栅格划分与药品分区"
+alternatives:
+  - 遗传算法
+  - 模拟退火
+  - 层次分析法
+limitations:
+  - 药盒规格多样增加组合
+  - 取药路径简化
+  - 未考虑补药流程
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

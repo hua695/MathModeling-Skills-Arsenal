@@ -1,0 +1,18 @@
+schema_version: "1.0"
+change_id: chg-<date>-<sequence>
+profile: competition_fast
+impact_level: L0
+reason: <本次变更的事实性原因>
+changed_artifacts:
+  - path: <项目内相对路径>
+    before_sha256: <变更前哈希；新增文件填写 null>
+    after_sha256: <变更后哈希>
+    artifact_kind: <paper_prose|paper_layout|paper_metadata|figure|question_model|question_result|question_code|question_data|global_interface|global_assumption|citation>
+affected_subproblems: []
+earliest_invalid_node: H8
+protected_fields:
+  - model
+  - numbers
+  - citations
+  - figure_ids
+skill_code_changed: false

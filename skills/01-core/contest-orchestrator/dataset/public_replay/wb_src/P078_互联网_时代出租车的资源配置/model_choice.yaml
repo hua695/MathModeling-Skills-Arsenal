@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P078
+# 来源: 全国大学生数学建模竞赛2015年B题
+case_id: P078
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - 聚类分析
+  - 整数规划
+final_choice: "AHP+模糊评价供需 + 聚类优化调度"
+reason: "AHP/模糊评价区域供需失衡, 聚类识别热点并优化车辆调度"
+alternatives:
+  - TOPSIS
+  - 系统动力学
+  - 强化学习
+limitations:
+  - 数据时空颗粒粗
+  - 行为响应难建模
+  - 未考虑监管
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

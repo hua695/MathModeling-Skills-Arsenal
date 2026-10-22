@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P040
+# 来源: 2019年华数杯数学建模竞赛B题
+case_id: P040
+steps:
+  - step: 1
+    action: "数据探索与特征分析"
+    reason: "了解污染物分布特征"
+    abandoned: "无"
+  - step: 2
+    action: "PCA降维提取主要因素"
+    reason: "降低维度消除共线性"
+    abandoned: "直接使用全部变量"
+  - step: 3
+    action: "LSTM预测模型"
+    reason: "预测未来空气质量"
+    abandoned: "ARIMA"
+  - step: 4
+    action: "影响因素分析与治理建议"
+    reason: "识别关键因素并提建议"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2019年华数杯数学建模竞赛B题"
+  url: https://www.saikr.com/vse/huashubei2019

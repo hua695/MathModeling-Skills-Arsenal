@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P049
+# 来源: 全国大学生数学建模竞赛2018年D题
+case_id: P049
+failures:
+  - method: "按平均时间均分"
+    root_cause: "违反优先关系且不平衡"
+    signal: "节拍超标"
+    lesson: "需用平衡模型"
+    reference: "国赛赛题分析"
+  - method: "忽略优先关系"
+    root_cause: "装配顺序错误"
+    signal: "方案不可行"
+    lesson: "须加约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

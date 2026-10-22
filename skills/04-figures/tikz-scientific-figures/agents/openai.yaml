@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikZ 科学制图"
+  short_description: "出版级 TikZ/PGFPlots 科研图与原理示意图"
+  default_prompt: "Use $tikz-scientific-figures to draw a publication-ready figure for my paper."

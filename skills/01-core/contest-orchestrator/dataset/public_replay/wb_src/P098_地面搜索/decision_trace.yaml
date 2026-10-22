@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P098
+# 来源: 全国大学生数学建模竞赛2008年C题
+case_id: P098
+steps:
+  - step: 1
+    action: "网格化搜索区域"
+    reason: "赋予各格目标概率"
+    abandoned: "无"
+  - step: 2
+    action: "规划覆盖路径"
+    reason: "保证无遗漏"
+    abandoned: "随机行走"
+  - step: 3
+    action: "贝叶斯更新概率"
+    reason: "未见后重分配重点"
+    abandoned: "固定路线"
+  - step: 4
+    action: "多队协同优化"
+    reason: "提升总发现概率"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

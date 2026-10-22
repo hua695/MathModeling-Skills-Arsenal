@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P056
+# 来源: 2017 ICM Problem D: Airport Checkpoint Operations
+case_id: P056
+failures:
+  - method: "固定通道数"
+    root_cause: "高峰排队长"
+    signal: "等待超时"
+    lesson: "需动态开放"
+    reference: "美赛赛题分析"
+  - method: "忽略预检差异"
+    root_cause: "服务时间被高估"
+    signal: "通道配置过多"
+    lesson: "需分队列建模"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2017 ICM Problem D: Airport Checkpoint Operations"
+  url: http://www.madio.net/thread-290074-1-1.html

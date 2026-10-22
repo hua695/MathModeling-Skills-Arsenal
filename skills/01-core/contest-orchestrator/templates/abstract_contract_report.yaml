@@ -1,0 +1,10 @@
+# H8C 摘要专项检查报告登记模板；由 scripts/check_abstract_contract.py 生成真实报告后替换。
+schema_version: "1.0"
+passed: false
+gate_status: BLOCK
+paper: <paper.pdf 或论文源文件路径>
+abstract_argument_card: abstract_argument_card.yaml
+abstract_argument_card_sha256: <abstract_argument_card.yaml sha256>
+strict: true
+issues: [<未通过项>]
+warnings: []

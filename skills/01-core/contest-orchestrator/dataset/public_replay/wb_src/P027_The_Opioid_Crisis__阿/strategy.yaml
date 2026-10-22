@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P027
+# 来源: 2019 MCM Problem C: The Opioid Crisis
+case_id: P027
+applicable_scenarios:
+  - 药物滥用传播建模
+  - 公共卫生干预评估
+  - 社会问题量化分析
+strategy: "传播模型+空间扩散+策略评估"
+why_effective: "传播模型描述动态, 空间分析揭示地理规律, 策略评估提供决策依据"
+confidence: 中
+source:
+  title: "2019 MCM Problem C: The Opioid Crisis"
+  url: https://www.contest.comap.com/undergraduate/contests/

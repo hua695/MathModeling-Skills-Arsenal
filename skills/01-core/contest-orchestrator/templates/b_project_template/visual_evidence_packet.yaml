@@ -1,0 +1,33 @@
+# H5→H6→H7 的轻量视觉证据包；实际项目必须替换路径、哈希、事实和定位。
+schema_version: '1.0'
+status: draft
+package_mode: indexed_minimal
+source_node: H5
+created_by: H5
+model_contract_sha256: '0000000000000000000000000000000000000000000000000000000000000000'
+subproblems:
+- subproblem_id: Q1
+  task_goal: <本小问需要回答的决策问题>
+  model_role: <本小问模型在全文论证中的作用>
+  information_units:
+  - unit_id: Q1-U01
+    unit_type: model
+    statement: <模型或推导支持的独立事实>
+    meaning: <事实对读者理解模型的意义>
+    evidence_refs:
+    - path: model_contract.yaml
+      sha256: '0000000000000000000000000000000000000000000000000000000000000000'
+      locator: <JSON或YAML定位>
+    scope: <适用数据、参数或条件范围>
+    unit: <数值单位或无量纲>
+  - unit_id: Q1-U02
+    unit_type: result
+    statement: <冻结结果支持的独立事实>
+    meaning: <事实对决策或结论的意义>
+    evidence_refs:
+    - path: results/result.yaml
+      sha256: '0000000000000000000000000000000000000000000000000000000000000000'
+      locator: <JSON或YAML定位>
+    scope: <适用数据、参数或条件范围>
+    unit: <数值单位或无量纲>
+cross_question_interfaces: []

@@ -1,0 +1,82 @@
+name: Validate examples
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.11", "3.12"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install package
+        run: python -m pip install -e .
+
+      - name: Compile source
+        run: |
+          python - <<'PY'
+          import pathlib
+          for folder in ("scripts", "tech_route_maker", "tests"):
+              for path in pathlib.Path(folder).glob("*.py"):
+                  compile(path.read_text(encoding="utf-8"), str(path), "exec")
+          print("source compile OK")
+          PY
+
+      - name: Run unit tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Check text integrity
+        run: python scripts/check_text_integrity.py
+
+      - name: Check CLI and installer
+        run: |
+          trm --help
+          trm doctor
+          trm ingest docs --output-dir /tmp/evidence-pack
+          python scripts/install_agent_skill.py --target /tmp/agent-skills --agent ci --dry-run
+
+      - name: Strictly validate every demo
+        shell: bash
+        run: |
+          set -euo pipefail
+          for route in examples/*-demo/outputs/tech-route.json; do
+            trm validate "$route" --strict
+            python scripts/validate_route.py "$route"
+          done
+
+      - name: Render and verify all formats
+        if: matrix.python-version == '3.11'
+        shell: bash
+        run: |
+          set -euo pipefail
+          for route in examples/*-demo/outputs/tech-route.json; do
+            demo=$(basename "$(dirname "$(dirname "$route")")")
+            out="/tmp/tech-route-maker/$demo"
+            trm render "$route" "$out" --formats pptx,svg,drawio,drawio-code,excalidraw,mermaid,html,markdown,json
+            python scripts/verify_outputs.py "$route" "$out"
+          done
+
+      - name: Verify standard wheel installation
+        if: matrix.python-version == '3.11'
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m pip wheel . --no-deps --no-build-isolation --wheel-dir /tmp/wheels
+          python -m venv /tmp/trm-wheel-venv
+          /tmp/trm-wheel-venv/bin/python -m pip install /tmp/wheels/tech_route_maker-0.3.0-py3-none-any.whl --no-deps
+          /tmp/trm-wheel-venv/bin/trm doctor
+          /tmp/trm-wheel-venv/bin/trm render examples/academic-paper-demo/outputs/tech-route.json /tmp/wheel-render --formats svg,drawio,json

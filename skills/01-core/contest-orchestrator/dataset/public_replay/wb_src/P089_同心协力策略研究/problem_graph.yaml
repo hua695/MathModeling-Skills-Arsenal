@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P089
+# 来源: 全国大学生数学建模竞赛2019年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P089
+title: "同心协力策略研究"
+competition: CUMCM
+year: 2019
+problem_code: "B"
+category: 物理建模
+domain: 碰撞力学/多体动力学
+objective: "建立多人协同顶杆(同心协力)的碰撞力学模型, 优化站位与发力使杆稳定前移"
+variables:
+  - name: 人数与质量
+    type: 未指定
+    description: 未指定
+  - name: 杆长与质量
+    type: 未指定
+    description: 未指定
+  - name: 握杆位置
+    type: 未指定
+    description: 未指定
+  - name: 发力大小/方向
+    type: 未指定
+    description: 未指定
+  - name: 摩擦系数
+    type: 未指定
+    description: 未指定
+  - name: 合力矩
+    type: 未指定
+    description: 未指定
+constraints:
+  - 合力方向约束(水平向前)
+  - 力矩平衡避免翻转
+  - 握点间距约束
+  - 摩擦不滑动
+assumptions:
+  - 刚体杆
+  - 各人发力可合成
+  - 地面摩擦已知
+  - 准静态或碰撞近似
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2019

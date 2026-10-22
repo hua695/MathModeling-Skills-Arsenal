@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P020
+# 来源: 2015 MCM Problem A: Eradicating Ebola
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P020
+title: "Eradicating Ebola (根除埃博拉)"
+competition: MCM/ICM
+year: 2015
+problem_code: "A"
+category: 数据预测
+domain: 流行病学/公共卫生
+objective: "建立埃博拉疫情传播模型, 优化疫苗/药物分发策略, 控制疫情蔓延"
+variables:
+  - name: 感染人数
+    type: 未指定
+    description: 未指定
+  - name: 死亡人数
+    type: 未指定
+    description: 未指定
+  - name: 康复人数
+    type: 未指定
+    description: 未指定
+  - name: 潜伏期
+    type: 未指定
+    description: 未指定
+  - name: 传染率
+    type: 未指定
+    description: 未指定
+  - name: 疫苗数量
+    type: 未指定
+    description: 未指定
+  - name: 分发地点
+    type: 未指定
+    description: 未指定
+constraints:
+  - 疫苗/药物数量有限
+  - 运输能力约束
+  - 时间紧迫约束
+assumptions:
+  - 人群均匀混合(SIR假设)
+  - 潜伏期恒定
+  - 疫苗即时有效
+confidence: 中
+source:
+  title: "2015 MCM Problem A: Eradicating Ebola"
+  url: https://www.jingsailian.com/news/233612.html
+  year: 2015

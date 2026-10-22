@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P017
+# 来源: 全国大学生数学建模竞赛2007年A题
+case_id: P017
+candidate_models:
+  - Leslie矩阵模型
+  - 年龄移算模型
+  - Logistic增长模型
+  - 灰色预测
+final_choice: "Leslie矩阵模型 + 情景分析"
+reason: "Leslie矩阵可精确模拟年龄结构推移, 情景分析评估不同政策"
+alternatives:
+  - 指数增长模型
+  - 系统动力学
+  - BP神经网络
+limitations:
+  - 迁移率数据不完整
+  - 政策变化难以量化
+  - 长期预测不确定性大
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2007年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

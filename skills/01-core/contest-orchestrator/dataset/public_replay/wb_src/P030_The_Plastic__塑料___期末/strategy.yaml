@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P030
+# 来源: 2020 ICM Problem E: The Plastic
+case_id: P030
+applicable_scenarios:
+  - 污染物累积预测
+  - 物质流分析
+  - 环境政策评估
+strategy: "系统动力学+物质流+情景分析"
+why_effective: "系统动力学模拟动态, 物质流追踪来源, 情景分析评估策略"
+confidence: 中
+source:
+  title: "2020 ICM Problem E: The Plastic"
+  url: https://www.contest.comap.com/undergraduate/contests/

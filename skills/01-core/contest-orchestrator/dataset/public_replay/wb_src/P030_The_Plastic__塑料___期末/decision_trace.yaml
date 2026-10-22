@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P030
+# 来源: 2020 ICM Problem E: The Plastic
+case_id: P030
+steps:
+  - step: 1
+    action: "塑料生产/消费数据分析"
+    reason: "了解塑料废弃物流向"
+    abandoned: "无"
+  - step: 2
+    action: "建立系统动力学累积模型"
+    reason: "模拟塑料在环境中的累积"
+    abandoned: "无"
+  - step: 3
+    action: "物质流分析量化各环节"
+    reason: "追踪塑料从生产到废弃"
+    abandoned: "无"
+  - step: 4
+    action: "减塑策略情景分析"
+    reason: "评估不同减塑方案效果"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2020 ICM Problem E: The Plastic"
+  url: https://www.contest.comap.com/undergraduate/contests/

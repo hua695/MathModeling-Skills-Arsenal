@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P060
+# 来源: 全国大学生数学建模竞赛2009年D题
+case_id: P060
+failures:
+  - method: "按回执数固定预订"
+    root_cause: "实际到会波动致房间不足/浪费"
+    signal: "费用或体验差"
+    lesson: "需应对不确定"
+    reference: "国赛赛题分析"
+  - method: "忽略预算约束"
+    root_cause: "预订超支"
+    signal: "方案不可行"
+    lesson: "须加预算"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

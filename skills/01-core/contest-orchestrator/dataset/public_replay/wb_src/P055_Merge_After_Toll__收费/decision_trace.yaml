@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P055
+# 来源: 2017 MCM Problem B: Merge After Toll
+case_id: P055
+steps:
+  - step: 1
+    action: "分析收费与合流瓶颈"
+    reason: "定位通行能力限制"
+    abandoned: "无"
+  - step: 2
+    action: "建立排队与服务模型"
+    reason: "量化延误"
+    abandoned: "无"
+  - step: 3
+    action: "仿真优化合流策略"
+    reason: "减少合流冲突"
+    abandoned: "先到先合"
+  - step: 4
+    action: "评价不同收费配置"
+    reason: "给出车道建议"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2017 MCM Problem B: Merge After Toll"
+  url: https://www.contest.comap.com/undergraduate/contests/

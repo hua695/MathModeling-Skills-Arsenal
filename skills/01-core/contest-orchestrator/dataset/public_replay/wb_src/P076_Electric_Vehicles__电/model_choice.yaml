@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P076
+# 来源: 2011 ICM Problem: Electric Vehicles
+case_id: P076
+candidate_models:
+  - 层次分析法(AHP)
+  - 生命周期评价(LCA)
+  - 系统动力学
+  - 多目标规划
+final_choice: "AHP+生命周期评价(LCA)综合评估"
+reason: "LCA量化全周期环境影响, AHP综合经济/电网/环境多维评价推广策略"
+alternatives:
+  - 模糊综合评价
+  - 成本效益分析
+  - Agent-based模型
+limitations:
+  - 电池回收难建模
+  - 电网耦合复杂
+  - 政策变量多
+confidence: 中
+source:
+  title: "2011 ICM Problem: Electric Vehicles"
+  url: http://www.madio.net/thread-290074-1-1.html

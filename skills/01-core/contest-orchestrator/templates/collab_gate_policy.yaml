@@ -1,0 +1,61 @@
+# 项目侧协作门。仅在 COLLAB + STRICT 时要求逐门批准；AUTO 兼容全自主运行。
+schema_version: "1.0"
+# 进入 LOCK 时由 Controller 写入 UTC ISO-8601 时间；LOCK 不接受其后的新批准。
+freeze_at: null
+gates:
+  - id: G0
+    stage: A
+    title: "题目理解与数据边界"
+    artifact_groups:
+      - {name: condition_ledger, any_of: [problem_condition_ledger.yaml, 01_需求与规划/problem_condition_ledger.yaml]}
+      - {name: problem_graph, any_of: [problem_graph.md, 01_需求与规划/problem_graph.md]}
+      - {name: data_audit, any_of: [data_audit.md, 01_需求与规划/data_audit.md]}
+      - {name: assumptions, any_of: [model_assumptions.md, 01_需求与规划/model_assumptions.md]}
+    review_packet: ["小问拆分", "未解决条件", "数据质量", "假设边界"]
+  - id: G1
+    stage: B
+    title: "文献与方法迁移"
+    artifact_groups:
+      - {name: references, any_of: [references.yaml, 01_需求与规划/references.yaml]}
+      - {name: literature_report, any_of: [literature_report.md, 01_需求与规划/literature_report.md]}
+      - {name: method_transfer, any_of: [method_transfer_map.json, 01_需求与规划/method_transfer_map.json]}
+    review_packet: ["中文文献真实性", "每篇正文作用", "采用/改造/舍弃理由"]
+  - id: G2
+    stage: B
+    title: "总体模型架构与内容预算"
+    artifact_groups:
+      - {name: baseline, any_of: [baseline_result.json, 05_输出与交付/results/baseline_result.json]}
+      - {name: model_contract, any_of: [model_contract.yaml, 01_需求与规划/model_contract.yaml]}
+      - {name: content_budget, any_of: [content_budget_plan.yaml, 01_需求与规划/content_budget_plan.yaml]}
+    review_packet: ["每问模型路线", "备选方案", "内容预算", "主张—证据—图表计划"]
+  - id: G3
+    stage: C
+    title: "高风险或混合小问建模"
+    conditional: true
+    artifact_groups:
+      - {name: derivation, any_of: [derivation_registry.yaml, 01_需求与规划/derivation_registry.yaml]}
+      - {name: solution_contract, any_of: [modeling_solution_contract.yaml, 01_需求与规划/modeling_solution_contract.yaml]}
+    review_packet: ["推导链", "算法参数", "搜索边界", "局部最优风险", "代码与结果来源"]
+  - id: G4
+    stage: C
+    title: "真实结果、验证与图表"
+    artifact_groups:
+      - {name: results, any_of: [05_输出与交付/results/q1_results.json, results/q1_results.json]}
+      - {name: sensitivity, any_of: [05_输出与交付/results/sensitivity_result.json, results/sensitivity_result.json]}
+      - {name: figure_registry, any_of: [05_输出与交付/figure_registry.json, figure_registry.json]}
+      - {name: visual_report, any_of: [05_输出与交付/delivery_report/visual_evidence_report.json, 05_输出与交付/reports/visual_evidence_report.json, visual_evidence_report.json]}
+    review_packet: ["主结果", "误差与稳健性", "图表证据覆盖", "表多图少风险"]
+  - id: G5
+    stage: D
+    title: "论文蓝图与附录覆盖"
+    artifact_groups:
+      - {name: outline, any_of: [paper_outline.md, 01_需求与规划/paper_outline.md]}
+      - {name: appendix_plan, any_of: [appendix_plan.yaml, 01_需求与规划/appendix_plan.yaml]}
+    review_packet: ["章节素材", "图表位置", "第六章容量", "五问附录覆盖", "支撑材料"]
+  - id: G6
+    stage: F
+    title: "正式交付确认"
+    artifact_groups:
+      - {name: final_pdf, any_of: [paper/paper.pdf, paper.pdf]}
+      - {name: manifest, any_of: [paper/delivery_manifest.json, 05_输出与交付/delivery_manifest.json]}
+    review_packet: ["最终 PDF", "门禁结果", "WARN", "正式交付包"]

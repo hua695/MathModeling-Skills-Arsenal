@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P098
+# 来源: 全国大学生数学建模竞赛2008年C题
+case_id: P098
+applicable_scenarios:
+  - 搜救路径规划
+  - 网格区域覆盖
+  - 概率搜索优化
+strategy: "网格覆盖+贝叶斯概率更新的重点搜索"
+why_effective: "网格保证覆盖, 贝叶斯动态聚焦重点, 提升有限时间内的发现概率"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

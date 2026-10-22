@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P081
+# 来源: 全国大学生数学建模竞赛2010年A题
+case_id: P081
+candidate_models:
+  - 积分几何(截面法)
+  - 多元非线性回归
+  - 最小二乘反演
+  - 数值积分
+final_choice: "截面积分建模 + 最小二乘变位反演"
+reason: "用积分精确求得任意液位下的容积, 最小二乘反演变位参数标定罐容表"
+alternatives:
+  - 蒙特卡洛体积估计
+  - 神经网络拟合
+  - 仿真
+limitations:
+  - 变位为小角度假设
+  - 探针误差忽略
+  - 罐体制造误差
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

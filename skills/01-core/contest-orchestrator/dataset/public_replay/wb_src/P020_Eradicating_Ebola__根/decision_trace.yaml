@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P020
+# 来源: 2015 MCM Problem A: Eradicating Ebola
+case_id: P020
+steps:
+  - step: 1
+    action: "建立SEIR传播模型"
+    reason: "描述埃博拉传播动态"
+    abandoned: "SIR模型"
+  - step: 2
+    action: "参数估计与模型校准"
+    reason: "用西非疫情数据标定"
+    abandoned: "无"
+  - step: 3
+    action: "引入干预措施建模"
+    reason: "模拟疫苗/隔离效果"
+    abandoned: "无"
+  - step: 4
+    action: "最优化疫苗分配策略"
+    reason: "在有限资源下最大化控制效果"
+    abandoned: "平均分配"
+  - step: 5
+    action: "敏感性分析"
+    reason: "评估参数不确定性影响"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2015 MCM Problem A: Eradicating Ebola"
+  url: https://www.jingsailian.com/news/233612.html

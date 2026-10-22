@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P062
+# 来源: 全国大学生数学建模竞赛2012年A题
+case_id: P062
+candidate_models:
+  - 聚类分析
+  - 判别分析
+  - 主成分分析(PCA)
+  - 层次分析法(AHP)
+final_choice: "PCA降维 + 聚类/判别分级"
+reason: "PCA提取主要理化特征, 聚类区分葡萄类别, 判别分析建立质量判别规则"
+alternatives:
+  - 因子分析
+  - 支持向量机
+  - 神经网络
+limitations:
+  - 感官评分主观
+  - 年份混杂
+  - 样本代表性有限
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

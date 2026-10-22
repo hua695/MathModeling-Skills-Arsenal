@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P042
+# 来源: 全国大学生数学建模竞赛2011年D题
+case_id: P042
+candidate_models:
+  - 整数规划
+  - 背包问题
+  - 贪心算法
+  - 组合优化
+final_choice: "整数规划 + 贪心预处理"
+reason: "以总成品捆数最大为目标, 整数规划精确刻画搭配约束, 贪心降低规模"
+alternatives:
+  - 动态规划
+  - 遗传算法
+  - 模拟退火
+limitations:
+  - 未考虑原料质量差异
+  - 规格为简化离散档
+  - 大规模时求解慢
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

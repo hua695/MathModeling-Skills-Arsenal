@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P097
+# 来源: 全国大学生数学建模竞赛1998年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P097
+title: "灾情巡视路线"
+competition: CUMCM
+year: 1998
+problem_code: "B"
+category: 图模型
+domain: 图论/TSP巡游
+objective: "在公路网与灾情点约束下, 规划巡视组路线使遍历所有点总路程/时间最短"
+variables:
+  - name: 村庄/灾情点节点
+    type: 未指定
+    description: 未指定
+  - name: 道路长度
+    type: 未指定
+    description: 未指定
+  - name: 巡视组数
+    type: 未指定
+    description: 未指定
+  - name: 时限
+    type: 未指定
+    description: 未指定
+  - name: 分组
+    type: 未指定
+    description: 未指定
+  - name: 出发地
+    type: 未指定
+    description: 未指定
+constraints:
+  - 各点必到
+  - 时限约束
+  - 分组均衡
+  - 路网连通
+  - 各组回路
+assumptions:
+  - 沿最短路行驶
+  - 速度恒定
+  - 路网静态
+  - 点权重相等
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛1998年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 1998

@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P072
+# 来源: 2016 MCM Problem C: The Goodgrant Challenge
+case_id: P072
+steps:
+  - step: 1
+    action: "整理学校/学科指标"
+    reason: "统一口径"
+    abandoned: "无"
+  - step: 2
+    action: "PCA+LASSO筛选变量"
+    reason: "去除冗余与噪声"
+    abandoned: "全部使用"
+  - step: 3
+    action: "DEA评价投资效率"
+    reason: "比较投入产出"
+    abandoned: "无"
+  - step: 4
+    action: "多目标优选投资组合"
+    reason: "平衡使命与回报"
+    abandoned: "单目标"
+confidence: 中
+source:
+  title: "2016 MCM Problem C: The Goodgrant Challenge"
+  url: https://www.contest.comap.com/undergraduate/contests/

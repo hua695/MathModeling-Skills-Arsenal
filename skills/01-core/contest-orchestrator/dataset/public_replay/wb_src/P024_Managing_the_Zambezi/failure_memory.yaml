@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P024
+# 来源: 2017 MCM Problem A: Managing the Zambezi River System
+case_id: P024
+failures:
+  - method: "忽略生态流量约束"
+    root_cause: "过度发电导致生态破坏"
+    signal: "生态不可逆"
+    lesson: "需设最小生态流量"
+    reference: "美赛赛题分析"
+  - method: "确定性优化不考虑来水不确定性"
+    root_cause: "来水是随机的"
+    signal: "方案不鲁棒"
+    lesson: "需用随机优化或情景分析"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2017 MCM Problem A: Managing the Zambezi River System"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P068
+# 来源: 2010 MCM Problem A: The Sweet Spot
+case_id: P068
+failures:
+  - method: "仅看出球速度"
+    root_cause: "忽视震动手感"
+    signal: "甜区评价片面"
+    lesson: "需多目标"
+    reference: "美赛赛题分析"
+  - method: "简化球棒为质点"
+    root_cause: "质量分布影响甜区"
+    signal: "定位偏差"
+    lesson: "需分布模型"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2010 MCM Problem A: The Sweet Spot"
+  url: https://www.contest.comap.com/undergraduate/contests/

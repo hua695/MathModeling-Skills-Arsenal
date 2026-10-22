@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P062
+# 来源: 全国大学生数学建模竞赛2012年A题
+case_id: P062
+steps:
+  - step: 1
+    action: "理化指标与评分预处理"
+    reason: "标准化消除量纲"
+    abandoned: "无"
+  - step: 2
+    action: "PCA提取主要成分"
+    reason: "降维并解释来源"
+    abandoned: "直接用全部指标"
+  - step: 3
+    action: "聚类对葡萄分级"
+    reason: "区分质量类别"
+    abandoned: "无"
+  - step: 4
+    action: "判别分析建规则"
+    reason: "新样本质量判别"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

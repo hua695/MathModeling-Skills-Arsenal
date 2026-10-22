@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Explicit algorithm configuration lock",
+  "type": "object",
+  "required": ["schema_version", "subproblems"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "required": {"type": "boolean"},
+    "subproblems": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["id", "algorithm"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+          "paper_anchor": {"type": "string"},
+          "algorithm": {
+            "type": "object", "required": ["name", "code_sources", "parameters"],
+            "properties": {
+              "name": {"type": "string", "minLength": 1},
+              "code_sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+              "parameters": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["name", "expected", "source_file"],
+                  "properties": {
+                    "name": {"type": "string"},
+                    "expected": {},
+                    "source_file": {"type": "string"},
+                    "json_pointer": {"type": "string"},
+                    "code_variable": {"type": "string"},
+                    "tolerance": {"type": "number", "minimum": 0}
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

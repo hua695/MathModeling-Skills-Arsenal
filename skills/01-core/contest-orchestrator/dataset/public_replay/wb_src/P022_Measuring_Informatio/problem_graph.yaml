@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P022
+# 来源: 2016 ICM Problem D: Measuring Information in a Social Network
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P022
+title: "Measuring Information in a Social Network (社会网络信息度量)"
+competition: MCM/ICM
+year: 2016
+problem_code: "D"
+category: 数据预测
+domain: 网络科学/信息传播
+objective: "建立信息传播模型, 量化信息在网络中的流动和价值"
+variables:
+  - name: 网络节点/边
+    type: 未指定
+    description: 未指定
+  - name: 信息传播速率
+    type: 未指定
+    description: 未指定
+  - name: 节点影响力
+    type: 未指定
+    description: 未指定
+  - name: 信息内容特征
+    type: 未指定
+    description: 未指定
+  - name: 时间
+    type: 未指定
+    description: 未指定
+constraints:
+  - 网络拓扑约束
+  - 信息衰减约束
+  - 节点处理能力约束
+assumptions:
+  - 信息传播沿网络边
+  - 节点影响力可量化
+  - 信息价值随时间衰减
+confidence: 中
+source:
+  title: "2016 ICM Problem D: Measuring Information in a Social Network"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2016

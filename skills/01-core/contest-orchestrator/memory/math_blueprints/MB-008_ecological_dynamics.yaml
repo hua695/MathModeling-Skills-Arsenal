@@ -1,0 +1,129 @@
+# MB-008 生态/动态系统 母蓝图（Math Reasoning Scaffold · 通用版）
+# 用途：solving 阶段按 problem_type=生态/动态系统 注入，先把种群、环境或通量转成状态变量与动态方程再求解。
+# 原则：生态题的分水岭是"状态方程、平衡与稳定性分析完整、参数有来源"还是"只做数值迭代不分析平衡和敏感性"。
+
+blueprint_id: MB-008
+problem_type: 生态/动态系统
+competition_variant: 通用版
+summary: "核心矛盾是把种群、资源或环境通量转成状态变量随时间演化的差分或微分方程，并分析平衡点、稳定性与参数敏感性；防止只给仿真曲线、不做平衡分析、参数无来源。"
+
+abstraction_map:
+  objects:
+    - "种群、资源库或环境组分 → 状态变量 x_i(t)"
+    - "外部环境条件 → 参数 r、K、输入通量"
+    - "管理或干预动作 → 控制变量（捕捞量、配额、保护区）"
+  relationships:
+    - "增长与制约 → 增长率函数、密度制约"
+    - "种间作用 → 捕食、竞争、共生的耦合项"
+    - "物质或能量流动 → 通量平衡、投入产出关系"
+  decision:
+    - "时间建模 → 连续常微分或离散差分"
+    - "平衡与稳定 → 求不动点并判稳定性"
+    - "可持续管理 → 在动态约束下优化控制变量"
+
+symbols:
+  - {sym: "x_i(t)", meaning: "第 i 个状态变量在 t 时刻的值", unit: "依题意"}
+  - {sym: "r", meaning: "内禀增长率", unit: "1/时间"}
+  - {sym: "K", meaning: "环境承载力", unit: "同状态变量"}
+  - {sym: "α_ij", meaning: "种间作用系数", unit: ""}
+  - {sym: "x*", meaning: "平衡点状态", unit: "同状态变量"}
+  - {sym: "J", meaning: "平衡点处雅可比矩阵", unit: ""}
+
+steps:
+  - step: 1
+    name: 状态变量与守恒关系
+    template: "列清状态变量、流入流出项，写出质量或数量守恒关系，明确时间尺度取连续还是离散"
+    required: true
+  - step: 2
+    name: 动态方程
+    template: "建立增长、耦合或通量方程，说明每个参数的生物学或环境含义与取值来源，不能凭空设定"
+    required: true
+  - step: 3
+    name: 平衡点求解
+    template: "令变化率为零求平衡点，区分零平衡、单种群平衡和共存平衡，给出存在条件"
+    required: true
+  - step: 4
+    name: 稳定性分析
+    template: "在平衡点线性化，用雅可比特征值判局部稳定，必要时用相图或仿真展示收敛、振荡或分岔"
+    required: true
+  - step: 5
+    name: 数值仿真与敏感性
+    template: "给定初值数值积分，做关键参数扰动，报告状态轨迹和长期结果对参数的敏感性"
+    required: true
+  - step: 6
+    name: 可持续优化
+    template: "若涉及捕捞、配额或保护区，在动态平衡约束下优化收益或生态指标，说明生态约束如何转化为可行域"
+    required: false
+    alternative: [最大可持续产量, 多目标权衡, 空间保护区]
+
+selection_logic:
+  - if: {growth: "单种群密度制约"}
+    choose: Logistic 增长模型
+    because: "用承载力刻画资源上限，平衡点解析可得"
+  - if: {interaction: "捕食被捕食"}
+    choose: Lotka-Volterra 耦合方程
+    because: "经典捕食系统能解释周期振荡与共存"
+  - if: {interaction: "多物种复杂食物网"}
+    choose: 功能响应加耦合常微分方程
+    because: "按功能群简化避免参数过多不可辨识"
+  - if: {time: "世代离散"}
+    choose: 差分方程或矩阵模型
+    because: "繁殖在离散季节发生时差分模型更贴合"
+  - if: {goal: "通量与碳核算"}
+    choose: 投入产出或质量平衡模型
+    because: "用守恒关系核算各库通量，数据不足时用排放因子估算"
+
+propositions:
+  - name: Logistic 平衡
+    template: "dx/dt=rx(1−x/K) 的平衡点为 x*=0 和 x*=K；后者在 r>0 时全局稳定，种群趋向承载力，K 由资源上限估计。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 线性化稳定性判据
+    template: "在平衡点 x* 处对系统 dx/dt=f(x) 取雅可比 J，若 J 全部特征值实部为负则局部渐近稳定，存在正实部则不稳定，纯虚需用高阶项判断。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: Lotka-Volterra 共存
+    template: "捕食系统 dx/dt=ax−bxy、dy/dt=−cy+dxy 的非零平衡点为 (c/d,a/b)，其邻域轨迹为周期轨道，周期由初始条件决定，模型对扰动为中性振荡。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 最大可持续产量
+    template: "Logistic 捕捞模型均衡产量 Y(E)=qE K(1−qE/r)，对捕捞努力 E 求极值得 E_MSY=r/(2q)、Y_MSY=rK/4，超过该努力量产量反而下降。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 参数可辨识性
+    template: "物种或库室过多时待估参数超过数据可支撑数量，参数不可辨识；应按功能群合并或固定部分参数，并做敏感性分析说明哪些参数主导结果。"
+    provenance: "专家模板（建库时手工编写）"
+
+theory_checks:
+  - name: 守恒闭合
+    note: "流入流出项齐全，总量守恒关系成立"
+    required: true
+  - name: 参数来源
+    note: "每个参数有数据、文献或标定依据并登记"
+    required: true
+  - name: 平衡与稳定
+    note: "平衡点存在条件和稳定性判定完整，不只看仿真"
+    required: true
+  - name: 敏感性
+    note: "关键参数扰动下长期行为的变化已报告"
+    required: false
+
+antipattern:
+  bad: "写一组差分方程迭代画出种群曲线就结束，参数直接假设，不求是多少、不判断是否稳定，也不分析参数变化会不会让种群崩溃。"
+  good: "建立带密度制约的耦合方程，参数 r、K 由数据拟合并给来源，求得共存平衡点及存在条件，雅可比特征值实部均为负故稳定，r 下调 20% 后平衡点下移但仍为正，仿真收敛与分析一致。"
+
+failure_modes:
+  - mode: simulation_only
+    symptom: "只有数值曲线，没有平衡点和稳定性分析"
+    guard: "先解析求平衡并用特征值判稳定，再用仿真验证"
+  - mode: parameter_fabrication
+    symptom: "增长率、作用系数无来源"
+    guard: "参数来自数据拟合、文献或标定并登记，做敏感性兜底"
+  - mode: over_compartment
+    symptom: "物种或库室过多导致参数不可辨识"
+    guard: "按功能群合并，减少待估参数"
+  - mode: ignored_constraint
+    symptom: "优化捕捞收益时不设生态约束导致种群灭绝解"
+    guard: "把平衡为正或最小种群规模写成显式约束"
+
+readability_guard:
+  - "给出动态方程后，用一句中文说明每个项对应什么生态过程"
+  - "符号首次出现带中文含义，参数后括注取值来源"
+  - "连续公式不超过 3 个，第 4 个前插入解释段落"
+  - "平衡与稳定性结论用相图或轨迹图佐证，不只给代数结果"

@@ -1,0 +1,17 @@
+# 主张覆盖表：论文主张与证据的对应关系（P1-05 新增校验）
+claims:
+- claim_id: claim-1
+  paper_anchor: 公交线路优化需要在满足乘客需求的前提下最小化运营成本
+  material_ref: Q1.problem_mapping
+- claim_id: claim-2
+  paper_anchor: 目标函数：最小化总成本
+  material_ref: Q1.derivation
+- claim_id: claim-3
+  paper_anchor: 方案A成本为52500元
+  material_ref: Q1.quantified_results
+- claim_id: claim-4
+  paper_anchor: 需求增加10%时，最优解变化5%
+  material_ref: Q1.sensitivity_or_robustness
+- claim_id: claim-5
+  paper_anchor: 模型有效，方案A更优
+  material_ref: Q1.conclusion_and_boundary

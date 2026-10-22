@@ -1,0 +1,10 @@
+# H7 节点审查包：节点产物、证据、检查结果
+node_id: H7
+summary: H7 图表审查包
+important_artifacts:
+- path: figures/q1_result.svg
+  sha256: 9c69d918e9b76b2cf62a8a437b2c56bf5963f3b1b5160df3df378609655be166
+checks:
+- 图表完整性检查
+requested_decision: approve
+proposed_next_node: H8

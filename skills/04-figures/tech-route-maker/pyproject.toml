@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tech-route-maker"
+version = "0.3.0"
+description = "Evidence-grounded editable technical route diagrams for research and engineering projects."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+  { name = "Stephen-studying" }
+]
+keywords = [
+  "technical-route",
+  "diagram-generator",
+  "agent-skill",
+  "research-diagram",
+  "engineering-diagram",
+  "pptx",
+  "svg",
+  "drawio"
+]
+dependencies = []
+
+[project.scripts]
+trm = "tech_route_maker.cli:main"
+
+[tool.setuptools]
+packages = ["tech_route_maker", "scripts"]

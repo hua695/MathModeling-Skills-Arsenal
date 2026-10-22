@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P067
+# 来源: 全国大学生数学建模竞赛2004年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P067
+title: "公务员招聘"
+competition: CUMCM
+year: 2004
+problem_code: "D"
+category: 评价分类
+domain: 人岗匹配/分类评价
+objective: "在岗位要求与应聘者条件匹配下, 建立评价模型完成人岗分类与录用"
+variables:
+  - name: 应聘者笔试成绩
+    type: 未指定
+    description: 未指定
+  - name: 面试表现
+    type: 未指定
+    description: 未指定
+  - name: 岗位要求
+    type: 未指定
+    description: 未指定
+  - name: 专业匹配
+    type: 未指定
+    description: 未指定
+  - name: 志愿顺序
+    type: 未指定
+    description: 未指定
+constraints:
+  - 每岗录用数固定
+  - 一人一岗
+  - 志愿约束
+  - 条件达标约束
+assumptions:
+  - 能力可量化
+  - 岗位要求明确
+  - 评价公平
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2004

@@ -1,0 +1,172 @@
+# 全局接口检查：跨子问题的共享符号、单位、数据版本等（P1-02 新增校验）
+schema_version: '1.0'
+status: PASS
+verified_by: H6
+verification_agent_instance_id: H6-agent-01
+task_card_path: .contest/task_cards/H6.yaml
+task_card_sha256: 1d3bee7280b81a3ecfb3359c41cd2a596fef0cde42c2d481c7472a54a1e19c4b
+issues: []
+checks:
+  shared_symbols:
+    status: passed
+    count: 2
+  units:
+    status: passed
+    count: 2
+  data_versions:
+    status: passed
+    count: 3
+  upstream_downstream_fields:
+    status: passed
+    count: 3
+  time_scales:
+    status: passed
+    count: 3
+  parameters:
+    status: passed
+    count: 3
+  cross_question_constraints:
+    status: passed
+    count: 0
+  conclusions:
+    status: passed
+    count: 3
+  provenance:
+    status: passed
+    count: 3
+per_subproblem:
+- subproblem_id: Q1
+  interface_fields:
+  - field: demand
+    unit: 人次/小时
+    time_scale: 小时
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  - field: cost
+    unit: 元
+    time_scale: 单次
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  shared_symbols:
+  - symbol: x
+    meaning: 发车间隔
+    unit: 分钟
+  units:
+  - quantity: 成本
+    unit: 元
+  data_versions:
+  - dataset: 乘客需求
+    version: v1.0
+  upstream_downstream_fields:
+  - field: demand
+    source: Q1
+    target: Q2
+  time_scales:
+  - scale: 小时
+    description: 发车间隔
+  parameters:
+  - name: demand
+    value: 1000
+  cross_question_constraints: []
+  conclusions:
+  - conclusion: 模型有效
+    confidence: high
+  provenance:
+  - source: model_contract.yaml
+    field: parameters
+- subproblem_id: Q2
+  interface_fields:
+  - field: demand
+    unit: 人次/小时
+    time_scale: 小时
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  - field: cost
+    unit: 元
+    time_scale: 单次
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  - field: transfer_time
+    unit: 分钟
+    time_scale: 单次
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  shared_symbols:
+  - symbol: y
+    meaning: 车辆数
+    unit: 辆
+  units:
+  - quantity: 时间
+    unit: 分钟
+  data_versions:
+  - dataset: 换乘时间
+    version: v1.0
+  upstream_downstream_fields:
+  - field: network
+    source: Q1
+    target: Q2
+  time_scales:
+  - scale: 分钟
+    description: 换乘时间
+  parameters:
+  - name: transfer_time
+    value: 15
+  cross_question_constraints: []
+  conclusions:
+  - conclusion: 换乘时间减少15%
+    confidence: high
+  provenance:
+  - source: model_contract.yaml
+    field: parameters
+- subproblem_id: Q3
+  interface_fields:
+  - field: demand
+    unit: 人次/小时
+    time_scale: 小时
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  - field: cost
+    unit: 元
+    time_scale: 单次
+    comparison_status: passed
+    source_path: model_contract.yaml
+    source_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+  - field: perturbation
+    unit: '%'
+    time_scale: 参数
+    comparison_status: passed
+    source_path: results/sensitivity_report.yaml
+    source_sha256: d5e684443a39ced4e6ac798e4fe6c0b8495b171115ab7b004c1a13e9121c9be0
+  shared_symbols:
+  - symbol: delta
+    meaning: 扰动幅度
+    unit: '%'
+  units:
+  - quantity: 变化率
+    unit: '%'
+  data_versions:
+  - dataset: 参数范围
+    version: v1.0
+  upstream_downstream_fields:
+  - field: sensitivity
+    source: Q1
+    target: Q3
+  time_scales:
+  - scale: 百分比
+    description: 扰动幅度
+  parameters:
+  - name: perturbation
+    value: 10
+  cross_question_constraints: []
+  conclusions:
+  - conclusion: 模型稳健
+    confidence: high
+  provenance:
+  - source: sensitivity_report.yaml
+    field: results

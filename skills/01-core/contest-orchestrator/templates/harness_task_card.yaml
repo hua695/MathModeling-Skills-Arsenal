@@ -1,0 +1,45 @@
+task_id: Hx-role-001
+node_id: Hx
+owner_role: <固定角色>
+objective: <本节点唯一目标>
+  # H8 节点 objective 必须写死叙事链路流程：
+  #   1. 读 paper_narrative.yaml（叙事主线）+ 已预载的 problem_statement.md（题面背景）
+  #   2. 按 paper_material_readiness.yaml 章节素材索引逐章取用素材（写哪章读哪章）
+  #   3. 摘要/问题分析/结论只用叙事蓝图（method/innovation/problem_solved/key_result），禁止公式堆砌
+  #   4. 6.x 建模求解章节只读该章素材文件
+inputs:
+  # H1 节点：必须包含题目原文
+  # H7/H8 节点：必须包含 problem_statement.md 作为只读语境输入
+  # H6/H7 还必须读取 H5 产出、H6 核验的 visual_evidence_packet.yaml；图表槽位和登记表必须引用其中的信息单元。
+  # H7 阶段一必须先产出带 figure_intent 的 visual_argument_plan.yaml 和 .contest/reviews/H7_visual_plan_review_packet.yaml；
+  # approval_log.yaml 中 H7_VISUAL_PLAN 获得用户批准后才执行图型选择、生成和登记。
+  # H8 还必须读取 H7 已批准的 visual_argument_plan.yaml；论文 agent 不得新增计划外图表。
+  # H8A：academic-writing 读取叙事、结果解释、图表和素材包，生成论证蓝图、作者简报和 abstract_argument_card.yaml。
+  # H8B：论文 agent 的任务卡必须只包含 problem_statement.md、paper_author_brief.yaml、
+  # chapter_writing_card.yaml、paper_continuity_context.yaml 和当前章节卡登记的冻结材料；
+  # 连续性包只提供压缩后的读者路径；authoring_protocol 还必须绑定
+  # writer-first、model-summary 与 abstract_argument_card 协议，不得把全套质量门禁写入作者任务。
+  # H6 节点：必须包含 h6_verification_scope.yaml；普通正文、排版、图表美化和附录格式变化禁止派发 H6。
+  - path: <项目内权威输入相对路径>
+    sha256: <输入文件SHA-256>
+scope: <允许处理的题目、小问和文件范围>
+# H7 generation cards replace the scalar above with:
+# scope:
+#   phase: H7_generate
+#   approved_visual_plan_sha256: <approved visual_argument_plan.yaml SHA-256>
+required_outputs: [<节点产物>]   # H1 节点必须包含 problem_statement.md
+verification: [<可重复的核验>]
+prohibited_actions: [<角色越权或范围外动作>]
+evidence_handoff: [<回流文件及其来源>]
+model: <agent_runtime_routes 对应模型>
+reasoning_effort: <agent_runtime_routes 对应推理强度>
+dispatch_kind: <primary_solver|conditional_support|node_specialist>
+solver_instance_id: null
+parent_solver_instance_id: null
+covered_subproblems: []
+cross_question_interface: false
+authority:
+  may_change_model_route: false
+  may_write_final_results: false
+  may_aggregate_conclusions: false
+allowed_output_kinds: []

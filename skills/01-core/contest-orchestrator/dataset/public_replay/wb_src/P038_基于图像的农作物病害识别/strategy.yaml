@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P038
+# 来源: 2019年亚太杯数学建模竞赛A题
+case_id: P038
+applicable_scenarios:
+  - 农作物病害识别
+  - 图像分类
+  - 小样本学习
+strategy: "迁移学习+数据增强+模型微调"
+why_effective: "迁移学习解决小样本, 数据增强平衡类别, 微调适应任务"
+confidence: 低
+source:
+  title: "2019年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

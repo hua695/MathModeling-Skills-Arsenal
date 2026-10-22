@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P026
+# 来源: 2019 MCM Problem A: Game of Ecology
+case_id: P026
+candidate_models:
+  - Lotka-Volterra扩展模型
+  - 矩阵种群模型
+  - 个体基模型(Agent-based)
+  - 系统动力学
+final_choice: "矩阵种群模型 + 气候情景预测"
+reason: "矩阵模型精确模拟年龄结构, 气候情景评估环境影响"
+alternatives:
+  - Logistic模型
+  - 随机种群模型
+  - 神经网络
+limitations:
+  - 种群参数估计困难
+  - 气候-种群关系简化
+  - 未考虑迁移
+confidence: 中
+source:
+  title: "2019 MCM Problem A: Game of Ecology"
+  url: https://www.contest.comap.com/undergraduate/contests/

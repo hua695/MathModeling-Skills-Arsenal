@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P006
+# 来源: 全国大学生数学建模竞赛2013年C题
+case_id: P006
+steps:
+  - step: 1
+    action: "数据预处理与坐标系统一"
+    reason: "消除系统误差"
+    abandoned: "无"
+  - step: 2
+    action: "计算各期变形量(倾斜/弯曲/扭曲)"
+    reason: "量化古塔变形程度"
+    abandoned: "仅看坐标变化"
+  - step: 3
+    action: "建立变形预测模型"
+    reason: "预测未来变形趋势"
+    abandoned: "简单外推"
+  - step: 4
+    action: "模型验证与精度评价"
+    reason: "确保预测可靠"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

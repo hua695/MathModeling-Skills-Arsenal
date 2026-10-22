@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P006
+# 来源: 全国大学生数学建模竞赛2013年C题
+case_id: P006
+applicable_scenarios:
+  - 结构变形监测与预测
+  - 文物建筑保护
+  - 工程测量数据分析
+strategy: "坐标变换+变形量计算+多模型预测比较"
+why_effective: "先精确计算变形量, 再用多种模型预测取最优, 兼顾准确性和可靠性"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

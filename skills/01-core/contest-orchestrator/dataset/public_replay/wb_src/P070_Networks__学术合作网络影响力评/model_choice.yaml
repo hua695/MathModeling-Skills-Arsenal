@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P070
+# 来源: 2014 MCM Problem C: Networks
+case_id: P070
+candidate_models:
+  - 社会网络分析(SNA)
+  - 主成分分析(PCA)
+  - PageRank
+  - 社区发现
+final_choice: "SNA中心度 + PCA综合影响力评价"
+reason: "SNA计算多种中心度刻画角色, PCA综合多维指标评价影响力"
+alternatives:
+  - PageRank
+  - H指数
+  - 模块度分析
+limitations:
+  - 合著不等于贡献
+  - 被引数据滞后
+  - 自引干扰
+confidence: 中
+source:
+  title: "2014 MCM Problem C: Networks"
+  url: https://www.contest.comap.com/undergraduate/contests/

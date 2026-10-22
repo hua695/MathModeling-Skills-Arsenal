@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P088
+# 来源: 全国大学生数学建模竞赛2019年A题
+case_id: P088
+failures:
+  - method: "忽略燃油可压缩"
+    root_cause: "压力波动算不出"
+    signal: "模型失真"
+    lesson: "需状态方程"
+    reference: "国赛赛题分析"
+  - method: "固定阀时序不优化"
+    root_cause: "压力偏离设计值"
+    signal: "控制失败"
+    lesson: "需时序优化"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

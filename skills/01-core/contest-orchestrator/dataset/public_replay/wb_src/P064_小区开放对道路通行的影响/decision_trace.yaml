@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P064
+# 来源: 全国大学生数学建模竞赛2016年B题
+case_id: P064
+steps:
+  - step: 1
+    action: "构建评价指标体系"
+    reason: "覆盖通行/安全/环境"
+    abandoned: "无"
+  - step: 2
+    action: "元胞自动机仿真路网"
+    reason: "对比开放前后通行"
+    abandoned: "无"
+  - step: 3
+    action: "AHP+模糊综合评价"
+    reason: "量化开放影响等级"
+    abandoned: "无"
+  - step: 4
+    action: "开放策略建议"
+    reason: "基于评价给出条件"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

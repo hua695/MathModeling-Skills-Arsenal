@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P023
+# 来源: 2016 ICM Problem E: Are We headed for a Drought?
+case_id: P023
+applicable_scenarios:
+  - 水资源预测与评价
+  - 干旱风险评估
+  - 水资源优化分配
+strategy: "概率预测+客观评价+优化分配"
+why_effective: "概率模型适应随机性, 客观赋权保证公正, 优化模型提供决策支持"
+confidence: 中
+source:
+  title: "2016 ICM Problem E: Are We headed for a Drought?"
+  url: http://www.madio.net/thread-290074-1-1.html

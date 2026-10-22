@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P035
+# 来源: 2010 MCM Problem B: Criminology
+case_id: P035
+candidate_models:
+  - 重心法(Centroid)
+  - 群集循环算法
+  - 空间扩散模型
+  - 回归分析
+final_choice: "群集循环算法 + 距离衰减模型"
+reason: "群集算法识别犯罪热点, 距离衰减模型预测居住地"
+alternatives:
+  - 地理画像软件CrimeStat
+  - 核密度估计
+  - 贝叶斯模型
+limitations:
+  - 假设罪犯行为模式一致
+  - 数据量少时不可靠
+  - 未考虑交通网络影响
+confidence: 中
+source:
+  title: "2010 MCM Problem B: Criminology"
+  url: http://www.madio.net/thread-290074-1-1.html

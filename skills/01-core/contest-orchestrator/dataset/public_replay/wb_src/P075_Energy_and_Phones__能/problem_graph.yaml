@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P075
+# 来源: 2009 MCM Problem B: Energy and Phones
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P075
+title: "Energy and Phones (能源与手机配置评价)"
+competition: MCM/ICM
+year: 2009
+problem_code: "B"
+category: 评价分类
+domain: 能源评价/配置分析
+objective: "建立能源供给配置评价模型, 分析不同方案对发展与能耗的影响并优选"
+variables:
+  - name: 能源类型与储量
+    type: 未指定
+    description: 未指定
+  - name: 需求预测
+    type: 未指定
+    description: 未指定
+  - name: 碳排放
+    type: 未指定
+    description: 未指定
+  - name: 成本
+    type: 未指定
+    description: 未指定
+  - name: 可达性
+    type: 未指定
+    description: 未指定
+  - name: 技术成熟度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 供需平衡
+  - 碳排放约束
+  - 预算约束
+  - 技术可行
+assumptions:
+  - 需求可预测
+  - 能源可替代
+  - 参数可量化
+confidence: 中
+source:
+  title: "2009 MCM Problem B: Energy and Phones"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2009

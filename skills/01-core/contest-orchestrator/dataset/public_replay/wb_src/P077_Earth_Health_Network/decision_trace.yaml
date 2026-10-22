@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P077
+# 来源: 2013 MCM Problem C: Earth Health Network Model
+case_id: P077
+steps:
+  - step: 1
+    action: "构建地球健康指标网络"
+    reason: "定义系统节点与关联"
+    abandoned: "无"
+  - step: 2
+    action: "PCA降维提取主因"
+    reason: "识别主要压力源"
+    abandoned: "全部指标"
+  - step: 3
+    action: "AHP赋权综合评价"
+    reason: "量化各系统健康"
+    abandoned: "等权"
+  - step: 4
+    action: "关键风险环节识别"
+    reason: "定位脆弱系统"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2013 MCM Problem C: Earth Health Network Model"
+  url: https://www.contest.comap.com/undergraduate/contests/

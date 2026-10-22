@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest evidence readiness",
+  "type": "object",
+  "required": ["schema_version", "status", "checks"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "status": {"enum": ["EXECUTED", "VALIDATED", "VERIFIED", "DELIVERY_READY", "BLOCKED"]},
+    "checks": {"type": "array"}
+  }
+}

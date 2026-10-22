@@ -1,0 +1,42 @@
+# problem_graph.yaml - 经验卡片 #P092
+# 来源: 全国大学生数学建模竞赛2013年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P092
+title: "碎纸片的拼接复原"
+competition: CUMCM
+year: 2013
+problem_code: "B"
+category: 图模型
+domain: 图匹配/组合复原
+objective: "基于碎片边缘像素相似度建立匹配图, 复原被切碎文件的文字排列顺序"
+variables:
+  - name: 碎片图像像素
+    type: 未指定
+    description: 未指定
+  - name: 边缘灰度序列
+    type: 未指定
+    description: 未指定
+  - name: 匹配相似度
+    type: 未指定
+    description: 未指定
+  - name: 行/列归属
+    type: 未指定
+    description: 未指定
+  - name: 邻接关系
+    type: 未指定
+    description: 未指定
+constraints:
+  - 每行碎片数固定
+  - 匹配唯一性
+  - 边缘连续
+  - 行列结构约束
+assumptions:
+  - 相邻碎片边缘像素连续
+  - 相似度可量化
+  - 无缺失碎片
+  - 文字行列规整
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2013

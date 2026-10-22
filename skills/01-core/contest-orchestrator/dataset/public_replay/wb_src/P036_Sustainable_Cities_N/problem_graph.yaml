@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P036
+# 来源: 2017 ICM Problem E: Sustainable Cities Needed!
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P036
+title: "Sustainable Cities Needed! (需要可持续城市)"
+competition: MCM/ICM
+year: 2017
+problem_code: "E"
+category: 数据预测
+domain: 城市规划/可持续发展
+objective: "建立城市可持续性评价模型, 制定城市发展提升方案"
+variables:
+  - name: 资源消耗
+    type: 未指定
+    description: 未指定
+  - name: 废物产生
+    type: 未指定
+    description: 未指定
+  - name: 绿地面积
+    type: 未指定
+    description: 未指定
+  - name: 空气质量
+    type: 未指定
+    description: 未指定
+  - name: 人口密度
+    type: 未指定
+    description: 未指定
+  - name: 经济指标
+    type: 未指定
+    description: 未指定
+constraints:
+  - 资源有限约束
+  - 环境容量约束
+  - 经济发展约束
+assumptions:
+  - 可持续性可量化
+  - 各指标可加权综合
+  - 城市发展有阶段性
+confidence: 中
+source:
+  title: "2017 ICM Problem E: Sustainable Cities Needed!"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2017

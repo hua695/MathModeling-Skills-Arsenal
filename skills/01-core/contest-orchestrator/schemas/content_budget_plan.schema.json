@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest Content Budget Plan",
+  "type": "object",
+  "required": ["schema_version", "profile", "page_policy", "content_budget", "checkpoints"],
+  "properties": {
+    "schema_version": {"type": "string", "pattern": "^1\\.[01]$"},
+    "planning_contract": {"enum": ["legacy", "evidence_first"]},
+    "evidence_policy": {
+      "type": "object",
+      "properties": {
+        "source_of_truth": {"type": "string"},
+        "required_sources": {"type": "array", "items": {"type": "string"}},
+        "anti_padding": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "profile": {"type": "string"},
+    "visual_policy": {
+      "type": "object",
+      "properties": {
+        "mode": {"enum": ["claim_coverage", "reader_first_coverage"]},
+        "visual_argument_plan": {"type": "string"},
+        "table_to_figure_review_ratio": {"type": "number", "minimum": 0}
+      }
+    },
+    "page_policy": {
+      "type": "object",
+      "required": ["planning_target", "delivery_target", "hard_max", "short_paper_review_threshold"],
+      "properties": {
+        "body_definition": {"type": "string"},
+        "planning_target": {"$ref": "#/$defs/range"},
+        "delivery_target": {"$ref": "#/$defs/range"},
+        "hard_min": {"type": ["number", "null"]},
+        "hard_max": {"type": "number"},
+        "short_paper_review_threshold": {"type": "number"},
+        "whole_paper_recommended_range": {"$ref": "#/$defs/range"}
+      }
+    },
+    "content_budget": {
+      "type": "object",
+      "required": ["tolerance_pages", "subproblems"],
+      "properties": {
+        "tolerance_pages": {"type": "number", "minimum": 0},
+        "shared_sections": {"$ref": "#/$defs/budget_list"},
+        "global_sections": {"$ref": "#/$defs/budget_list"},
+        "subproblems": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["id", "target_pages", "evidence_units"],
+            "properties": {
+              "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+              "target_pages": {"type": "number", "exclusiveMinimum": 0},
+              "evidence_units": {"type": "array", "items": {"type": "string"}},
+              "capability_profile": {"type": "string"},
+              "validation_scope": {"enum": ["local", "global", "both"]},
+              "visual_evidence": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["purpose", "source"],
+                  "properties": {
+                    "id": {"type": "string"},
+                    "purpose": {"type": "string", "minLength": 1},
+                    "source": {"type": "string", "minLength": 1}
+                  }
+                }
+              },
+              "visual_decision": {
+                "type": "object",
+                "properties": {
+                  "status": {"enum": ["required", "table_justified", "not_applicable"]},
+                  "rationale": {"type": "string"}
+                }
+              },
+              "evidence_status": {"enum": ["planned", "in_progress", "complete", "verified"]}
+            }
+          }
+        }
+      }
+    },
+    "checkpoints": {
+      "type": "object",
+      "properties": {
+        "blueprint": {"$ref": "#/$defs/checkpoint"},
+        "solution": {"$ref": "#/$defs/checkpoint"},
+        "pdf": {"$ref": "#/$defs/checkpoint"}
+      }
+    },
+    "padding_flags": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {
+    "range": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "budget_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "target_pages"],
+        "properties": {
+          "id": {"type": "string"},
+          "target_pages": {"type": "number", "exclusiveMinimum": 0}
+        }
+      }
+    },
+    "checkpoint": {
+      "type": "object",
+      "properties": {
+        "predicted_body_pages": {"type": ["number", "null"]},
+        "actual_body_pages": {"type": ["number", "null"]}
+      }
+    }
+  }
+}

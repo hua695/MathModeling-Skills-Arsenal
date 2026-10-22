@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P020
+# 来源: 2015 MCM Problem A: Eradicating Ebola
+case_id: P020
+candidate_models:
+  - SEIR传染病模型
+  - SIR模型
+  - 网络传播模型
+  - 最优化分配模型
+final_choice: "改进SEIR模型 + 最优化疫苗分配"
+reason: "SEIR考虑潜伏期更适合埃博拉, 最优化分配有限医疗资源"
+alternatives:
+  - Agent-based模型
+  - 马尔可夫链
+  - 系统动力学
+limitations:
+  - 均匀混合假设过于简化
+  - 未考虑人口流动
+  - 参数估计依赖早期数据
+confidence: 中
+source:
+  title: "2015 MCM Problem A: Eradicating Ebola"
+  url: https://www.jingsailian.com/news/233612.html

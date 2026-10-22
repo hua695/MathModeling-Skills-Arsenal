@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P058
+# 来源: 2020 MCM Problem D: The Teaming Strategy
+case_id: P058
+candidate_models:
+  - 匹配模型
+  - 0-1规划
+  - 社交网络分析
+  - 多目标规划
+final_choice: "0-1规划组队 + 多目标权衡沟通与技能"
+reason: "以技能覆盖与沟通成本为目标, 0-1规划分配成员到团队并满足约束"
+alternatives:
+  - 稳定匹配(Gale-Shapley)
+  - 遗传算法
+  - 聚类组队
+limitations:
+  - 技能刻画简化
+  - 未考虑人际因素
+  - 任务依赖忽略
+confidence: 中
+source:
+  title: "2020 MCM Problem D: The Teaming Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P017
+# 来源: 全国大学生数学建模竞赛2007年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P017
+title: "中国人口增长预测"
+competition: CUMCM
+year: 2007
+problem_code: "A"
+category: 数据预测
+domain: 人口学/人口预测
+objective: "建立中国人口增长预测模型, 分析人口结构变化, 评估人口政策影响"
+variables:
+  - name: 年龄结构
+    type: 未指定
+    description: 未指定
+  - name: 性别比
+    type: 未指定
+    description: 未指定
+  - name: 生育率
+    type: 未指定
+    description: 未指定
+  - name: 死亡率
+    type: 未指定
+    description: 未指定
+  - name: 迁移率
+    type: 未指定
+    description: 未指定
+  - name: 城镇化率
+    type: 未指定
+    description: 未指定
+constraints:
+  - 人口非负约束
+  - 年龄推移约束
+  - 生育政策约束
+assumptions:
+  - 生育率/死亡率短期稳定
+  - 迁移模式可量化
+  - 政策影响可建模
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2007年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2007

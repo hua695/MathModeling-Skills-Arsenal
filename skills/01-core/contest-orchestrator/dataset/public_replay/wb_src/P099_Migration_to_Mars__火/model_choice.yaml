@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P099
+# 来源: 2017 ICM Problem F: Migration to Mars
+case_id: P099
+candidate_models:
+  - 网络最大流
+  - 最小费用流
+  - 多商品流
+  - 整数规划
+final_choice: "多商品网络流 + 最小费用流优化"
+reason: "用多商品流刻画人员与物资流动, 最小费用流在运输约束下优化调度"
+alternatives:
+  - Agent-based仿真
+  - 动态规划
+  - 遗传算法
+limitations:
+  - 需求为估计
+  - 发射窗口简化
+  - 技术风险忽略
+confidence: 中
+source:
+  title: "2017 ICM Problem F: Migration to Mars"
+  url: https://www.contest.comap.com/undergraduate/contests/

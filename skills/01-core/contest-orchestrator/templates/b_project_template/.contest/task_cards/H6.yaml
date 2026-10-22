@@ -1,0 +1,34 @@
+# H6 节点任务卡：输入、范围、输出、验证要求
+task_id: H6-task-001
+node_id: H6
+owner_role: 验证 agent
+objective: H6 节点任务
+inputs:
+- path: H6_input.md
+  sha256: 209cac788a59229579c725646612f7e19955d1264cd0544f75b5754f6039207d
+- path: problem_statement.md
+  sha256: <sha256>
+- path: validation_contract.yaml
+  sha256: <sha256>
+- path: model_summary_cards.yaml
+  sha256: <sha256>
+- path: h6_verification_scope.yaml
+  sha256: 1ed3dde1b3f1013b8908fd5af855e213eee1aa3103e863d7808bb48178c52747
+- path: result_interpretation_cards.yaml
+  sha256: <sha256>
+- path: visual_evidence_packet.yaml
+  sha256: <sha256>
+scope: 受控范围
+required_outputs:
+- 节点产物
+- model_summary_cards.yaml（核验后 status=verified）
+- visual_evidence_packet.yaml（核验后 status=verified，并登记当前 H6 实例）
+verification:
+- 节点检查
+- python scripts/check_h6_verification_scope.py h6_verification_scope.yaml
+prohibited_actions:
+- 越权
+evidence_handoff:
+- 回流记录
+model: gpt-5.6-sol
+reasoning_effort: high

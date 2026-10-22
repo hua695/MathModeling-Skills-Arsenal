@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P024
+# 来源: 2017 MCM Problem A: Managing the Zambezi River System
+case_id: P024
+steps:
+  - step: 1
+    action: "历史流量数据分析与预测"
+    reason: "预测未来来水量"
+    abandoned: "无"
+  - step: 2
+    action: "建立多目标调度模型"
+    reason: "平衡发电/灌溉/生态需求"
+    abandoned: "单目标"
+  - step: 3
+    action: "线性规划求解最优调度"
+    reason: "在约束下优化水资源分配"
+    abandoned: "无"
+  - step: 4
+    action: "情景分析与鲁棒性评估"
+    reason: "评估不同来水情景下的方案"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2017 MCM Problem A: Managing the Zambezi River System"
+  url: https://www.contest.comap.com/undergraduate/contests/

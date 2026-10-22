@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0",
+  "profile_id": "guosai_2026_ai",
+  "competition": "guosai",
+  "effective_date": "2026-09-01",
+  "official_source": "https://www.mcm.edu.cn/html_cn/node/fef94648f2836ab6cc81586f4c38512b.html",
+  "declaration_heading": "AI工具使用声明",
+  "declaration_before_reference": true,
+  "detail_filename": "AI工具使用详情.pdf",
+  "ai": {
+    "reference_entry_required": false,
+    "truthful_disclosure_required": true,
+    "human_led_core_required": true,
+    "detail_in_supporting_material": true
+  },
+  "detail_fields": [
+    "tool_name_and_version",
+    "purpose_and_stage",
+    "prompt_or_interaction_summary",
+    "adoption_and_human_review"
+  ],
+  "paper": {
+    "national_submission_formats": ["PDF", "Word"],
+    "submission_format": "PDF",
+    "submission_format_scope": "湖南赛区本地要求；全国规则允许 PDF 或 Word",
+    "non_image_pdf_required": true,
+    "max_size_mb": 20,
+    "toc_allowed": false,
+    "body_max_pages": 30,
+    "body_includes_abstract": false,
+    "body_includes_ai_declaration": true,
+    "body_includes_references": true,
+    "appendix_counted": false
+  },
+  "registration_deadline": "2026-09-07T20:00+08:00",
+  "competition_window": {
+    "start": "2026-09-10T18:00+08:00",
+    "end": "2026-09-13T20:00+08:00"
+  },
+  "submission_window": {
+    "md5_deadline": "2026-09-13T20:00+08:00",
+    "upload_start": "2026-09-13T20:30+08:00",
+    "upload_deadline": "2026-09-14T14:00+08:00"
+  },
+  "regional_advisory": {
+    "region": "湖南赛区",
+    "paper_format": "PDF",
+    "submission_total_max_pages": 51,
+    "whole_paper_recommended_max_pages": 51,
+    "program_appendix_recommended_max_pages": 20,
+    "is_national_hard_rule": false
+  },
+  "pre_effective_behavior": "info",
+  "notes": "只对国赛 2026 profile 生效；AI 工具说明应真实覆盖实际使用范围，突出参赛队主导核心建模与分析；不改变其他竞赛规则。"
+}

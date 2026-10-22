@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P031
+# 来源: 2020 ICM Problem F: The Place I Called Home
+case_id: P031
+candidate_models:
+  - 重力模型
+  - 系统动力学
+  - Agent-based模型
+  - 回归分析
+final_choice: "重力模型 + 系统动力学"
+reason: "重力模型量化迁移方向和规模, 系统动力学模拟长期动态"
+alternatives:
+  - 马尔可夫链
+  - 神经网络
+  - 随机效用模型
+limitations:
+  - 移民决策因素复杂
+  - 数据缺乏
+  - 政治因素难量化
+confidence: 中
+source:
+  title: "2020 ICM Problem F: The Place I Called Home"
+  url: https://www.contest.comap.com/undergraduate/contests/

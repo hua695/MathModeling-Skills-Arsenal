@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P073
+# 来源: 2018 ICM Problem F: Cost of Privacy
+case_id: P073
+failures:
+  - method: "仅看保护成本"
+    root_cause: "忽视泄露损失"
+    signal: "策略失衡"
+    lesson: "需成本效益"
+    reference: "美赛赛题分析"
+  - method: "忽略用户效用"
+    root_cause: "过度保护降低体验"
+    signal: "策略不可行"
+    lesson: "需权衡"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2018 ICM Problem F: Cost of Privacy"
+  url: https://www.contest.comap.com/undergraduate/contests/

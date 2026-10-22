@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P058
+# 来源: 2020 MCM Problem D: The Teaming Strategy
+case_id: P058
+applicable_scenarios:
+  - 项目团队组建
+  - 技能-任务匹配
+  - 组织效能优化
+strategy: "0-1组队+技能覆盖约束+沟通多目标权衡"
+why_effective: "0-1规划精确组队, 覆盖约束保可行, 多目标平衡技能与沟通成本"
+confidence: 中
+source:
+  title: "2020 MCM Problem D: The Teaming Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,20 @@
+# 模型契约：变量、约束、目标函数、参数定义
+schema_version: '1.0'
+model_name: 公交线路优化模型
+capabilities:
+- optimization
+- linear_programming
+- sensitivity_analysis
+subproblems:
+  Q1:
+    objective: minimize_total_cost
+    decision_variables:
+    - headway
+    - fleet_size
+    constraints:
+    - demand_satisfaction
+    - fleet_capacity
+    parameters:
+      demand: 1000
+      cost_per_bus: 500
+      capacity: 50

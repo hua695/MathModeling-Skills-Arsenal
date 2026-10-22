@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P018
+# 来源: 全国大学生数学建模竞赛2005年A题
+case_id: P018
+candidate_models:
+  - 水质综合评价指数
+  - 一维水质模型
+  - 灰色预测
+  - 回归预测
+final_choice: "综合指数评价 + 一维水质模型预测"
+reason: "综合指数评价现状, 一维模型模拟污染物传播和降解"
+alternatives:
+  - 模糊评价
+  - 神经网络
+  - 二维水质模型
+limitations:
+  - 一维假设简化了实际河流
+  - 降解系数标定不确定
+  - 未考虑面源污染
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

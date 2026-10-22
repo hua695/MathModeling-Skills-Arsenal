@@ -1,0 +1,130 @@
+# 表达质量模式库（合并元话语 + 负向回声）
+# 脚本只做初筛生成候选项，不能直接生成 HIGH 或 BLOCKER，必须人工确认
+# 每条规则包含：模式、类型、严重度上限、是否需人工确认、判断说明
+# 注意：本文件为两层 YAML 结构（规则名直接在顶层），与 scan_language.py 解析器兼容
+
+schema_version: "1.0"
+description: "论文表达质量统一模式库，合并元话语检查和负向回声检查"
+
+# ===== 元话语类 =====
+
+self_reference:
+  type: meta_discourse
+  patterns: ["本文", "本模型", "本研究", "本问", "主模型", "我们", "笔者", "本论文", "本工作"]
+  severity_cap: MEDIUM
+  requires_human: true
+  judgement:
+    - "摘要和结论中可保留（标准学术写法）"
+    - "正文主体中建议改为客观陈述"
+    - "模型优点/局限性小节可保留"
+
+process_description:
+  type: meta_discourse
+  patterns: ["本文将", "我们采用", "下面给出", "上述片段", "下列片段", "前一段", "以下片段", "此处代码", "该函数对应", "代码展示", "便于复现", "进入模型的位置", "补充定义", "预先登记"]
+  severity_cap: HIGH
+  requires_human: true
+  judgement:
+    - "附录代码片段的引导语可保留（有结构衔接功能）"
+    - "正文主体中必须改为客观陈述"
+    - "'预先登记'在抽样方法中是术语，可保留"
+
+boundary_reminder:
+  type: meta_discourse
+  patterns: ["不代表", "不能据此", "仅用于", "不代替", "不把", "不以", "不加入", "不替代", "不声称", "不表示", "不能按", "而非", "不是由", "并不", "应区分", "需要指出", "值得注意"]
+  severity_cap: MEDIUM
+  requires_human: true
+  judgement:
+    - "有实质信息的澄清可保留"
+    - "纯自我设限必须删除或改为客观陈述"
+    - "模型局限性小节可保留"
+
+tool_description:
+  type: meta_discourse
+  patterns: ["该表只反映", "本节表格和图形只报告", "表中只列出", "该核验只验证", "该构造没有", "完整源码不会以", "下面只保留", "正文结果与", "输出为", "输入为"]
+  severity_cap: HIGH
+  requires_human: true
+  judgement:
+    - "附录中说明代码输入输出可保留"
+    - "正文主体中必须改为客观陈述"
+
+transition_words:
+  type: meta_discourse
+  patterns: ["由此可见", "可以看出", "不难发现", "综上所述"]
+  severity_cap: LOW
+  requires_human: true
+  judgement:
+    - "'因此/所以/由式可得/如表所示/如图所示'是正常学术表达，不在此规则中"
+    - "'由此可见/可以看出/不难发现/综上所述'建议改为客观陈述或删除"
+
+meta_commentary:
+  type: meta_discourse
+  patterns: ["本节的目的是", "本章主要讨论", "接下来我们将", "下面分三部分", "本小节用于", "该表的功能是", "本检验能干什么", "对读者的提醒"]
+  severity_cap: HIGH
+  requires_human: false
+  judgement: ["全部必须删除或改为客观陈述"]
+
+# ===== 负向回声类 =====
+
+version_trace:
+  type: negative_echo
+  patterns: ["v1", "v2", "v3", "第一版", "第二版", "初始版本", "旧版", "原方案", "之前的方案", "最初的模型", "旧模型", "上一版", "前一版", "初稿", "草稿"]
+  severity_cap: HIGH
+  requires_human: true
+  judgement: "版本痕迹必须删除；只保留最终定稿内容"
+
+failed_attempt:
+  type: negative_echo
+  patterns: ["尝试", "失败", "未能", "无法收敛", "报错", "出现错误", "异常退出", "不收敛", "卡阈值", "效果不佳", "不理想", "精度不够", "跑不通"]
+  severity_cap: HIGH
+  requires_human: true
+  judgement: "失败过程必须删除；若某方法确实不适用，改为客观陈述方法局限（如'该方法假设XX，本题不满足'）"
+
+modification_trace:
+  type: negative_echo
+  patterns: ["改为", "改成", "修正为", "重新设计", "重新建模", "重做", "回退", "撤销", "改回", "换成了", "调整为"]
+  severity_cap: MEDIUM
+  requires_human: true
+  judgement: "修改过程必须删除；只保留最终模型/参数/结果"
+
+internal_discussion:
+  type: negative_echo
+  patterns: ["我们决定", "经过讨论", "权衡后", "取舍", "最终选择", "综合考虑后", "考虑到时间", "考虑到复杂度", "团队认为", "一致同意"]
+  severity_cap: HIGH
+  requires_human: true
+  judgement: "内部决策过程必须删除；只保留最终方案及其技术理由"
+
+self_negation:
+  type: negative_echo
+  patterns: ["不做", "不考虑", "不采用", "放弃了", "拒绝了", "排除了", "没有采用", "未使用", "不涉及"]
+  severity_cap: MEDIUM
+  requires_human: true
+  judgement: "有实质信息的方法排除可保留（写为客观局限）；纯自我设限必须删除"
+
+process_meta:
+  type: negative_echo
+  patterns: ["经过多次", "反复", "迭代了", "调参", "试了", "跑了", "实验了", "测试了多种", "对比了几种"]
+  severity_cap: MEDIUM
+  requires_human: true
+  judgement: "实验过程描述必须删除；只保留最终参数、对比结果和结论"
+
+agent_trace:
+  type: negative_echo
+  patterns: ["agent", "Agent", "提示词", "prompt", "子任务", "fork", "分支", "主会话", "审查报告", "修改清单", "STALE_REPORT"]
+  severity_cap: BLOCKER
+  requires_human: false
+  judgement: "AI 协作痕迹必须全部删除，不得出现在正文或附录"
+
+# 存储规则
+storage_rules:
+  allowed_in_body: ["摘要", "结论", "模型优点小节", "模型局限性小节", "附录代码引导语"]
+  forbidden_in_body: ["问题重述", "问题分析", "模型建立", "模型求解", "模型检验"]
+  unified_storage:
+    - "模型假设小节：仅写假设内容，不写假设的解释边界"
+    - "模型检验讨论/模型局限性与误差来源小节：统一收纳局限和边界"
+
+# 自检逻辑
+self_check_logic:
+  - "读完一句话反问：这句话是在描述客观模型/数据/结果，还是在描述建模者本人的操作、工具能力、边界提醒？"
+  - "若是后者，移出正文主体"
+  - "若有实质信息，改为客观陈述"
+  - "若无实质信息，直接删除"

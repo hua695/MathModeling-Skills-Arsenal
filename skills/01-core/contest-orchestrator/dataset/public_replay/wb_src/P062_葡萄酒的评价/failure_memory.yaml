@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P062
+# 来源: 全国大学生数学建模竞赛2012年A题
+case_id: P062
+failures:
+  - method: "仅用均值比较"
+    root_cause: "未考虑指标综合与相关性"
+    signal: "分级不准"
+    lesson: "需PCA+聚类"
+    reference: "国赛赛题分析"
+  - method: "忽视评分主观性"
+    root_cause: "品酒员差异未处理"
+    signal: "质量失真"
+    lesson: "需聚合处理"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

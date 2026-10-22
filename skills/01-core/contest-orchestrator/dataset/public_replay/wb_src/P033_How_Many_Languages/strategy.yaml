@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P033
+# 来源: 2018 MCM Problem B: How Many Languages?
+case_id: P033
+applicable_scenarios:
+  - 语言多样性预测
+  - 文化演化建模
+  - 全球化影响评估
+strategy: "传播模型+回归分析+趋势预测"
+why_effective: "传播模型描述动态, 回归量化因素, 预测提供未来图景"
+confidence: 中
+source:
+  title: "2018 MCM Problem B: How Many Languages?"
+  url: https://www.contest.comap.com/undergraduate/contests/

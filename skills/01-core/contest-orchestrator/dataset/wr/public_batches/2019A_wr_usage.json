@@ -1,0 +1,485 @@
+{
+  "competition": "2019国赛A",
+  "year": 2019,
+  "problem": "A",
+  "title": "高压油管的压力控制",
+  "skill_version": "3.6.13",
+  "retrieved_patterns": [
+    "WR-067",
+    "WR-001",
+    "WR-003",
+    "WR-139",
+    "WR-004",
+    "WR-043",
+    "WR-092",
+    "WR-112",
+    "WR-157",
+    "WR-008",
+    "WR-057",
+    "WR-168",
+    "WR-009",
+    "WR-128",
+    "WR-671",
+    "WR-114",
+    "WR-034",
+    "WR-070",
+    "WR-141",
+    "WR-162",
+    "WR-010",
+    "WR-011",
+    "WR-052",
+    "WR-062",
+    "WR-035",
+    "WR-045",
+    "WR-046",
+    "WR-094",
+    "WR-018",
+    "WR-020",
+    "WR-079",
+    "WR-019",
+    "WR-017",
+    "WR-023",
+    "WR-080",
+    "WR-021",
+    "WR-074",
+    "WR-082",
+    "WR-022",
+    "WR-130",
+    "WR-029",
+    "WR-030",
+    "WR-031",
+    "WR-049",
+    "WR-056",
+    "WR-132",
+    "WR-064",
+    "WR-075",
+    "WR-033",
+    "WR-144"
+  ],
+  "adopted_patterns": [
+    "WR-139",
+    "WR-003",
+    "WR-001",
+    "WR-067",
+    "WR-625",
+    "WR-633",
+    "WR-168",
+    "WR-009",
+    "WR-034",
+    "WR-141",
+    "WR-114",
+    "WR-010",
+    "WR-035",
+    "WR-052",
+    "WR-018",
+    "WR-642",
+    "WR-023",
+    "WR-080",
+    "WR-022",
+    "WR-021",
+    "WR-029",
+    "WR-030",
+    "WR-132",
+    "WR-056",
+    "WR-033",
+    "WR-144"
+  ],
+  "checked_traps": [
+    {
+      "trap_id": "WR-159",
+      "status": "SUSPECTED",
+      "anchor": false
+    },
+    {
+      "trap_id": "WR-066",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-178",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-179",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-728",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-179",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-728",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-091",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-179",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-728",
+      "status": "PASS",
+      "anchor": true
+    },
+    {
+      "trap_id": "WR-162",
+      "status": "FAIL",
+      "anchor": true
+    }
+  ],
+  "triggered_traps": [
+    {
+      "wr_id": "WR-162",
+      "severity": "high",
+      "note": "参考文献仅4条：无 DOI/URL/出版社页码等可溯源标识，近5年占比不足（按 PSR 第一场 Kimi 评审口径为真实命中）"
+    }
+  ],
+  "critic_issues_total": null,
+  "meta": {
+    "source": "contest-orchestrator v3.6.13 paper_retrieval.py 真实运行 + 论文终稿逐章回填",
+    "n_top_sum": 52,
+    "n_adopted": 26,
+    "guosai_adopted": 12,
+    "huaweibei_adopted": 0,
+    "honesty_note": "used_patterns 为论文终稿中真实体现的写法；WR-159 摘要末句含轻微自我评价(语义判断)记为 SUSPECTED；WR-162 参考文献不达标记为 FAIL，不虚报规避率"
+  },
+  "sections": [
+    {
+      "section": "摘要",
+      "context_type": "机理",
+      "n_top": 8,
+      "retrieved_patterns": [
+        "WR-067",
+        "WR-001",
+        "WR-003",
+        "WR-139",
+        "WR-004",
+        "WR-043",
+        "WR-092",
+        "WR-112"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-139",
+          "pattern": "摘要按问题一分一段, 每段方法加结果都落到具体数字",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-003",
+          "pattern": "摘要中每个问题的结果必须给具体数字+单位（阈值/得分/长度/相对差），不得只写\"结果较好\"",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-001",
+          "pattern": "摘要按\"针对问题一…针对问题二…\"逐问分段；每问一段=思路一句+结果数字一句，最后一句总结评价",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-067",
+          "pattern": "每问独立一段，先写模型方法，再给数字结果并附物理意义",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-625",
+          "pattern": "摘要按问题-方法-结果-改进闭环串联，每问先点机理再给数值结论",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-633",
+          "pattern": "摘要按问题依次陈述方法、关键数值结果与验证方式",
+          "competition_family": "guosai"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-159",
+          "pattern": "摘要只能陈述做了什么/得到什么，禁止自我评价（'模型层次清晰''结果较好'）",
+          "status": "SUSPECTED"
+        }
+      ]
+    },
+    {
+      "section": "问题重述",
+      "context_type": "机理",
+      "n_top": 7,
+      "retrieved_patterns": [
+        "WR-157",
+        "WR-008",
+        "WR-057",
+        "WR-168",
+        "WR-009",
+        "WR-128",
+        "WR-671"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-168",
+          "pattern": "背景段先讲透三层结构相干干涉的物理机理，再转述问题",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-009",
+          "pattern": "概念讲解配一张示意图，再给一个手算微型算例（越小越好，能心算核对），公式定义落到例子上",
+          "competition_family": "huashu"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-066",
+          "pattern": "问题分析的小标题编号必须与所属章节序号一致",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "section": "模型假设",
+      "context_type": "通用",
+      "n_top": 5,
+      "retrieved_patterns": [
+        "WR-114",
+        "WR-034",
+        "WR-070",
+        "WR-141",
+        "WR-162"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-034",
+          "pattern": "假设用 H1/H2/H3 编号列表，每条一句话；重要假设后补一句\"假设合理性\"说明为什么成立/在什么范围成立",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-141",
+          "pattern": "对题意易混淆的参数, 假设里先澄清是什么再列式",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-114",
+          "pattern": "每个假设写假设本身,再用一段话论证其合理性或代价",
+          "competition_family": "huashu"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-178",
+          "pattern": "符号表与正文术语定义不一致(σ被标为修正波数)会招致质疑",
+          "status": "PASS"
+        },
+        {
+          "wr_id": "WR-179",
+          "pattern": "图表标题/坐标轴标签出现乱码方块（囹圄囵囫図圄圉□■）或不可读字符",
+          "status": "PASS"
+        },
+        {
+          "wr_id": "WR-728",
+          "pattern": "论文正文禁止出现内部流程词（经验库/检索/呈现先验/skills/Agent/提示词），评委视角应是无感成果表述",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "section": "模型建立",
+      "context_type": "机理",
+      "n_top": 8,
+      "retrieved_patterns": [
+        "WR-010",
+        "WR-011",
+        "WR-052",
+        "WR-062",
+        "WR-035",
+        "WR-045",
+        "WR-046",
+        "WR-094"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-010",
+          "pattern": "建主模型前先单开小节做数据侧写：展示部分原始数据表+统计分布表（占比/极值），让每个建模选择都能溯源到数据",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-035",
+          "pattern": "可证明的解析结论用\"定理 N（名称）：陈述。证明：…□\"格式呈现，与后面的应用引用闭环",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-052",
+          "pattern": "先写'由于…所以'论证弃用旧法改用新策略的理由(泛化性)",
+          "competition_family": "huashu"
+        }
+      ],
+      "used_traps": []
+    },
+    {
+      "section": "求解",
+      "context_type": "机理",
+      "n_top": 6,
+      "retrieved_patterns": [
+        "WR-018",
+        "WR-020",
+        "WR-079",
+        "WR-019",
+        "WR-017",
+        "WR-162"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-018",
+          "pattern": "选算法时给一句话\"为什么选它\"（能处理什么特性/为什么适合本问题），不默认读者认可",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-642",
+          "pattern": "对过炉速度用大步长粗筛+小步长精搜的双重搜索，减少运算量且保证精度",
+          "competition_family": "guosai"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-179",
+          "pattern": "图表标题/坐标轴标签出现乱码方块（囹圄囵囫図圄圉□■）或不可读字符",
+          "status": "PASS"
+        },
+        {
+          "wr_id": "WR-728",
+          "pattern": "论文正文禁止出现内部流程词（经验库/检索/呈现先验/skills/Agent/提示词），评委视角应是无感成果表述",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "section": "结果分析",
+      "context_type": "机理",
+      "n_top": 7,
+      "retrieved_patterns": [
+        "WR-023",
+        "WR-080",
+        "WR-021",
+        "WR-074",
+        "WR-082",
+        "WR-022",
+        "WR-130"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-023",
+          "pattern": "多方法/多方案结果用表呈现：每列是方法/方案、表头含单位、最后一列\"综合\"给出采纳值，表下紧跟解释性文字",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-080",
+          "pattern": "每张图配'由图可知+具体数值观测+决策逻辑解释'三段式文字解读",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-022",
+          "pattern": "有多个数据组/工况时，报告组间相对差（如\"10° 与 15° 结果相对差 1.3%\"），用一致性证明稳健",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-021",
+          "pattern": "优化结果配\"原始 vs 优化后\"并排对比图（同坐标系同图例），让改善直接肉眼可见",
+          "competition_family": "huashu"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-091",
+          "pattern": "正文所有表/图编号全局唯一且按出现顺序递增，禁止同一编号重复使用",
+          "status": "PASS"
+        }
+      ]
+    },
+    {
+      "section": "模型评价",
+      "context_type": "机理",
+      "n_top": 8,
+      "retrieved_patterns": [
+        "WR-029",
+        "WR-030",
+        "WR-031",
+        "WR-049",
+        "WR-056",
+        "WR-132",
+        "WR-064",
+        "WR-075"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-029",
+          "pattern": "评价章节固定\"优点 / 不足和改进 / 推广\"三段，每条一句主张+一句证据（具体到方法名和数字），不写空话",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-030",
+          "pattern": "\"不足\"要具体到场景（什么规模下/什么数据类型下出什么问题），拒绝\"模型泛化能力有限\"式空话",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-132",
+          "pattern": "模型评价把优点与所用方法的具体特性对应起来而非空话",
+          "competition_family": "huashu"
+        },
+        {
+          "wr_id": "WR-056",
+          "pattern": "把'问题1到问题4逐步加约束'总结为模型的层次性与可传递性",
+          "competition_family": "huashu"
+        }
+      ],
+      "used_traps": []
+    },
+    {
+      "section": "结论",
+      "context_type": "通用",
+      "n_top": 3,
+      "retrieved_patterns": [
+        "WR-033",
+        "WR-144",
+        "WR-162"
+      ],
+      "used_patterns": [
+        {
+          "wr_id": "WR-033",
+          "pattern": "结论按问题编号 1/2/3，每条=做了什么+结果数字+可靠性证据（交叉验证/相对差），与摘要呼应",
+          "competition_family": "guosai"
+        },
+        {
+          "wr_id": "WR-144",
+          "pattern": "结论按问题逐条回扣后, 主动列局限与改进方向",
+          "competition_family": "guosai"
+        }
+      ],
+      "used_traps": [
+        {
+          "wr_id": "WR-179",
+          "pattern": "图表标题/坐标轴标签出现乱码方块（囹圄囵囫図圄圉□■）或不可读字符",
+          "status": "PASS"
+        },
+        {
+          "wr_id": "WR-728",
+          "pattern": "论文正文禁止出现内部流程词（经验库/检索/呈现先验/skills/Agent/提示词），评委视角应是无感成果表述",
+          "status": "PASS"
+        },
+        {
+          "wr_id": "WR-162",
+          "pattern": "参考文献覆盖各问方法来源（每问方法≥1条）、可溯源（DOI/出版社/页码/URL之一）、近5年占比≥50%",
+          "status": "FAIL"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P063
+# 来源: 全国大学生数学建模竞赛2015年D题
+case_id: P063
+failures:
+  - method: "仅看开发商利润"
+    root_cause: "住户满意度低致方案失败"
+    signal: "不可行"
+    lesson: "需多目标平衡"
+    reference: "国赛赛题分析"
+  - method: "忽略指标冲突"
+    root_cause: "单一优化牺牲他方"
+    signal: "方案失衡"
+    lesson: "需权衡"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

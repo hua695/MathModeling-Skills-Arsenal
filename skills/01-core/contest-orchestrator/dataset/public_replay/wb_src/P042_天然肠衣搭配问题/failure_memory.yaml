@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P042
+# 来源: 全国大学生数学建模竞赛2011年D题
+case_id: P042
+failures:
+  - method: "纯贪心按长度先配"
+    root_cause: "未考虑等级与规格耦合"
+    signal: "成品捆数非最优"
+    lesson: "须用整数规划"
+    reference: "国赛赛题分析"
+  - method: "忽略余料利用"
+    root_cause: "短料可用于小规格"
+    signal: "损耗虚高"
+    lesson: "需统一优化"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P071
+# 来源: 2015 MCM Problem C: Human Capital Strategy
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P071
+title: "Human Capital Strategy (人力资本战略评价)"
+competition: MCM/ICM
+year: 2015
+problem_code: "C"
+category: 评价分类
+domain: 人力资源/战略评价
+objective: "建立组织人力资本评价模型, 比较不同人力战略并给出配置建议"
+variables:
+  - name: 员工技能分布
+    type: 未指定
+    description: 未指定
+  - name: 岗位需求
+    type: 未指定
+    description: 未指定
+  - name: 培训投入
+    type: 未指定
+    description: 未指定
+  - name: 流失率
+    type: 未指定
+    description: 未指定
+  - name: 生产率
+    type: 未指定
+    description: 未指定
+  - name: 战略契合度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 预算约束
+  - 技能-岗位匹配
+  - 战略一致性
+  - 时间跨度
+assumptions:
+  - 技能可量化
+  - 战略可分解指标
+  - 投入产出可建模
+confidence: 中
+source:
+  title: "2015 MCM Problem C: Human Capital Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2015

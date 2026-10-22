@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P022
+# 来源: 2016 ICM Problem D: Measuring Information in a Social Network
+case_id: P022
+failures:
+  - method: "仅用静态网络分析"
+    root_cause: "信息传播是动态过程"
+    signal: "无法预测传播趋势"
+    lesson: "需用动态模型"
+    reference: "美赛赛题分析"
+  - method: "忽略信息衰减"
+    root_cause: "信息价值随时间衰减"
+    signal: "影响力高估"
+    lesson: "需引入衰减函数"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2016 ICM Problem D: Measuring Information in a Social Network"
+  url: http://www.madio.net/thread-290074-1-1.html

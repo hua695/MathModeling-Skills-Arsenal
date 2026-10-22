@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P032
+# 来源: 2016 MCM Problem B: Space Junk
+case_id: P032
+candidate_models:
+  - 马尔可夫模型
+  - 泊松分布碰撞概率
+  - 模糊综合评价
+  - 风险评估模型
+final_choice: "马尔可夫碎片增长模型 + 泊松碰撞概率 + 模糊评价"
+reason: "马尔可夫描述碎片增长, 泊松分布估算碰撞, 模糊评价评估方案"
+alternatives:
+  - Agent-based模型
+  - 蒙特卡洛模拟
+  - 系统动力学
+limitations:
+  - 碎片数据不完整
+  - 碰撞级联模型简化
+  - 清理技术不确定性大
+confidence: 中
+source:
+  title: "2016 MCM Problem B: Space Junk"
+  url: http://www.madio.net/thread-290074-1-1.html

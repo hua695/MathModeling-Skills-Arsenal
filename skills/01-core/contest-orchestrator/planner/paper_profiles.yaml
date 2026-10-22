@@ -1,0 +1,35 @@
+schema_version: "1.0"
+description: "国赛题号弱先验与逐小问能力路由；能力声明优先于题号。"
+routing:
+  slot_prior_authoritative: false
+  capability_authoritative: true
+  unknown_capability_policy: "WARN_AND_REQUIRE_REVIEW"
+  mixed_question_policy: "COMPOSE_BY_SUBPROBLEM"
+slot_priors:
+  A:
+    hints: [mechanistic, simulation, optimization]
+    evidence_hints: [system_boundary, dimensional_check, initial_boundary, convergence, feasibility]
+  B:
+    hints: [hybrid, model_comparison, inverse, optimization]
+    evidence_hints: [baseline, escalation_trigger, cross_model_consistency, applicability]
+  C:
+    hints: [statistics, prediction, evaluation, classification]
+    evidence_hints: [row_grain, repeated_measures, leakage_audit, uncertainty, decision_interface]
+capabilities:
+  mechanistic: {profile: mechanistic_optimization, appendix: [derivation]}
+  inverse: {profile: mechanistic_optimization, appendix: [derivation, uncertainty]}
+  optimization: {profile: mechanistic_optimization, appendix: [optimization]}
+  simulation: {profile: simulation_dynamics, appendix: [simulation]}
+  statistics: {profile: statistical_inference, appendix: [statistics, uncertainty]}
+  prediction: {profile: data_prediction, appendix: [prediction, uncertainty]}
+  classification: {profile: classification, appendix: [classification, uncertainty]}
+  evaluation: {profile: evaluation_decision, appendix: [evaluation]}
+  grouping_threshold: {profile: grouping_threshold, appendix: [evaluation]}
+  network_graph: {profile: network_graph, appendix: [network]}
+  uncertainty: {profile: uncertainty, appendix: [uncertainty]}
+  hybrid: {profile: hybrid, appendix: [interface]}
+  clustering: {profile: clustering, appendix: [classification]}
+  causal_correlation: {profile: causal_correlation, appendix: [statistics, uncertainty]}
+  game_strategy: {profile: game_strategy, appendix: [optimization]}
+  geometric_kinematic: {profile: geometric_kinematic, appendix: [derivation]}
+  ecological_dynamics: {profile: ecological_dynamics, appendix: [simulation, uncertainty]}

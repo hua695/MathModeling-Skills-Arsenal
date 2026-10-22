@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P008
+# 来源: 全国大学生数学建模竞赛2016年C题
+case_id: P008
+applicable_scenarios:
+  - 电池寿命预测
+  - 非线性曲线拟合
+  - 多因素影响预测
+strategy: "特征分析+非线性建模+组合预测"
+why_effective: "先理解数据特征, 再选合适非线性模型, 组合预测降低单一模型风险"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

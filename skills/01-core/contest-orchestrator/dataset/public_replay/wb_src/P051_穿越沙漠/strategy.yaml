@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P051
+# 来源: 全国大学生数学建模竞赛2020年B题
+case_id: P051
+applicable_scenarios:
+  - 探险路径规划
+  - 资源约束下的决策
+  - 对抗性路径博弈
+strategy: "最短路+动态资源调度+博弈应对"
+why_effective: "最短路定框架, 动态规划管资源, 博弈应对多agent竞争场景"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

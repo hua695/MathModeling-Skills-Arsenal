@@ -1,0 +1,10 @@
+# H2 节点审查包：节点产物、证据、检查结果
+node_id: H2
+summary: H2 审查包
+important_artifacts:
+- path: results/H2_result.yaml
+  sha256: 784f415051a5757f45e8cfd68ad1ac358c06be37396e2e8df6140eaad98c8acf
+checks:
+- 完整性检查
+requested_decision: approve
+proposed_next_node: H3

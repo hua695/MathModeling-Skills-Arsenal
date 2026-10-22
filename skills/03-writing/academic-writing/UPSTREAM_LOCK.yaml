@@ -1,0 +1,6 @@
+schema_version: "1.0"
+repository: "https://github.com/youngze0016/thesis-polish-agent"
+commit: "f42695d74e32459745d51543f39fc6af245b2ad9"
+installed_at: "2026-08-25"
+update_policy: "manual-only"
+compatibility: "codex-math-modeling-local-adapter"

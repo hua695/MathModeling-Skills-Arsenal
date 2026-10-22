@@ -1,0 +1,23 @@
+# 复制到论文项目根目录，按真实文件填写；不要保留示例占位路径。
+schema_version: "1.0"
+required_appendix_ids: [A, B, C]
+source_inputs:
+  program_used: true
+  # 论文附录展示核心代码；完整可运行源码进入支撑材料包。
+  appendix_code_mode: core_only
+  core_source_files:
+    - "src/solve_q1.py"
+  full_source_files:
+    - "src/solve_q1.py"
+  support_source_files:
+    - "src/solve_q1.py"
+  # 需要移入附录的真实长推导源文件/文档。
+  long_derivation_files:
+    - "derivations/q1_derivation.md"
+  # 原始数据表或其稳定项目路径。
+  raw_data_files:
+    - "data/raw_data.xlsx"
+  # 支撑材料压缩包及其中的可复现源文件清单。
+  support_material_files:
+    - "support_materials/source_bundle.zip"
+    - "src/solve_q1.py"

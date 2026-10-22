@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P048
+# 来源: 全国大学生数学建模竞赛2018年B题
+case_id: P048
+steps:
+  - step: 1
+    action: "分析工序与RGV时间参数"
+    reason: "建立单件节拍模型"
+    abandoned: "无"
+  - step: 2
+    action: "建立0-1任务分配模型"
+    reason: "优化RGV服务顺序"
+    abandoned: "固定顺序"
+  - step: 3
+    action: "设计动态调度规则"
+    reason: "应对CNC完成时刻差异"
+    abandoned: "无"
+  - step: 4
+    action: "仿真评估产出与鲁棒性"
+    reason: "比较不同策略"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

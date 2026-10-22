@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P071
+# 来源: 2015 MCM Problem C: Human Capital Strategy
+case_id: P071
+applicable_scenarios:
+  - 人力资本评价
+  - 组织战略配置
+  - 人才结构优化
+strategy: "AHP战略评价+遗传算法配置优化"
+why_effective: "AHP保证战略对齐, 遗传算法高效求解复杂约束下的最优配置"
+confidence: 中
+source:
+  title: "2015 MCM Problem C: Human Capital Strategy"
+  url: https://www.contest.comap.com/undergraduate/contests/

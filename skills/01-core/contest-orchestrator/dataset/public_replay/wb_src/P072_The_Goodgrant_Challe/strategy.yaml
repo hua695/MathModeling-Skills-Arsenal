@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P072
+# 来源: 2016 MCM Problem C: The Goodgrant Challenge
+case_id: P072
+applicable_scenarios:
+  - 教育/公益投资评价
+  - 投资组合优选
+  - 效率评价(DEA)
+strategy: "降维筛选+DEA效率评价+组合优选"
+why_effective: "降维提升指标质量, DEA客观评效率, 组合优化兼顾使命与回报"
+confidence: 中
+source:
+  title: "2016 MCM Problem C: The Goodgrant Challenge"
+  url: https://www.contest.comap.com/undergraduate/contests/

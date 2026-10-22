@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P051
+# 来源: 全国大学生数学建模竞赛2020年B题
+case_id: P051
+failures:
+  - method: "忽视天气约束"
+    root_cause: "沙暴日强行行进致失败"
+    signal: "方案不可行"
+    lesson: "须加天气约束"
+    reference: "国赛赛题分析"
+  - method: "固定携带不调度"
+    root_cause: "中途资源耗尽"
+    signal: "无法到达"
+    lesson: "需动态补给"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

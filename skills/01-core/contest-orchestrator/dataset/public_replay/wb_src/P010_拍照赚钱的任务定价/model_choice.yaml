@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P010
+# 来源: 全国大学生数学建模竞赛2017年B题
+case_id: P010
+candidate_models:
+  - K-means聚类
+  - 多元回归分析
+  - 多目标规划
+  - 遗传算法
+final_choice: "K-means聚类分析区域特征 + 回归建立定价模型 + 多目标规划优化"
+reason: "聚类揭示区域定价差异, 回归量化定价影响因素, 多目标规划优化总方案"
+alternatives:
+  - 决策树
+  - 层次分析法
+  - 模拟退火
+limitations:
+  - 未考虑会员行为的不确定性
+  - 聚类数选择主观
+  - 打包方案可能非全局最优
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年B题"
+  url: https://sxjm.yzu.edu.cn

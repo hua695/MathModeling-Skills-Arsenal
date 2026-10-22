@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P029
+# 来源: 2020 MCM Problem C: A Data Analysis of Online Shopping
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P029
+title: "A Data Analysis of Online Shopping (在线购物数据分析)"
+competition: MCM/ICM
+year: 2020
+problem_code: "C"
+category: 数据预测
+domain: 数据挖掘/电商分析
+objective: "分析亚马逊产品评论数据, 建立评分预测模型和产品推荐策略"
+variables:
+  - name: 评分
+    type: 未指定
+    description: 未指定
+  - name: 评论文本
+    type: 未指定
+    description: 未指定
+  - name: 有用投票数
+    type: 未指定
+    description: 未指定
+  - name: 产品类别
+    type: 未指定
+    description: 未指定
+  - name: 评论时间
+    type: 未指定
+    description: 未指定
+  - name: 用户画像
+    type: 未指定
+    description: 未指定
+constraints:
+  - 数据量大
+  - 文本非结构化
+  - 评分分布不平衡
+assumptions:
+  - 评论反映产品质量
+  - 评分可预测
+  - 时间趋势可分析
+confidence: 中
+source:
+  title: "2020 MCM Problem C: A Data Analysis of Online Shopping"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2020

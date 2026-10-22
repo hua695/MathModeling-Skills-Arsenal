@@ -1,0 +1,39 @@
+# 叙事蓝图（paper_narrative.yaml）
+# 论文主线的事实来源：方法、创新、解决问题、关键结果。
+# 由 H5 阶段一以决策视角创建（method/innovation/problem_solved，原H4职责已并入H5），H5 阶段二-四解题完成后回填 key_result，H6 核验后置 verified。
+# 驱动摘要、问题分析、结论与各 6.x 小节的目标段；写作时禁止用公式堆砌替代叙事。
+schema_version: "1.0"
+status: draft                # draft(H5阶段一创建) | results_filled(H5阶段二-四回填) | verified(H6核验)
+created_by: H5
+filled_by: null             # H5 回填后填 H5
+verified_by: null           # H6 核验后填 H6
+narrative:
+  Q1:
+    method: <模型/方法名>
+    innovation: <创新点，为何不同于常规做法>
+    problem_solved: <解决的题目矛盾/难点>
+    key_result: null        # H5 回填：核心量化结果（含单位）
+  Q2:
+    method: <模型/方法名>
+    innovation: <创新点>
+    problem_solved: <解决的题目矛盾/难点>
+    key_result: null        # H5 回填
+  Q3:
+    method: <模型/方法名>
+    innovation: <创新点>
+    problem_solved: <解决的题目矛盾/难点>
+    key_result: null        # H5 回填
+  global:
+    storyline: <论文主线：如何回答题目，各问如何递进>
+    validation_story: <模型检验如何证明可靠性，检验结论>
+    paper_spine:
+      core_chapters: [Q1, Q2, Q3]
+      support_chapters: [problem_analysis, assumptions, symbols, conclusion]
+      chapter_order: [problem_analysis, assumptions, symbols, Q1, Q2, Q3, conclusion]
+      chapter_edges:
+        - {from: problem_analysis, to: assumptions, relation: prepares, handoff_question: <题意分析如何转化为可接受的建模假设>}
+        - {from: assumptions, to: symbols, relation: prepares, handoff_question: <建模假设如何约束统一符号和变量口径>}
+        - {from: symbols, to: Q1, relation: feeds, handoff_question: <统一符号如何进入第一问模型>}
+        - {from: Q1, to: Q2, relation: extends, handoff_question: <第一问结果如何成为第二问输入>}
+        - {from: Q2, to: Q3, relation: extends, handoff_question: <第二问结果如何支撑第三问>}
+        - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: <各问结果如何汇总回答总问题>}

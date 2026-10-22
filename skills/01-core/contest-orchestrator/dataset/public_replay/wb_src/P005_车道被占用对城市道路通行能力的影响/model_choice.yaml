@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P005
+# 来源: 全国大学生数学建模竞赛2013年A题
+case_id: P005
+candidate_models:
+  - 排队论模型(M/M/1)
+  - 元胞自动机交通流
+  - 回归分析
+  - 交通波理论(LWR)
+final_choice: "排队论模型 + 交通波理论分析拥堵传播"
+reason: "排队论量化服务率变化, 交通波理论描述拥堵的传播与消散"
+alternatives:
+  - 元胞自动机仿真
+  - VISSIM仿真
+  - 神经网络
+limitations:
+  - 泊松到达假设在高峰时段不成立
+  - 未考虑驾驶员行为差异
+  - 模型参数标定依赖视频数据精度
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

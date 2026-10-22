@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P083
+# 来源: 全国大学生数学建模竞赛2014年B题
+case_id: P083
+steps:
+  - step: 1
+    action: "建立折叠几何参数模型"
+    reason: "描述木条空间位置"
+    abandoned: "无"
+  - step: 2
+    action: "确定开槽参数"
+    reason: "保证桌面平整"
+    abandoned: "经验开槽"
+  - step: 3
+    action: "静力学稳定性校核"
+    reason: "验算重心与支撑"
+    abandoned: "无"
+  - step: 4
+    action: "多目标优化结构"
+    reason: "平衡美观与稳定"
+    abandoned: "单目标"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

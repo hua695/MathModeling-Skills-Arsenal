@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P019
+# 来源: 全国大学生数学建模竞赛2006年B题
+case_id: P019
+failures:
+  - method: "简单t检验比较疗效"
+    root_cause: "未考虑重复测量的自相关"
+    signal: "p值不可靠"
+    lesson: "需用混合效应模型"
+    reference: "国赛赛题分析"
+  - method: "忽略患者个体差异"
+    root_cause: "不同患者对疗法反应不同"
+    signal: "预测精度低"
+    lesson: "需引入随机效应"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2006年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

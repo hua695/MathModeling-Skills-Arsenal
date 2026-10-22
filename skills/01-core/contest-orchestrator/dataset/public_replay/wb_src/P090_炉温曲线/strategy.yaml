@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P090
+# 来源: 全国大学生数学建模竞赛2020年A题
+case_id: P090
+applicable_scenarios:
+  - 回流焊炉温设计
+  - 导热瞬态仿真
+  - 工艺窗口优化
+strategy: "导热机理建模+有限差分+工艺参数优化"
+why_effective: "导热方程刻画温度演化, 有限差分数值求解, 优化满足焊接窗口"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P047
+# 来源: 全国大学生数学建模竞赛2014年D题
+case_id: P047
+failures:
+  - method: "均匀栅格不分频率"
+    root_cause: "高频药品取用慢"
+    signal: "效率低"
+    lesson: "需频率加权"
+    reference: "国赛赛题分析"
+  - method: "单目标空间最大"
+    root_cause: "牺牲取药效率"
+    signal: "整体不佳"
+    lesson: "需多目标权衡"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

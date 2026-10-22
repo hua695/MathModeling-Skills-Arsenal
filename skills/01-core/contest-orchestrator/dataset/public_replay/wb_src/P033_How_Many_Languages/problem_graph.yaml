@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P033
+# 来源: 2018 MCM Problem B: How Many Languages?
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P033
+title: "How Many Languages? (多少种语言)"
+competition: MCM/ICM
+year: 2018
+problem_code: "B"
+category: 数据预测
+domain: 语言学/文化演化
+objective: "建立语言消亡预测模型, 估算未来语言多样性变化"
+variables:
+  - name: 语言使用人数
+    type: 未指定
+    description: 未指定
+  - name: 语言数量
+    type: 未指定
+    description: 未指定
+  - name: 全球化指标
+    type: 未指定
+    description: 未指定
+  - name: 教育普及率
+    type: 未指定
+    description: 未指定
+  - name: 经济发展水平
+    type: 未指定
+    description: 未指定
+  - name: 地理隔离度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 人口守恒约束
+  - 语言使用者非负约束
+  - 文化传承约束
+assumptions:
+  - 语言消亡可用流行病模型描述
+  - 全球化加速语言消亡
+  - 语言使用者可转移
+confidence: 中
+source:
+  title: "2018 MCM Problem B: How Many Languages?"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2018

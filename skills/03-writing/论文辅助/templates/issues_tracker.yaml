@@ -1,0 +1,50 @@
+# 跨节点问题追踪台账
+# 每次审查前加载，检查未关闭问题是否仍然存在；审查后更新状态
+# HIGH/BLOCKER 必须有修复证据或用户接受风险后才能关闭
+
+schema_version: "1.0"
+description: "论文辅助跨节点问题追踪，记录每个 finding 的生命周期，防止问题跨节点静默消失"
+
+# 问题状态枚举
+# OPEN: 新发现或未解决
+# RESOLVED: 已修复并验证
+# DISMISSED: 经核实为误报
+# ACCEPTED_RISK: 用户确认接受该风险
+
+findings: []
+
+# 示例格式（实际使用时替换）
+# - finding_id: "REV-G3-001"
+#   first_node: "G3"
+#   first_seen: "2026-08-30"
+#   current_state: "OPEN"
+#   severity: "HIGH"
+#   title: "符号 x_3 定义矛盾"
+#   source_path: "sections/05.tex"
+#   history:
+#     - node: "G3"
+#       date: "2026-08-30"
+#       action: "CREATED"
+#       note: "首次发现"
+#     - node: "G4"
+#       date: "2026-08-31"
+#       action: "RECHECK"
+#       note: "仍然存在，freshness_state=CURRENT"
+
+# 状态变更动作枚举
+# CREATED: 首次发现
+# RECHECK: 重新核实
+# RESOLVED: 已修复
+# DISMISSED: 误报
+# ACCEPTED_RISK: 用户接受风险
+# REGRESSED: 修复后再次出现
+# STALE: 文件变化后无法确认
+
+# 统计（每次审查后更新）
+summary:
+  total_open: 0
+  total_resolved: 0
+  total_dismissed: 0
+  total_accepted_risk: 0
+  last_review_node: ""
+  last_review_date: ""

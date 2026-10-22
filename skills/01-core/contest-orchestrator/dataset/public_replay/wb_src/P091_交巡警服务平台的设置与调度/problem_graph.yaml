@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P091
+# 来源: 全国大学生数学建模竞赛2011年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P091
+title: "交巡警服务平台的设置与调度"
+competition: CUMCM
+year: 2011
+problem_code: "B"
+category: 图模型
+domain: 图论/应急选址
+objective: "在路网约束下优化交巡警平台选址与管辖分配, 使应急响应覆盖与时间最优"
+variables:
+  - name: 路网节点/边
+    type: 未指定
+    description: 未指定
+  - name: 各节点发案率
+    type: 未指定
+    description: 未指定
+  - name: 平台候选点
+    type: 未指定
+    description: 未指定
+  - name: 响应时间
+    type: 未指定
+    description: 未指定
+  - name: 管辖分配
+    type: 未指定
+    description: 未指定
+  - name: 工作量
+    type: 未指定
+    description: 未指定
+constraints:
+  - 平台数量约束
+  - 管辖不重叠
+  - 响应时间上限
+  - 工作量均衡
+assumptions:
+  - 出警沿最短路
+  - 发案率可统计
+  - 平台容量足够
+  - 路网静态
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2011

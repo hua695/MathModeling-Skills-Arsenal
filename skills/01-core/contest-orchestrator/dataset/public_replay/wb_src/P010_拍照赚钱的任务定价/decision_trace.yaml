@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P010
+# 来源: 全国大学生数学建模竞赛2017年B题
+case_id: P010
+steps:
+  - step: 1
+    action: "数据探索与可视化"
+    reason: "发现定价的空间分布规律"
+    abandoned: "无"
+  - step: 2
+    action: "K-means聚类分析区域特征"
+    reason: "识别不同定价区域"
+    abandoned: "无"
+  - step: 3
+    action: "回归分析建立定价模型"
+    reason: "量化各因素对定价的影响"
+    abandoned: "无"
+  - step: 4
+    action: "多目标规划优化定价方案"
+    reason: "同时优化完成率和成本"
+    abandoned: "单目标优化"
+  - step: 5
+    action: "设计任务打包方案"
+    reason: "提高任务完成效率"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年B题"
+  url: https://sxjm.yzu.edu.cn

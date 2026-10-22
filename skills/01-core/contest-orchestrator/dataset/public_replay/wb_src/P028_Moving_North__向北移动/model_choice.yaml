@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P028
+# 来源: 2020 MCM Problem A: Moving North
+case_id: P028
+candidate_models:
+  - 生态位模型(BIOCLIM)
+  - 动态栖息地模型
+  - 元胞自动机
+  - 回归预测
+final_choice: "动态栖息地模型 + 气温情景预测"
+reason: "动态模型描述栖息地随温度变化, 情景预测量化不同升温影响"
+alternatives:
+  - 最大熵模型
+  - 物种分布模型(SDM)
+  - 系统动力学
+limitations:
+  - 多因素耦合简化
+  - 未考虑食物链影响
+  - 迁徙机制简化
+confidence: 中
+source:
+  title: "2020 MCM Problem A: Moving North"
+  url: https://www.contest.comap.com/undergraduate/contests/

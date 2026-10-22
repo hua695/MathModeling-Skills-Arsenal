@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P057
+# 来源: 2018 MCM Problem D: Out of the Gas?
+case_id: P057
+applicable_scenarios:
+  - 加油/充电站选址
+  - 应急设施覆盖
+  - 服务网络优化
+strategy: "需求驱动最大覆盖选址+容量整数规划"
+why_effective: "覆盖模型贴合需求, 整数规划控成本与容量, 提升投资效率"
+confidence: 中
+source:
+  title: "2018 MCM Problem D: Out of the Gas?"
+  url: https://www.contest.comap.com/undergraduate/contests/

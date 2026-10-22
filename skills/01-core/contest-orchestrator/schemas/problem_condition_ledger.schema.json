@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Problem condition ledger",
+  "type": "object",
+  "required": ["schema_version", "source_file", "title_anchor", "source_units", "questions", "unresolved_conditions"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "source_file": {"type": "string"},
+    "title_anchor": {"type": "string", "minLength": 1},
+    "source_units": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "source_location", "source_text", "roles", "normalized_meaning", "affected_questions", "downstream_evidence", "evidence_level", "status"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "source_location": {"type": "string", "minLength": 1},
+          "source_text": {"type": "string", "minLength": 1},
+          "roles": {"type": "array", "minItems": 1, "items": {"enum": ["context", "entity", "definition", "mechanism", "given", "constraint", "task", "objective", "validation", "deliverable"]}},
+          "normalized_meaning": {"type": "string", "minLength": 1},
+          "affected_questions": {"type": "array", "items": {"type": "string", "pattern": "^Q[0-9]+$"}},
+          "downstream_evidence": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+          "link_type": {"enum": ["defines", "supplies", "restricts", "motivates", "extends", "reuses", "compares", "validates", "overrides"]},
+          "evidence_level": {"enum": ["confirmed", "inferred", "pending"]},
+          "status": {"enum": ["mapped", "unresolved", "excluded"]}
+        }
+      }
+    },
+    "questions": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["id", "source_unit_ids", "inputs", "task", "outputs"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+          "source_unit_ids": {"type": "array", "items": {"type": "string"}},
+          "inputs": {"type": "array", "items": {"type": "string"}},
+          "task": {"type": "string", "minLength": 1},
+          "outputs": {"type": "array", "items": {"type": "string"}},
+          "reused_by": {"type": "array", "items": {"type": "string", "pattern": "^Q[0-9]+$"}}
+        }
+      }
+    },
+    "unresolved_conditions": {"type": "array", "items": {"type": "string"}}
+  }
+}

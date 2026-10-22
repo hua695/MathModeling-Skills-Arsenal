@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P081
+# 来源: 全国大学生数学建模竞赛2010年A题
+case_id: P081
+failures:
+  - method: "忽略变位直接标定"
+    root_cause: "倾斜致读数偏离真值"
+    signal: "罐容表误差大"
+    lesson: "需变位修正"
+    reference: "国赛赛题分析"
+  - method: "用近似公式代积分"
+    root_cause: "非规则截面误差大"
+    signal: "容积不准"
+    lesson: "需精确积分"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

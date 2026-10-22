@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contest Orchestrator literature method transfer map",
+  "type": "object",
+  "required": ["schema_version", "required_chinese_count", "verified_chinese_count", "status", "references", "by_subproblem"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "required_chinese_count": {"type": "integer", "minimum": 2},
+    "verified_chinese_count": {"type": "integer", "minimum": 2},
+    "status": {"type": "string"},
+    "references": {
+      "type": "array", "minItems": 2,
+      "items": {
+        "type": "object", "required": ["ref_ID", "citation_key", "title", "authors", "journal", "year", "method", "method_summary"],
+        "properties": {
+          "ref_ID": {}, "citation_key": {"type": "string"}, "title": {"type": "string"}, "authors": {"type": "string"},
+          "journal": {"type": "string"}, "year": {}, "volume_issue_pages": {"type": "string"},
+          "doi": {"type": "string"},
+          "official_link": {"type": "string"}, "method": {"type": "string"},
+          "method_summary": {"type": "string"}, "verification_status": {"type": "string"},
+          "venue": {"type": "string"}, "status": {"enum": ["peer_reviewed", "preprint", "standard", "dataset", "software", "web"]},
+          "url": {"type": "string"}, "relevance": {"type": "string"},
+          "key_points": {"type": "string"}, "limitations": {"type": "string"},
+          "used_in": {"type": "array", "items": {"type": "string"}},
+          "verified_at": {"type": "string"}
+        }
+      }
+    },
+    "by_subproblem": {
+      "type": "object", "additionalProperties": {
+        "type": "array", "items": {
+          "type": "object", "required": ["ref_ID", "citation_key", "decision"],
+          "properties": {
+            "ref_ID": {}, "citation_key": {"type": "string"},
+            "decision": {"enum": ["pending_agent_decision", "adopt", "adapt", "reject"]},
+            "method": {"type": "string"}, "innovation_delta": {"type": "string"},
+            "reason": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+}

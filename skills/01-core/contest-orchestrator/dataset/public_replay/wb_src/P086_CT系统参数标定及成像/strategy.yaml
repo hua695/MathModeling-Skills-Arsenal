@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P086
+# 来源: 全国大学生数学建模竞赛2017年A题
+case_id: P086
+applicable_scenarios:
+  - CT/MRI成像重建
+  - 积分方程反演
+  - 系统参数标定
+strategy: "机理投影建模+滤波反投影重建"
+why_effective: "Radon变换保证投影正确, 滤波反投影抑制噪声, 重建稳定可靠"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

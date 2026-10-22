@@ -1,0 +1,70 @@
+# literature_sources.yaml 模板
+# 论文辅助在 harness 模式 H3 节点作为外部文献 agent，阅读全文后按此格式回传
+# 主 agent 只读取本文件中的题名、元数据、摘要、结构化全文总结、可定位证据和适用边界
+# 不读取文献全文，不做模型路线决策
+
+schema_version: "1.0"
+description: "外部文献 agent 阅读全文后的结构化回传，字段必须完整，缺失时主 agent 返回 PAUSE"
+
+# 文献数量要求（主 skill 强制）
+# 总数硬范围 6-11 篇，推荐 8-10 篇
+# 中文每小问至少 1 篇；英文至少 1 篇（建议覆盖全部小问但不阻断）
+# 只统计正文实际引用的唯一 BibTeX 键，.bib 未被正文调用不算数
+requirements:
+  total_min: 6
+  total_max: 11
+  recommended_min: 8
+  recommended_max: 10
+  chinese_per_question_min: 1  # 每个小问至少 1 篇中文
+  english_min: 1  # 英文至少 1 篇，建议覆盖全部小问但不阻断
+  per_question_coverage: true  # 每个小问至少有一篇相关文献
+  only_count_cited_keys: true  # 只统计正文实际引用的唯一键
+  unused_bib_is_failure: true  # .bib 中未被正文调用的条目为失败
+
+sources: []
+
+# 单篇文献格式（每篇必须包含以下所有字段）
+# - citation_key: "ref001"  # 稳定引用键，主 agent 同步写入 references.yaml
+#   title: ""
+#   authors: ""
+#   venue: ""  # 期刊/会议名称
+#   year: 0
+#   doi_or_url: ""  # DOI 或官方链接，禁止博客/搜索结果页
+#   language: "zh"  # zh / en
+#   abstract: ""  # 原文摘要
+#   full_text_summary: ""  # 全文结构化总结：研究问题、方法、数据、结论
+#   method_summary: ""  # 方法细节：模型、算法、参数、假设、适用条件
+#   data_summary: ""  # 数据细节：数据集、变量、样本量、测量方式、单位
+#   limitations: ""  # 局限性：适用边界、假设约束、已知缺陷
+#   evidence_locators: ""  # 可定位证据：页码/章节/公式编号/图表编号，便于主 agent 回溯
+#   candidate_questions: ""  # 可迁移到本题的问题/方法/参数/基准，按小问标注
+
+# 示例（实际使用时替换）
+# - citation_key: "ref001"
+#   title: "基于马尔可夫决策过程的库存优化研究"
+#   authors: "张三, 李四"
+#   venue: "系统工程理论与实践"
+#   year: 2023
+#   doi_or_url: "10.12011/SETP2022-1234"
+#   language: "zh"
+#   abstract: "本文研究了..."
+#   full_text_summary: "研究问题：...；方法：...；数据：...；结论：..."
+#   method_summary: "使用 MDP 建模，状态空间为...，动作空间为...，转移概率...，求解用值迭代，收敛阈值 1e-6"
+#   data_summary: "使用某公司 2020-2022 年库存数据，样本量 365 天，变量包括需求量、提前期、持有成本、缺货成本"
+#   limitations: "假设需求服从正态分布，未考虑季节性；提前期固定，未考虑供应商不确定性"
+#   evidence_locators: "p.12 公式(3) 状态转移方程；p.15 表2 参数取值；p.18 图4 收敛曲线"
+#   candidate_questions: "Q1: 状态空间定义可迁移；Q2: 值迭代算法可作为 baseline；Q3: 参数取值可作为参考基准"
+
+# 小问覆盖检查（主 agent 校验用）
+question_coverage:
+  Q1: []  # 该小问相关的 citation_key 列表
+  Q2: []
+  Q3: []
+  # 按实际小问数量增减
+
+# 文献 agent 声明
+agent_declaration:
+  agent_role: "论文辅助（外部文献阅读子 agent）"
+  read_full_text: true  # 必须确认已阅读全文，不得仅基于摘要或题名
+  output_date: "YYYY-MM-DD"
+  notes: ""  # 阅读过程中的备注，如某篇文献全文不可获取、某篇与题目无关等

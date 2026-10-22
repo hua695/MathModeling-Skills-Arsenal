@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P046
+# 来源: 全国大学生数学建模竞赛2014年C题
+case_id: P046
+candidate_models:
+  - 线性规划
+  - 目标规划
+  - 敏感性分析
+  - 蒙特卡洛价格模拟
+final_choice: "线性规划 + 价格敏感性分析"
+reason: "以净利润为目标, 线性规划确定最优存栏与母猪结构, 敏感性分析评估价格影响"
+alternatives:
+  - 非线性规划
+  - 动态规划
+  - 仿真
+limitations:
+  - 价格假设简化
+  - 未考虑疫情风险
+  - 成活率为均值
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P086
+# 来源: 全国大学生数学建模竞赛2017年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P086
+title: "CT系统参数标定及成像"
+competition: CUMCM
+year: 2017
+problem_code: "A"
+category: 物理建模
+domain: 医学成像/积分反演
+objective: "标定CT系统旋转中心与探测器参数, 建立投影反演模型重建被扫描介质"
+variables:
+  - name: 探测器单元数
+    type: 未指定
+    description: 未指定
+  - name: 旋转角度
+    type: 未指定
+    description: 未指定
+  - name: 投影数据(衰减)
+    type: 未指定
+    description: 未指定
+  - name: 模板几何
+    type: 未指定
+    description: 未指定
+  - name: 介质吸收系数
+    type: 未指定
+    description: 未指定
+  - name: 旋转中心
+    type: 未指定
+    description: 未指定
+constraints:
+  - Radon变换关系
+  - 探测等间距
+  - 角度采样充分
+  - 吸收系数非负
+assumptions:
+  - 单色平行/锥束近似
+  - 线性衰减
+  - 旋转中心待标定
+  - 系统线性
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2017

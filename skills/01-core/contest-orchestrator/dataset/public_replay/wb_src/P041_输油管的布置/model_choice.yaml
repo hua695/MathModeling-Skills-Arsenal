@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P041
+# 来源: 全国大学生数学建模竞赛2010年C题
+case_id: P041
+candidate_models:
+  - 非线性规划
+  - 几何最短路
+  - 枚举法
+  - 图论网络流
+final_choice: "非线性规划 + 几何分析确定汇合点"
+reason: "以总费用为目标函数, 用非线性规划求解汇合点坐标使城区与郊区敷设成本之和最小"
+alternatives:
+  - 0-1规划
+  - 模拟退火
+  - Dijkstra最短路
+limitations:
+  - 未考虑地形起伏与河流阻隔
+  - 单价为分段简化
+  - 实际管网存在分支约束
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

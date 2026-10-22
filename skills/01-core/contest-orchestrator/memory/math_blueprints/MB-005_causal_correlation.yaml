@@ -1,0 +1,130 @@
+# MB-005 关联/因果 母蓝图（Math Reasoning Scaffold · 通用版）
+# 用途：solving 阶段按 problem_type=关联/因果 注入，先区分相关与因果、给出关系强度的统计结构再写代码。
+# 原则：关联题的分水岭是"关系度量有检验、混淆被控制、因果有识别条件"还是"算个相关系数就下因果结论"。
+
+blueprint_id: MB-005
+problem_type: 关联/因果
+competition_variant: 通用版
+summary: "核心矛盾是把变量观测转成可检验的关系结构，并区分相关、偏相关与因果；防止把相关性直接表述为因果、忽略混淆变量和多重共线。"
+
+abstraction_map:
+  objects:
+    - "被解释结果 → 响应变量 Y"
+    - "影响因素 → 解释变量 X_j"
+    - "未观测干扰 → 混淆变量或随机项 ε"
+  relationships:
+    - "线性共变 → 相关系数或协方差"
+    - "控制其余变量后的净关系 → 偏相关或回归系数"
+    - "时序上的因果先导 → 滞后项与格兰杰结构"
+    - "非线性依赖 → 互信息、秩相关"
+  decision:
+    - "关系度量 → 由变量类型、分布和是否线性决定"
+    - "显著性 → 假设检验与置信区间"
+    - "因果识别 → 依赖时序、实验或工具变量等识别条件"
+
+symbols:
+  - {sym: "X,Y", meaning: "解释变量与响应变量", unit: "依题意"}
+  - {sym: "ρ, r", meaning: "总体与样本相关系数", unit: "[-1,1]"}
+  - {sym: "β_j", meaning: "控制其他变量后 X_j 的偏效应", unit: "依题意"}
+  - {sym: "p", meaning: "检验显著性概率", unit: ""}
+  - {sym: "I(X;Y)", meaning: "互信息，非线性依赖强度", unit: "bit/nat"}
+  - {sym: "ε", meaning: "随机扰动或未观测因素", unit: ""}
+
+steps:
+  - step: 1
+    name: 变量与关系假设
+    template: "明确分析的响应变量和因素，先画散点或分组对比判断关系形态，提出待检验的关系假设"
+    required: true
+  - step: 2
+    name: 度量选择
+    template: "线性正态用 Pearson，有序或非正态用 Spearman，非线性用互信息，控制混淆用偏相关或多元回归"
+    required: true
+  - step: 3
+    name: 显著性与效应量
+    template: "给出检验统计量、p 值与置信区间，并报告效应量，样本很大时显著性不等于关系重要"
+    required: true
+  - step: 4
+    name: 混淆与共线控制
+    template: "识别可能的混淆变量并控制，检查多重共线（VIF），说明偏效应与简单相关的差异来源"
+    required: true
+  - step: 5
+    name: 因果识别
+    template: "若主张因果，说明识别条件：时序先后、实验设计、工具变量或双重差分；不满足时只表述为关联"
+    required: false
+    alternative: [时序因果, 工具变量, 实验对照]
+  - step: 6
+    name: 稳健性
+    template: "换度量或子样本重复分析，检查结果方向是否一致，异常值是否主导结论"
+    required: false
+
+selection_logic:
+  - if: {relationship: "两变量线性", distribution: "近似正态"}
+    choose: Pearson 相关加 t 检验
+    because: "线性关系下功效高、可解释为线性共变程度"
+  - if: {distribution: "非正态或有序", relationship: "单调"}
+    choose: Spearman 秩相关
+    because: "只依赖次序，对异常值和非线性单调关系稳健"
+  - if: {confounder: "存在需控制变量"}
+    choose: 偏相关或多元回归看系数
+    because: "剔除其他变量影响后得到净关系"
+  - if: {data: "时序", claim: "因果方向"}
+    choose: 格兰杰因果
+    because: "用滞后项检验一个序列是否有助于预测另一个，前提是平稳"
+  - if: {relationship: "非线性依赖"}
+    choose: 互信息、最大信息系数
+    because: "不假设线性，能捕捉一般依赖但不区分方向"
+
+propositions:
+  - name: 相关不等于因果
+    template: "相关系数只度量共变，因果需要方向、时序和排除混淆；观测数据下优先表述为关联，只有满足识别条件才主张因果。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 偏相关含义
+    template: "控制变量集合 Z 后 X 与 Y 的偏相关，是用 X、Y 分别对 Z 回归所得残差的简单相关，反映去除 Z 线性解释后的净共变。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 显著性与效应量并重
+    template: "大样本下微弱相关也可能 p 值很小，需同时报告相关系数或标准化系数，效应量小说明实际意义有限。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 多重共线后果
+    template: "解释变量高度相关时回归系数方差增大、符号不稳；用 VIF 诊断，VIF 超过 10 考虑删并变量、岭回归或主成分回归。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 格兰杰因果前提
+    template: "格兰杰检验要求序列平稳，非平稳先差分或做协整检验；其结论是预测意义上的先导，不等同物理因果。"
+    provenance: "专家模板（建库时手工编写）"
+
+theory_checks:
+  - name: 关系形态核验
+    note: "先散点或分组观察再定线性或非线性度量"
+    required: true
+  - name: 检验完整
+    note: "同时给统计量、p 值、效应量或置信区间"
+    required: true
+  - name: 混淆控制
+    note: "说明控制了哪些变量，为何剩余混淆可接受"
+    required: true
+  - name: 因果措辞
+    note: "无识别条件时不写因果，只写关联"
+    required: true
+
+antipattern:
+  bad: "算得 X 与 Y 相关系数 0.8，直接写 X 增大导致 Y 增大，未检验显著性、未控制混淆变量、没有散点判断线性。"
+  good: "散点近似线性，Pearson r=0.62，p<0.01，95% 置信区间 0.41 到 0.77；控制变量 Z 后偏相关 0.31，方向一致；数据为观测截面，故表述为显著正相关而非因果。"
+
+failure_modes:
+  - mode: correlation_as_causation
+    symptom: "仅凭相关系数下因果断言"
+    guard: "检查时序和识别条件，否则措辞降级为关联"
+  - mode: spurious_correlation
+    symptom: "共同趋势或共同原因造成的虚假相关"
+    guard: "时序先平稳化，截面引入混淆控制或偏相关"
+  - mode: outlier_driven
+    symptom: "相关强度由个别异常点决定"
+    guard: "做稳健性分析，剔除或单独报告异常点影响"
+  - mode: multicollinearity
+    symptom: "回归系数符号反常、标准误很大"
+    guard: "计算 VIF，合并变量或用正则化回归"
+
+readability_guard:
+  - "给出相关或回归公式后，用一句中文说明系数正负和大小的实际含义"
+  - "符号首次出现带中文含义，p 值与效应量同时出现"
+  - "连续公式不超过 3 个，第 4 个前插入解释段落"
+  - "关系结论区分相关与因果，措辞强度与证据强度匹配"

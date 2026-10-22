@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P088
+# 来源: 全国大学生数学建模竞赛2019年A题
+case_id: P088
+steps:
+  - step: 1
+    action: "建立压力演化方程"
+    reason: "质量守恒+状态方程"
+    abandoned: "无"
+  - step: 2
+    action: "数值求解压力曲线"
+    reason: "得波动特征"
+    abandoned: "无"
+  - step: 3
+    action: "优化凸轮/阀时序"
+    reason: "使压力趋近目标"
+    abandoned: "固定时序"
+  - step: 4
+    action: "稳定性与灵敏度分析"
+    reason: "检验控制鲁棒"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

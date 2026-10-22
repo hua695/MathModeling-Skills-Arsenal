@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P034
+# 来源: 2019 ICM Problem E: What is the Cost of Environmental Degradation?
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P034
+title: "What is the Cost of Environmental Degradation? (环境退化成本)"
+competition: MCM/ICM
+year: 2019
+problem_code: "E"
+category: 数据预测
+domain: 环境经济/生态评价
+objective: "建立生态系统服务价值评估模型, 量化土地利用项目的环境成本"
+variables:
+  - name: 生态系统服务类型
+    type: 未指定
+    description: 未指定
+  - name: 土地利用面积
+    type: 未指定
+    description: 未指定
+  - name: 生态价值系数
+    type: 未指定
+    description: 未指定
+  - name: 项目规模
+    type: 未指定
+    description: 未指定
+  - name: 时间范围
+    type: 未指定
+    description: 未指定
+constraints:
+  - 生态价值非负
+  - 土地利用约束
+  - 时间约束
+assumptions:
+  - 生态系统服务可货币化
+  - 不同规模项目影响不同
+  - 生态价值随时间变化
+confidence: 中
+source:
+  title: "2019 ICM Problem E: What is the Cost of Environmental Degradation?"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2019

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P095
+# 来源: 全国大学生数学建模竞赛2009年B题
+case_id: P095
+candidate_models:
+  - 排队论网络
+  - 整数规划
+  - 仿真
+  - 动态规划
+final_choice: "排队网络建模 + 整数规划排程优化"
+reason: "用排队网络描述科室流转, 整数规划在床位与手术日约束下优化排程"
+alternatives:
+  - 蒙特卡洛仿真
+  - 启发式规则
+  - 遗传算法
+limitations:
+  - 到达随机性强
+  - 并发症未考虑
+  - 周末手术忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

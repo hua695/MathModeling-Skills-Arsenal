@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P064
+# 来源: 全国大学生数学建模竞赛2016年B题
+case_id: P064
+applicable_scenarios:
+  - 开放小区评价
+  - 路网通行能力评估
+  - 交通微循环优化
+strategy: "AHP/模糊评价+微观仿真验证"
+why_effective: "评价框架系统量化影响, 仿真提供定量证据, 二者互证"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P010
+# 来源: 全国大学生数学建模竞赛2017年B题
+case_id: P010
+failures:
+  - method: "全局统一定价模型"
+    root_cause: "不同区域定价规律不同"
+    signal: "模型拟合差"
+    lesson: "需分区建模"
+    reference: "国赛赛题分析"
+  - method: "忽略会员位置因素"
+    root_cause: "会员就近接单, 位置影响完成率"
+    signal: "完成率预测不准"
+    lesson: "需引入距离变量"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年B题"
+  url: https://sxjm.yzu.edu.cn

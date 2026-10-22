@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P087
+# 来源: 全国大学生数学建模竞赛2018年A题
+case_id: P087
+steps:
+  - step: 1
+    action: "建立多层导热模型"
+    reason: "写出一维热方程"
+    abandoned: "无"
+  - step: 2
+    action: "有限差分离散求解"
+    reason: "得温度随时间空间分布"
+    abandoned: "无"
+  - step: 3
+    action: "校验皮肤温度约束"
+    reason: "确保安全上限"
+    abandoned: "无"
+  - step: 4
+    action: "优化各层厚度"
+    reason: "平衡安全与舒适"
+    abandoned: "经验取值"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

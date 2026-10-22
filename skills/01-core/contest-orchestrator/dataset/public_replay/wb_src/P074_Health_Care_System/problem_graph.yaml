@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P074
+# 来源: 2008 ICM Problem: Health Care System
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P074
+title: "Health Care System (卫生系统评价)"
+competition: MCM/ICM
+year: 2008
+problem_code: "ICM"
+category: 评价分类
+domain: 公共卫生/系统评价
+objective: "建立国家卫生系统综合评价指标, 比较不同系统绩效并提改进建议"
+variables:
+  - name: 人均医疗支出
+    type: 未指定
+    description: 未指定
+  - name: 预期寿命
+    type: 未指定
+    description: 未指定
+  - name: 婴儿死亡率
+    type: 未指定
+    description: 未指定
+  - name: 覆盖率
+    type: 未指定
+    description: 未指定
+  - name: 效率指标
+    type: 未指定
+    description: 未指定
+  - name: 公平性
+    type: 未指定
+    description: 未指定
+constraints:
+  - 数据口径可比
+  - 指标体系完整
+  - 经济水平混杂
+  - 多目标冲突
+assumptions:
+  - 绩效可量化
+  - 指标可得可靠
+  - 系统可比较
+confidence: 中
+source:
+  title: "2008 ICM Problem: Health Care System"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2008

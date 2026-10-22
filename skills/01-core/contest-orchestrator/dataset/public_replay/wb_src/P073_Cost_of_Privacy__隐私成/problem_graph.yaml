@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P073
+# 来源: 2018 ICM Problem F: Cost of Privacy
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P073
+title: "Cost of Privacy (隐私成本评价)"
+competition: MCM/ICM
+year: 2018
+problem_code: "F"
+category: 评价分类
+domain: 信息经济/成本评价
+objective: "建立个人隐私成本与收益评价模型, 比较不同隐私保护策略的代价"
+variables:
+  - name: 隐私泄露风险
+    type: 未指定
+    description: 未指定
+  - name: 保护成本
+    type: 未指定
+    description: 未指定
+  - name: 用户效用
+    type: 未指定
+    description: 未指定
+  - name: 数据价值
+    type: 未指定
+    description: 未指定
+  - name: 监管强度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 效用-隐私权衡
+  - 成本可量化
+  - 风险概率约束
+  - 合规约束
+assumptions:
+  - 隐私可量化价值
+  - 风险可概率化
+  - 用户行为可建模
+confidence: 中
+source:
+  title: "2018 ICM Problem F: Cost of Privacy"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2018

@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P066
+# 来源: 全国大学生数学建模竞赛2005年C题
+case_id: P066
+steps:
+  - step: 1
+    action: "栅格数据空间匹配"
+    reason: "统一分辨率与时段"
+    abandoned: "无"
+  - step: 2
+    action: "计算RMSE与偏差"
+    reason: "量化预报误差"
+    abandoned: "仅看均值"
+  - step: 3
+    action: "空间相关性分析"
+    reason: "检验模式一致性"
+    abandoned: "无"
+  - step: 4
+    action: "综合排序选最优方法"
+    reason: "给出方法优劣"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

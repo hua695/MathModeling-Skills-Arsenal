@@ -1,0 +1,77 @@
+schema_version: "1.0"
+common_required:
+  - problem_mapping
+  - assumptions
+  - symbols_units
+  - result_source
+  - reliability
+enhanced_common_required:
+  - problem_mapping
+  - assumptions
+  - symbols_units
+  - route_comparison
+  - algorithm_card
+  - intermediate_results
+  - literature_basis
+  - innovation_delta
+  - result_source
+  - reliability
+capabilities:
+  mechanistic:
+    required: [mechanism_mapping, formula_derivation]
+  inverse:
+    required: [identifiability, independent_route]
+  mechanistic:
+    required: [mechanism_mapping, formula_derivation]
+  inverse_identification:
+    required: [identifiability, independent_route]
+  nonlinear_fitting:
+    required: [objective, parameter_initialization, termination]
+  optimization:
+    required: [decision_variables, objective, constraints, feasibility_check]
+  multiobjective:
+    required: [objective_tradeoff, selection_rule]
+  prediction:
+    required: [preprocessing, data_split, baseline, metrics]
+  statistical_inference:
+    required: [preprocessing, effect_size, uncertainty, diagnostics]
+  statistics:
+    required: [preprocessing, effect_size, uncertainty, diagnostics]
+  classification:
+    required: [preprocessing, data_split, baseline, metrics, imbalance_strategy, threshold_strategy]
+  grouping_threshold:
+    required: [group_definition, threshold_selection, decision_interface]
+  network_graph:
+    required: [node_edge_definition, weight_meaning, complexity_analysis]
+  evaluation:
+    required: [indicator_meaning, normalization, weight_source, ranking_rule]
+  dynamics:
+    required: [state_equation, initial_boundary, numerical_method]
+  simulation:
+    required: [scenario_design, stability_check]
+  uncertainty:
+    required: [sensitivity_or_uncertainty]
+  robustness:
+    required: [robustness_check]
+  route_comparison:
+    required: []
+  algorithm_card:
+    required: []
+  intermediate_results:
+    required: []
+  literature_basis:
+    required: []
+  innovation_delta:
+    required: []
+  hybrid:
+    required: [interface, cross_model_consistency]
+  clustering:
+    required: [feature_standardization, similarity_measure, cluster_number_selection, cluster_validation]
+  causal_correlation:
+    required: [relationship_assumption, association_measure, significance_effect, confounder_control]
+  game_strategy:
+    required: [player_strategy_payoff, solution_concept, best_response, equilibrium_verification]
+  geometric_kinematic:
+    required: [coordinate_parametrization, geometric_constraints, degree_freedom_check, solution_verification]
+  ecological_dynamics:
+    required: [state_variable_conservation, dynamic_equation, equilibrium_stability, parameter_source]

@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P008
+# 来源: 全国大学生数学建模竞赛2016年C题
+case_id: P008
+steps:
+  - step: 1
+    action: "数据探索与特征分析"
+    reason: "了解放电曲线特征"
+    abandoned: "无"
+  - step: 2
+    action: "建立电压-时间放电模型"
+    reason: "描述放电过程"
+    abandoned: "线性拟合"
+  - step: 3
+    action: "引入温度/电流影响因素"
+    reason: "建立多因素预测模型"
+    abandoned: "单因素模型"
+  - step: 4
+    action: "SVR组合预测提升精度"
+    reason: "小样本下提高泛化"
+    abandoned: "仅用回归"
+  - step: 5
+    action: "交叉验证与误差分析"
+    reason: "验证模型可靠性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

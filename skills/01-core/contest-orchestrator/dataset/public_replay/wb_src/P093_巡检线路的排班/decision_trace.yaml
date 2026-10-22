@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P093
+# 来源: 全国大学生数学建模竞赛2017年D题
+case_id: P093
+steps:
+  - step: 1
+    action: "构建街道网络图"
+    reason: "标边权为长度/工作量"
+    abandoned: "无"
+  - step: 2
+    action: "奇偶点配对求CPP"
+    reason: "使可一笔画遍历"
+    abandoned: "无"
+  - step: 3
+    action: "多员路线划分"
+    reason: "均衡各人班次"
+    abandoned: "随机分配"
+  - step: 4
+    action: "排班与冲突检查"
+    reason: "避免重叠与超时"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

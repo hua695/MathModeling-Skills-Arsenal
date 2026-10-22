@@ -1,0 +1,10 @@
+# H9 节点审查包：节点产物、证据、检查结果
+node_id: H9
+summary: H9 交付审查包
+important_artifacts:
+- path: delivery_report.yaml
+  sha256: b6f34c08677448d92422547419d547c6579225ae62148d596f9c65a01d99af9c
+checks:
+- 交付完整性检查
+requested_decision: approve
+proposed_next_node: H9

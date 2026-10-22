@@ -1,0 +1,49 @@
+# problem_graph.yaml - 经验卡片 #P013
+# 来源: 全国大学生数学建模竞赛2019年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P013
+title: "空气质量数据的校准"
+competition: CUMCM
+year: 2019
+problem_code: "D"
+category: 数据预测
+domain: 环境监测/数据校准
+objective: "根据国控点真实数据校准自建点数据, 建立校准模型并评估效果"
+variables:
+  - name: PM2.5浓度
+    type: 未指定
+    description: 未指定
+  - name: PM10浓度
+    type: 未指定
+    description: 未指定
+  - name: SO2浓度
+    type: 未指定
+    description: 未指定
+  - name: NO2浓度
+    type: 未指定
+    description: 未指定
+  - name: 温度
+    type: 未指定
+    description: 未指定
+  - name: 湿度
+    type: 未指定
+    description: 未指定
+  - name: 风速
+    type: 未指定
+    description: 未指定
+  - name: 气压
+    type: 未指定
+    description: 未指定
+constraints:
+  - 自建点与国控点位置不同
+  - 污染物浓度非负
+  - 气象条件影响监测
+assumptions:
+  - 国控点数据为真值
+  - 两站点气象条件相近
+  - 校准关系可建模
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2019

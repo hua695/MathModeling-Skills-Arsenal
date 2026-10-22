@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P047
+# 来源: 全国大学生数学建模竞赛2014年D题
+case_id: P047
+applicable_scenarios:
+  - 仓储货位优化
+  - 多目标布局设计
+  - 药房自动化
+strategy: "多目标规划+频率加权货位优化"
+why_effective: "多目标平衡空间与效率, 频率加权贴合实际取药行为, 提升整体性能"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

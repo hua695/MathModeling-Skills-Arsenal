@@ -1,0 +1,74 @@
+# 记忆索引（先查这个，命中才读对应条目）
+#
+# 命中后使用 memory/ranking.py 分档排序：
+#   相似度定档（A≥1.5 / B 0.9~1.5 / C 0.5~0.9 / D<0.5）
+#   → 档内有界 rank_score = sim × (0.5 + 0.5 × min(quality×reuse×freshness×bonus, 2))
+#   → × 来源多样性（同源 ≥3 条 ×0.8）
+# - quality_score 来源质量(0.5)+置信度(0.3)+已验证(0.2)
+# - reuse_score 复用越多/成功率越高越靠前（sqrt 温和压制马太）
+# 每条可带 reuse 计数（复用后回写），用于"越比越强"闭环。详见 memory/memory.md §1b。
+
+index:
+  组合优化+几何布图:
+    failure: [FD-001]      # 架构到极限
+    success: [SD-001]      # 确定性构造
+    strategy: [ST-002]     # 卡阈值换互补架构
+    reuse: {ST-002: 3, FD-001: 2}
+  论文+代码交付:
+    failure: [FD-002]      # 参数口径
+    success: []
+    strategy: []
+  附件交付:
+    failure: [FD-003]      # 数据一致性
+    success: []
+    strategy: []
+  论文排版:
+    failure: [FD-004]      # 附录代码一坨
+    success: []
+    strategy: []
+  论文写作:
+    failure: [FD-005]      # AIGC事后降重
+    success: []
+    strategy: []
+  多目标优化:
+    success: [SD-002, SD-003]  # 消融 / 穷举下界
+    strategy: [ST-005]     # 可解释优先
+  小样本/数据少:
+    strategy: [ST-001]     # 保守
+  时间紧:
+    strategy: [ST-003]     # 保主问
+  任意题开始:
+    strategy: [ST-004]     # baseline-first
+  物理机理建模(光学/热/力学):
+    failure: [FD-006, FD-007]  # 单位换算 / 材料参数
+    strategy: [ST-006, ST-008] # 先验单位材料 / 选频段避吸收带
+    reuse: {ST-006: 2, FD-006: 1}
+  信号/频谱反演:
+    failure: [FD-008, FD-009]  # 基线吃条纹 / Airy撞边界
+    success: [SD-004, SD-005]  # 多方法互证 / 双条件验证
+    strategy: [ST-007]         # 多方法互证
+    reuse: {SD-004: 4, ST-007: 3}
+  华数杯编程手:
+    failure: [外部导入]
+    success: [外部导入]
+    strategy: [外部导入]
+
+# 公开经验库题型（多来源采集，命中量大时用 ranking.py 排序取前 N）
+public_experience:
+  预测:
+    query: problem_type == '预测' or '预测' in domain
+  优化决策:
+    query: problem_type == '优化决策'
+  评价分类:
+    query: problem_type == '评价分类'
+  物理建模/机理建模:
+    query: problem_type in ['物理建模', '机理建模']
+  图模型:
+    query: problem_type == '图模型'
+
+# 项目级长期记忆（非题型经验，新会话接手时必读）
+project_memory:
+  项目交接_20260905:
+    file: memory/project_handoff_20260905.md
+    summary: contest-orchestrator + 论文辅助 + mathmodel-latex-skill 三 skill 项目交接，含已确认规则、21项修复、硬约束、三端同步、H0-H9节点定义、尚未完成任务
+    read_on_new_session: true

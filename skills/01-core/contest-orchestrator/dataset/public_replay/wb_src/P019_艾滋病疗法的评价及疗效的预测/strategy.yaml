@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P019
+# 来源: 全国大学生数学建模竞赛2006年B题
+case_id: P019
+applicable_scenarios:
+  - 临床疗效评价
+  - 重复测量数据分析
+  - 治疗方案优化
+strategy: "混合效应模型+回归预测+综合评价"
+why_effective: "混合效应模型正确处理重复测量, 回归预测提供趋势, 评价给出决策建议"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2006年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

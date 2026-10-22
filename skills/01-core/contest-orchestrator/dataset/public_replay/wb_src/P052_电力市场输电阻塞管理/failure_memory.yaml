@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P052
+# 来源: 全国大学生数学建模竞赛2004年B题
+case_id: P052
+failures:
+  - method: "仅按最低价分配"
+    root_cause: "忽视线路容量致阻塞"
+    signal: "方案不可行"
+    lesson: "须加安全约束"
+    reference: "国赛赛题分析"
+  - method: "忽略潮流灵敏度"
+    root_cause: "无法定位阻塞来源"
+    signal: "再调度盲目"
+    lesson: "需灵敏度分析"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P077
+# 来源: 2013 MCM Problem C: Earth Health Network Model
+case_id: P077
+candidate_models:
+  - 网络模型
+  - 主成分分析(PCA)
+  - 层次分析法(AHP)
+  - 模糊综合评价
+final_choice: "网络关联 + PCA+AHP健康综合评价"
+reason: "网络刻画系统耦合, PCA降维, AHP赋权综合评估地球健康状态"
+alternatives:
+  - 系统动力学
+  - 灰色关联
+  - 数据包络分析
+limitations:
+  - 关联权重主观
+  - 数据时空不一
+  - 阈值难统一
+confidence: 中
+source:
+  title: "2013 MCM Problem C: Earth Health Network Model"
+  url: https://www.contest.comap.com/undergraduate/contests/

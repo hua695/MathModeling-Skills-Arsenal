@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P096
+# 来源: 2017 MCM Problem C: Coordinating Traffic Signals
+case_id: P096
+candidate_models:
+  - 图论最短路
+  - 整数规划
+  - 绿波带模型
+  - 仿真优化
+final_choice: "绿波带模型 + 整数规划相位差优化"
+reason: "以绿波带宽最大为目标, 整数规划优化各口周期与相位差形成协调控制"
+alternatives:
+  - 遗传算法
+  - webster配时
+  - 动态规划
+limitations:
+  - 匀速假设
+  - 未考虑行人相位
+  - 随机到达忽略
+confidence: 中
+source:
+  title: "2017 MCM Problem C: Coordinating Traffic Signals"
+  url: https://www.contest.comap.com/undergraduate/contests/

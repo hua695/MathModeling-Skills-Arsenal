@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P063
+# 来源: 全国大学生数学建模竞赛2015年D题
+case_id: P063
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - 多目标规划
+  - TOPSIS
+final_choice: "AHP+模糊综合评价 + 多目标优化配比"
+reason: "AHP赋权平衡各方诉求, 模糊评价方案, 多目标规划确定房型配比"
+alternatives:
+  - 熵权法
+  - 灰色关联
+  - 数据包络分析
+limitations:
+  - 偏好调查样本有限
+  - 利益冲突难完全调和
+  - 指标量化难
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,8 @@
+readiness_sha256: <paper_material_readiness.yaml sha256>
+gaps:
+  - subproblem_id: <Q1|GLOBAL>
+    requirement: <material-field|target_length>
+    responsible_node: <H5|H6|H7>
+    required_artifact: <project-relative deliverable>
+    acceptance_criteria: <verifiable condition>
+    return_to: <H5|H6|H7>

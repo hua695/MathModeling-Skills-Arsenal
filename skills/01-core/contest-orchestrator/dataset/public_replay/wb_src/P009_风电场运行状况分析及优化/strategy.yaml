@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P009
+# 来源: 全国大学生数学建模竞赛2016年D题
+case_id: P009
+applicable_scenarios:
+  - 风电功率预测
+  - 风电场布局优化
+  - 可再生能源运行分析
+strategy: "稳态拟合+动态预测+尾流优化的分层策略"
+why_effective: "分层建模从稳态到动态到系统级, 逐步提升预测和优化精度"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

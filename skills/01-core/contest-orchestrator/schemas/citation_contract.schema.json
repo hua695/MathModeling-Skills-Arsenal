@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["key", "role", "used_in", "citation_status"],
+  "properties": {
+    "key": {"type": "string"},
+    "role": {"enum": ["method_basis", "parameter_source", "measurement_precedent", "selection_criterion", "solver", "comparison_boundary", "data_source"]},
+    "used_in": {"type": "array", "items": {"type": "string"}},
+    "citation_status": {"enum": ["landed", "pending", "blocked"]},
+    "title": {"type": "string"},
+    "authors": {"type": "string"},
+    "venue": {"type": "string"},
+    "year": {"type": ["string", "integer"]},
+    "status": {"enum": ["peer_reviewed", "preprint", "standard", "dataset", "software", "web"]},
+    "doi": {"type": "string"},
+    "url": {"type": "string"},
+    "relevance": {"type": "string"},
+    "key_points": {"type": "string"},
+    "limitations": {"type": "string"},
+    "verified_at": {"type": "string"}
+  }
+}

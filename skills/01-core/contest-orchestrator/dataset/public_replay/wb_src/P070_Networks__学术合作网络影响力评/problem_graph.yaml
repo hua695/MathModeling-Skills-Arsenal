@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P070
+# 来源: 2014 MCM Problem C: Networks
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P070
+title: "Networks (学术合作网络影响力评价)"
+competition: MCM/ICM
+year: 2014
+problem_code: "C"
+category: 评价分类
+domain: 网络科学/影响力评价
+objective: "基于合著网络数据, 评价研究者/机构学术影响力并识别关键节点"
+variables:
+  - name: 节点(作者/机构)
+    type: 未指定
+    description: 未指定
+  - name: 边(合作)
+    type: 未指定
+    description: 未指定
+  - name: 发文量
+    type: 未指定
+    description: 未指定
+  - name: 被引量
+    type: 未指定
+    description: 未指定
+  - name: 中心度
+    type: 未指定
+    description: 未指定
+  - name: 社区结构
+    type: 未指定
+    description: 未指定
+constraints:
+  - 网络拓扑约束
+  - 多重身份归属
+  - 数据完整性
+  - 时间权重
+assumptions:
+  - 合作反映影响力
+  - 被引量化质量
+  - 网络可构建
+confidence: 中
+source:
+  title: "2014 MCM Problem C: Networks"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2014

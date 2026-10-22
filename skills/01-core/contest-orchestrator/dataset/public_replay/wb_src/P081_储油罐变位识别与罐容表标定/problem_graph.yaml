@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P081
+# 来源: 全国大学生数学建模竞赛2010年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P081
+title: "储油罐变位识别与罐容表标定"
+competition: CUMCM
+year: 2010
+problem_code: "A"
+category: 物理建模
+domain: 流体力学/几何反演
+objective: "根据油位探针读数与罐体变位参数, 建立容积-液位模型并标定罐容表"
+variables:
+  - name: 油位高度
+    type: 未指定
+    description: 未指定
+  - name: 罐体倾斜角
+    type: 未指定
+    description: 未指定
+  - name: 横向偏转
+    type: 未指定
+    description: 未指定
+  - name: 罐体尺寸
+    type: 未指定
+    description: 未指定
+  - name: 容积
+    type: 未指定
+    description: 未指定
+  - name: 探针位置
+    type: 未指定
+    description: 未指定
+constraints:
+  - 几何约束
+  - 容积连续
+  - 变位角小量
+  - 液位物理范围
+assumptions:
+  - 罐体为旋转体
+  - 油面水平
+  - 变位为小角度刚体位移
+  - 液体不可压缩
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2010

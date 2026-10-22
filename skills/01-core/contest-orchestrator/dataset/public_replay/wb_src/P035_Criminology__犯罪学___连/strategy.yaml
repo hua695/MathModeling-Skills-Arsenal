@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P035
+# 来源: 2010 MCM Problem B: Criminology
+case_id: P035
+applicable_scenarios:
+  - 犯罪地理画像
+  - 空间行为分析
+  - 执法资源部署
+strategy: "距离衰减+群集分析+概率分布"
+why_effective: "距离衰减描述行为规律, 群集识别热点, 概率分布提供搜索优先级"
+confidence: 中
+source:
+  title: "2010 MCM Problem B: Criminology"
+  url: http://www.madio.net/thread-290074-1-1.html

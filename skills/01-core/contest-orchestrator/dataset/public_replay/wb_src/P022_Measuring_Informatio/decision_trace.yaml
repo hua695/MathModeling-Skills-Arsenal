@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P022
+# 来源: 2016 ICM Problem D: Measuring Information in a Social Network
+case_id: P022
+steps:
+  - step: 1
+    action: "构建社交网络拓扑"
+    reason: "建立信息传播的物理基础"
+    abandoned: "无"
+  - step: 2
+    action: "定义信息度量指标"
+    reason: "量化信息价值和影响力"
+    abandoned: "无"
+  - step: 3
+    action: "动态信息流建模"
+    reason: "模拟信息传播过程"
+    abandoned: "静态分析"
+  - step: 4
+    action: "多阶段分析信息演变"
+    reason: "分析信息在不同阶段的变化"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2016 ICM Problem D: Measuring Information in a Social Network"
+  url: http://www.madio.net/thread-290074-1-1.html

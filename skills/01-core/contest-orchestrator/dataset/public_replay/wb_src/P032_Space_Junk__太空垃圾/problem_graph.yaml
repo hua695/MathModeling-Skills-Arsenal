@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P032
+# 来源: 2016 MCM Problem B: Space Junk
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P032
+title: "Space Junk (太空垃圾)"
+competition: MCM/ICM
+year: 2016
+problem_code: "B"
+category: 数据预测
+domain: 航天工程/风险评估
+objective: "建立太空垃圾增长模型, 评估碰撞风险, 评估商业清理方案可行性"
+variables:
+  - name: 碎片数量
+    type: 未指定
+    description: 未指定
+  - name: 碎片尺寸
+    type: 未指定
+    description: 未指定
+  - name: 轨道高度
+    type: 未指定
+    description: 未指定
+  - name: 碰撞概率
+    type: 未指定
+    description: 未指定
+  - name: 清理成本
+    type: 未指定
+    description: 未指定
+constraints:
+  - 轨道力学约束
+  - 碎片增长约束(Kessler综合征)
+  - 清理技术约束
+assumptions:
+  - 碎片增长服从碰撞级联
+  - 碰撞概率可估算
+  - 清理成本可量化
+confidence: 中
+source:
+  title: "2016 MCM Problem B: Space Junk"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2016

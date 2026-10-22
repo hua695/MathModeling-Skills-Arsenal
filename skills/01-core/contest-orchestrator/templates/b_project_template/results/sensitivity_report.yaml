@@ -1,0 +1,25 @@
+# 灵敏度/鲁棒性报告：扰动点、数值结果、结论（P0-02 新增校验）
+schema_version: '1.0'
+subproblem_id: Q1
+status: verified
+canonical_report:
+  path: <canonical report project-relative path>
+  sha256: <canonical report SHA-256>
+model_contract_sha256: 80c534bbd3e932e2c40c24a0c401613bd7d4c3a8613a6dc1f6b190a6ef769a1a
+results:
+- parameter: demand
+  baseline: 1000
+  perturbation: +10%
+  objective: 52500.0
+  feasible: true
+  decision_change: headway 增加 5%
+  constraint_violation: 0
+  termination_condition: optimal
+- parameter: cost_per_bus
+  baseline: 500
+  perturbation: +20%
+  objective: 55000.0
+  feasible: true
+  decision_change: fleet_size 减少 2
+  constraint_violation: 0
+  termination_condition: optimal

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P091
+# 来源: 全国大学生数学建模竞赛2011年B题
+case_id: P091
+candidate_models:
+  - 图论最短路
+  - 集合覆盖模型
+  - 0-1规划
+  - 最大覆盖模型
+final_choice: "最短路 + 0-1规划平台选址与管辖"
+reason: "最短路求响应时间, 0-1规划在数量与时限下优化平台位置与管辖分配"
+alternatives:
+  - p-中值模型
+  - 遗传算法
+  - 模拟退火
+limitations:
+  - 发案率为历史统计
+  - 路网动态忽略
+  - 平台容量简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

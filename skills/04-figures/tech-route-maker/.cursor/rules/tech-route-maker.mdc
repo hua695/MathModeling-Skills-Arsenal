@@ -1,0 +1,19 @@
+---
+description: Use tech-route-maker to create evidence-grounded editable research and engineering route diagrams.
+alwaysApply: true
+---
+
+# tech-route-maker Cursor Rule
+
+When the user asks for a technical route diagram, paper framework figure, publication figure, engineering route, method flowchart, roadmap, workflow, pipeline, or editable diagram output:
+
+1. Read `SKILL.md`.
+2. Build or update `tech-route.json` before rendering.
+3. Inventory sources and record stable IDs, locators and SHA-256 hashes.
+4. Offer the closest preset, then confirm missing domain and final delivery choices.
+5. Run strict validation before final rendering; inference and unresolved questions are draft-only.
+6. Report `QUALITY_REPORT.md` findings and required manual revision.
+7. Keep PPTX/SVG/Draw.io/Excalidraw outputs editable; do not use screenshots as the main artifact.
+8. If the user asks for copyable Draw.io or diagrams.net code, include `drawio-code` and explain how to paste `tech-route.drawio-code.xml` into [diagrams.net / draw.io](https://app.diagrams.net/) through **Extras > Edit Diagram**.
+
+Use one concise grouped question rather than guessing final choices.

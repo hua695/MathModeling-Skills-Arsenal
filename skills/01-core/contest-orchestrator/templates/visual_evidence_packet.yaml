@@ -1,0 +1,33 @@
+# H5→H6→H7 的轻量视觉证据包；只登记可追溯的信息单元，不嵌入全文、代码或对话。
+schema_version: "1.0"
+status: draft                    # H5: draft/evidence_gap；H6/H7: verified
+package_mode: indexed_minimal
+source_node: H5
+created_by: H5
+model_contract_sha256: 0000000000000000000000000000000000000000000000000000000000000000
+subproblems:
+  - subproblem_id: Q1
+    task_goal: <本小问需要回答的决策问题>
+    model_role: <本小问模型在全文论证中的作用>
+    information_units:
+      - unit_id: Q1-U01
+        unit_type: model
+        statement: <一个可由模型或推导直接支持的事实>
+        meaning: <该事实对读者理解模型的意义>
+        evidence_refs:
+          - path: model_contract.yaml
+            sha256: 0000000000000000000000000000000000000000000000000000000000000000
+            locator: <JSON或YAML定位>
+        scope: <适用数据、参数或条件范围>
+        unit: <数值单位或无量纲>
+      - unit_id: Q1-U02
+        unit_type: result
+        statement: <一个可由冻结结果直接支持的事实>
+        meaning: <该事实对决策或结论的意义>
+        evidence_refs:
+          - path: results/result.yaml
+            sha256: 0000000000000000000000000000000000000000000000000000000000000000
+            locator: <JSON或YAML定位>
+        scope: <适用数据、参数或条件范围>
+        unit: <数值单位或无量纲>
+cross_question_interfaces: []

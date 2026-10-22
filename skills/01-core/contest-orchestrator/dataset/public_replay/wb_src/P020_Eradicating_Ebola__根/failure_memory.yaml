@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P020
+# 来源: 2015 MCM Problem A: Eradicating Ebola
+case_id: P020
+failures:
+  - method: "SIR模型忽略潜伏期"
+    root_cause: "埃博拉有显著潜伏期"
+    signal: "传播预测不准"
+    lesson: "需用SEIR模型"
+    reference: "美赛赛题分析"
+  - method: "均匀分配疫苗"
+    root_cause: "不同地区疫情严重度不同"
+    signal: "控制效果差"
+    lesson: "需优化分配"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2015 MCM Problem A: Eradicating Ebola"
+  url: https://www.jingsailian.com/news/233612.html

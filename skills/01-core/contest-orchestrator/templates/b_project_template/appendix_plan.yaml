@@ -1,0 +1,72 @@
+# B 题项目附录计划。完成真实求解后，将 DRAFT 改为 READY，并补齐真实路径与锚点。
+schema_version: "2.0"
+status: "DRAFT"
+problem_profile: "optimization"
+planning_contract: "coverage_first"
+official_format:
+  numbering: "official_abc_if_required"
+  appendix_ids: []
+  order: [support_index, source_code, derivation, algorithm, raw_data, auxiliary_validation]
+subproblems:
+  - id: "Q1"
+    primary_type: "optimization"
+    capabilities: [optimization_solver, uncertainty]
+    result_sources: []
+  - id: "Q2"
+    primary_type: "optimization"
+    capabilities: [optimization_solver, uncertainty]
+    result_sources: []
+  - id: "Q3"
+    primary_type: "optimization"
+    capabilities: [optimization_solver, uncertainty]
+    result_sources: []
+appendix_modules:
+  - module_id: "app-support-index"
+    kind: "support_index"
+    used_by: ["Q1", "Q2", "Q3"]
+    required: true
+    source_files: []
+    paper_anchor: "app:support-index"
+    include_in_pdf: true
+    paper_role: "support_index"
+    support_materials: []
+  - module_id: "app-core-code"
+    kind: "source_code"
+    used_by: ["Q1", "Q2", "Q3"]
+    required: true
+    source_files: []
+    paper_anchor: "app:core-code"
+    include_in_pdf: true
+    paper_role: "core_code"
+    support_materials: []
+coverage_matrix:
+  - subproblem_id: "Q1"
+    main_section: "6.1"
+    core_code_module: "app-core-code"
+    long_derivation_module: null
+    verification_module: null
+  - subproblem_id: "Q2"
+    main_section: "6.2"
+    core_code_module: "app-core-code"
+    long_derivation_module: null
+    verification_module: null
+  - subproblem_id: "Q3"
+    main_section: "6.3"
+    core_code_module: "app-core-code"
+    long_derivation_module: null
+    verification_module: null
+source_inputs:
+  program_used: true
+  appendix_code_mode: "core_only"
+  core_source_files: []
+  full_source_files: []
+  support_source_files: []
+  long_derivation_files: []
+  raw_data_files: []
+  support_material_files: []
+reproducibility:
+  entrypoints: []
+  run_commands: []
+  environment_files: []
+  random_seeds: []
+  expected_outputs: []

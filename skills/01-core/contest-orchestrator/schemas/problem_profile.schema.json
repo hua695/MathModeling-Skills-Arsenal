@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "contest-orchestrator problem profile",
+  "type": "object",
+  "required": ["competition", "problem_slot", "subproblems"],
+  "properties": {
+    "competition": {"type": "string"},
+    "problem_slot": {"type": "string", "enum": ["A", "B", "C", "D", "E", "unknown"]},
+    "subproblems": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "object",
+        "required": ["capabilities"],
+        "properties": {
+          "capabilities": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+          "inputs": {"type": "array", "items": {"type": "string"}},
+          "outputs": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    },
+    "shared_interfaces": {"type": "array"},
+    "profile_overrides": {"type": "object"}
+  }
+}

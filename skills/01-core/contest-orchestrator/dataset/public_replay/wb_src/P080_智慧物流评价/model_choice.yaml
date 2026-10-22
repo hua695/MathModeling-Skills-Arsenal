@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P080
+# 来源: 2018年华数杯数学建模竞赛B题
+case_id: P080
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - 数据包络分析(DEA)
+  - TOPSIS
+final_choice: "AHP+模糊综合评价智慧物流水平"
+reason: "AHP确定智慧化维度权重, 模糊综合评价处理不确定性并排序方案"
+alternatives:
+  - 熵权法
+  - 灰色关联
+  - 主成分分析
+limitations:
+  - 智慧化界定模糊
+  - 数据样本少
+  - 权重主观
+confidence: 低
+source:
+  title: "2018年华数杯数学建模竞赛B题"
+  url: https://www.saikr.com/vse/huashubei2018

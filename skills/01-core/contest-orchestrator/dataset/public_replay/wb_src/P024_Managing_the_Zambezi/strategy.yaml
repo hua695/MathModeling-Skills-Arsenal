@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P024
+# 来源: 2017 MCM Problem A: Managing the Zambezi River System
+case_id: P024
+applicable_scenarios:
+  - 水库调度优化
+  - 多目标水资源管理
+  - 河流生态系统管理
+strategy: "流量预测+多目标优化+情景分析"
+why_effective: "预测提供输入, 优化给出方案, 情景分析保证鲁棒性"
+confidence: 中
+source:
+  title: "2017 MCM Problem A: Managing the Zambezi River System"
+  url: https://www.contest.comap.com/undergraduate/contests/

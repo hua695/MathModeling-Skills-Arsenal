@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P059
+# 来源: 2015 ICM Problem D: Is it smarter to be sustainable?
+case_id: P059
+candidate_models:
+  - 多目标规划
+  - 成本效益分析
+  - 层次分析法(AHP)
+  - 系统动力学
+final_choice: "多目标规划 + AHP三重底线加权"
+reason: "以经济/环境/社会三重底线为目标, 多目标规划求解可持续投入最优分配"
+alternatives:
+  - 数据包络分析
+  - 模糊综合评价
+  - 鲁棒优化
+limitations:
+  - 收益货币化有争议
+  - 权重主观
+  - 长期不确定性强
+confidence: 中
+source:
+  title: "2015 ICM Problem D: Is it smarter to be sustainable?"
+  url: http://www.madio.net/thread-290074-1-1.html

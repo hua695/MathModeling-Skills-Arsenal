@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P069
+# 来源: 2014 MCM Problem B: College Coaching Legends
+case_id: P069
+steps:
+  - step: 1
+    action: "构建教练成就指标体系"
+    reason: "覆盖成绩/影响"
+    abandoned: "无"
+  - step: 2
+    action: "PCA降维处理相关"
+    reason: "提取主要成就因子"
+    abandoned: "直接用全部"
+  - step: 3
+    action: "AHP赋权综合评价"
+    reason: "跨项目量化排名"
+    abandoned: "等权"
+  - step: 4
+    action: "敏感性分析权重"
+    reason: "检验排名稳健性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2014 MCM Problem B: College Coaching Legends"
+  url: https://www.contest.comap.com/undergraduate/contests/

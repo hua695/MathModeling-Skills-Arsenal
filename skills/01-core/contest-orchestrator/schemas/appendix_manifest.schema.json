@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["schema_version", "modules"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["module_id", "kind", "paper_sections"],
+        "properties": {
+          "module_id": {"type": "string"},
+          "kind": {"enum": ["materials", "derivation", "source_code", "raw_data", "auxiliary_validation"]},
+          "paper_sections": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}

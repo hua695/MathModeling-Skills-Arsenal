@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P025
+# 来源: 2018 MCM Problem C: Energy Production
+case_id: P025
+candidate_models:
+  - 多元回归
+  - 灰色预测
+  - 时间序列ARIMA
+  - 系统动力学
+final_choice: "多元回归 + 灰色预测组合能源预测"
+reason: "回归量化经济因素影响, 灰色预测适合小样本趋势预测"
+alternatives:
+  - 神经网络
+  - 投入产出模型
+  - LEAP模型
+limitations:
+  - 数据国别差异大
+  - 政策量化困难
+  - 技术突破难以预测
+confidence: 中
+source:
+  title: "2018 MCM Problem C: Energy Production"
+  url: https://www.contest.comap.com/undergraduate/contests/

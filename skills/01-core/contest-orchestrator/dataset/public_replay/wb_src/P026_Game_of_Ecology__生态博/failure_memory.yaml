@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P026
+# 来源: 2019 MCM Problem A: Game of Ecology
+case_id: P026
+failures:
+  - method: "Logistic模型预测"
+    root_cause: "未考虑年龄结构和环境影响"
+    signal: "长期预测不准"
+    lesson: "需用矩阵模型"
+    reference: "美赛赛题分析"
+  - method: "忽略海冰依赖"
+    root_cause: "海冰是繁殖关键, 忽略导致预测偏离"
+    signal: "种群估计偏高"
+    lesson: "需引入海冰变量"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2019 MCM Problem A: Game of Ecology"
+  url: https://www.contest.comap.com/undergraduate/contests/

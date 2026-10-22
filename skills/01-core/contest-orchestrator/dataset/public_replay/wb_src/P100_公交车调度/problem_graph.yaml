@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P100
+# 来源: 全国大学生数学建模竞赛2001年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P100
+title: "公交车调度"
+competition: CUMCM
+year: 2001
+problem_code: "B"
+category: 图模型
+domain: 交通网络/调度优化
+objective: "在客流时空分布与车辆约束下, 优化公交发车间隔与排班使供需匹配且成本最低"
+variables:
+  - name: 各时段客流量
+    type: 未指定
+    description: 未指定
+  - name: 线路长度
+    type: 未指定
+    description: 未指定
+  - name: 车辆数
+    type: 未指定
+    description: 未指定
+  - name: 发车间隔
+    type: 未指定
+    description: 未指定
+  - name: 满载率
+    type: 未指定
+    description: 未指定
+  - name: 运营成本
+    type: 未指定
+    description: 未指定
+constraints:
+  - 车辆数上限
+  - 满载率约束
+  - 最小/最大间隔
+  - 司机排班
+  - 首末班时间
+assumptions:
+  - 客流可预测
+  - 车辆匀速
+  - 到站均匀
+  - 需求按时段分段
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2001年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2001

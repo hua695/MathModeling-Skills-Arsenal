@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P005
+# 来源: 全国大学生数学建模竞赛2013年A题
+case_id: P005
+failures:
+  - method: "简单M/M/1排队模型"
+    root_cause: "多车道场景不满足单服务台假设"
+    signal: "预测偏差大"
+    lesson: "需扩展为多服务台模型"
+    reference: "国赛赛题分析"
+  - method: "忽略车辆类型差异"
+    root_cause: "大型车与小车占用车道时间不同"
+    signal: "通行能力估计不准"
+    lesson: "需按车型折算"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

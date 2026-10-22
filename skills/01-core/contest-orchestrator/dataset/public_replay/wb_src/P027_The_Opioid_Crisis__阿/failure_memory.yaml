@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P027
+# 来源: 2019 MCM Problem C: The Opioid Crisis
+case_id: P027
+failures:
+  - method: "简单SIR模型"
+    root_cause: "阿片滥用传播机制与传染病不同"
+    signal: "传播预测不准"
+    lesson: "需改进传播机制"
+    reference: "美赛赛题分析"
+  - method: "忽略社会经济因素"
+    root_cause: "贫困/失业与滥用相关"
+    signal: "模型解释力不足"
+    lesson: "需引入社会经济变量"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2019 MCM Problem C: The Opioid Crisis"
+  url: https://www.contest.comap.com/undergraduate/contests/

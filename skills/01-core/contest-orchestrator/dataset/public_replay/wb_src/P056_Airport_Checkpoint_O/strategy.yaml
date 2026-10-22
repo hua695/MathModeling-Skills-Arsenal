@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P056
+# 来源: 2017 ICM Problem D: Airport Checkpoint Operations
+case_id: P056
+applicable_scenarios:
+  - 安检/服务台配置
+  - 排队资源优化
+  - 运营排班
+strategy: "排队论定通道+整数规划排班+仿真验证"
+why_effective: "排队论给理论通道数, 排班优化控成本, 仿真保证随机下可行"
+confidence: 中
+source:
+  title: "2017 ICM Problem D: Airport Checkpoint Operations"
+  url: http://www.madio.net/thread-290074-1-1.html

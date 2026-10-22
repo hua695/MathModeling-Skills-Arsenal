@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P015
+# 来源: 全国大学生数学建模竞赛2020年C题
+case_id: P015
+candidate_models:
+  - 逻辑回归违约预测
+  - 随机森林分类
+  - XGBoost
+  - 整数规划优化
+final_choice: "XGBoost违约概率预测 + 整数规划信贷分配优化"
+reason: "XGBoost在信贷风控中表现优异, 整数规划给出最优信贷分配"
+alternatives:
+  - SVM
+  - 神经网络
+  - 决策树
+limitations:
+  - 数据不平衡问题
+  - 未考虑宏观经济因素
+  - 模型可解释性不足
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

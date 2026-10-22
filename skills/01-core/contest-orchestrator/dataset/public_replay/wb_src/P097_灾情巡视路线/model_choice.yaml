@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P097
+# 来源: 全国大学生数学建模竞赛1998年B题
+case_id: P097
+candidate_models:
+  - 旅行商问题(TSP)
+  - 车辆路径问题(VRP)
+  - 最小生成树
+  - 聚类分区
+final_choice: "TSP/VRP + 分区均衡路线规划"
+reason: "以遍历所有点为TSP/VRP, 先聚类分区再各组求最短回路并均衡时限"
+alternatives:
+  - 遗传算法
+  - 节约算法
+  - 扫描算法
+limitations:
+  - 路网理想化
+  - 灾情权重忽略
+  - 天气影响未计
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛1998年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

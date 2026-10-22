@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P077
+# 来源: 2013 MCM Problem C: Earth Health Network Model
+case_id: P077
+failures:
+  - method: "孤立评价各系统"
+    root_cause: "忽视系统耦合"
+    signal: "风险低估"
+    lesson: "需网络建模"
+    reference: "美赛赛题分析"
+  - method: "等权处理指标"
+    root_cause: "重要性差异被掩盖"
+    signal: "评价失真"
+    lesson: "需赋权"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2013 MCM Problem C: Earth Health Network Model"
+  url: https://www.contest.comap.com/undergraduate/contests/

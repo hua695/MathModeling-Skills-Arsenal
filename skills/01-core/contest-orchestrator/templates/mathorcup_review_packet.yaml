@@ -1,0 +1,8 @@
+node_id: M1
+summary: <final-node-summary>
+important_artifacts:
+  - {path: <project-relative-path>, sha256: <sha256>}
+checks:
+  - {name: <check-name>, status: PASS, evidence_ref: <project-relative-path>, evidence_sha256: <sha256>}
+requested_decision: approve
+proposed_next_node: M2

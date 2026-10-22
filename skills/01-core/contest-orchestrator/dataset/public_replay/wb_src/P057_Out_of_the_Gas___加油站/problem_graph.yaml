@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P057
+# 来源: 2018 MCM Problem D: Out of the Gas?
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P057
+title: "Out of the Gas? (加油站/充电站布局优化)"
+competition: MCM/ICM
+year: 2018
+problem_code: "D"
+category: 优化决策
+domain: 设施选址/网络优化
+objective: "在车辆行驶与需求分布下, 优化加油站(充电站)位置与容量使覆盖率与成本最优"
+variables:
+  - name: 路网节点
+    type: 未指定
+    description: 未指定
+  - name: 车辆流量
+    type: 未指定
+    description: 未指定
+  - name: 站点候选位置
+    type: 未指定
+    description: 未指定
+  - name: 建设成本
+    type: 未指定
+    description: 未指定
+  - name: 服务半径
+    type: 未指定
+    description: 未指定
+  - name: 等待时间
+    type: 未指定
+    description: 未指定
+constraints:
+  - 站点容量约束
+  - 服务半径覆盖
+  - 建设预算约束
+  - 路网距离
+assumptions:
+  - 需求沿路网分布
+  - 车辆在选择范围内加油
+  - 站点服务半径为已知
+confidence: 中
+source:
+  title: "2018 MCM Problem D: Out of the Gas?"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2018

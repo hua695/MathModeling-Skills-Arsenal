@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P036
+# 来源: 2017 ICM Problem E: Sustainable Cities Needed!
+case_id: P036
+applicable_scenarios:
+  - 城市可持续性评价
+  - 城市规划决策
+  - 资源管理
+strategy: "指标体系+AHP评价+系统动力学模拟"
+why_effective: "指标体系提供框架, AHP量化评价, 系统动力学模拟动态发展"
+confidence: 中
+source:
+  title: "2017 ICM Problem E: Sustainable Cities Needed!"
+  url: https://www.contest.comap.com/undergraduate/contests/

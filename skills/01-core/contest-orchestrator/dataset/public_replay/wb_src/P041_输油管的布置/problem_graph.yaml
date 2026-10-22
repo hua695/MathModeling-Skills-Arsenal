@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P041
+# 来源: 全国大学生数学建模竞赛2010年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P041
+title: "输油管的布置"
+competition: CUMCM
+year: 2010
+problem_code: "C"
+category: 优化决策
+domain: 工程优化/管道布置
+objective: "在城区与郊区分段计价及拆迁约束下, 确定输油管汇合点与走向使总费用最小"
+variables:
+  - name: 两炼油厂坐标
+    type: 未指定
+    description: 未指定
+  - name: 各居民区坐标
+    type: 未指定
+    description: 未指定
+  - name: 城区单价
+    type: 未指定
+    description: 未指定
+  - name: 郊区单价
+    type: 未指定
+    description: 未指定
+  - name: 拆迁附加费系数
+    type: 未指定
+    description: 未指定
+  - name: 管道连接关系
+    type: 未指定
+    description: 未指定
+constraints:
+  - 管线须连通各居民区
+  - 城区/郊区单价不同
+  - 拆迁费用随穿越距离增加
+  - 管线长度下限
+assumptions:
+  - 管线直线铺设
+  - 费用仅与长度及所处区域有关
+  - 加油管站位置已知
+  - 地形平坦
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2010

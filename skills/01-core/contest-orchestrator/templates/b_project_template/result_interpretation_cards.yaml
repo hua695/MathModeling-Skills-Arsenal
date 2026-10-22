@@ -1,0 +1,22 @@
+# H5 结果解释卡；H6 核验后才能用于 H8 论证蓝图。
+schema_version: "1.0"
+reader_evidence_version: "1.0"
+status: verified
+created_by: H5
+verified_by: H6
+verification_agent_instance_id: H6-agent-01
+cards:
+  - card_id: Q1-result-01
+    subproblem_id: Q1
+    result_statement: 方案A成本为52500元。
+    meaning: 在当前需求与约束下，该方案给出可执行的低成本配置。
+    reasoning_basis: 由冻结优化结果与基准方案比较得到。
+    supported_scope: 模板中的给定线路、需求和成本参数。
+    reader_analysis:
+      observed_pattern: 结果中值得读者看到的模式、差异或趋势。
+      comparison_basis: 比较对象、指标、时间/样本范围和基准。
+      decision_implication: 该模式如何回答本问并影响方案判断。
+      boundary_or_exception: 结论成立的边界或证据支持的例外情况。
+    evidence_refs:
+      - path: paper/Q1_results.md
+        sha256: PLACEHOLDER_SHA256

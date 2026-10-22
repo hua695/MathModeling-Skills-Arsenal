@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P039
+# 来源: 2019年电工杯数学建模竞赛A题
+case_id: P039
+steps:
+  - step: 1
+    action: "气象与发电数据分析"
+    reason: "了解功率影响因素"
+    abandoned: "无"
+  - step: 2
+    action: "建立物理预测模型"
+    reason: "基于辐照/温度计算理论功率"
+    abandoned: "无"
+  - step: 3
+    action: "SVR残差预测修正"
+    reason: "修正物理模型误差"
+    abandoned: "仅用物理模型"
+  - step: 4
+    action: "组合预测与评估"
+    reason: "提高整体预测精度"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2019年电工杯数学建模竞赛A题"
+  url: https://www.saikr.com/vse/DGB2019

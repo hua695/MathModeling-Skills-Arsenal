@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P065
+# 来源: 全国大学生数学建模竞赛2008年D题
+case_id: P065
+candidate_models:
+  - 层次分析法(AHP)
+  - 熵权法
+  - 多目标规划
+  - TOPSIS
+final_choice: "AHP+熵权组合赋权 + 赛程评价"
+reason: "AHP体现经验, 熵权体现数据客观, 组合赋权综合评价赛程合理性"
+alternatives:
+  - 模糊综合评价
+  - 灰色关联
+  - 主成分分析
+limitations:
+  - 疲劳模型简化
+  - 未考虑伤病
+  - 权重主观成分
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

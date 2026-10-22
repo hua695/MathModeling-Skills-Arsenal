@@ -1,0 +1,110 @@
+schema_version: "1.1"
+profile: "CUMCM_personal_25_30"
+planning_contract: evidence_first
+
+evidence_policy:
+  source_of_truth: ".contest/evidence_index.json"
+  required_sources: [model_contract, derivation_registry, modeling_solution_contract, run_manifest]
+  anti_padding: [no_repeated_formula, no_unexplained_figure, no_manual_page_break]
+
+# 图表按读者问题和证据槽位配置，不设置脱离论证的全局固定张数。
+# H7 的 visual_argument_plan.yaml 负责逐小问视觉审计、硬性槽位和登记闭环。
+visual_policy:
+  mode: reader_first_coverage
+  visual_argument_plan: visual_argument_plan.yaml
+  table_to_figure_review_ratio: 1.5
+
+page_policy:
+  body_definition: "electronic paper pages from the main body through the end of references; abstract excluded; appendix excluded from the 30-page body limit"
+  planning_target:
+    min: 25
+    preferred: 27
+    max: 30
+  delivery_target:
+    min: 25
+    max: 30
+  hard_min: null
+  hard_max: 30
+  short_paper_review_threshold: 25
+  whole_paper_recommended_range: [35, 51]
+
+content_budget:
+  tolerance_pages: 1.0
+  shared_sections:
+    - id: problem_analysis
+      target_pages: 2.0
+    - id: assumptions
+      target_pages: 1.0
+    - id: symbols
+      target_pages: 1.5
+  subproblems:
+    - id: Q1
+      capability_profile: mechanistic_optimization
+      target_pages: 5.0
+      validation_scope: both
+      visual_evidence:
+        - id: q1_primary_result
+          figure_id: fig_q1_primary_result
+          claim: "主结果在关键场景下的变化规律及其对结论的支持"
+          role: primary
+          purpose: "展示本小问的主要计算结果及其解释"
+          source: "results/Q1_results.json"
+          target_section: "6.1"
+      visual_decision:
+        status: required
+        rationale: "本小问的结论依赖连续结果或场景比较，表格无法充分呈现规律。"
+      evidence_units:
+        - problem_goal
+        - modeling_idea
+        - model_selection_rationale
+        - assumptions
+        - variables_and_units
+        - original_relations
+        - derivation_chain
+        - final_model
+        - parameter_determination
+        - solver_or_algorithm
+        - result_provenance
+        - validation
+        - result_interpretation
+        - conclusion_mapping
+      evidence_status: planned
+    - id: Q2
+      capability_profile: mechanistic_optimization
+      target_pages: 5.0
+      evidence_units:
+        - problem_goal
+        - modeling_idea
+        - model_selection_rationale
+        - assumptions
+        - variables_and_units
+        - original_relations
+        - derivation_chain
+        - final_model
+        - parameter_determination
+        - solver_or_algorithm
+        - result_provenance
+        - validation
+        - result_interpretation
+        - conclusion_mapping
+      validation_scope: both
+      visual_evidence: []
+      visual_decision:
+        status: table_justified
+        rationale: "若输出为少量离散方案，三线表可直接展示支配关系；若存在连续规律，应改为 required 并登记主图。"
+      evidence_status: planned
+  global_sections:
+    - id: validation_and_sensitivity
+      target_pages: 5.0
+    - id: evaluation_and_outlook
+      target_pages: 2.5
+
+checkpoints:
+  blueprint:
+    predicted_body_pages: 27.0
+  solution:
+    predicted_body_pages: null
+  pdf:
+    actual_body_pages: null
+
+padding_flags: []

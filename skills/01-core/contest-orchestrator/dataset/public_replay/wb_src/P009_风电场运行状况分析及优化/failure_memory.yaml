@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P009
+# 来源: 全国大学生数学建模竞赛2016年D题
+case_id: P009
+failures:
+  - method: "忽略尾流效应"
+    root_cause: "下游机组受上游遮挡功率下降"
+    signal: "总功率预测偏高"
+    lesson: "需引入尾流模型"
+    reference: "国赛赛题分析"
+  - method: "用物理功率曲线直接预测"
+    root_cause: "未考虑实际运行偏差"
+    signal: "预测误差大"
+    lesson: "需数据驱动修正"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

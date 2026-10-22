@@ -1,0 +1,10 @@
+# H4 节点审查包：节点产物、证据、检查结果
+node_id: H4
+summary: H4 审查包
+important_artifacts:
+- path: results/H4_result.yaml
+  sha256: 6913a88a86f49b29fbb8a501f2660f8754e4f0d3a90a9b0ab3fa5cda186267c7
+checks:
+- 完整性检查
+requested_decision: approve
+proposed_next_node: H5

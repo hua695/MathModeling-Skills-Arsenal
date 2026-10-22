@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P026
+# 来源: 2019 MCM Problem A: Game of Ecology
+case_id: P026
+steps:
+  - step: 1
+    action: "帝企鹅生态数据分析"
+    reason: "了解种群动态特征"
+    abandoned: "无"
+  - step: 2
+    action: "建立矩阵种群模型"
+    reason: "模拟年龄结构推移"
+    abandoned: "简单增长模型"
+  - step: 3
+    action: "引入气候因素"
+    reason: "量化海冰/温度对种群影响"
+    abandoned: "无"
+  - step: 4
+    action: "气候情景预测"
+    reason: "预测不同升温情景下种群变化"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2019 MCM Problem A: Game of Ecology"
+  url: https://www.contest.comap.com/undergraduate/contests/

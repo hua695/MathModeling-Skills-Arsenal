@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P069
+# 来源: 2014 MCM Problem B: College Coaching Legends
+case_id: P069
+applicable_scenarios:
+  - 跨项目综合排名
+  - 体育人物评价
+  - 主客观赋权排名
+strategy: "PCA降维+AHP赋权+综合评价排名"
+why_effective: "PCA去相关, AHP体现价值, 综合排名兼顾公平与可比性"
+confidence: 中
+source:
+  title: "2014 MCM Problem B: College Coaching Legends"
+  url: https://www.contest.comap.com/undergraduate/contests/

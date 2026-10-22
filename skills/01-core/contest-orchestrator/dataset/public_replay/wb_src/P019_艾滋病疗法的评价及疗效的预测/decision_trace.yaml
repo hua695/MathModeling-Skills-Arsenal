@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P019
+# 来源: 全国大学生数学建模竞赛2006年B题
+case_id: P019
+steps:
+  - step: 1
+    action: "数据清洗与描述性分析"
+    reason: "了解不同疗法的效果差异"
+    abandoned: "无"
+  - step: 2
+    action: "混合效应模型分析疗效"
+    reason: "处理重复测量和个体差异"
+    abandoned: "简单t检验"
+  - step: 3
+    action: "回归预测疗效趋势"
+    reason: "预测CD4和病毒载量变化"
+    abandoned: "无"
+  - step: 4
+    action: "治疗方案评价与建议"
+    reason: "基于模型给出最优方案"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2006年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

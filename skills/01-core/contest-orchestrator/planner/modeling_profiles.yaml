@@ -1,0 +1,140 @@
+schema_version: "2.0"
+default_profile: mechanistic_optimization
+profiles:
+  mechanistic_optimization:
+    model_keywords: [目标函数, 约束, 可行域, 算法, 优化, 参数边界]
+    result_keywords: [最优, 求解结果, 配置方案, 目标值]
+    required_sections: [思路, 假设, 模型, 求解, 结果]
+    required_evidence: [assumptions, derivation, algorithm, result, reliability]
+    independent_paths: {required: false, when: mechanistic_inversion, examples: [解析/直接计算, 数值拟合/迭代]}
+    algorithm: [selection_reason, initialization_or_range, termination, constraint_handling]
+    reliability: [perturbation_or_sensitivity, residual_or_error]
+    enhanced_evidence: [route_comparison, algorithm_card, intermediate_results]
+  data_prediction:
+    model_keywords: [特征工程, 训练集, 测试集, 评价指标, 交叉验证, 超参数]
+    result_keywords: [预测结果, RMSE, MAE, R2, 泛化]
+    required_sections: [思路, 数据, 模型, 求解, 结果]
+    required_evidence: [assumptions, preprocessing, baseline, split, metrics, reliability]
+    independent_paths: {required: false, examples: [统计基线, 机器学习模型]}
+    algorithm: [selection_reason, hyperparameter_strategy, termination]
+    reliability: [residual_or_error, sensitivity_or_cross_validation]
+    enhanced_evidence: [route_comparison, algorithm_card, intermediate_results]
+  evaluation_decision:
+    model_keywords: [指标体系, 权重, 排名, 正向化, 归一化, 决策]
+    result_keywords: [排序, 权重, 方案比较, 稳定性]
+    required_sections: [思路, 指标, 权重, 求解, 结果]
+    required_evidence: [assumptions, indicator_meaning, weight_source, result, reliability]
+    independent_paths: {required: false, examples: [主观权重, 客观权重]}
+    algorithm: [normalization, weight_strategy, ranking_rule]
+    reliability: [weight_sensitivity, ranking_stability]
+    enhanced_evidence: [route_comparison, algorithm_card, intermediate_results]
+  simulation_dynamics:
+    model_keywords: [状态方程, 动力学, 初值, 边界条件, 数值积分, 场景]
+    result_keywords: [仿真结果, 稳态, 瞬态, 场景对比]
+    required_sections: [思路, 状态方程, 初值, 求解, 结果]
+    required_evidence: [assumptions, derivation, initial_boundary, numerical_method, result, reliability]
+    independent_paths: {required: false, examples: [解析解, 数值积分]}
+    algorithm: [solver_choice, step_or_tolerance, stability_check]
+    reliability: [step_sensitivity, conservation_or_residual]
+    enhanced_evidence: [route_comparison, algorithm_card, intermediate_results]
+  hybrid:
+    model_keywords: [子问题, 模型组合, 接口变量, 约束, 验证]
+    result_keywords: [子问题结果, 综合结果, 鲁棒性]
+    required_sections: [思路, 接口, 模型, 求解, 结果]
+    required_evidence: [assumptions, derivation, algorithm, result, reliability, interface]
+    independent_paths: {required: false, examples: [分解求解, 联合求解]}
+    algorithm: [selection_reason, interface_handling, termination]
+    reliability: [perturbation_or_sensitivity, cross_model_consistency]
+    enhanced_evidence: [route_comparison, algorithm_card, intermediate_results]
+  # These profiles are capability modules, not contest-slot templates. They are
+  # selected per subproblem by planner/paper_profiles.yaml.
+  statistical_inference:
+    model_keywords: [效应量, 置信区间, 假设检验, 残差诊断, 重复测量]
+    result_keywords: [效应量, 置信区间, p值, 残差, 稳健性]
+    required_sections: [思路, 数据结构, 指标, 推断, 结果]
+    required_evidence: [assumptions, preprocessing, indicator_meaning, result, reliability]
+    independent_paths: {required: false, examples: [参数法, 非参数法]}
+    algorithm: [selection_reason, estimator_or_test, assumptions_check]
+    reliability: [confidence_interval, residual_or_error, sensitivity_or_robustness]
+    enhanced_evidence: [row_grain, repeated_measure_handling, effect_size]
+  classification:
+    model_keywords: [类别不平衡, 训练集, 测试集, 混淆矩阵, 阈值, 校准]
+    result_keywords: [准确率, 精确率, 召回率, F1, AUC, 校准]
+    required_sections: [思路, 数据, 分类模型, 阈值, 结果]
+    required_evidence: [assumptions, preprocessing, split, baseline, metrics, result, reliability]
+    independent_paths: {required: false, examples: [统计基线, 分类器]}
+    algorithm: [selection_reason, imbalance_strategy, threshold_strategy, termination]
+    reliability: [confusion_or_roc, calibration, sensitivity_or_cross_validation]
+    enhanced_evidence: [class_balance, decision_cost, leakage_audit]
+  grouping_threshold:
+    model_keywords: [分组, 阈值, 聚类, 组间差异, 决策规则]
+    result_keywords: [分组结果, 阈值, 组间比较, 稳定性]
+    required_sections: [思路, 分组变量, 阈值规则, 求解, 结果]
+    required_evidence: [assumptions, preprocessing, indicator_meaning, result, reliability]
+    independent_paths: {required: false, examples: [规则阈值, 数据驱动阈值]}
+    algorithm: [selection_reason, threshold_selection, constraint_handling]
+    reliability: [threshold_sensitivity, grouping_stability]
+    enhanced_evidence: [decision_interface, group_definition]
+  network_graph:
+    model_keywords: [节点, 边, 权重, 路径, 连通性, 网络]
+    result_keywords: [最短路径, 中心性, 连通分量, 网络指标]
+    required_sections: [思路, 网络定义, 模型, 求解, 结果]
+    required_evidence: [assumptions, variable_definition, derivation, algorithm, result, reliability]
+    independent_paths: {required: false, examples: [图算法, 优化模型]}
+    algorithm: [selection_reason, graph_construction, complexity]
+    reliability: [perturbation_or_sensitivity, structural_stability]
+    enhanced_evidence: [node_edge_definition, weight_meaning, complexity_analysis]
+  uncertainty:
+    model_keywords: [不确定性, 情景, 分布, 置信区间, 风险]
+    result_keywords: [区间, 分位数, 风险值, 稳健性]
+    required_sections: [思路, 不确定性来源, 传播方法, 结果]
+    required_evidence: [assumptions, uncertainty_source, result, reliability]
+    independent_paths: {required: false, examples: [扰动分析, 蒙特卡洛]}
+    algorithm: [selection_reason, scenario_design, seed_or_repetition]
+    reliability: [confidence_interval, robustness_check, sensitivity_or_cross_validation]
+    enhanced_evidence: [distribution_or_scenario, coverage_statement]
+  clustering:
+    model_keywords: [特征标准化, 簇数, 距离度量, 聚类算法, 簇画像]
+    result_keywords: [簇标签, 轮廓系数, 类内离差, 分组结果]
+    required_sections: [思路, 特征与度量, 簇数确定, 求解, 结果]
+    required_evidence: [assumptions, feature_standardization, similarity_measure, cluster_number_selection, cluster_validation, result, reliability]
+    independent_paths: {required: false, examples: [划分聚类, 密度聚类]}
+    algorithm: [selection_reason, initialization, cluster_validation]
+    reliability: [cluster_stability, perturbation_or_sensitivity]
+    enhanced_evidence: [cluster_number_selection, cluster_profile]
+  causal_correlation:
+    model_keywords: [相关系数, 偏相关, 混淆变量, 显著性, 效应量]
+    result_keywords: [相关强度, 置信区间, p值, 净效应]
+    required_sections: [思路, 变量关系, 度量选择, 检验, 结果]
+    required_evidence: [assumptions, relationship_assumption, association_measure, significance_effect, confounder_control, result, reliability]
+    independent_paths: {required: false, examples: [参数相关, 非参数相关]}
+    algorithm: [selection_reason, significance_test, confounder_control]
+    reliability: [robustness_check, residual_or_error]
+    enhanced_evidence: [effect_size, causal_identification]
+  game_strategy:
+    model_keywords: [参与者, 策略集, 收益矩阵, 均衡, 最优反应]
+    result_keywords: [均衡策略, 均衡收益, 混合概率, 稳定性]
+    required_sections: [思路, 博弈要素, 解概念, 求解, 结果]
+    required_evidence: [assumptions, player_strategy_payoff, solution_concept, best_response, equilibrium_verification, result, reliability]
+    independent_paths: {required: false, examples: [纯策略均衡, 混合策略均衡]}
+    algorithm: [selection_reason, best_response_analysis, equilibrium_solve]
+    reliability: [equilibrium_verification, deviation_check]
+    enhanced_evidence: [payoff_matrix, multi_equilibrium_discussion]
+  geometric_kinematic:
+    model_keywords: [坐标系, 参数方程, 几何约束, 自由度, 轨迹]
+    result_keywords: [轨迹, 位置, 角度, 覆盖宽度, 曲率]
+    required_sections: [思路, 坐标参数化, 约束建模, 求解, 结果]
+    required_evidence: [assumptions, coordinate_parametrization, geometric_constraints, degree_freedom_check, solution_verification, result, reliability]
+    independent_paths: {required: false, examples: [解析解, 数值解]}
+    algorithm: [selection_reason, constraint_building, solver_choice]
+    reliability: [degenerate_check, dimensional_check]
+    enhanced_evidence: [geometric_constraints, boundary_check]
+  ecological_dynamics:
+    model_keywords: [状态变量, 动态方程, 平衡点, 稳定性, 数值积分]
+    result_keywords: [状态轨迹, 平衡点, 稳定性结论, 敏感性]
+    required_sections: [思路, 状态与守恒, 动态方程, 平衡稳定, 结果]
+    required_evidence: [assumptions, state_variable_conservation, dynamic_equation, equilibrium_stability, parameter_source, result, reliability]
+    independent_paths: {required: false, examples: [连续微分, 离散差分]}
+    algorithm: [selection_reason, numerical_method, equilibrium_analysis]
+    reliability: [perturbation_or_sensitivity, conservation_or_residual]
+    enhanced_evidence: [parameter_source, phase_portrait]

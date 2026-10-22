@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P076
+# 来源: 2011 ICM Problem: Electric Vehicles
+case_id: P076
+failures:
+  - method: "仅看运行零排放"
+    root_cause: "忽视发电与电池环节"
+    signal: "环境收益高估"
+    lesson: "需LCA"
+    reference: "美赛赛题分析"
+  - method: "忽略电网负荷"
+    root_cause: "充电峰值冲击电网"
+    signal: "评价片面"
+    lesson: "需电网约束"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2011 ICM Problem: Electric Vehicles"
+  url: http://www.madio.net/thread-290074-1-1.html

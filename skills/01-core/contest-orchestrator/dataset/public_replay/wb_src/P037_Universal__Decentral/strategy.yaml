@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P037
+# 来源: 2019 ICM Problem F: Universal, Decentralized, Circulating Currency
+case_id: P037
+applicable_scenarios:
+  - 数字货币采用预测
+  - 去中心化系统建模
+  - 经济稳定性分析
+strategy: "网络效应+博弈论+多层分析"
+why_effective: "网络效应描述增长, 博弈论分析策略, 多层分析覆盖不同视角"
+confidence: 低
+source:
+  title: "2019 ICM Problem F: Universal, Decentralized, Circulating Currency"
+  url: https://www.contest.comap.com/undergraduate/contests/

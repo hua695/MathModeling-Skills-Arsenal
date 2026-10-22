@@ -1,0 +1,9 @@
+schema_version: "1.0"
+passed: false
+gate_status: BLOCK
+paper: <paper.pdf 或论文源文件路径>
+abstract_argument_card: abstract_argument_card.yaml
+abstract_argument_card_sha256: <abstract_argument_card.yaml sha256>
+strict: true
+issues: [<未通过项>]
+warnings: []

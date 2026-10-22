@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P052
+# 来源: 全国大学生数学建模竞赛2004年B题
+case_id: P052
+applicable_scenarios:
+  - 电力经济调度
+  - 输电阻塞管理
+  - 安全约束优化
+strategy: "线性规划经济调度+灵敏度阻塞消解"
+why_effective: "线性规划降成本, 灵敏度快速定位越限, 再调度兼顾安全与经济"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2004年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P078
+# 来源: 全国大学生数学建模竞赛2015年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P078
+title: "互联网+时代出租车的资源配置"
+competition: CUMCM
+year: 2015
+problem_code: "B"
+category: 评价分类
+domain: 交通资源配置/评价优化
+objective: "评价出租车供需匹配状况, 优化'互联网+'下的资源配置与补贴策略"
+variables:
+  - name: 各区域供需比
+    type: 未指定
+    description: 未指定
+  - name: 空驶率
+    type: 未指定
+    description: 未指定
+  - name: 等待时间
+    type: 未指定
+    description: 未指定
+  - name: 订单密度
+    type: 未指定
+    description: 未指定
+  - name: 补贴力度
+    type: 未指定
+    description: 未指定
+  - name: 路况
+    type: 未指定
+    description: 未指定
+constraints:
+  - 司机时间约束
+  - 区域平衡
+  - 补贴预算
+  - 动态供需
+assumptions:
+  - 供需可时空量化
+  - 补贴影响行为
+  - 平台数据可得
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2015

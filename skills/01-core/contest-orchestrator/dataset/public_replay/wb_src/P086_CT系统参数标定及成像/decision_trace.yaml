@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P086
+# 来源: 全国大学生数学建模竞赛2017年A题
+case_id: P086
+steps:
+  - step: 1
+    action: "标定旋转中心与参数"
+    reason: "用模板确定几何"
+    abandoned: "无"
+  - step: 2
+    action: "建立Radon投影模型"
+    reason: "描述投影数据生成"
+    abandoned: "无"
+  - step: 3
+    action: "滤波反投影重建"
+    reason: "恢复介质分布"
+    abandoned: "直接反投影"
+  - step: 4
+    action: "误差与伪影分析"
+    reason: "评估重建质量"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

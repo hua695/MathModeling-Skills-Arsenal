@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P035
+# 来源: 2010 MCM Problem B: Criminology
+case_id: P035
+steps:
+  - step: 1
+    action: "犯罪地点数据可视化"
+    reason: "了解犯罪空间分布"
+    abandoned: "无"
+  - step: 2
+    action: "建立距离衰减模型"
+    reason: "描述犯罪频率随距离的变化"
+    abandoned: "无"
+  - step: 3
+    action: "群集算法识别热点"
+    reason: "找出犯罪聚集区域"
+    abandoned: "无"
+  - step: 4
+    action: "预测罪犯居住地概率分布"
+    reason: "给出最可能居住区域"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2010 MCM Problem B: Criminology"
+  url: http://www.madio.net/thread-290074-1-1.html

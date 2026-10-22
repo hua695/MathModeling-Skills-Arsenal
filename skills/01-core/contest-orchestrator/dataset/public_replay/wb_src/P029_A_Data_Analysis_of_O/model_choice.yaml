@@ -1,0 +1,23 @@
+# model_choice.yaml - 经验卡片 #P029
+# 来源: 2020 MCM Problem C: A Data Analysis of Online Shopping
+case_id: P029
+candidate_models:
+  - NLP情感分析
+  - 回归分析
+  - 随机森林
+  - 时间序列
+  - XGBoost
+final_choice: "NLP情感分析 + XGBoost评分预测"
+reason: "NLP提取文本特征, XGBoost处理高维特征预测评分"
+alternatives:
+  - BERT
+  - SVM
+  - 决策树
+limitations:
+  - 评论质量参差不齐
+  - 冷启动问题
+  - 未考虑用户偏差
+confidence: 中
+source:
+  title: "2020 MCM Problem C: A Data Analysis of Online Shopping"
+  url: https://www.contest.comap.com/undergraduate/contests/

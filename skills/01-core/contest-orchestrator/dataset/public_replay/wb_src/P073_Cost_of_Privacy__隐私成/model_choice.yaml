@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P073
+# 来源: 2018 ICM Problem F: Cost of Privacy
+case_id: P073
+candidate_models:
+  - 成本效益分析
+  - 博弈论
+  - 层次分析法(AHP)
+  - 多目标规划
+final_choice: "成本效益分析 + AHP隐私策略评价"
+reason: "成本效益量化保护代价与收益, AHP综合多维度评价隐私策略"
+alternatives:
+  - 模糊综合评价
+  - 随机效用模型
+  - 系统动力学
+limitations:
+  - 隐私价值主观
+  - 风险概率难估
+  - 跨文化差异
+confidence: 中
+source:
+  title: "2018 ICM Problem F: Cost of Privacy"
+  url: https://www.contest.comap.com/undergraduate/contests/

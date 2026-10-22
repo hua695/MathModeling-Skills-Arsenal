@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P026
+# 来源: 2019 MCM Problem A: Game of Ecology
+case_id: P026
+applicable_scenarios:
+  - 种群动力学预测
+  - 气候变化影响评估
+  - 保护生物学
+strategy: "矩阵种群模型+气候耦合+情景分析"
+why_effective: "矩阵模型精确描述种群结构, 气候耦合量化环境影响, 情景分析提供范围"
+confidence: 中
+source:
+  title: "2019 MCM Problem A: Game of Ecology"
+  url: https://www.contest.comap.com/undergraduate/contests/

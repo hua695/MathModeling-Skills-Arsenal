@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P065
+# 来源: 全国大学生数学建模竞赛2008年D题
+case_id: P065
+steps:
+  - step: 1
+    action: "构建赛程评价指标体系"
+    reason: "覆盖公平/疲劳/强度"
+    abandoned: "无"
+  - step: 2
+    action: "AHP+熵权组合赋权"
+    reason: "主客观结合"
+    abandoned: "单一赋权"
+  - step: 3
+    action: "综合评价赛程合理性"
+    reason: "量化各队负担"
+    abandoned: "无"
+  - step: 4
+    action: "给出赛程优化建议"
+    reason: "改善不公平项"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

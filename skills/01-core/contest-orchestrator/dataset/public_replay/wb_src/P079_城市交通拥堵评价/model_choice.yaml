@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P079
+# 来源: 2018年亚太杯数学建模竞赛A题
+case_id: P079
+candidate_models:
+  - 层次分析法(AHP)
+  - 熵权法
+  - 模糊综合评价
+  - 主成分分析(PCA)
+final_choice: "熵权法+模糊综合评价拥堵等级"
+reason: "熵权法客观赋权, 模糊综合评价处理拥堵指标的模糊边界并分级"
+alternatives:
+  - TOPSIS
+  - 灰色关联
+  - 聚类分析
+limitations:
+  - 数据覆盖有限
+  - 权重地区依赖
+  - 未考虑突发拥堵
+confidence: 低
+source:
+  title: "2018年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

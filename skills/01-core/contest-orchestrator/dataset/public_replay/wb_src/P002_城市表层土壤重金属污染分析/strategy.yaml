@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P002
+# 来源: 全国大学生数学建模竞赛2011年A题
+case_id: P002
+applicable_scenarios:
+  - 土壤/大气/水质污染空间分析
+  - 多源污染识别
+  - 环境质量评价
+strategy: "空间插值可视化+多元统计识别污染源+综合指数评价的三步法"
+why_effective: "空间插值揭示分布格局, 多元统计归因污染源, 综合指数量化评价, 三者形成闭环"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

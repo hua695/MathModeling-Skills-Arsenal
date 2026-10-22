@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P036
+# 来源: 2017 ICM Problem E: Sustainable Cities Needed!
+case_id: P036
+steps:
+  - step: 1
+    action: "城市可持续性指标体系构建"
+    reason: "建立评价框架"
+    abandoned: "无"
+  - step: 2
+    action: "生态足迹计算"
+    reason: "量化资源消耗"
+    abandoned: "无"
+  - step: 3
+    action: "AHP综合评价"
+    reason: "系统评价可持续性"
+    abandoned: "无"
+  - step: 4
+    action: "系统动力学发展模拟"
+    reason: "预测不同发展策略效果"
+    abandoned: "无"
+  - step: 5
+    action: "提升方案制定"
+    reason: "给出可持续发展建议"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2017 ICM Problem E: Sustainable Cities Needed!"
+  url: https://www.contest.comap.com/undergraduate/contests/

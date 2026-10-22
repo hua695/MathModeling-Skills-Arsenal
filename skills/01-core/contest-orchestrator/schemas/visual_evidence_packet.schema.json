@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Minimal visual evidence packet",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "status",
+    "package_mode",
+    "source_node",
+    "created_by",
+    "model_contract_sha256",
+    "subproblems"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "status": {"enum": ["draft", "verified", "stale", "evidence_gap"]},
+    "package_mode": {"const": "indexed_minimal"},
+    "source_node": {"const": "H5"},
+    "created_by": {"const": "H5"},
+    "verified_by": {"const": "H6"},
+    "verification_agent_instance_id": {"type": "string", "minLength": 1},
+    "model_contract_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+    "subproblems": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/subproblem"}
+    },
+    "cross_question_interfaces": {
+      "type": "array",
+      "items": {"type": "object"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "verified"}}},
+      "then": {"required": ["verified_by", "verification_agent_instance_id"]}
+    }
+  ],
+  "$defs": {
+    "subproblem": {
+      "type": "object",
+      "required": ["subproblem_id", "task_goal", "model_role", "information_units"],
+      "properties": {
+        "subproblem_id": {"type": "string", "pattern": "^Q[0-9]+$"},
+        "task_goal": {"type": "string", "minLength": 1},
+        "model_role": {"type": "string", "minLength": 1},
+        "information_units": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/information_unit"}
+        }
+      }
+    },
+    "information_unit": {
+      "type": "object",
+      "required": [
+        "unit_id",
+        "unit_type",
+        "statement",
+        "meaning",
+        "evidence_refs",
+        "scope",
+        "unit"
+      ],
+      "properties": {
+        "unit_id": {"type": "string", "minLength": 1},
+        "unit_type": {
+          "enum": [
+            "model",
+            "result",
+            "validation",
+            "mechanism",
+            "algorithm",
+            "comparison",
+            "cross_question",
+            "parameter"
+          ]
+        },
+        "statement": {"type": "string", "minLength": 1},
+        "meaning": {"type": "string", "minLength": 1},
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidence_ref"}
+        },
+        "scope": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidence_ref": {
+      "type": "object",
+      "required": ["path", "sha256", "locator"],
+      "properties": {
+        "path": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?![A-Za-z]:)(?!/)(?!.*(?:^|/)\\.\\.(?:/|$)).+"
+        },
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "locator": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

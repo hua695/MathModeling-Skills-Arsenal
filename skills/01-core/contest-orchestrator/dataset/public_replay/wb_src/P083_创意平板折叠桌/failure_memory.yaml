@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P083
+# 来源: 全国大学生数学建模竞赛2014年B题
+case_id: P083
+failures:
+  - method: "仅看几何美观"
+    root_cause: "忽略重心稳定性"
+    signal: "桌体易倒"
+    lesson: "需静力学校核"
+    reference: "国赛赛题分析"
+  - method: "随机开槽"
+    root_cause: "展开不平整"
+    signal: "桌面不平"
+    lesson: "需参数化建模"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

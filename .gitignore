@@ -1,0 +1,52 @@
+# 构建产物与缓存
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+node_modules/
+
+# 编辑器与系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 运行产物与工作区
+workspace/
+outputs/
+output/
+*.log
+*.tmp
+*.bak
+_scratch/
+.practical_test/
+
+# 本地私有数据（绝不入库）
+# 说明：竞赛论文全文、写作引用库、决策日志属于本地私有资产，不进仓库
+**/dataset/paper_texts/
+**/memory/writing_database.md
+**/memory/decision_memory.md
+**/memory/inbox/wr/
+**/memory/inbox/public_cases/
+**/memory/hot/
+**/memory/approved/
+**/memory/replay/
+
+# 凭证
+.env
+.env.*
+*.pem
+*.key
+secrets.json
+credentials.json
+
+# 文档构建中间件
+*.aux
+*.toc
+*.out
+*.synctex.gz

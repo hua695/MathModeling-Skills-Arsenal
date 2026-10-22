@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P010
+# 来源: 全国大学生数学建模竞赛2017年B题
+case_id: P010
+applicable_scenarios:
+  - 空间定价策略
+  - 任务分配优化
+  - 多目标决策
+strategy: "聚类分区+回归建模+多目标优化的三步法"
+why_effective: "先分区再建模提高针对性, 多目标优化平衡成本和完成率"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年B题"
+  url: https://sxjm.yzu.edu.cn

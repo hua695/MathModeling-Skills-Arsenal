@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P050
+# 来源: 全国大学生数学建模竞赛2019年C题
+case_id: P050
+failures:
+  - method: "固定蓄车不调整"
+    root_cause: "高峰供给不足/低谷过剩"
+    signal: "收益低"
+    lesson: "需动态决策"
+    reference: "国赛赛题分析"
+  - method: "忽略空驶成本"
+    root_cause: "远途排队净收益被高估"
+    signal: "策略失真"
+    lesson: "需全成本核算"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

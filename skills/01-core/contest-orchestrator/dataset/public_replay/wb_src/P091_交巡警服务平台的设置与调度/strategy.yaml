@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P091
+# 来源: 全国大学生数学建模竞赛2011年B题
+case_id: P091
+applicable_scenarios:
+  - 应急设施选址
+  - 警力管辖划分
+  - 路网覆盖优化
+strategy: "图论最短路+0-1规划选址与管辖分配"
+why_effective: "最短路量化响应, 0-1规划精确选址分配, 兼顾时限与均衡"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

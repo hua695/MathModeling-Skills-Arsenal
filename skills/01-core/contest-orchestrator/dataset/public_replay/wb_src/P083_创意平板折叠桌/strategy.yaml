@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P083
+# 来源: 全国大学生数学建模竞赛2014年B题
+case_id: P083
+applicable_scenarios:
+  - 可折叠结构设计
+  - 静力学稳定性优化
+  - 参数化几何建模
+strategy: "几何参数化+静力学稳定性校核+多目标优化"
+why_effective: "几何建模定形, 静力学保安全, 多目标兼顾美观与功能"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

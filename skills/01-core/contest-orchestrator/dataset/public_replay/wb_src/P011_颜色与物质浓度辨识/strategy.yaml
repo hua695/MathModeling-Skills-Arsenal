@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P011
+# 来源: 全国大学生数学建模竞赛2017年C题
+case_id: P011
+applicable_scenarios:
+  - 光谱/颜色分析建模
+  - 物质浓度预测
+  - 多指标辨识评价
+strategy: "非线性回归建模+AHP系统评价"
+why_effective: "非线性回归准确建模, AHP提供系统化评价框架"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年C题"
+  url: https://sxjm.yzu.edu.cn

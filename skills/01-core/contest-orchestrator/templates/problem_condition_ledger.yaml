@@ -1,0 +1,22 @@
+schema_version: "1.0"
+source_file: "problem.pdf"
+title_anchor: "在此填写题目实际标题"
+source_units:
+  - id: C-01
+    source_location: "第1页第1段"
+    source_text: "保留会影响建模的题面原文完整句子。"
+    roles: [given]
+    normalized_meaning: "说明该条件进入模型后的规范化含义。"
+    affected_questions: [Q1]
+    downstream_evidence: [variables, constraints]
+    link_type: supplies
+    evidence_level: confirmed
+    status: mapped
+questions:
+  - id: Q1
+    source_unit_ids: [C-01]
+    inputs: ["附件数据或题面参数"]
+    task: "填写本小问要完成的任务。"
+    outputs: ["模型输出或结果文件"]
+    reused_by: []
+unresolved_conditions: []

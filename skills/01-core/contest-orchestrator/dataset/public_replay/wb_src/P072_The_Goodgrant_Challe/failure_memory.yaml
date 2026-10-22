@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P072
+# 来源: 2016 MCM Problem C: The Goodgrant Challenge
+case_id: P072
+failures:
+  - method: "全指标直接加权"
+    root_cause: "冗余相关致权重失真"
+    signal: "评价偏颇"
+    lesson: "需降维"
+    reference: "美赛赛题分析"
+  - method: "仅看声誉排名"
+    root_cause: "忽视投资效率与使命"
+    signal: "配置低效"
+    lesson: "需DEA评价"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2016 MCM Problem C: The Goodgrant Challenge"
+  url: https://www.contest.comap.com/undergraduate/contests/

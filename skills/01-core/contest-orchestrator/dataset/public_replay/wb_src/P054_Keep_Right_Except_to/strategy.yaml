@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P054
+# 来源: 2014 MCM Problem A: Keep-Right-Except-to-Pass Rule
+case_id: P054
+applicable_scenarios:
+  - 多车道交通仿真
+  - 车道规则评估
+  - 通行效率优化
+strategy: "元胞自动机微观仿真+规则对比+效率评价"
+why_effective: "微观仿真捕捉换道细节, 规则对比量化收益, 评价支撑管理建议"
+confidence: 中
+source:
+  title: "2014 MCM Problem A: Keep-Right-Except-to-Pass Rule"
+  url: https://www.contest.comap.com/undergraduate/contests/

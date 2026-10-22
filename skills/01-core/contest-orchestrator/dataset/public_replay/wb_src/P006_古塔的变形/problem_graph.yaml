@@ -1,0 +1,40 @@
+# problem_graph.yaml - 经验卡片 #P006
+# 来源: 全国大学生数学建模竞赛2013年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P006
+title: "古塔的变形"
+competition: CUMCM
+year: 2013
+problem_code: "C"
+category: 数据预测
+domain: 测绘工程/结构监测
+objective: "根据多期观测数据计算古塔的变形(倾斜/弯曲/扭曲), 建立变形预测模型"
+variables:
+  - name: 观测点三维坐标
+    type: 未指定
+    description: 未指定
+  - name: 观测时间
+    type: 未指定
+    description: 未指定
+  - name: 塔体各层中心坐标
+    type: 未指定
+    description: 未指定
+  - name: 倾斜角
+    type: 未指定
+    description: 未指定
+  - name: 偏移量
+    type: 未指定
+    description: 未指定
+constraints:
+  - 观测精度约束
+  - 塔体刚性假设
+  - 观测点数量有限
+assumptions:
+  - 塔体为刚体(各层变形一致)
+  - 观测误差服从正态分布
+  - 变形随时间连续变化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2013

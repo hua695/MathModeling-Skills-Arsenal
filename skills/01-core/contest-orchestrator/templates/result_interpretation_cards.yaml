@@ -1,0 +1,24 @@
+# 结果解释卡（result_interpretation_cards.yaml）
+# H5 从冻结结果产生；H6 核验数值、依据和适用范围后置 verified。
+# 它只陈述证据支持的解释，禁止把未验证推测写成结论。
+schema_version: "1.0"
+reader_evidence_version: "1.0"  # 启用读者证据契约；旧项目可省略以保持兼容
+status: draft                 # draft(H5) | verified(H6) | rejected(H6)
+created_by: H5
+verified_by: null
+verification_agent_instance_id: null
+cards:
+  - card_id: <Q1-result-01>
+    subproblem_id: <Q1>
+    result_statement: <精确量化结果，含单位>
+    meaning: <该结果直接回答什么问题、体现何种价值>
+    reasoning_basis: <由模型推导、对照实验、灵敏度或稳健性证据支持的解释>
+    supported_scope: <证据覆盖的数据、参数、情景和边界>
+    reader_analysis:
+      observed_pattern: <结果中值得读者看到的模式、差异或趋势>
+      comparison_basis: <比较对象、指标、时间/样本范围和基准>
+      decision_implication: <该模式如何回答本问并影响方案判断>
+      boundary_or_exception: <结论成立的边界，或证据支持的例外情况>
+    evidence_refs:
+      - path: <项目相对路径>
+        sha256: <sha256>

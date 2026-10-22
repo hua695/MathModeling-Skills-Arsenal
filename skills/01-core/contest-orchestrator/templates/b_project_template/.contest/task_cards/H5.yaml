@@ -1,0 +1,152 @@
+# H5 节点任务卡：输入、范围、输出、验证要求
+task_id: H5-task-001
+node_id: H5
+owner_role: 解题 agent
+objective: H5 节点任务
+inputs:
+- path: H5_input.md
+  sha256: 6a9510ea988a5115675ce5d79915acbe6d865f6a8c3623ad98cc87f23b700261
+- path: problem_statement.md
+  sha256: <sha256>
+- path: literature_sources.yaml
+  sha256: <sha256>
+- path: method_transfer_map.json
+  sha256: <sha256>
+- path: model_blueprint.yaml
+  sha256: <sha256>
+- path: model_contract.yaml
+  sha256: <sha256>
+scope: 受控范围
+method_selection_requirements:
+  baseline_first:
+    description: 每个子问题必须先建立简单基线模型，再考虑复杂方法
+    required: true
+    baseline_methods:
+    - 贪心算法
+    - 规则法
+    - 线性规划（小规模）
+  method_justification:
+    description: 每个方法必须说明选择理由，包括为什么不用更简单的方法
+    required_fields:
+    - 核心矛盾是什么（一句话）
+    - 该方法解决核心矛盾的哪一部分
+    - 简单方法的具体失败点是什么
+    - 复杂方法是否直接针对失败点
+    - 性能提升是否足以抵消复杂度和解释性成本
+  complexity_upgrade:
+    description: 复杂度必须逐级升级，禁止跳跃式选择
+    upgrade_tree: 解析解 → LP → MILP → NLP → 多目标 → 启发式 → 强化学习
+    required_upgrade_record: 每次升级必须记录上一层的哪个缺陷促使升级
+  decision_impact_test:
+    description: 评估复杂方法对最终决策的影响
+    levels:
+      0: 最终结论完全不变（建议用简单方法）
+      1: 局部数值变化但结论不变（建议用简单方法）
+      2: 部分排序或策略变化（需要论证）
+      3: 核心结论发生变化（复杂方法有价值）
+    threshold: 复杂方法最好至少达到等级2
+  anti_flashy_principles:
+  - 没有 baseline，不允许直接使用复杂模型
+  - 没有证明简单模型失败，不允许升级
+  - 没有显著增量价值，不允许保留复杂模型
+  - 无法解释现实意义的模型，不应作为主模型
+  - 两个模型效果接近时，优先选择更简单、更稳定、更可解释的模型
+  reference: references/method_selection_core.md
+code_quality_requirements:
+  comments:
+    description: 代码必须有必要的注释，像人写的而不是AI生成的；不用大量注释，但关键位置必须有
+    required:
+    - file_header: 每个Python文件开头必须有1-3行说明这个文件做什么
+    - function_docstring: 每个函数必须有docstring，说明功能、参数、返回值（超过10行的函数必须有）
+    - complex_logic_inline: 复杂逻辑处必须有行内注释，说明为什么这么做（循环嵌套>2层、条件分支>3个、关键算法步骤）
+    - key_parameter: 关键参数必须有注释说明数值含义和来源（初始温度、迭代次数、学习率、阈值等）
+    content_redline:
+      description: 注释中禁止出现以下内容，注释必须是纯粹的技术说明
+      prohibited:
+      - 内部讨论话语（经讨论决定、agent建议、用户要求、我们认为）
+      - AI思考过程（首先...其次...、让我想想、经过分析）
+      - 元话语（本文将、本节介绍、以下代码、接下来）
+      - 负向回响（之前用X效果不好、v2修正了v1、尝试了多种方法）
+      - AI协作痕迹（agent、prompt、审查、修改清单、由H5生成）
+    examples:
+      good:
+      - "# 模拟退火求解测线布设，初始温度100基于目标函数量级估算"
+      - "# 相邻测线重叠率控制在15-20%，低于15%有盲区"
+      - 'def optimize_layout(...): """基于模拟退火优化测线布设，返回最优路径和覆盖率"""'
+      bad:
+      - "# 经讨论决定用模拟退火，之前贪心效果不好"
+      - "# 首先初始化温度，然后迭代，最后输出结果"
+      - "# 以下函数实现优化算法"
+    reference: 各子skill的references/code_comment_guide.md（pyomo/heuristic-algorithms/data-science-stack）
+numerical_sanity_check:
+  description: 求解完成后必须执行数值合理性自检，确保"代码运行了但结果是错的"被及时发现；所有检查通过才能将结果写入result_registry
+  required: true
+  universal_checks:
+  - inf_nan: 所有结果文件中不得有 inf/nan 值
+  - objective_magnitude: 目标值量级必须合理（< 1e15，> 1e-15 非零）
+  - file_completeness: 结果文件非空、格式正确（JSON 可解析、CSV 列数一致）
+  - physical_range: 决策变量不得超出物理范围（概率 [0,1]、速度 < 光速等）
+  domain_specific_checks:
+    optimization:
+      description: 优化模型（pyomo）额外检查
+      reference: pyomo/references/numerical_sanity_guide.md
+      checks:
+      - 求解器状态必须为 optimal（不是 infeasible/unbounded/maxIterations）
+      - 所有约束满足（误差 < 1e-6）
+      - 决策变量在定义的上下界范围内
+      - 整数变量值为整数（MILP）
+      - 对偶变量无 inf/nan（如需要灵敏度分析）
+    heuristic:
+      description: 启发式算法（GA/SA/PSO/蒙特卡洛）额外检查
+      reference: heuristic-algorithms/references/numerical_sanity_guide.md
+      checks:
+      - 算法收敛（最近 N 次迭代最优解变化 < 阈值）
+      - 解满足所有约束（不可行解不能作为最终结果）
+      - 随机种子已固定，结果可复现
+      - 种群多样性正常（GA/PSO，无早熟收敛）
+      - 蒙特卡洛样本量足够，结果收敛
+    data_science:
+      description: 数据处理/机器学习额外检查
+      reference: data-science-stack/references/numerical_sanity_guide.md
+      checks:
+      - 训练/测试数据完整（无空值、无重复）
+      - 特征矩阵无 inf/nan
+      - 预测值无 inf/nan，范围合理
+      - 评估指标合理（AUC 在 [0,1]、R² 不太差）
+      - 无明显过拟合（训练集和测试集性能差距 < 15%）
+  output_requirement: 自检结果必须写入 run_manifest，包含每项检查的 PASS/WARN 状态和具体问题
+  checker: scripts/check_numerical_sanity.py（通用检查，H5 完成后自动运行）
+required_outputs:
+- 节点产物
+- run_manifest.yaml（可复现运行、正式记录、结果哈希和模型契约哈希）
+- model_summary_cards.yaml（每个小问一张最终求解模型卡）
+- baseline_result（每个子问题的简单基线结果）
+- method_justification（每个方法的选择理由）
+- complexity_upgrade_record（复杂度升级记录，如适用）
+- decision_impact_test_result（决策影响测试结果，如适用复杂方法）
+- visual_evidence_packet.yaml（每个小问至少两个可追溯信息单元；只登记索引，不嵌入全文或过程材料）
+verification:
+- 节点检查
+- 方法适配性检查（check_model_evidence.py）
+- 数值合理性检查（check_numerical_sanity.py，必须运行，结果写入run_manifest）
+- 结果追溯检查（check_h5_result_traceability.py --strict）
+prohibited_actions:
+- 越权
+- 未建立 baseline 直接使用复杂方法
+- 跳跃式选择方法（如从 LP 直接跳到强化学习）
+- 为适配算法强行构造不合理假设
+evidence_handoff:
+- 回流记录
+model: gpt-5.6-sol
+reasoning_effort: high
+dispatch_kind: primary_solver
+solver_instance_id: solver-001
+covered_subproblems:
+- Q1
+- Q2
+- Q3
+cross_question_interface: true
+authority:
+  may_change_model_route: false
+  may_write_final_results: true
+  may_aggregate_conclusions: true

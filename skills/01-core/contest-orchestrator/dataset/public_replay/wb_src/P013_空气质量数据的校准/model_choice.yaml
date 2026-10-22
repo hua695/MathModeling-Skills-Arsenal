@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P013
+# 来源: 全国大学生数学建模竞赛2019年D题
+case_id: P013
+candidate_models:
+  - 多元线性回归
+  - 随机森林
+  - BP神经网络
+  - K近邻回归(KNN)
+final_choice: "多元线性回归 + 随机森林组合校准"
+reason: "线性回归提供基准, 随机森林捕捉非线性且鲁棒"
+alternatives:
+  - 支持向量回归
+  - 梯度提升树
+  - 时间序列模型
+limitations:
+  - 站点间距离影响校准精度
+  - 极端天气下模型失效
+  - 未考虑污染源位置
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P099
+# 来源: 2017 ICM Problem F: Migration to Mars
+case_id: P099
+applicable_scenarios:
+  - 星际供应链优化
+  - 多商品网络流
+  - 可持续系统规划
+strategy: "多商品网络流+最小费用流优化"
+why_effective: "网络流刻画系统约束, 多商品区分优先级, 最小费用流保证经济可行"
+confidence: 中
+source:
+  title: "2017 ICM Problem F: Migration to Mars"
+  url: https://www.contest.comap.com/undergraduate/contests/

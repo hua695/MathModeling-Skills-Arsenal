@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P016
+# 来源: 全国大学生数学建模竞赛2020年E题
+case_id: P016
+applicable_scenarios:
+  - 时间序列预测
+  - 异常检测
+  - 智能水务管理
+strategy: "深度学习预测+异常检测+调度优化"
+why_effective: "LSTM适应复杂周期模式, 孤立森林无需标注即可检测异常"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2020年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

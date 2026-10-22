@@ -1,0 +1,21 @@
+# H6 验证范围卡：由主 agent 在派发 H6 前生成。
+# 普通正文、排版、图表美化和附录格式变化不创建此卡，也不派发 H6。
+schema_version: "1.0"
+mode: initial_review           # initial_review | targeted_recheck
+trigger: h5_result_freeze      # initial: h5_result_freeze; targeted: model/data/key_result/interpretation_card_change
+changed_artifacts: []          # targeted_recheck 时逐项登记 path 与 sha256
+mandatory_checks:
+  - contract_anchors
+  - cross_question_interfaces
+  - result_interpretation_cards
+contract_anchors:
+  validation_contract: validation_contract.yaml
+  model_summary_cards: model_summary_cards.yaml
+cross_question_interfaces:
+  global_interface_check: global_interface_check.yaml
+result_interpretation_cards:
+  path: result_interpretation_cards.yaml
+deep_sample_refs:
+  - path: <H5 推导、代码或结果中的深度抽查锚点>
+    sha256: <sha256>
+excluded_artifacts: []         # 不受本次验证影响的冻结材料

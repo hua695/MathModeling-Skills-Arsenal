@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P043
+# 来源: 全国大学生数学建模竞赛2012年B题
+case_id: P043
+steps:
+  - step: 1
+    action: "分析屋顶可用面与朝向"
+    reason: "确定可铺设区域"
+    abandoned: "无"
+  - step: 2
+    action: "建立电池板0-1布局模型"
+    reason: "最大化铺设面积"
+    abandoned: "手工摆布"
+  - step: 3
+    action: "光照明暗与逆变器匹配计算"
+    reason: "核算实际出力"
+    abandoned: "忽略匹配"
+  - step: 4
+    action: "多目标权衡发电与成本"
+    reason: "输出最优性价比方案"
+    abandoned: "单目标"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

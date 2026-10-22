@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P004
+# 来源: 全国大学生数学建模竞赛2012年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P004
+title: "脑卒中发病环境因素分析及干预"
+competition: CUMCM
+year: 2012
+problem_code: "C"
+category: 数据预测
+domain: 医学统计/流行病学
+objective: "分析脑卒中发病率与环境因素(气温/气压/湿度)的关系, 建立预测模型并提出干预建议"
+variables:
+  - name: 脑卒中发病人数
+    type: 未指定
+    description: 未指定
+  - name: 气温
+    type: 未指定
+    description: 未指定
+  - name: 气压
+    type: 未指定
+    description: 未指定
+  - name: 相对湿度
+    type: 未指定
+    description: 未指定
+  - name: 日期
+    type: 未指定
+    description: 未指定
+  - name: 性别/年龄分组
+    type: 未指定
+    description: 未指定
+constraints:
+  - 数据含缺失值
+  - 发病报告存在延迟
+  - 环境因素间存在交互效应
+assumptions:
+  - 环境因素是发病的主要外部诱因
+  - 报告数据基本完整
+  - 发病率与环境因素存在滞后关系
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2012

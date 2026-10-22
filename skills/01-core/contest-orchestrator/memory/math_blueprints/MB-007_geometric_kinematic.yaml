@@ -1,0 +1,129 @@
+# MB-007 几何/运动学 母蓝图（Math Reasoning Scaffold · 通用版）
+# 用途：solving 阶段按 problem_type=几何/运动学 注入，先把空间构型和运动约束转成坐标、参数方程与约束关系再求解。
+# 原则：几何题的分水岭是"坐标系与参数化自洽、约束闭合、结果有几何或运动学验证"还是"凭示意图像凑公式"。
+
+blueprint_id: MB-007
+problem_type: 几何/运动学
+competition_variant: 通用版
+summary: "核心矛盾是把空间构型或运动轨迹数学化为坐标系下的参数方程、几何约束与运动关系，并保证约束闭合、可数值求解；防止坐标系混乱、约束遗漏、只给几何直觉不验证。"
+
+abstraction_map:
+  objects:
+    - "空间实体（点、线、面、刚体、轨迹）→ 坐标或参数向量"
+    - "运动实体 → 位置函数 r(t)、姿态角 θ(t)"
+    - "几何要素 → 距离、夹角、曲率、覆盖区域"
+  relationships:
+    - "构型约束 → 代数方程或不等式（相切、相交、等距）"
+    - "运动关系 → 速度 v=dr/dt、加速度、运动学约束"
+    - "覆盖与重叠 → 面积、带宽、重叠率的积分或几何表达式"
+  decision:
+    - "坐标系选择 → 直角、极坐标、参数坐标，取使约束最简者"
+    - "参数化 → 以弧长、时间或角度为参数"
+    - "求解方式 → 解析推导优先，复杂约束数值求解"
+
+symbols:
+  - {sym: "r(t)", meaning: "位置向量函数", unit: "依题意"}
+  - {sym: "θ", meaning: "姿态角或极角", unit: "rad"}
+  - {sym: "v, a", meaning: "速度与加速度向量", unit: "依题意"}
+  - {sym: "κ, ρ", meaning: "曲率与曲率半径", unit: "依题意"}
+  - {sym: "g(x)", meaning: "几何约束方程", unit: ""}
+  - {sym: "W, η", meaning: "覆盖宽度与重叠率", unit: "依题意"}
+
+steps:
+  - step: 1
+    name: 坐标系与参数化
+    template: "选定并写明坐标系原点、轴向和单位，将实体参数化，说明为何该坐标系使约束最简，全文坐标约定保持一致"
+    required: true
+  - step: 2
+    name: 几何约束建模
+    template: "把相切、相交、等距、边界贴合等构型关系逐条写成方程或不等式，检查约束个数与未知量个数是否匹配"
+    required: true
+  - step: 3
+    name: 运动关系
+    template: "运动问题写出位置、速度、加速度关系和初始条件，明确匀速、变速或转向约束"
+    required: false
+    alternative: [速度分析, 轨迹参数方程]
+  - step: 4
+    name: 求解
+    template: "能解析则推导闭式解，复杂非线性方程组用数值方法并报告残差与收敛，覆盖问题给出积分或扫描算法"
+    required: true
+  - step: 5
+    name: 几何与边界验证
+    template: "用退化情形（直线、零角、对称构型）检验，核对量纲、闭合约束和极端参数下结果是否合理"
+    required: true
+  - step: 6
+    name: 结果可视化与指标
+    template: "画出轨迹或构型图，标注关键尺寸，报告曲率、覆盖宽度、重叠率等指标随参数的变化"
+    required: false
+
+selection_logic:
+  - if: {shape: "螺旋或规则曲线运动"}
+    choose: 等距螺线或参数方程
+    because: "以角度或弧长为参数可直接表达等间距特性"
+  - if: {problem: "反射、投影、光路"}
+    choose: 坐标变换加反射折射定律
+    because: "把几何定律写成方向向量关系便于递推"
+  - if: {problem: "区域覆盖与重叠"}
+    choose: 几何重叠模型加正弦定理
+    because: "用三角形几何关系表达相邻条带覆盖宽度"
+  - if: {constraint: "复杂非线性、无闭式解"}
+    choose: 数值求解非线性方程组
+    because: "约束闭合后数值求根稳健，需报告残差"
+  - if: {problem: "刚体位姿变换"}
+    choose: 齐次坐标变换
+    because: "旋转平移统一为矩阵，链式运动可复合"
+
+propositions:
+  - name: 约束闭合判据
+    template: "独立方程数须等于独立未知量数才有确定解；约束不足时解不唯一，约束过多时需检查相容性，几何建模后先做自由度清点。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 等距螺线参数方程
+    template: "Archimedean 螺线极坐标 r=a+bθ，相邻圈径向间距为 2πb；以弧长或角度参数化可控制盘旋间距，参数 b 由间距要求确定。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 反射方向向量
+    template: "入射方向 d 相对法向 n 的反射方向 d′=d−2(d·n)n，逐层反射即对方向向量反复作用，避免用角度带来的象限歧义。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 曲率与转弯半径
+    template: "平面参数曲线曲率 κ=|x′y″−y′x″|/(x′²+y′²)^(3/2)，转弯半径为 1/κ；运动受最小转弯半径约束时用它界定可行轨迹。"
+    provenance: "专家模板（建库时手工编写）"
+  - name: 条带覆盖宽度
+    template: "斜距测线的有效覆盖宽度由波束角、水深和相邻条带几何关系确定，平坦时 W=2H tan(θ/2)，重叠率为相邻条带公共宽度除以带宽，地形起伏需分段计算。"
+    provenance: "专家模板（建库时手工编写）"
+
+theory_checks:
+  - name: 坐标自洽
+    note: "原点、轴向、单位全文一致，变换写清"
+    required: true
+  - name: 自由度清点
+    note: "独立约束数与未知量数匹配，相容性可验证"
+    required: true
+  - name: 量纲与退化
+    note: "公式量纲正确，退化几何下结果合理"
+    required: true
+  - name: 数值可靠
+    note: "数值解报告残差、收敛和初值敏感性"
+    required: false
+
+antipattern:
+  bad: "对着示意图直接写螺线公式，不交代坐标系和参数含义，约束数少于未知量，数值解不给残差也不做对称退化验证。"
+  good: "取起始点为原点、主方向为极轴建立极坐标，等距螺线 r=a+bθ，由间距要求定 b；列出相切和边界共 4 条独立约束对应 4 个未知量，数值解残差小于 1e-8，直线退化时结果退化为等间距扫描，几何上自洽。"
+
+failure_modes:
+  - mode: coordinate_chaos
+    symptom: "中途换坐标系或混用角度制弧度制"
+    guard: "开头固定坐标约定，角度统一为弧度并声明"
+  - mode: under_constrained
+    symptom: "方程少于未知量却给出唯一数值解"
+    guard: "先清点自由度，补足约束或说明解族"
+  - mode: angle_ambiguity
+    symptom: "用角度判断反射或朝向出现象限错误"
+    guard: "改用方向向量和点积叉积运算"
+  - mode: no_degenerate_check
+    symptom: "复杂公式在简单情形下不成立却未发现"
+    guard: "用直线、零角、对称情形做退化验证"
+
+readability_guard:
+  - "给出参数方程后，用一句中文说明参数的几何意义"
+  - "符号首次出现带中文含义，角度统一标注单位"
+  - "连续公式不超过 3 个，第 4 个前插入解释段落"
+  - "几何结论配构型或轨迹示意图，关键尺寸在图上标注"

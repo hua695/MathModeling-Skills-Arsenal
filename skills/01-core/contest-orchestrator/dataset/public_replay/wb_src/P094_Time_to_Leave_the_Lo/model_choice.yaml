@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P094
+# 来源: 2019 MCM Problem D: Time to Leave the Louvre
+case_id: P094
+candidate_models:
+  - 最短路算法
+  - 最大流/最小割
+  - 动态网络流
+  - 多目标优化
+final_choice: "动态网络流 + 最短路出口分配"
+reason: "用动态网络流刻画人员随时间流动, 最短路分配出口以最小化总疏散时间"
+alternatives:
+  - Agent-based仿真
+  - 元胞自动机
+  - 遗传算法
+limitations:
+  - 行为异质忽略
+  -  panic未建模
+  - 容量时变忽略
+confidence: 中
+source:
+  title: "2019 MCM Problem D: Time to Leave the Louvre"
+  url: https://www.contest.comap.com/undergraduate/contests/

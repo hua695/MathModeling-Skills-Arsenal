@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P085
+# 来源: 全国大学生数学建模竞赛2016年A题
+case_id: P085
+failures:
+  - method: "忽略锚链悬链线"
+    root_cause: "张力与形态误算"
+    signal: "系泊失效"
+    lesson: "需悬链线方程"
+    reference: "国赛赛题分析"
+  - method: "仅静力不校核"
+    root_cause: "极端海况下失稳"
+    signal: "设计不安全"
+    lesson: "需约束校验"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

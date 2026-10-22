@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P100
+# 来源: 全国大学生数学建模竞赛2001年B题
+case_id: P100
+failures:
+  - method: "全天固定发车间隔"
+    root_cause: "高峰拥挤平峰空驶"
+    signal: "成本与体验双差"
+    lesson: "需分时调度"
+    reference: "国赛赛题分析"
+  - method: "忽略满载率约束"
+    root_cause: "高峰超载不适"
+    signal: "服务水平低"
+    lesson: "需约束上限"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2001年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

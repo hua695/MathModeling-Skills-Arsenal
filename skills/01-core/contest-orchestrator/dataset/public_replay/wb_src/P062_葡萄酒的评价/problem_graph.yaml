@@ -1,0 +1,38 @@
+# problem_graph.yaml - 经验卡片 #P062
+# 来源: 全国大学生数学建模竞赛2012年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P062
+title: "葡萄酒的评价"
+competition: CUMCM
+year: 2012
+problem_code: "A"
+category: 评价分类
+domain: 食品科学/质量评价
+objective: "基于理化指标与感官评分, 评价葡萄酒质量并对酿酒葡萄分级"
+variables:
+  - name: 花色苷/总酚等理化指标
+    type: 未指定
+    description: 未指定
+  - name: 品酒员评分
+    type: 未指定
+    description: 未指定
+  - name: 葡萄产地/品种
+    type: 未指定
+    description: 未指定
+  - name: 年份
+    type: 未指定
+    description: 未指定
+constraints:
+  - 评分主观性
+  - 指标间相关性
+  - 样本量有限
+  - 分级阈值
+assumptions:
+  - 理化指标反映质量
+  - 感官评分可信
+  - 同类葡萄可比
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2012

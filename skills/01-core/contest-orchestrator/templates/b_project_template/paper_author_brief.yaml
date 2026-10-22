@@ -1,0 +1,44 @@
+schema_version: "1.0"
+reader_evidence_version: "1.0"
+status: draft
+prepared_by: academic-writing
+argument_blueprint_sha256: <paper_argument_blueprint.yaml sha256>
+central_thesis: <由冻结证据支持的总主张>
+reader_journey: <读者理解路径>
+paper_spine:
+  core_chapters: [Q1, Q2, Q3]
+  support_chapters: [problem_analysis, assumptions, symbols, conclusion]
+  chapter_order: [problem_analysis, assumptions, symbols, Q1, Q2, Q3, conclusion]
+  chapter_edges:
+    - {from: problem_analysis, to: assumptions, relation: prepares, handoff_question: 题意分析如何转化为可接受的建模假设？}
+    - {from: assumptions, to: symbols, relation: prepares, handoff_question: 建模假设如何约束统一符号和变量口径？}
+    - {from: symbols, to: Q1, relation: feeds, handoff_question: 统一符号如何进入第一问模型？}
+    - {from: Q1, to: Q2, relation: extends, handoff_question: 第一问结果如何支撑网络结构优化？}
+    - {from: Q2, to: Q3, relation: extends, handoff_question: 网络优化结果如何进入稳健性分析？}
+    - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: 各问结果如何汇总回答总问题？}
+chapters:
+  - section_id: <section-id>
+    chapter_kind: modeling_question
+    chapter_role: core
+    reader_question: <本章问题>
+    chapter_purpose: <本章作用>
+    chapter_answer: <本章回答>
+    opening_bridge: <问题引入与建模思路段；不单独设编号标题>
+    section_structure:
+      numbered_sections: [模型建立, 模型求解与结果分析]
+      summary_location: 模型建立小节末尾
+      optional_sections: []
+    argument_ids: []
+    evidence_refs: []
+    figure_roles: []
+    reads_from: [<前置章节ID>]
+    feeds_to: [<后续章节ID>]
+    new_claims_allowed: [<本章允许新增的argument-id>]
+    handoff_question: <本章结尾交给下一章的问题>
+    reader_takeaway: <读者收获>
+    authoring_arc:
+      opening_tension: <读者在本章开头需要理解的矛盾或问题张力>
+      evidence_sequence: [<题面/假设/推导/结果/验证等证据的自然顺序>]
+      interpretive_move: <本章如何把证据转成对读者有意义的解释>
+      transition_question: <本章结束后自然交给下一章的问题>
+    excluded_material: []

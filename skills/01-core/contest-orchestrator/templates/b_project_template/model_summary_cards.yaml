@@ -1,0 +1,65 @@
+schema_version: '1.0'
+reader_evidence_version: '1.0'
+status: draft
+created_by: H5
+verified_by: H6
+verification_agent_instance_id: <H6 agent_instance_id>
+model_contract_sha256: <model_contract.yaml sha256>
+cards:
+- card_id: Q1-final-model
+  subproblem_id: Q1
+  purpose: <本问模型要回答的具体问题>
+  model_family: constrained_optimization
+  decision_variables:
+  - symbol: <symbol>
+    meaning: <含义>
+    unit: <单位或量纲>
+    domain: <取值域或边界>
+    variable_type: continuous
+  parameters: []
+  final_formulation:
+    kind: optimization
+    expression: <唯一可计算的目标函数、约束和边界>
+  solver_interface:
+    method: <求解方法或实现入口>
+    inputs: []
+    outputs: []
+  source_equation_refs: [<eq:...>]
+  reader_evidence:
+    problem_need: <本问要替读者解决的具体矛盾或决策问题>
+    model_choice_reason: <为什么该模型能表达本问问题，依据是什么>
+    data_scope:
+      mode: hybrid
+      shared_inputs: [<全文或多问共用的数据/参数>]
+      question_specific_inputs: [<本问专用的数据/参数>]
+      placement_rationale: <公共数据在前文统一说明、本问数据在本问说明的理由>
+    assumption_traceability:
+      - assumption_id: <A1>
+        statement: <假设内容>
+        basis: <题面、数据或文献依据>
+        model_role: <该假设进入哪个关系、目标或约束>
+        impact_if_violated: <假设不成立时的影响>
+        validation_refs: [<验证证据定位>]
+    derivation_arc:
+      - from: <题面条件、数据或前置公式>
+        to: <当前公式或模型组件>
+        reason: <这一步为读者解决的理解问题>
+    final_model_reading: <求解器最终接收什么并输出什么>
+    evaluation:
+      strengths:
+        - claim: <具体优点>
+          evidence_refs: [<支持证据定位>]
+      limitations:
+        - source: <局限来源>
+          impact: <具体影响>
+          scope: <影响范围>
+          evidence_refs: [<支持证据定位>]
+      improvements:
+        - addresses: <针对的局限>
+          change: <可执行改进>
+          expected_effect: <预期改善>
+  paper_structure:
+    opening_bridge: <本问引入段>
+    numbered_sections: [模型建立, 模型求解与结果分析]
+    summary_location: 模型建立小节末尾
+    optional_sections: []

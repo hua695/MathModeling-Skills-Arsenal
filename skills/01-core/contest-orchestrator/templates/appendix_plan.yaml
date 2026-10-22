@@ -1,0 +1,52 @@
+# 项目级附录计划。它描述真实模型产物，不是固定论文模板。
+schema_version: "2.0"
+status: "DRAFT"
+problem_profile: "hybrid"
+# 覆盖优先：每个小问都要说明正文关键材料在附录/支撑包中的对应模块。
+# 不按固定“附录 A/B/C/D”凑内容；没有真实材料时保持 DRAFT。
+planning_contract: "coverage_first"
+official_format:
+  # 没有官方固定编号时留空；不要为了凑 A/B/C 伪造附录。
+  numbering: "official_abc_if_required"
+  appendix_ids: []
+  order: [support_index, source_code, derivation, algorithm, raw_data, auxiliary_validation]
+subproblems:
+  - id: "Q1"
+    primary_type: "mechanistic_inversion"
+    capabilities: [derivation, uncertainty]
+    result_sources: []
+appendix_modules:
+  - module_id: "app-q1-derivation"
+    kind: "derivation"
+    used_by: ["Q1"]
+    required: true
+    source_files: []
+    paper_anchor: "app:q1-derivation"
+    include_in_pdf: true
+    support_materials: []
+coverage_matrix:
+  - subproblem_id: "Q1"
+    main_section: "6.1"
+    core_code_module: null
+    long_derivation_module: "app-q1-derivation"
+    verification_module: null
+    code_not_applicable_reason: "本模板未声明实际程序；一旦 program_used=true，必须改为真实核心代码模块。"
+source_inputs:
+  program_used: false
+  # 程序题：论文附录展示核心代码，支撑材料保留完整可运行源码。
+  # 可选值：not_applicable、core_only、full_source。
+  appendix_code_mode: "not_applicable"
+  core_source_files: []
+  full_source_files: []
+  support_source_files: []
+  long_derivation_files: []
+  raw_data_files: []
+  support_material_files: []
+
+# 程序题填写真实入口、命令、环境、随机种子和预期输出；纯解析题保持为空。
+reproducibility:
+  entrypoints: []
+  run_commands: []
+  environment_files: []
+  random_seeds: []
+  expected_outputs: []

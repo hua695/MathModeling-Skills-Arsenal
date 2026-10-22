@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P041
+# 来源: 全国大学生数学建模竞赛2010年C题
+case_id: P041
+failures:
+  - method: "统一管线单价"
+    root_cause: "忽视城区与郊区的成本差异"
+    signal: "总费用估算偏差大"
+    lesson: "需分区域建模"
+    reference: "国赛赛题分析"
+  - method: "随意设汇合点"
+    root_cause: "汇合点位置直接决定成本"
+    signal: "方案非最优"
+    lesson: "须用优化求解"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

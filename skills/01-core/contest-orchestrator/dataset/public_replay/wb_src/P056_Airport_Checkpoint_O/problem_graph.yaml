@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P056
+# 来源: 2017 ICM Problem D: Airport Checkpoint Operations
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P056
+title: "Airport Checkpoint Operations (机场安检运营优化)"
+competition: MCM/ICM
+year: 2017
+problem_code: "D"
+category: 优化决策
+domain: 排队优化/服务调度
+objective: "在旅客到达与安检资源约束下, 优化安检通道开放数与排班使等待时间最小"
+variables:
+  - name: 旅客到达率
+    type: 未指定
+    description: 未指定
+  - name: 安检服务时间
+    type: 未指定
+    description: 未指定
+  - name: 开放通道数
+    type: 未指定
+    description: 未指定
+  - name: 预检比例
+    type: 未指定
+    description: 未指定
+  - name: 排队长度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 通道数上限
+  - 旅客等待时间约束
+  - 人员排班约束
+  - 到达随机
+assumptions:
+  - 到达服从随机过程
+  - 服务时间可统计
+  - 预检缩短服务时间
+confidence: 中
+source:
+  title: "2017 ICM Problem D: Airport Checkpoint Operations"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2017

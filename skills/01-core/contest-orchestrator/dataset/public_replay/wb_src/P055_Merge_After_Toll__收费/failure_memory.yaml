@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P055
+# 来源: 2017 MCM Problem B: Merge After Toll
+case_id: P055
+failures:
+  - method: "忽视合流冲突"
+    root_cause: "瓶颈在合流而非收费"
+    signal: "优化方向错"
+    lesson: "需定位真瓶颈"
+    reference: "美赛赛题分析"
+  - method: "固定车道不优化"
+    root_cause: "配置不匹配需求"
+    signal: "通行能力低"
+    lesson: "需优化配置"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2017 MCM Problem B: Merge After Toll"
+  url: https://www.contest.comap.com/undergraduate/contests/

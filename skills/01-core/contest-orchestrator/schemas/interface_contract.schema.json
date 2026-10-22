@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cross-subproblem Interface Contract",
+  "type": "object",
+  "required": ["interfaces"],
+  "properties": {
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "source_file"],
+        "properties": {
+          "from": {"type": "string"},
+          "to": {"type": "string"},
+          "source_file": {"type": "string"},
+          "key_path": {"type": "string"},
+          "type": {"type": "string"},
+          "shape": {"type": "array"},
+          "unit": {"type": "string"}
+        }
+      }
+    }
+  }
+}

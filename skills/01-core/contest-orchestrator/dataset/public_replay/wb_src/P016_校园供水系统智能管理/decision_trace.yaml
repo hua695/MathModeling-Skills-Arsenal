@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P016
+# 来源: 全国大学生数学建模竞赛2020年E题
+case_id: P016
+steps:
+  - step: 1
+    action: "数据预处理与特征提取"
+    reason: "提取时间特征和天气特征"
+    abandoned: "无"
+  - step: 2
+    action: "LSTM用水量预测模型"
+    reason: "预测各楼宇用水需求"
+    abandoned: "ARIMA"
+  - step: 3
+    action: "孤立森林异常检测"
+    reason: "识别异常用水行为"
+    abandoned: "阈值法"
+  - step: 4
+    action: "调度优化建议"
+    reason: "基于预测优化供水方案"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2020年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

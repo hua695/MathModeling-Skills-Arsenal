@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P001
+# 来源: 全国大学生数学建模竞赛2010年B题
+case_id: P001
+failures:
+  - method: "直接使用所有指标回归"
+    root_cause: "指标间共线性导致回归系数不稳定"
+    signal: "方差膨胀因子VIF过大"
+    lesson: "高维数据需先降维"
+    reference: "国赛赛题分析"
+  - method: "纯线性模型拟合"
+    root_cause: "影响力与指标间存在非线性关系"
+    signal: "拟合优度R^2偏低"
+    lesson: "非线性问题应用非线性模型"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

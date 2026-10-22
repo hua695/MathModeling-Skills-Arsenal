@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P007
+# 来源: 全国大学生数学建模竞赛2015年A题
+case_id: P007
+candidate_models:
+  - 天文球面三角模型
+  - 最小二乘优化
+  - 神经网络
+  - 网格搜索
+final_choice: "球面三角几何模型 + 最小二乘优化反演"
+reason: "球面三角精确描述太阳位置, 最小二乘反演地点和日期"
+alternatives:
+  - 暴力搜索
+  - 遗传算法优化
+  - 蒙特卡洛
+limitations:
+  - 多解问题(不同地点日期可能产生相同影子)
+  - 需要足够多的影子数据点
+  - 大气折射未考虑
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

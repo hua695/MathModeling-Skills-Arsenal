@@ -1,0 +1,37 @@
+# 策略经验 schema（贡献者填这个）
+# 策略 = 决策规则，比失败/成功更接近人的经验（价值最高）
+
+schema:
+  strategy_id: ST-xxx
+  scenario: 什么情况（题型/数据规模/时间/约束）
+  strategy: 该怎么做
+  reason: 为什么
+  recommend: 推荐方法
+  signal: 触发信号（出现什么现象=套用此策略）
+  avoid: 避免什么
+
+  # ---- 来源类型与质量评分（字段缺省时自动补默认值）----
+  memory_type: llm_extract / paper_extract / human_replay / theory
+  quality_score:
+    source_quality: 高 / 中 / 低     # 来源质量（真实可溯 > 推测）
+    confidence: 高 / 中 / 低          # 置信度
+    verified: true / false            # 是否被真实比赛验证
+    reuse_count: 0                    # 被检索复用次数
+    success_rate: null                # 复用后成功率 0~1（未统计=null）
+
+# 缺省值（字段缺失时自动补，不改已有数据）
+defaults:
+  memory_type: paper_extract
+  quality_score: {source_quality: 中, confidence: 中, verified: false, reuse_count: 0, success_rate: null}
+
+# 示例（模板）
+example: |
+  strategy_id: ST-999
+  scenario: 数据量不足
+  strategy: 不要深度学习
+  reason: 小样本泛化风险高
+  recommend: 统计模型 + 解释性分析
+  signal: 训练集 < 1000
+  avoid: Transformer
+  memory_type: theory
+  quality_score: {source_quality: 高, confidence: 高, verified: true, reuse_count: 8, success_rate: 0.9}

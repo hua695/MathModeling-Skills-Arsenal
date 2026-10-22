@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P059
+# 来源: 2015 ICM Problem D: Is it smarter to be sustainable?
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P059
+title: "Is it smarter to be sustainable? (可持续是否更明智)"
+competition: MCM/ICM
+year: 2015
+problem_code: "D"
+category: 优化决策
+domain: 可持续优化/决策分析
+objective: "在可持续投资与收益权衡下, 评估并优化组织的可持续策略使其长期效益最优"
+variables:
+  - name: 可持续投入
+    type: 未指定
+    description: 未指定
+  - name: 环境收益
+    type: 未指定
+    description: 未指定
+  - name: 经济收益
+    type: 未指定
+    description: 未指定
+  - name: 社会收益
+    type: 未指定
+    description: 未指定
+  - name: 时间跨度
+    type: 未指定
+    description: 未指定
+  - name: 折现率
+    type: 未指定
+    description: 未指定
+constraints:
+  - 预算约束
+  - 三重底线(经济/环境/社会)平衡
+  - 长期收益折现
+  - 不确定性
+assumptions:
+  - 可持续收益可量化
+  - 三重底线可加权
+  - 长期可折现
+confidence: 中
+source:
+  title: "2015 ICM Problem D: Is it smarter to be sustainable?"
+  url: http://www.madio.net/thread-290074-1-1.html
+  year: 2015

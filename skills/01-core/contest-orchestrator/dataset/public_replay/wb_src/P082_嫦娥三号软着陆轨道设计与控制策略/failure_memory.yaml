@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P082
+# 来源: 全国大学生数学建模竞赛2014年A题
+case_id: P082
+failures:
+  - method: "匀速下降不优化"
+    root_cause: "燃料非最优且难控精"
+    signal: "着陆不稳"
+    lesson: "需最优控制"
+    reference: "国赛赛题分析"
+  - method: "忽略引力变化"
+    root_cause: "轨道偏离落点"
+    signal: "精度不足"
+    lesson: "需精确动力学"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

@@ -1,0 +1,36 @@
+# 成功经验 schema（贡献者填这个）
+
+schema:
+  success_id: SD-xxx
+  problem_type: 组合优化 / 预测 / 评价 / 微分方程 / 图论 ...
+  method: 成功方法
+  why_success: 为什么有效（数据规模/可解释/图表/理论）
+  result: 结果/成绩
+  score: 获奖等级（可选）
+  reuse: 是否推荐复用
+
+  # ---- v3.4 经验智能化：来源类型 + 质量评分（向后兼容，缺省自动补默认值）----
+  memory_type: llm_extract / paper_extract / human_replay / theory
+  quality_score:
+    source_quality: 高 / 中 / 低     # 来源质量（真实可溯 > 推测）
+    confidence: 高 / 中 / 低          # 置信度
+    verified: true / false            # 是否被真实比赛验证
+    reuse_count: 0                    # 被检索复用次数
+    success_rate: null                # 复用后成功率 0~1（未统计=null）
+
+# 缺省值（旧条目无字段时自动补，不改历史数据）
+defaults:
+  memory_type: paper_extract
+  quality_score: {source_quality: 中, confidence: 中, verified: false, reuse_count: 0, success_rate: null}
+
+# 示例（模板）
+example: |
+  success_id: SD-999
+  problem_type: 多目标优化
+  method: NSGA-II
+  why_success: 数据适中 + 可解释性强 + 图表丰富
+  result: 收敛好
+  score: 省一等奖
+  reuse: 推荐
+  memory_type: human_replay
+  quality_score: {source_quality: 高, confidence: 高, verified: true, reuse_count: 5, success_rate: 0.8}

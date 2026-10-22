@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P091
+# 来源: 全国大学生数学建模竞赛2011年B题
+case_id: P091
+failures:
+  - method: "均匀布点不分析"
+    root_cause: "高发案区覆盖不足"
+    signal: "响应超时"
+    lesson: "需需求驱动"
+    reference: "国赛赛题分析"
+  - method: "忽略管辖均衡"
+    root_cause: "部分平台过载"
+    signal: "效率低"
+    lesson: "需均衡约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

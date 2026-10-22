@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P005
+# 来源: 全国大学生数学建模竞赛2013年A题
+case_id: P005
+steps:
+  - step: 1
+    action: "视频数据提取车流参数"
+    reason: "获取到达率/离去率/排队长度"
+    abandoned: "无"
+  - step: 2
+    action: "建立排队论模型计算通行能力"
+    reason: "量化车道占用对通行能力的影响"
+    abandoned: "简单计数"
+  - step: 3
+    action: "交通波理论分析拥堵传播"
+    reason: "描述拥堵向上游的传播过程"
+    abandoned: "无"
+  - step: 4
+    action: "拟合排队长度随时间变化"
+    reason: "预测拥堵持续时间"
+    abandoned: "无"
+  - step: 5
+    action: "模型验证与误差分析"
+    reason: "确保预测可靠性"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

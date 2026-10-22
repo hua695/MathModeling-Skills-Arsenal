@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Numeric claim source map",
+  "type": "object",
+  "required": ["schema_version", "claims"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "value", "source_file"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^claim:[A-Za-z0-9_.-]+$"},
+          "value": {"type": "number"},
+          "source_file": {"type": "string"},
+          "json_pointer": {"type": "string"},
+          "text_anchor": {"type": "string"},
+          "unit": {"type": "string"},
+          "claim_type": {"enum": ["direct", "derived", "comparison", "ranking"]},
+          "paper_location": {
+            "type": "object",
+            "required": ["file", "anchor"],
+            "properties": {"file": {"type": "string"}, "anchor": {"type": "string"}}
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["source_id", "locator", "use"],
+              "properties": {
+                "source_id": {"type": "string"},
+                "locator": {"type": "string"},
+                "use": {"type": "string"}
+              }
+            }
+          },
+          "recomputable_from": {"type": "array", "items": {"type": ["string", "object"]}}
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P043
+# 来源: 全国大学生数学建模竞赛2012年B题
+case_id: P043
+candidate_models:
+  - 0-1规划
+  - 多目标规划
+  - 穷举搜索
+  - 光照投影几何
+final_choice: "0-1规划布板 + 多目标评价性价比"
+reason: "以能否铺设为0-1变量做布局优化, 再用多目标权衡发电量与成本"
+alternatives:
+  - 遗传算法
+  - 贪心铺设
+  - 层次分析法
+limitations:
+  - 未考虑阴影动态变化
+  - 逆变器匹配简化
+  - 气象年际波动忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

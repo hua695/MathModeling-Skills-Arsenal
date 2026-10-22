@@ -1,0 +1,87 @@
+{
+  "description": "AIGC 风险检测词单。用于 check_core_execution.py AI 套路词扫描和 academic-writing D4 精准校正参考。",
+
+  "banned_phrases": {
+    "absolute": [
+      "值得注意的是",
+      "综上所述",
+      "总而言之",
+      "层层递进",
+      "逻辑闭环",
+      "全面超越",
+      "至关重要",
+      "必不可少",
+      "不可或缺",
+      "一站式",
+      "深入浅出",
+      "为.*提供了(?:依据|基础)",
+      "显著提升了",
+      "有效提升了",
+      "显著提高了",
+      "有效提高了"
+    ],
+
+    "high_risk": [
+      "凸显了",
+      "彰显了",
+      "奠定了",
+      "迈向",
+      "赋能",
+      "抓手",
+      "打通",
+      "具有重要意义",
+      "研究表明",
+      "值得深入探讨",
+      "未来研究方向"
+    ],
+
+    "banned_adverbs_group": {
+      "name": "AI 高频副词组（连续出现 ≥2 个 = 强指纹）",
+      "words": [
+        "显著地",
+        "有效地",
+        "合理地",
+        "相应地",
+        "进一步地",
+        "适当地",
+        "充分地",
+        "全面地",
+        "系统地",
+        "深入地",
+        "科学地",
+        "客观地"
+      ]
+    }
+  },
+
+  "banned_patterns": [
+    "本文不仅在.*而且在.*",
+    ".*的研究对于.*具有重要意义",
+    "上述分析表明.*由此可见.*",
+    "近年来，.*引起了广泛关注",
+    "从理论上来讲",
+    "基于以上分析"
+  ],
+
+  "reference_only": {
+    "note": "本字段仅供人工润色和 humanizer-zh 参考，check_core_execution.py 的 CF8 扫描只读取 banned_phrases.absolute、banned_phrases.high_risk 和 banned_patterns，不读取本字段，因此这里的词条不会产生自动命中。完整指导见 references/de_ai_writing_extended.md。",
+    "chinese_hints": [
+      "空洞强调词删除或换成具体数字，如标志着、重要的、关键作用、奠定基础",
+      "广告词删除，如突破性的、令人震撼、完美、极致、性能优越",
+      "模糊归因须补文献编号或删除，如专家认为、研究表明、众所周知",
+      "浅层收尾词后必须接数据，如突显了、反映了、展示了、说明了",
+      "此外全文不超过两次，同一概念全文固定一个名词，不在模型算法方法方案间切换",
+      "结果句至少含具体数字、明确对比、因果解释三者之一"
+    ],
+    "english_words": {
+      "use_at_most_once": ["moreover", "furthermore", "it is worth noting that"],
+      "avoid": ["notably", "crucially", "remarkably", "undoubtedly", "intriguingly", "plays a crucial role", "shed light on", "pave the way for"]
+    },
+    "english_patterns": [
+      "Not only but also 拆成两句",
+      "It is important/clear that 强调句删除强调结构",
+      "em dash 全文不超过两个",
+      "结尾段必须含具体数字和具体局限，禁止 valuable insights、promising direction 类空泛收尾"
+    ]
+  }
+}

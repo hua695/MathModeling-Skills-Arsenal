@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P070
+# 来源: 2014 MCM Problem C: Networks
+case_id: P070
+failures:
+  - method: "仅看发文量"
+    root_cause: "忽视合作结构与被引"
+    signal: "影响力低估"
+    lesson: "需多维指标"
+    reference: "美赛赛题分析"
+  - method: "忽略自引与共著"
+    root_cause: "指标被放大"
+    signal: "评价失真"
+    lesson: "需清洗"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2014 MCM Problem C: Networks"
+  url: https://www.contest.comap.com/undergraduate/contests/

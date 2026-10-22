@@ -1,0 +1,20 @@
+# H6 范围卡：只在 H5 结果冻结、或模型/数据/关键结果/解释卡变化时派发。
+schema_version: "1.0"
+mode: initial_review
+trigger: h5_result_freeze
+changed_artifacts: []
+mandatory_checks:
+  - contract_anchors
+  - cross_question_interfaces
+  - result_interpretation_cards
+contract_anchors:
+  validation_contract: validation_contract.yaml
+  model_summary_cards: model_summary_cards.yaml
+cross_question_interfaces:
+  global_interface_check: global_interface_check.yaml
+result_interpretation_cards:
+  path: result_interpretation_cards.yaml
+deep_sample_refs:
+  - path: paper/Q1_results.md
+    sha256: PLACEHOLDER_SHA256
+excluded_artifacts: []

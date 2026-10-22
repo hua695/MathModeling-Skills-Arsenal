@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P016
+# 来源: 全国大学生数学建模竞赛2020年E题
+case_id: P016
+failures:
+  - method: "ARIMA预测用水量"
+    root_cause: "用水量有复杂周期性, ARIMA难以捕捉"
+    signal: "预测误差大"
+    lesson: "需用LSTM等深度模型"
+    reference: "国赛赛题分析"
+  - method: "固定阈值异常检测"
+    root_cause: "不同时段正常用水量差异大"
+    signal: "误报率高"
+    lesson: "需自适应阈值"
+    reference: "国赛赛题分析"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2020年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

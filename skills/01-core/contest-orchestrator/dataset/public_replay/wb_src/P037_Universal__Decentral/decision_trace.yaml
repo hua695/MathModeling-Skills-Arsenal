@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P037
+# 来源: 2019 ICM Problem F: Universal, Decentralized, Circulating Currency
+case_id: P037
+steps:
+  - step: 1
+    action: "数字货币数据分析"
+    reason: "了解现有加密货币规律"
+    abandoned: "无"
+  - step: 2
+    action: "建立网络效应采用模型"
+    reason: "预测用户增长"
+    abandoned: "无"
+  - step: 3
+    action: "博弈论分析稳定性"
+    reason: "分析不同策略下的均衡"
+    abandoned: "无"
+  - step: 4
+    action: "全球/国家/个人层面分析"
+    reason: "评估不同层面影响"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2019 ICM Problem F: Universal, Decentralized, Circulating Currency"
+  url: https://www.contest.comap.com/undergraduate/contests/

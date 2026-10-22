@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Modeling solution chapter input and evidence contract",
+  "type": "object",
+  "required": ["schema_version", "input_gate", "subproblems"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "input_gate": {
+      "type": "object",
+      "required": ["problem_subquestions", "assumptions_source", "variable_list_source", "code_logic_sources", "code_debug_status", "result_authority"],
+      "properties": {
+        "problem_subquestions": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^Q[0-9]+$"}},
+        "assumptions_source": {"type": "string"},
+        "variable_list_source": {"type": "string"},
+        "code_logic_sources": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "code_debug_status": {"enum": ["pass", "passed", "verified", "debugged", "complete"]},
+        "result_authority": {"enum": ["user_provided", "code_generated", "user_or_code_verified"]},
+        "allow_fabricated_numbers": {"const": false}
+      }
+    },
+    "subproblems": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["id", "symbols", "symbol_table_anchor", "formula_chain", "algorithm", "result_source_files", "numeric_results_policy", "assumption_anchor"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^Q[0-9]+$"},
+          "symbols": {"type": "array"},
+          "symbol_table_anchor": {"type": "string"},
+          "formula_chain": {"type": "array", "minItems": 3},
+          "algorithm": {"type": "object"},
+          "result_source_files": {"type": "array", "minItems": 1},
+          "numeric_results_policy": {"const": "external_only"},
+          "assumption_anchor": {"type": "string"}
+        }
+      }
+    }
+  }
+}

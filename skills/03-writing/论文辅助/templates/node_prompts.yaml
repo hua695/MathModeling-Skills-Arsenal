@@ -1,0 +1,251 @@
+# 各节点提示词模板（对齐 contest-orchestrator v4.18 Harness 模式 H0-H9）
+# 当用户明确到了某个节点时，输出对应节点的提示词，用户可直接给主agent作为约束
+# 原则：简洁、核心、可执行，只保留最重要的约束和最常见的陷阱
+
+H0:
+  name: "激活门禁"
+  prompt: |
+    【H0 激活门禁】
+    核心约束：
+    1. 必须实际调用 superpowers:using-superpowers，调用的 task ID 和完成状态登记到 harness_control.yaml.bootstrap.invocations
+    2. 仅写技能名不构成调用记录；未调用、调用记录缺失时状态为 BLOCKED_INPUT 或 PAUSE
+    3. 项目根创建 .contest/harness_control.yaml、.contest/task_cards/、.contest/reviews/、.contest/approval_log.yaml
+    4. 使用 templates/harness_control.yaml 初始化项目控制记录
+    5. active_mode 必须明确为 full-contest-harness
+
+    常见陷阱：
+    - 只写技能名不实际调用，调用记录缺失
+    - .contest 目录结构不完整
+    - 未登记固定角色和节点任务卡
+
+    交付前确认：superpowers 实际调用并登记，.contest 目录完整，harness_control.yaml 初始化完成。
+
+H1:
+  name: "题意理解"
+  prompt: |
+    【H1 题意理解】
+    核心约束：
+    1. 题意理解 agent（gpt-5.6-terra, medium）读取题面和附件，输出 problem_statement.md（双结构模板：完整题面翻译+题目解读）
+    2. 产出 unified_problem_package.yaml、数据字典、约束、来源索引和不确定项
+    3. 各小问读者问题线索必须齐全
+    4. 题面预载：H1 产出后，主 agent 一次性创建 H5/H6/H7/H8 四个子 agent 实例，预载题面+对应预热包
+    5. H8 额外预载 h8_writer_first_protocol.md
+
+    常见陷阱：
+    - 题面翻译丢信息（背景、小问原文、公式、全局约束）
+    - 数据字典字段不完整
+    - 歧义清单遗漏模糊表述
+    - 未一次性创建全部固定角色子 agent
+
+    交付前确认：problem_statement.md 双结构齐全，unified_problem_package.yaml 完整，H5/H6/H7/H8 实例已创建并预载。
+
+H2:
+  name: "规格冻结"
+  prompt: |
+    【H2 规格冻结】
+    核心约束：
+    1. 主 agent（controller_only）生成规格冻结包：题目—数据—接口映射、问题范围和未决项
+    2. 用户批准后才能进入 H3
+    3. 冻结的规格必须包含：假设清单、符号表、数据接口、约束条件
+    4. 未解决的歧义不得残留到建模阶段
+    5. 生成 review_packet，写入 approval_log.yaml
+
+    常见陷阱：
+    - 用户未确认就进入 H3
+    - 规格冻结不完整，缺少关键接口定义
+    - 歧义未解决就带入建模
+    - 未生成 review_packet 或 approval_log
+
+    交付前确认：规格冻结包齐全，用户已批准，歧义已解决，review_packet 和 approval_log 已写入。
+
+H3:
+  name: "文献需求"
+  prompt: |
+    【H3 文献需求】
+    核心约束：
+    1. 主 agent（controller_only）生成文献需求清单和给外部文献 agent 的提示词
+    2. 文献总数硬范围 6-11 篇，推荐 8-10 篇
+    3. 中文文献必须逐小问覆盖，每个小问至少 1 篇
+    4. 英文文献不设硬性最低数量，但建议覆盖全部小问（未覆盖只记录建议，不阻断）
+    5. 需求清单必须包含：方法/数据/参数/基准证据需求、检索词、回传字段、"支持哪个小问和论点"
+    6. 不得在本节点确定模型路线、模型蓝图、baseline 或图表需求清单
+    7. 立即 PAUSE，用户检索下载全文并提交 literature_sources.yaml
+    8. 每篇文献必须有 citation_key、原文定位及在 H4 落位的实际用途
+
+    常见陷阱：
+    - 文献数量不足（中文不够、总量不够）
+    - 在 H3 就提前确定模型路线（越权）
+    - 需求清单缺少回传字段或小问覆盖标注
+    - 文献没有原文定位，无法回溯
+
+    交付前确认：文献需求清单齐全，数量和语言覆盖达标，用户已下载文献并提交 literature_sources.yaml，每篇有 citation_key 和定位。
+
+H4:
+  name: "模型路线"
+  prompt: |
+    【H4 模型路线】
+    核心约束：
+    1. 主 agent（controller_only）必调 math-model-selector，输出 method_transfer_map.json、文献使用登记、模型路线
+    2. 产出 model_blueprint.yaml、baseline、图表需求清单和 paper_narrative.yaml（叙事蓝图）
+    3. 每个小问都必须有 adopt 或 adapt 方法，以及一条数据/参数/测量先例/基准证据，均含 citation_key、定位、模型组件/数据字段和实际使用方式
+    4. 图表需求清单只定义正文主张、图号占位、目标小问、所需结果字段和 argument_goal，不定义图型、视觉编码或版式
+    5. 防炫技：每问必须有 baseline，禁止无 baseline 直接上复杂方法，方法选择必须有理由
+    6. 用户批准后才能进入 H5
+
+    常见陷阱：
+    - 未调用 math-model-selector
+    - 某个小问缺少 adopt/adapt 方法或证据
+    - 文献只有 citation_key 没有实际使用方式
+    - 图表需求清单提前定义了图型或视觉编码（越权）
+    - 无 baseline 直接上复杂方法（炫技）
+
+    交付前确认：math-model-selector 已调用，method_transfer_map.json 齐全，每问有方法+证据+baseline，用户已批准模型路线。
+
+H5:
+  name: "解题"
+  prompt: |
+    【H5 解题】
+    核心约束：
+    1. 解题 agent（gpt-5.6-sol, high）执行，唯一 solver_instance_id 覆盖全部小问
+    2. 产出：全题模型契约、统一符号表、完整推导、代码、运行清单、跨问接口、结果与局部实验
+    3. 必须产出 validation_contract.yaml、model_summary_cards.yaml（每问一张最终求解模型卡）、result_interpretation_cards.yaml（每个核心结果的事实/意义/证据/适用范围）
+    4. 回填 paper_narrative.yaml 的 key_result
+    5. B 题优化决策类必须产出 sensitivity_report.yaml 或 robustness_report.yaml（调用 pyomo/scripts/sensitivity_analysis.py 或 heuristic-algorithms/scripts/robustness_check.py）
+    6. 推导链完整：原始→中间→最终，每步有话语解释，禁止跳步黑箱，禁止"易知/显然/经过复杂推导"
+    7. 代码注释：文件头有说明，函数有 docstring，关键参数有注释，注释无内部讨论/AI思考/元话语/负向回响
+    8. 数值合理：无 inf/nan，目标值量级正常，结果文件可解析，物理范围合理
+    9. 每张模型总结卡绑定最终可计算表达式、求解接口、来源公式和符号单位
+
+    常见陷阱：
+    - solver_instance_id 不唯一，多个解题实例
+    - 推导跳步，关键步骤缺失，用"易知/显然"跳过
+    - 缺少 model_summary_cards.yaml 或 result_interpretation_cards.yaml
+    - B 题缺少 sensitivity_report.yaml 或 robustness_report.yaml
+    - 代码无注释，像 AI 生成的
+    - 数值异常（inf/nan、量级异常）未发现
+    - paper_narrative.yaml 的 key_result 未回填
+
+    交付前确认：唯一 solver_instance_id，推导链完整，model_summary_cards/result_interpretation_cards 齐全，B 题灵敏度报告已生成，代码注释达标，数值合理，用户已批准。
+
+H6:
+  name: "验证"
+  prompt: |
+    【H6 验证】
+    核心约束：
+    1. 验证 agent（gpt-5.6-sol, high）执行，agent_instance_id 必须不同于 H5
+    2. 产出：独立验证报告、h6_verification_scope.yaml、global_interface_check.yaml
+    3. 核对 validation_contract.yaml（关键核对必查 + 深度抽查锚点，不重读 H5 全部推导/代码）
+    4. 核验 model_summary_cards.yaml（每张卡核对符号、单位、公式、边界、代码接口和适用范围，写入 H6 当前实例签名）
+    5. 核验 result_interpretation_cards.yaml（每张卡有真实证据、限定适用范围且解释不越界）
+    6. 核验 paper_narrative.yaml 的 key_result 与冻结结果一致
+    7. 共享变量、单位、数据版本、字段、时间尺度、参数、跨问约束、结论和来源均一致
+    8. 首次仅由 H5 结果冻结触发，后续仅由模型/数据/关键结果/结果解释卡变化触发定向复核
+    9. 普通正文、排版、图表美化和附录格式变化不触发 H6
+
+    常见陷阱：
+    - H6 与 H5 使用同一实例（违反独立验证原则）
+    - 重读 H5 全部推导/代码（效率低，应该按 scope 定向核对）
+    - model_summary_cards 未核验或未写入 H6 实例签名
+    - result_interpretation_cards 解释越界，超出冻结证据
+    - 跨问接口不一致（共享变量、单位、数据版本）
+    - 普通排版变化误触发 H6（应该不触发）
+
+    交付前确认：H6 实例不同于 H5，validation_contract 核对通过，model_summary_cards/result_interpretation_cards 已核验并签名，global_interface_check 通过，用户已批准。
+
+H7:
+  name: "图表"
+  prompt: |
+    【H7 图表】
+    核心约束：
+    1. 图表 agent（gpt-5.6-terra, medium）执行，分两阶段
+    2. 阶段一：生成 visual_argument_plan.yaml（视觉论证计划），六类视觉义务审计（orientation、mechanism、model_structure、algorithm_process、result_evidence、validation_robustness）
+    3. 每个有图槽位必须填写 figure_intent：读者问题、解释关系、必须出现/禁止出现内容、正文落位、图前/图后论证功能、唯一生成路由
+    4. 阶段一计划提交用户审查（gate: H7_VISUAL_PLAN），用户批准后才能进入阶段二
+    5. 阶段二：按批准计划生成图表，数据结果图走 SciPilot→ModelViz→SciPilot，流程图走 tech-route-maker，示意图走 tikz-scientific-figures
+    6. 每张图必须有 SVG + PNG，insertion_format=svg，登记 figure_registry
+    7. 每张图绑定 visual_slot_ids（已批准槽位）、claim、reader_takeaway
+    8. 禁止饼图、双Y轴、彩虹色图、无单位坐标轴、分类点连成无意义折线
+    9. 图表确认前不得冻结论文素材
+    10. 页面布局由 mathmodel-latex-skill 执行，不由 SciPilot 或 ModelViz 改变图表语义
+
+    常见陷阱：
+    - 跳过阶段一直接生成图表（违反两阶段流程）
+    - 视觉论证计划未经用户批准就进入阶段二
+    - 六类视觉义务有遗漏，硬性义务用"文字已足够"规避
+    - 图表缺少 SVG 或 PNG，或 insertion_format 不是 svg
+    - figure_registry 未绑定 visual_slot_ids
+    - 计划外图表（未在 visual_argument_plan 中登记）
+    - 用 [H] 强制位置、连续浮动体、手工 \vspace
+
+    交付前确认：视觉论证计划已批准，六类视觉义务全覆盖，全部图表生成并登记，SVG+PNG齐全，路由正确，用户肉眼批准。
+
+H8:
+  name: "论文"
+  prompt: |
+    【H8 论文（分 H8A/H8B/H8C 三子阶段）】
+    核心约束：
+    1. 论文 agent（gpt-5.6-sol, high）执行，分三个子阶段
+    2. H8A（论证蓝图+作者简报）：academic-writing 生成 paper_argument_blueprint.yaml、paper_author_brief.yaml、abstract_argument_card.yaml；主 agent 生成写作计划；用户批准写作计划
+    3. H8B（逐章写作）：论文 agent 按 chapter_writing_card.yaml 逐章写作，遵循 h8_writer_first_protocol.md 和 model_summary_protocol.md
+    4. H8B 写作结构：先写不编号的问题引入与建模思路段，再设"模型建立"和"模型求解与结果分析"两个编号小节，模型建立小节末尾呈现最终求解模型框
+    5. H8B 不写最终摘要，摘要只能在 H8C 最后写作
+    6. H8C（通读编辑+摘要最后写作）：academic-writing 先通读完整论文、检查读者路径、章节递进和主线承接，再独立编辑；最后写摘要，运行 check_abstract_contract.py --strict
+    7. 素材准入：paper_material_readiness.yaml（schema_version 2.0，含 evidence_matrix）和 paper_claim_coverage.yaml 必须 PASS
+    8. 只组织已冻结证据，不得新增模型结论、数字、引用用途或图表解释
+    9. 元话语/负向回声清除：无"本文将""v1""尝试了""agent"等
+    10. 叙事质量：论文作者视角，非建模日志；建模章节全链路推导，非建模章节禁公式堆砌
+    11. B题摘要模板：引言段两句结构，每问方法+结果绑定，有验证+灵敏度结论，关键词3-5个精准
+    12. B题建模模板：遵循 b_chapter_templates 骨架结构，公式前有引导后有解释，2级标题含具体内容，结果有解读
+    13. 防防御性写作：不写工作汇报，不用自我削弱表达，每个结果有论证职责，结论不自我否定
+    14. LaTeX注释：每个\section前有分隔标记，关键环境有注释，注释无内部讨论/AI思考/元话语/负向回响
+
+    常见陷阱：
+    - 素材准入未 PASS 就开始写作
+    - H8B 写了摘要（应该 H8C 最后写）
+    - 建模手写论文：非建模章节公式堆砌，结果无解释，算法细节放正文
+    - 推导前后无衔接，连续公式无文字
+    - 新增了未冻结的模型结论或数字
+    - 元话语/负向回声残留
+    - B题摘要：引言段过长，某问只有方法无结果，关键词太泛
+    - B题建模：六小节不全，公式直接扔无解释，2级标题太通用
+    - 防御性写作：工作汇报式叙述，自我削弱表达，结论突然自我否定
+    - LaTeX无注释，像AI生成的
+
+    交付前确认：H8A 蓝图+简报已批准，H8B 逐章写作完成，H8C 通读编辑+摘要最后写作完成，check_abstract_contract.py --strict 通过，素材准入 PASS，元话语/负向回声清除，叙事质量达标，B题摘要和建模模板要求满足，防防御性写作达标，LaTeX注释达标，用户已批准。
+
+H9:
+  name: "交付审计"
+  prompt: |
+    【H9 交付审计】
+    核心约束：
+    1. 主 agent（controller_only）执行，必调 bzd-review-paper 和 mathmodel-latex-skill
+    2. 交付前必须运行 python scripts/delivery_all.py <项目根> --strict，全部 PASS 后才交付
+    3. PDF编译：无错误、无未解析引用、无超宽盒子、无孤页空白页
+    4. PDF文本层：文字可复制、无乱码、公式渲染正确，文件≤20MB
+    5. 页数合规：摘要不计入正文，正文≤30页（含AI声明和参考文献），总页数≤51页，推荐35-51页
+    6. 支撑材料：与附录清单一一对应，ZIP/RAR≤20MB，完整可运行
+    7. 源码可运行：相对路径，无硬编码绝对路径
+    8. 匿名检查：不泄露团队/学校/个人信息
+    9. AI声明真实：正文有声明，支撑材料有AI工具使用详情.pdf，内容真实
+    10. 输入哈希重算：input_manifest.yaml 中每个文件的 SHA-256 必须与实际文件一致
+    11. 严格只读：禁止修改任何被审计文件
+    12. 用户最终批准后才交付
+
+    常见陷阱：
+    - delivery_all.py --strict 有 FAIL 或 WARN 就宣称交付完成
+    - 编译通过但有未解析引用（显示??）
+    - 支撑材料与清单不符
+    - 源码有硬编码绝对路径，无法在其他机器运行
+    - 页数计算错误（把摘要计入正文）
+    - 负向回声残留到最终成品
+    - AI声明缺失或内容不真实
+    - input_manifest.yaml 哈希与实际文件不一致
+    - 未调 bzd-review-paper
+
+    交付前确认：delivery_all.py --strict 全部 PASS，bzd-review-paper 已调用，PDF编译通过，页数合规，支撑材料完整，源码可运行，匿名通过，AI声明真实，输入哈希一致，用户最终批准。
+
+# 使用说明
+# 1. 当用户明确到了某个节点时，输出对应节点的prompt字段内容
+# 2. 提示词是给主agent的约束，用户可直接复制给主agent
+# 3. 只保留核心约束和最常见陷阱，详细审查清单见harness_node_focus.yaml
+# 4. H8 分 H8A/H8B/H8C 三子阶段，提示词合并为一条，详细区分见 harness_node_focus.yaml

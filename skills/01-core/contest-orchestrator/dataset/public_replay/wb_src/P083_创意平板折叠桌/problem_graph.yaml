@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P083
+# 来源: 全国大学生数学建模竞赛2014年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P083
+title: "创意平板折叠桌"
+competition: CUMCM
+year: 2014
+problem_code: "B"
+category: 物理建模
+domain: 结构力学/几何优化
+objective: "建立平板折叠桌的几何与力学模型, 优化木条开槽使桌面稳定且可折叠"
+variables:
+  - name: 木板尺寸
+    type: 未指定
+    description: 未指定
+  - name: 木条数
+    type: 未指定
+    description: 未指定
+  - name: 开槽位置/深度
+    type: 未指定
+    description: 未指定
+  - name: 铰链角度
+    type: 未指定
+    description: 未指定
+  - name: 重心
+    type: 未指定
+    description: 未指定
+  - name: 稳定性
+    type: 未指定
+    description: 未指定
+constraints:
+  - 木条长度约束
+  - 开槽不破坏结构
+  - 展开后桌面平整
+  - 稳定性约束
+assumptions:
+  - 木条为刚体
+  - 铰链理想
+  - 受力为静力
+  - 桌面水平
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2014

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P064
+# 来源: 全国大学生数学建模竞赛2016年B题
+case_id: P064
+candidate_models:
+  - 层次分析法(AHP)
+  - 模糊综合评价
+  - 元胞自动机
+  - 交通仿真
+final_choice: "AHP+模糊评价 + 元胞自动机通行仿真"
+reason: "AHP/模糊综合量化影响程度, 元胞自动机仿真验证通行能力变化"
+alternatives:
+  - VISSIM仿真
+  - 排队论
+  - 主成分分析
+limitations:
+  - 行为假设理想
+  - 未考虑行人
+  - 参数标定难
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

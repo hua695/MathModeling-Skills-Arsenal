@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P018
+# 来源: 全国大学生数学建模竞赛2005年A题
+case_id: P018
+failures:
+  - method: "忽略污染物降解"
+    root_cause: "污染物沿程有自然降解"
+    signal: "下游浓度预测偏高"
+    lesson: "需引入降解项"
+    reference: "国赛赛题分析"
+  - method: "仅用单因子评价"
+    root_cause: "未考虑多指标综合影响"
+    signal: "评价不全面"
+    lesson: "需用综合指数"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

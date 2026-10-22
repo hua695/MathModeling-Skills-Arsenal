@@ -1,0 +1,64 @@
+# 多模态光伏缺陷检测方法技术路线图
+
+中文论文方法框架示例：从图像证据到可验证检测结果
+
+```mermaid
+flowchart LR
+  title["多模态光伏缺陷检测方法技术路线图"]
+  subgraph goal["研究目标"]
+    goal_task["明确缺陷检测任务"]
+    goal_metric["设定评价指标"]
+  end
+  subgraph data["数据证据"]
+    data_collect["采集多模态图像"]
+    data_align["配准并标注缺陷"]
+    data_split["划分训练样本"]
+  end
+  subgraph method["方法设计"]
+    method_baseline["建立基线检测器"]
+    method_fusion["构建跨模态融合"]
+    method_attention["增强关键区域感知"]
+  end
+  subgraph training["训练验证"]
+    training_loss["优化检测损失"]
+    training_ablation["开展消融实验"]
+    training_infer["推理并筛选结果"]
+  end
+  subgraph output["结果输出"]
+    output_metrics["完成指标评估"]
+    output_visual["生成可视化解释"]
+    output_report["输出缺陷报告"]
+  end
+  goal_task -->|定义指标| goal_metric
+  goal_metric -->|指导采集| data_collect
+  data_collect -->|配准标注| data_align
+  data_align -->|形成样本| data_split
+  data_split -->|输入模型| method_baseline
+  method_baseline -->|扩展| method_fusion
+  method_fusion -->|增强| method_attention
+  method_attention -->|优化| training_loss
+  training_loss -->|验证贡献| training_ablation
+  training_ablation -->|选择方案| training_infer
+  training_infer -->|评价| output_metrics
+  output_metrics -->|解释| output_visual
+  output_visual -->|汇总| output_report
+```
+
+## Route Evidence
+
+| Stage | Node | Evidence |
+|---|---|---|
+| 研究目标 | 明确缺陷检测任务 | source - examples/academic-paper-demo/brief.md |
+| 研究目标 | 设定评价指标 | source - examples/academic-paper-demo/brief.md |
+| 数据证据 | 采集多模态图像 | source - examples/academic-paper-demo/brief.md |
+| 数据证据 | 配准并标注缺陷 | source - examples/academic-paper-demo/brief.md |
+| 数据证据 | 划分训练样本 | source - examples/academic-paper-demo/brief.md |
+| 方法设计 | 建立基线检测器 | source - examples/academic-paper-demo/brief.md |
+| 方法设计 | 构建跨模态融合 | source - examples/academic-paper-demo/brief.md |
+| 方法设计 | 增强关键区域感知 | source - examples/academic-paper-demo/brief.md |
+| 训练验证 | 优化检测损失 | source - examples/academic-paper-demo/brief.md |
+| 训练验证 | 开展消融实验 | source - examples/academic-paper-demo/brief.md |
+| 训练验证 | 推理并筛选结果 | source - examples/academic-paper-demo/brief.md |
+| 结果输出 | 完成指标评估 | source - examples/academic-paper-demo/brief.md |
+| 结果输出 | 生成可视化解释 | source - examples/academic-paper-demo/brief.md |
+| 结果输出 | 输出缺陷报告 | source - examples/academic-paper-demo/brief.md |

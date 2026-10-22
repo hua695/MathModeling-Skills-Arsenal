@@ -1,0 +1,55 @@
+% ============================================================
+% preamble.tex — shared publication-grade setup for all figures
+% \input this from a standalone document. Edit defaults here to
+% retarget the whole skill (e.g. switch journal sizing/fonts).
+% ============================================================
+
+% --- core TikZ / data-plot / diagram stacks ---
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}              % pin behaviour; bump if needed
+\usetikzlibrary{
+  positioning, calc, arrows.meta,      % node layout + arrowheads
+  decorations.pathreplacing,           % braces, force markers
+  shapes.geometric, fit, backgrounds,  % flow/block diagrams
+  angles, quotes                        % geometry / physics annotations
+}
+
+% --- math + fonts (LaTeX-quality typography, matches papers) ---
+\usepackage{amsmath}
+\usepackage{siunitx}                   % \si{\meter\per\second}, \num{1e3}
+
+% --- colour-blind-safe palette (Okabe–Ito), use these, not raw red/green ---
+\definecolor{cbBlue}{RGB}{0,114,178}
+\definecolor{cbOrange}{RGB}{230,159,0}
+\definecolor{cbGreen}{RGB}{0,158,115}
+\definecolor{cbVermillion}{RGB}{213,94,0}
+\definecolor{cbPurple}{RGB}{204,121,167}
+\definecolor{cbSky}{RGB}{86,180,233}
+\definecolor{cbYellow}{RGB}{240,228,66}
+\definecolor{cbBlack}{RGB}{0,0,0}
+
+% pgfplots cycle list wired to the palette above
+\pgfplotscreateplotcyclelist{cbcycle}{
+  {cbBlue, mark=*},
+  {cbOrange, mark=square*},
+  {cbGreen, mark=triangle*},
+  {cbVermillion, mark=diamond*},
+  {cbPurple, mark=pentagon*},
+  {cbSky, mark=o},
+}
+
+% --- publication-grade pgfplots defaults (fonts, ticks, grid) ---
+\pgfplotsset{
+  every axis/.append style={
+    font=\small,                       % ~9pt at default size
+    line width=0.6pt,
+    tick style={line width=0.5pt, black},
+    grid=major,
+    grid style={gray!25, line width=0.3pt},
+    cycle list name=cbcycle,
+    legend style={font=\footnotesize, draw=gray!50, fill=white, fill opacity=0.85, text opacity=1},
+    label style={font=\small},
+    title style={font=\small},
+  },
+}

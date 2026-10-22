@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P008
+# 来源: 全国大学生数学建模竞赛2016年C题
+case_id: P008
+candidate_models:
+  - 多元非线性回归
+  - 支持向量回归(SVR)
+  - BP神经网络
+  - 等效电路模型
+final_choice: "多元非线性回归 + SVR组合预测"
+reason: "非线性回归捕捉放电曲线特征, SVR在小样本下泛化好"
+alternatives:
+  - 指数拟合
+  - 灰色预测
+  - LSTM
+limitations:
+  - 数据量有限影响深度学习模型
+  - 温度耦合效应建模不充分
+  - 未考虑电池老化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

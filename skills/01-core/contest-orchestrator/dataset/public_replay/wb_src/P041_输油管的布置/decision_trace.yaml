@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P041
+# 来源: 全国大学生数学建模竞赛2010年C题
+case_id: P041
+steps:
+  - step: 1
+    action: "分析城区/郊区价格差异与拆迁费结构"
+    reason: "建立分区域费用模型"
+    abandoned: "统一单价"
+  - step: 2
+    action: "建立汇合点非线性规划模型"
+    reason: "以总费用最小为目标"
+    abandoned: "仅枚举端点"
+  - step: 3
+    action: "求解最优汇合点坐标"
+    reason: "得到管道最优走向"
+    abandoned: "无"
+  - step: 4
+    action: "敏感性分析单价与附加费"
+    reason: "评估参数波动影响"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

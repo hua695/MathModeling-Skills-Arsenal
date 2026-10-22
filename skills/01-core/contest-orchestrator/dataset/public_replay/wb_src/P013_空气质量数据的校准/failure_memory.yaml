@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P013
+# 来源: 全国大学生数学建模竞赛2019年D题
+case_id: P013
+failures:
+  - method: "仅用线性回归"
+    root_cause: "污染物浓度与气象因素非线性"
+    signal: "残差有趋势"
+    lesson: "需用非线性模型"
+    reference: "国赛赛题分析"
+  - method: "忽略气象因素"
+    root_cause: "温湿度影响监测仪器读数"
+    signal: "校准误差大"
+    lesson: "需引入气象变量"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

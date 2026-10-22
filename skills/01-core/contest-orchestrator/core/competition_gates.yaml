@@ -1,0 +1,119 @@
+# 竞赛格式约束（公开版模板）
+# 用途：delivery_gate.py 的结构门禁配置。
+# 本文件为通用模板：请按实际参赛要求修改各节数值（页数/参考文献下限/禁身份字段等）。
+# 格式要求变化时先更新本文件，再跑 delivery_gate.py。
+
+# 通用默认（无对应竞赛节时使用）
+default:
+  # 未有赛事官方依据时不设置正文最小页数，避免驱动凑页数；以内容契约和版面审计为准。
+  body_min_pages: null
+  body_includes_abstract: true
+  body_includes_references: false
+  page_limit: 30          # 默认上限；实际赛事格式要求可在项目 profile 覆盖。
+  # 附录只保留关键推导和核心代码片段；完整代码与大数据放支撑材料，
+  # 因而不以凑页数作为门禁。
+  appendix_min_pages: null
+  appendix_max_pages: null
+  abstract_max_pages: 1
+  toc_allowed: false
+  # Harness 文献门禁：实际正文唯一引用须在 6--11 篇，8--10 篇为推荐区间。
+  reference_min: 6
+  reference_max: 11
+  reference_recommended_min: 8
+  reference_recommended_max: 10
+  unused_bib_is_failure: true
+  forbidden_identity_terms: ["姓名", "学校", "学院", "学号", "指导教师", "手机号", "邮箱"]
+  placeholder_patterns: ["TODO", "占位", "待补充", "xxx", "Lorem"]
+  forbidden_artifact_terms: ["参考文献索引", "交付索引", "交付前核对清单", "数学建模竞赛论文", "全国大学生数学建模竞赛组委会", "全国大学生数学建模竞赛", "2025 年全国大学生数学建模竞赛", "[Z]"]
+  appendix_code_required: false  # 由项目 appendix_plan/appendix_contract 的 program_used 条件启用
+  appendix_counted: false
+  model_chapter_ratio_min: 0.45
+  model_chapter_ratio_max: 0.55
+  model_chapter_ratio_warning_below: 0.42
+  appendix_no_code_statement: "本论文没有用到程序"
+  code_style_profile: core/code_style.yaml
+  forbidden_title_patterns: []
+  markers: {}
+
+# 示例：国赛（请按官方规范调整）
+guosai:
+  # 国赛 profile 不设置官方正文最小硬门槛；个人国赛篇幅目标由项目侧
+  # content_budget_plan.yaml 在写作前规划，并由 check_content_budget.py 验证。
+  body_min_pages: null
+  body_includes_abstract: false
+  body_includes_references: true
+  body_count_mode: through_references_before_appendix
+  page_limit: 30          # 2026湖南赛区口径：正文主体、AI声明和参考文献合计不超过30页，摘要不计。
+  whole_paper_max_pages: 51  # 湖南赛区提交论文文件总页数上限；含摘要、正文、参考文献和附录。
+  # 全国规则允许 PDF 或 Word；本项目按湖南赛区要求采用 PDF。
+  national_submission_formats: [PDF, Word]
+  submission_format: PDF
+  submission_format_scope: 湖南赛区本地要求
+  non_image_pdf_required: true
+  pdf_max_size_mb: 20
+  content_budget:
+    planning_target_pages: [25, 30]
+    preferred_pages: 27
+    delivery_target_pages: [25, 30]
+    short_paper_review_threshold: 25
+    hard_min_pages: null
+    hard_max_pages: 30
+    whole_paper_recommended_pages: [35, 51]
+  appendix_min_pages: null
+  appendix_max_pages: null
+  abstract_max_pages: 1
+  toc_allowed: false
+  # 国赛沿用 Harness 文献门禁。
+  reference_min: 6
+  reference_max: 11
+  reference_recommended_min: 8
+  reference_recommended_max: 10
+  unused_bib_is_failure: true
+  forbidden_identity_terms: ["姓名", "学校", "学院", "学号", "指导教师", "手机号", "邮箱", "联系电话"]
+  placeholder_patterns: ["TODO", "占位", "待补充"]
+  forbidden_artifact_terms: ["参考文献索引", "交付索引", "交付前核对清单", "数学建模竞赛论文", "全国大学生数学建模竞赛组委会", "全国大学生数学建模竞赛", "2025 年全国大学生数学建模竞赛", "[Z]"]
+  appendix_code_required: false  # 国赛也不对纯解析/手算题强制代码附录
+  appendix_counted: false
+  supporting_materials:
+    archive_formats: [ZIP, RAR]
+    max_size_mb: 20
+    file_list_in_paper_appendix: true
+  ai_disclosure:
+    declaration_before_references: true
+    reference_entry_required: false
+    detail_filename: AI工具使用详情.pdf
+    detail_in_supporting_materials: true
+    truthful_disclosure_required: true
+    human_led_core_required: true
+  registration_deadline: "2026-09-07T20:00+08:00"
+  regional_advisory:
+    region: 湖南赛区
+    paper_format: PDF
+    whole_paper_recommended_max_pages: 51
+    program_appendix_recommended_max_pages: 20
+    national_hard_rule: false
+  model_chapter_ratio_min: 0.45
+  model_chapter_ratio_max: 0.55
+  model_chapter_ratio_warning_below: 0.42
+  appendix_no_code_statement: "本论文没有用到程序"
+  code_style_profile: core/code_style.yaml
+  forbidden_title_patterns: ["2025", "全国大学生数学建模竞赛", "高教社杯"]
+  markers: {body_start: BodyStart, body_end: BodyEnd, abstract_start: AbstractStart, abstract_end: AbstractEnd}
+
+# 示例：美赛（请按官方规范调整）
+mcm_icm:
+  page_limit: 30          # 同用户强制要求: 25-30页
+  abstract_max_pages: 1
+  toc_allowed: true
+  # 美赛沿用 Harness 文献门禁。
+  reference_min: 6
+  reference_max: 11
+  reference_recommended_min: 8
+  reference_recommended_max: 10
+  unused_bib_is_failure: true
+  forbidden_identity_terms: ["姓名", "学校", "队号以外的身份信息"]
+  placeholder_patterns: ["TODO", "占位"]
+  forbidden_artifact_terms: ["参考文献索引", "交付索引", "交付前核对清单", "数学建模竞赛论文", "全国大学生数学建模竞赛组委会", "全国大学生数学建模竞赛", "2025 年全国大学生数学建模竞赛", "[Z]"]
+  appendix_code_required: false  # 美赛题型与代码需求由项目计划决定
+  forbidden_title_patterns: []
+  markers: {}

@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P079
+# 来源: 2018年亚太杯数学建模竞赛A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P079
+title: "城市交通拥堵评价"
+competition: 亚太杯
+year: 2018
+problem_code: "A"
+category: 评价分类
+domain: 交通评价/拥堵评估
+objective: "建立城市交通拥堵综合评价指标, 对路网/区域拥堵程度分级并提缓解建议"
+variables:
+  - name: 平均车速
+    type: 未指定
+    description: 未指定
+  - name: 拥堵延时指数
+    type: 未指定
+    description: 未指定
+  - name: 路网饱和度
+    type: 未指定
+    description: 未指定
+  - name: 路口排队长度
+    type: 未指定
+    description: 未指定
+  - name: 高峰时段
+    type: 未指定
+    description: 未指定
+  - name: GPS轨迹
+    type: 未指定
+    description: 未指定
+constraints:
+  - 数据口径一致
+  - 指标可比
+  - 时空可比
+  - 阈值设定
+assumptions:
+  - 拥堵可量化
+  - 数据可获取
+  - 指标可加权
+confidence: 低
+source:
+  title: "2018年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/
+  year: 2018

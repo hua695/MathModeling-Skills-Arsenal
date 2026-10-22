@@ -1,0 +1,10 @@
+# H6 节点审查包：节点产物、证据、检查结果
+node_id: H6
+summary: H6 验证审查包
+important_artifacts:
+- path: validation_contract.yaml
+  sha256: 3fef1e8efb2dc9b119c3696b7e67e5631a1ea08a849a584b150b701eee496bfb
+checks:
+- 验证完整性检查
+requested_decision: approve
+proposed_next_node: H7

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P021
+# 来源: 2015 MCM Problem B: Searching for a Lost Plane
+case_id: P021
+candidate_models:
+  - 贝叶斯搜索理论
+  - 蒙特卡洛模拟
+  - 扩散模型
+  - 最优搜索理论
+final_choice: "贝叶斯搜索理论 + 蒙特卡洛残骸漂移模拟"
+reason: "贝叶斯搜索理论动态更新位置概率, 蒙特卡洛模拟残骸漂移"
+alternatives:
+  - 网格搜索
+  - 梯度搜索
+  - 遗传算法
+limitations:
+  - 风海流模型简化
+  - 搜索效率假设理想化
+  - 初始概率分布主观
+confidence: 中
+source:
+  title: "2015 MCM Problem B: Searching for a Lost Plane"
+  url: https://www.jingsailian.com/news/233612.html

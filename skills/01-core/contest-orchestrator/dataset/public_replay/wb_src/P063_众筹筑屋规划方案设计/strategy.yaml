@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P063
+# 来源: 全国大学生数学建模竞赛2015年D题
+case_id: P063
+applicable_scenarios:
+  - 规划方案评价
+  - 多方利益平衡
+  - 房型配比优化
+strategy: "AHP赋权+模糊评价+多目标配比优化"
+why_effective: "赋权平衡诉求, 模糊评价处理不确定性, 多目标给出可行配比"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

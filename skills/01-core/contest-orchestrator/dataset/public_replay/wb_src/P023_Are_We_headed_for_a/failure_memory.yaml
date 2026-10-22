@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P023
+# 来源: 2016 ICM Problem E: Are We headed for a Drought?
+case_id: P023
+failures:
+  - method: "确定性降雨预测"
+    root_cause: "降雨是随机过程, 确定性预测不准"
+    signal: "预测偏差大"
+    lesson: "需用概率模型"
+    reference: "美赛赛题分析"
+  - method: "主观赋权评价"
+    root_cause: "权重主观性影响评价客观性"
+    signal: "结果有争议"
+    lesson: "需用熵值法等客观赋权"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2016 ICM Problem E: Are We headed for a Drought?"
+  url: http://www.madio.net/thread-290074-1-1.html

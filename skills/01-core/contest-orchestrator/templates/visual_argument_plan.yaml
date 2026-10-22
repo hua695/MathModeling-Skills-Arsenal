@@ -1,0 +1,181 @@
+# H7 视觉论证计划：先登记读者问题和证据义务，再决定图型与生成路由。
+schema_version: "1.0"
+reader_evidence_version: "1.0"  # 同时记录图/表/正文为何占用版面
+status: draft                 # draft | approved | complete
+prepared_by: h7-figure-agent
+source_node: H7
+scope:
+  subproblems: [Q1]
+  cross_question_dependencies: false
+
+# 多小问或存在跨问接口时，至少登记一个 global_story 槽位。
+global_visual_slots: []
+
+subproblems:
+  - subproblem_id: Q1
+    complexity: complex       # simple | standard | complex；必须与上游模型事实相容
+    reader_question: <本小问需要读者先理解的问题>
+    visual_audit:
+      - slot_id: Q1-orientation
+        category: orientation
+        disposition: recommended # required | recommended | table_justified | text_sufficient | not_applicable
+        reader_question: <读者在本小问开始前需要看到什么关系>
+        reader_gain: <这张图为读者减少的理解成本>
+        evidence_refs: [<上游证据定位>]
+        planned_figure_ids: [fig-q1-orientation]
+        information_unit_ids: [Q1-U01, Q1-U02]
+        density_profile: standard
+        representation:
+          mode: figure
+          reason: <为什么该关系需要图而不是表或纯文字>
+          pre_text_role: <图前正文需要先交代的读者问题>
+          post_text_role: <图后正文需要解释的结论意义>
+        figure_intent:
+          reader_question: <这张图必须回答的一个读者问题>
+          explanatory_relation: <图中对象之间需要被看见的关系>
+          must_show: [<必须出现的对象、关系或证据>]
+          must_not_show: [<不应出现的无关公式、数据或装饰元素>]
+          body_anchor: <论文章节与小节中的具体落位>
+          pre_text_function: <图前正文的论证功能>
+          post_text_function: <图后正文的解释与边界功能>
+          generation_route: tech-route-maker
+          template_status: native
+          template_id: problem-analysis-flow
+          visible_element_map:
+            - {element: <题面对象或输入>, role: node, evidence_refs: [<对应题面证据定位>]}
+            - {element: <约束与待求输出关系>, role: edge, evidence_refs: [<对应任务证据定位>]}
+          canvas_profile: {orientation: horizontal, target_layout: single, top_level_node_limit: 7}
+      - slot_id: Q1-mechanism
+        category: mechanism
+        disposition: not_applicable
+        reader_question: <是否存在需要展示的机理、空间或几何关系>
+        reader_gain: <若无机理图，读者如何理解该关系>
+        evidence_refs: [<上游证据定位>]
+        rationale: <不适用的可核验理由>
+        planned_figure_ids: []
+        representation:
+          mode: text
+          reason: <为何本类别由正文和公式足以表达>
+      - slot_id: Q1-model-structure
+        category: model_structure
+        disposition: required
+        reader_question: <读者需要看到模型由哪些部分组成>
+        reader_gain: <结构图如何连接变量、目标、约束或状态>
+        evidence_refs: [<模型总结卡或模型契约定位>]
+        planned_figure_ids: [fig-q1-model-structure]
+        information_unit_ids: [Q1-U01, Q1-U02]
+        density_profile: standard
+        representation:
+          mode: figure
+          reason: <为什么模型结构需要图示而不是表或纯文字>
+          pre_text_role: <图前正文需要先交代的读者问题>
+          post_text_role: <图后正文需要解释的结构意义>
+        figure_intent:
+          reader_question: <这张图必须回答的模型结构问题>
+          explanatory_relation: <变量、目标、约束、状态或模块之间的关系>
+          must_show: [<模型结构的关键对象与连接>]
+          must_not_show: [<完整推导、未使用的公式或未经冻结的数值>]
+          body_anchor: <本问模型建立小节末尾或结构首次解释处>
+          pre_text_function: <引出模型由哪些部分构成>
+          post_text_function: <解释结构如何服务于最终求解模型>
+          generation_route: tikz-scientific-figures
+          template_status: native
+          template_id: model-summary-frame
+          visible_element_map:
+            - {element: <模型结构对象>, role: node, evidence_refs: [<对应模型证据定位>]}
+            - {element: <对象之间的依赖关系>, role: edge, evidence_refs: [<对应模型证据定位>]}
+          canvas_profile: {orientation: horizontal, target_layout: single, top_level_node_limit: 7}
+      - slot_id: Q1-algorithm-process
+        category: algorithm_process
+        disposition: required
+        reader_question: <读者需要看到算法如何从输入得到可复现结果>
+        reader_gain: <流程图如何表达关键步骤、判断和循环>
+        evidence_refs: [<算法清单或运行清单定位>]
+        planned_figure_ids: [fig-q1-algorithm]
+        information_unit_ids: [Q1-U01, Q1-U02]
+        density_profile: standard
+        representation:
+          mode: figure
+          reason: <为什么算法过程需要流程图>
+          pre_text_role: <图前正文需要先交代的输入和目标>
+          post_text_role: <图后正文需要解释的关键循环或停止逻辑>
+        figure_intent:
+          reader_question: <算法如何从输入得到可复现结果>
+          explanatory_relation: <输入、关键计算、判断、循环与输出之间的流程>
+          must_show: [<输入、核心步骤、停止条件、输出>]
+          must_not_show: [<算法未执行的分支、无来源的参数或公式堆叠>]
+          body_anchor: <本问模型求解与结果分析小节的算法说明后>
+          pre_text_function: <说明流程图要帮助复现哪条求解路径>
+          post_text_function: <解释关键循环、停止条件及其与结果的关系>
+          generation_route: tech-route-maker
+          template_status: native
+          template_id: algorithm-iteration-flow
+          visible_element_map:
+            - {element: <算法输入与核心步骤>, role: node, evidence_refs: [<对应算法证据定位>]}
+            - {element: <停止条件与输出>, role: edge, evidence_refs: [<对应运行证据定位>]}
+          canvas_profile: {orientation: horizontal, target_layout: single, top_level_node_limit: 7}
+      - slot_id: Q1-result-evidence
+        category: result_evidence
+        disposition: required
+        reader_question: <读者需要通过什么视觉证据判断主要结果>
+        reader_gain: <图中应显出趋势、比较、分布或方案差异>
+        evidence_refs: [<冻结结果定位>]
+        planned_figure_ids: [fig-q1-result]
+        information_unit_ids: [Q1-U01, Q1-U02]
+        density_profile: standard
+        representation:
+          mode: figure
+          reason: <为什么趋势、比较或分布需要图示>
+          pre_text_role: <图前正文需要先交代的指标和比较基准>
+          post_text_role: <图后正文需要解释的主要模式及其决策意义>
+        figure_intent:
+          reader_question: <读者如何从图中判断主要结果>
+          explanatory_relation: <冻结结果中的比较、趋势、分布或方案差异>
+          must_show: [<指标、比较基准、必要分组或不确定性信息>]
+          must_not_show: [<未使用的指标、无意义分类连线或未经核验的数值>]
+          body_anchor: <本问模型求解与结果分析小节的结果解释处>
+          pre_text_function: <明确指标与比较基准>
+          post_text_function: <解释主要模式、决策意义与适用边界>
+          generation_route: modelviz
+          template_status: native
+          template_id: <SciPilot/ModelViz 选定的实际模板 ID>
+          visible_element_map:
+            - {element: <冻结结果指标>, role: mark, evidence_refs: [<对应结果证据定位>]}
+            - {element: <比较或趋势关系>, role: relation, evidence_refs: [<对应结果证据定位>]}
+          canvas_profile: {orientation: horizontal, target_layout: single, top_level_node_limit: 7}
+      - slot_id: Q1-validation
+        category: validation_robustness
+        disposition: required
+        reader_question: <读者需要如何判断结果可靠或稳健>
+        reader_gain: <图中应显出验证、敏感性或稳健性证据>
+        evidence_refs: [<验证或敏感性报告定位>]
+        planned_figure_ids: [fig-q1-validation]
+        information_unit_ids: [Q1-U01, Q1-U02]
+        density_profile: standard
+        representation:
+          mode: figure
+          reason: <为什么可靠性或稳健性需要图示>
+          pre_text_role: <图前正文需要先交代验证对象和判据>
+          post_text_role: <图后正文需要解释可靠性证据和适用边界>
+        figure_intent:
+          reader_question: <读者如何判断结果可靠或稳健>
+          explanatory_relation: <验证对象、扰动因素、基准与响应之间的关系>
+          must_show: [<验证对象、判据、基准和冻结结果>]
+          must_not_show: [<没有验证依据的可靠性结论或额外实验>]
+          body_anchor: <本问模型求解与结果分析小节的验证说明处>
+          pre_text_function: <说明验证对象与判据>
+          post_text_function: <解释可靠性证据与适用范围>
+          generation_route: modelviz
+          template_status: native
+          template_id: <SciPilot/ModelViz 选定的实际模板 ID>
+          visible_element_map:
+            - {element: <验证基准与响应>, role: mark, evidence_refs: [<对应验证证据定位>]}
+            - {element: <稳健性或敏感性关系>, role: relation, evidence_refs: [<对应验证证据定位>]}
+          canvas_profile: {orientation: horizontal, target_layout: single, top_level_node_limit: 7}
+
+# 以下统计由 H7 生成并由检查器重算；不得把固定总图数作为目标。
+coverage_summary:
+  required_visual_slots: 0
+  required_figure_slots: 0
+  planned_figure_count: 0
+  table_justified_slots: 0

@@ -1,0 +1,107 @@
+# H8 阶段一的论证蓝图；用户与写作计划一并批准后才开始正文。
+schema_version: "1.0"
+status: draft
+prepared_by: academic-writing
+narrative_sha256: PLACEHOLDER_SHA256
+interpretation_cards_sha256: PLACEHOLDER_SHA256
+global:
+  central_thesis: 在题面给定的需求和约束下，所建模型形成可核验的优化决策依据。
+  reader_journey: 从任务约束出发，说明模型选择、结果证据、检验结论及其适用范围。
+  paper_spine:
+    core_chapters: [Q1, Q2, Q3]
+    support_chapters: [problem_analysis, conclusion]
+    chapter_order: [problem_analysis, Q1, Q2, Q3, conclusion]
+    chapter_edges:
+      - {from: problem_analysis, to: Q1, relation: feeds, handoff_question: 题意约束如何进入第一问模型？}
+      - {from: Q1, to: Q2, relation: extends, handoff_question: 第一问结果如何支撑网络结构优化？}
+      - {from: Q2, to: Q3, relation: extends, handoff_question: 网络优化结果如何进入稳健性分析？}
+      - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: 各问结果如何汇总回答总问题？}
+chapters:
+  - section_id: problem_analysis
+    reader_question: 题目中的核心决策矛盾是什么？
+    chapter_answer: 通过统一目标、约束和子问题接口界定决策范围。
+    argument_ids: []
+    evidence_refs: []
+    figure_roles: []
+    excluded_material: []
+    chapter_role: support
+    reads_from: []
+    feeds_to: [Q1]
+    new_claims_allowed: []
+    handoff_question: 题意约束如何进入第一问模型？
+  - section_id: Q1
+    reader_question: 第一问的最优配置是什么？
+    chapter_answer: 给出满足约束的低成本配置。
+    argument_ids: [arg-q1-result]
+    evidence_refs: []
+    figure_roles: []
+    excluded_material: []
+    chapter_role: core
+    reads_from: [problem_analysis]
+    feeds_to: [Q2]
+    new_claims_allowed: [arg-q1-result]
+    handoff_question: 第一问结果如何支撑网络结构优化？
+  - section_id: Q2
+    reader_question: 网络结构如何优化？
+    chapter_answer: 在第一问配置基础上降低换乘时间。
+    argument_ids: [arg-q2-result]
+    evidence_refs: []
+    figure_roles: []
+    excluded_material: []
+    chapter_role: core
+    reads_from: [Q1]
+    feeds_to: [Q3]
+    new_claims_allowed: [arg-q2-result]
+    handoff_question: 网络优化结果如何进入稳健性分析？
+  - section_id: Q3
+    reader_question: 模型对需求变化是否稳健？
+    chapter_answer: 需求扰动下决策变化保持在可接受范围内。
+    argument_ids: [arg-q3-result]
+    evidence_refs: []
+    figure_roles: []
+    excluded_material: []
+    chapter_role: core
+    reads_from: [Q2]
+    feeds_to: [conclusion]
+    new_claims_allowed: [arg-q3-result]
+    handoff_question: 各问结果如何汇总回答总问题？
+  - section_id: conclusion
+    reader_question: 全文模型回答了什么？
+    chapter_answer: 汇总各问的可执行决策结论及适用边界。
+    argument_ids: []
+    evidence_refs: []
+    figure_roles: []
+    excluded_material: []
+    chapter_role: support
+    reads_from: [Q3]
+    feeds_to: []
+    new_claims_allowed: []
+    handoff_question: 全文结论完成。
+arguments:
+  - argument_id: arg-q1-result
+    subproblem_id: Q1
+    claim: 在给定需求和成本参数下，方案A满足模型约束并给出较低成本配置。
+    result_card_id: Q1-result-01
+    why_it_matters: 该结果直接回答了运营配置的决策问题。
+    supported_scope: 模板中的给定线路、需求和成本参数。
+    evidence_refs:
+      - path: paper/Q1_results.md
+        sha256: PLACEHOLDER_SHA256
+  - argument_id: arg-q2-result
+    subproblem_id: Q2
+    claim: 在第一问配置基础上，网络结构优化降低换乘时间并满足约束。
+    result_card_id: Q2-result-01
+    why_it_matters: 该结果回答了网络结构优化的决策问题。
+    supported_scope: 模板中的给定线路、需求和成本参数。
+    evidence_refs:
+      - path: paper/Q2_results.md
+        sha256: PLACEHOLDER_SHA256
+  - argument_id: arg-q3-result
+    subproblem_id: Q3
+    claim: 需求扰动下的方案变化处于可接受范围内。
+    result_card_id: Q3-result-01
+    why_it_matters: 该结果说明方案在给定扰动范围内具有稳健性。
+    supported_scope: 模板中的需求扰动范围和参数区间。
+    evidence_refs:
+      - path: paper/Q3_results.md
+        sha256: PLACEHOLDER_SHA256

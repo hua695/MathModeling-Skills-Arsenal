@@ -1,0 +1,8 @@
+# H5 节点审查包：节点产物、证据、检查结果
+node_id: H5
+summary: H5 审查包
+important_artifacts: []
+checks:
+- 完整性检查
+requested_decision: approve
+proposed_next_node: H6

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P002
+# 来源: 全国大学生数学建模竞赛2011年A题
+case_id: P002
+failures:
+  - method: "IDW插值忽略空间自相关"
+    root_cause: "IDW仅基于距离不考虑半变异函数"
+    signal: "插值结果出现牛眼效应"
+    lesson: "有空间自相关的数据用克里金"
+    reference: "国赛赛题分析"
+  - method: "直接用浓度均值评价"
+    root_cause: "未考虑极值高浓度点的影响"
+    signal: "低估高污染区域风险"
+    lesson: "用Nemerow指数兼顾极值"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

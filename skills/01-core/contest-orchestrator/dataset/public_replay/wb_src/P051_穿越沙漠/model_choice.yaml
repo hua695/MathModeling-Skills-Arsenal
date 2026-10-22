@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P051
+# 来源: 全国大学生数学建模竞赛2020年B题
+case_id: P051
+candidate_models:
+  - 最短路径(Dijkstra)
+  - 动态规划
+  - 博弈论
+  - 蒙特卡洛树搜索
+final_choice: "Dijkstra + 动态规划资源调度"
+reason: "以到达为目标用最短路规划路线, 动态规划在天气约束下分配资源"
+alternatives:
+  - A*搜索
+  - 强化学习
+  - 整数规划
+limitations:
+  - 天气简化概率
+  - 多人对抗未充分建模
+  - 资源消耗为均值
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

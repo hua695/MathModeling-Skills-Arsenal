@@ -1,0 +1,7 @@
+{
+  "contextFileName": ["AGENTS.md", "GEMINI.md", "SKILL.md"],
+  "fileFiltering": {
+    "respectGitIgnore": true,
+    "enableRecursiveFileSearch": true
+  }
+}

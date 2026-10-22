@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P080
+# 来源: 2018年华数杯数学建模竞赛B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P080
+title: "智慧物流评价"
+competition: 华数杯
+year: 2018
+problem_code: "B"
+category: 评价分类
+domain: 物流评价/智慧化评估
+objective: "建立智慧物流系统综合评价指标, 评估不同物流方案智能化水平并优选"
+variables:
+  - name: 自动化率
+    type: 未指定
+    description: 未指定
+  - name: 订单时效
+    type: 未指定
+    description: 未指定
+  - name: 仓储利用率
+    type: 未指定
+    description: 未指定
+  - name: 成本
+    type: 未指定
+    description: 未指定
+  - name: 信息可视度
+    type: 未指定
+    description: 未指定
+  - name: 客户满意度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 指标可比
+  - 成本约束
+  - 技术可行
+  - 数据可得
+assumptions:
+  - 智慧化可量化
+  - 方案指标已知
+  - 权重可确定
+confidence: 低
+source:
+  title: "2018年华数杯数学建模竞赛B题"
+  url: https://www.saikr.com/vse/huashubei2018
+  year: 2018

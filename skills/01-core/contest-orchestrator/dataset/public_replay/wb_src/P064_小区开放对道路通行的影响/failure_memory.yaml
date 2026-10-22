@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P064
+# 来源: 全国大学生数学建模竞赛2016年B题
+case_id: P064
+failures:
+  - method: "仅定性讨论"
+    root_cause: "缺乏定量仿真支撑"
+    signal: "结论不可信"
+    lesson: "需仿真量化"
+    reference: "国赛赛题分析"
+  - method: "忽略安全因素"
+    root_cause: "开放增加冲突点"
+    signal: "评价片面"
+    lesson: "需多指标"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2016年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

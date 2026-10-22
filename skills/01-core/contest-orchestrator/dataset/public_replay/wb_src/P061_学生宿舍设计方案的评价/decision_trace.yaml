@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P061
+# 来源: 全国大学生数学建模竞赛2010年D题
+case_id: P061
+steps:
+  - step: 1
+    action: "构建宿舍设计评价指标体系"
+    reason: "覆盖功能/经济/舒适"
+    abandoned: "无"
+  - step: 2
+    action: "AHP确定指标权重"
+    reason: "系统量化重要性"
+    abandoned: "等权"
+  - step: 3
+    action: "模糊综合评价各方案"
+    reason: "处理模糊指标并打分"
+    abandoned: "简单加权"
+  - step: 4
+    action: "方案排序与优选"
+    reason: "选出最优设计"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年D题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

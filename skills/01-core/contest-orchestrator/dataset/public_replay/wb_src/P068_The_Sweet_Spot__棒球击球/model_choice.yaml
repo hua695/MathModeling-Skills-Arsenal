@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P068
+# 来源: 2010 MCM Problem A: The Sweet Spot
+case_id: P068
+candidate_models:
+  - 刚体碰撞动力学
+  - 梁振动模型
+  - 有限元分析
+  - 多目标评价
+final_choice: "碰撞动力学建模 + 甜区多目标评价"
+reason: "用碰撞动力学计算不同击球点的出球速度与震动, 多目标评价最佳甜区"
+alternatives:
+  - 有限元仿真
+  - 实验回归
+  - 参数优化
+limitations:
+  - 球棒模型简化
+  - 未考虑握持阻尼
+  - 材料非线性忽略
+confidence: 中
+source:
+  title: "2010 MCM Problem A: The Sweet Spot"
+  url: https://www.contest.comap.com/undergraduate/contests/

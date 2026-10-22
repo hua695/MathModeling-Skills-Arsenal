@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P090
+# 来源: 全国大学生数学建模竞赛2020年A题
+case_id: P090
+steps:
+  - step: 1
+    action: "建立板导热模型"
+    reason: "写出控制方程与边界"
+    abandoned: "无"
+  - step: 2
+    action: "有限差分求温度曲线"
+    reason: "得各温区响应"
+    abandoned: "无"
+  - step: 3
+    action: "校验工艺窗口"
+    reason: "峰值/斜率/回流时间"
+    abandoned: "无"
+  - step: 4
+    action: "优化温区与带速"
+    reason: "满足焊接规范"
+    abandoned: "经验设定"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

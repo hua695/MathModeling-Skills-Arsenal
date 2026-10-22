@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P027
+# 来源: 2019 MCM Problem C: The Opioid Crisis
+case_id: P027
+candidate_models:
+  - SIR传播模型(改进)
+  - 空间扩散模型
+  - 回归分析
+  - 系统动力学
+final_choice: "改进SIR传播模型 + 空间扩散 + 干预策略评估"
+reason: "SIR模型描述滥用传播动态, 空间扩散刻画地理蔓延, 策略评估量化干预效果"
+alternatives:
+  - Agent-based模型
+  - 贝叶斯网络
+  - 面板数据回归
+limitations:
+  - 滥用数据不完整
+  - 社会因素难以量化
+  - 模型参数地区差异大
+confidence: 中
+source:
+  title: "2019 MCM Problem C: The Opioid Crisis"
+  url: https://www.contest.comap.com/undergraduate/contests/

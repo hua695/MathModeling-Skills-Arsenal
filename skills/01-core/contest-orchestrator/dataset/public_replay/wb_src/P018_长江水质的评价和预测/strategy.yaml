@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P018
+# 来源: 全国大学生数学建模竞赛2005年A题
+case_id: P018
+applicable_scenarios:
+  - 河流水质评价与预测
+  - 污染物传播建模
+  - 环境管理决策
+strategy: "现状评价+传播建模+趋势预测+对策建议"
+why_effective: "从评价到建模到预测形成完整分析链, 为管理决策提供科学依据"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

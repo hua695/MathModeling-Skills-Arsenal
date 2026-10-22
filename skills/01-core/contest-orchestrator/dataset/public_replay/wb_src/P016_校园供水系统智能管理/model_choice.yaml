@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P016
+# 来源: 全国大学生数学建模竞赛2020年E题
+case_id: P016
+candidate_models:
+  - 时间序列SARIMA
+  - LSTM神经网络
+  - 孤立森林异常检测
+  - 线性规划调度优化
+final_choice: "LSTM用水量预测 + 孤立森林异常检测"
+reason: "LSTM捕捉时间序列长期依赖, 孤立森林适合异常检测"
+alternatives:
+  - ARIMA
+  -  Prophet
+  - 随机森林
+limitations:
+  - 需要大量历史数据
+  - 管网拓扑未建模
+  - 实时性要求高
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2020年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P063
+# 来源: 全国大学生数学建模竞赛2015年D题
+case_id: P063
+steps:
+  - step: 1
+    action: "构建规划评价指标体系"
+    reason: "覆盖满意与利润"
+    abandoned: "无"
+  - step: 2
+    action: "AHP确定各方权重"
+    reason: "量化诉求重要性"
+    abandoned: "等权"
+  - step: 3
+    action: "模糊评价候选方案"
+    reason: "综合打分排序"
+    abandoned: "无"
+  - step: 4
+    action: "多目标优化房型配比"
+    reason: "平衡满意与利润"
+    abandoned: "单目标"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

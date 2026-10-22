@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P044
+# 来源: 全国大学生数学建模竞赛2012年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P044
+title: "机器人避障问题"
+competition: CUMCM
+year: 2012
+problem_code: "D"
+category: 优化决策
+domain: 路径优化/运动规划
+objective: "在含圆形障碍的平面内, 规划机器人从起点到目标的最短(最短时间)无碰撞路径"
+variables:
+  - name: 起点/目标点坐标
+    type: 未指定
+    description: 未指定
+  - name: 各圆形障碍物圆心与半径
+    type: 未指定
+    description: 未指定
+  - name: 机器人半径
+    type: 未指定
+    description: 未指定
+  - name: 线速度
+    type: 未指定
+    description: 未指定
+  - name: 转弯半径
+    type: 未指定
+    description: 未指定
+constraints:
+  - 路径不得进入障碍物膨胀区
+  - 路径连续可微
+  - 转弯半径约束
+  - 速度上限
+assumptions:
+  - 障碍物为圆形且固定
+  - 机器人视为圆点(含安全距离)
+  - 平面无障碍物动态变化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2012

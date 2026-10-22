@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P014
+# 来源: 全国大学生数学建模竞赛2019年E题
+case_id: P014
+steps:
+  - step: 1
+    action: "数据分析价格-销量关系"
+    reason: "了解薄利多销的适用条件"
+    abandoned: "无"
+  - step: 2
+    action: "建立需求弹性模型"
+    reason: "量化价格对需求的影响"
+    abandoned: "无"
+  - step: 3
+    action: "最优化定价模型求解"
+    reason: "找到利润最大化的定价"
+    abandoned: "无"
+  - step: 4
+    action: "敏感性分析"
+    reason: "评估参数变化对最优解的影响"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2019年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

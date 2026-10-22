@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P045
+# 来源: 全国大学生数学建模竞赛2013年D题
+case_id: P045
+candidate_models:
+  - 排队论(M/M/c)
+  - 整数规划调度
+  - 时间序列分析
+  - 聚类分析
+final_choice: "需求聚类 + 整数规划调度优化"
+reason: "聚类识别高需求站点, 整数规划在容量约束下给出最低成本调度方案"
+alternatives:
+  - 模拟退火
+  - 贪心调度
+  - 仿真优化
+limitations:
+  - 需求随机性强
+  - 未考虑天气突变
+  - 调度时间窗简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

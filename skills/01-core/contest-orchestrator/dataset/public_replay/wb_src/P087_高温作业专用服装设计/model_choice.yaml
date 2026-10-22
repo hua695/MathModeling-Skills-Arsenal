@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P087
+# 来源: 全国大学生数学建模竞赛2018年A题
+case_id: P087
+candidate_models:
+  - 一维热传导方程(傅里叶定律)
+  - 有限差分法
+  - 有限元法
+  - 多目标优化
+final_choice: "一维热传导PDE + 有限差分求温度场"
+reason: "用傅里叶导热方程描述多层传热, 有限差分求温度分布并约束皮肤温度"
+alternatives:
+  - 有限元分析
+  - 集总参数模型
+  - 遗传算法
+limitations:
+  - 一维假设忽略侧向
+  - 接触热阻忽略
+  - 物性随温度变
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

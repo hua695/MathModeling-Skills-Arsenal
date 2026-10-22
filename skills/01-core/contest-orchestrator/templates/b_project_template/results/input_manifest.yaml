@@ -1,0 +1,16 @@
+# H9 输入清单：交付物的输入文件和哈希（P0-06 新增校验）
+schema_version: '1.0'
+files:
+- path: problem_statement.md
+  sha256: PLACEHOLDER_SHA256
+  size: 465
+- path: problem_profile.yaml
+  sha256: PLACEHOLDER_SHA256
+  size: 600
+- path: model_contract.yaml
+  sha256: PLACEHOLDER_SHA256
+  size: 402
+- path: model_blueprint.yaml
+  sha256: PLACEHOLDER_SHA256
+  size: 258
+total_sha256: 54f31ebdb014e8df21c7dab3e2929e0a5ceeed83daa7e408bb4e1833698bb32b

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P049
+# 来源: 全国大学生数学建模竞赛2018年D题
+case_id: P049
+applicable_scenarios:
+  - 装配线平衡
+  - 工序配置优化
+  - 产能规划
+strategy: "优先关系建模+整数规划平衡+灵敏度分析"
+why_effective: "优先关系保证可行, 整数规划求最优平衡, 灵敏度应对工序波动"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

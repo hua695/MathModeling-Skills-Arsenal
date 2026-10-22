@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P044
+# 来源: 全国大学生数学建模竞赛2012年D题
+case_id: P044
+candidate_models:
+  - 几何最短路径(切线法)
+  - 图论最短路
+  - A*算法
+  - 非线性规划
+final_choice: "障碍膨胀后切线几何 + Dijkstra最短路"
+reason: "将障碍按机器人半径膨胀后, 最短路径由障碍外公切线构成, 再用最短路求解"
+alternatives:
+  - A*网格搜索
+  - 人工势场法
+  - 遗传算法
+limitations:
+  - 仅静态障碍
+  - 未考虑多机器人冲突
+  - 路径为折线需平滑
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

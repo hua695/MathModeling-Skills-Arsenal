@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P093
+# 来源: 全国大学生数学建模竞赛2017年D题
+case_id: P093
+failures:
+  - method: "用TSP代替CPP"
+    root_cause: "须遍历所有边而非节点"
+    signal: "遗漏路段"
+    lesson: "需中国邮递员"
+    reference: "国赛赛题分析"
+  - method: "忽略工作量均衡"
+    root_cause: "部分人超时"
+    signal: "排班不可行"
+    lesson: "需均衡约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

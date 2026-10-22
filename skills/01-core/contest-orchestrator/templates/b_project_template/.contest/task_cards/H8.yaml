@@ -1,0 +1,61 @@
+# H8 论文 agent 任务卡。H8A 生成作者简报；H8B 每次只派发一个章节；H8C 交给独立编辑。
+task_id: H8-task-001
+node_id: H8
+owner_role: 论文 agent
+objective: 依据当前章节写作卡，以冻结证据完成一个连贯、可审查的论文章节。
+inputs:
+  - path: problem_statement.md
+    sha256: <sha256>
+  - path: paper_narrative.yaml
+    sha256: <sha256>
+  - path: result_interpretation_cards.yaml
+    sha256: <sha256>
+  - path: paper_material_readiness.yaml
+    sha256: <sha256>
+  - path: paper_claim_coverage.yaml
+    sha256: <sha256>
+  - path: abstract_argument_card.yaml
+    sha256: <sha256>
+  - path: chart_requirements.yaml
+    sha256: <sha256>
+  - path: visual_argument_plan.yaml
+    sha256: <sha256>
+  - path: paper_argument_blueprint.yaml
+    sha256: <sha256>
+  - path: paper_author_brief.yaml
+    sha256: <sha256>
+  - path: chapter_writing_card.yaml
+    sha256: <sha256>
+  - path: paper_continuity_context.yaml
+    sha256: <sha256>
+  - path: model_summary_cards.yaml
+    sha256: <sha256>
+scope: 当前章节写作卡指定的章节与冻结材料
+authoring_protocol:
+  stage: H8B
+  source_of_truth: chapter_writing_card.yaml
+  author_brief: paper_author_brief.yaml
+  abstract_argument_card: abstract_argument_card.yaml
+  chapter_writing_card: chapter_writing_card.yaml
+  paper_continuity_context: paper_continuity_context.yaml
+  visual_argument_plan: visual_argument_plan.yaml
+  writer_first_protocol: contest-orchestrator/references/h8_writer_first_protocol.md
+  model_summary_cards: model_summary_cards.yaml
+  model_summary_protocol: contest-orchestrator/references/model_summary_protocol.md
+  active_chapter_only: true
+  evidence_boundary: 只使用章节卡内登记的冻结证据
+required_outputs:
+  - 当前章节草稿
+  - 章节证据引用清单
+  - abstract_contribution（写入当前章节卡，供 H8C 汇总摘要）
+  - evidence_gap_matrix.yaml（仅材料不足时）
+verification:
+  - 章节主张、图表和证据与章节写作卡一致
+  - 不新增模型结论、数字、引用用途或图表解释
+prohibited_actions:
+  - 改变模型、数据、结果、引用、图表或论文总体论证架构
+  - 将流程规则、检查清单或内部交流写入论文
+evidence_handoff:
+  - 当前章节草稿与证据定位
+model: gpt-5.6-sol
+reasoning_effort: high

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P039
+# 来源: 2019年电工杯数学建模竞赛A题
+case_id: P039
+applicable_scenarios:
+  - 光伏功率预测
+  - 新能源发电调度
+  - 物理-数据融合建模
+strategy: "物理模型+数据驱动修正的组合预测"
+why_effective: "物理模型提供机理基础, 数据驱动修正实际偏差, 组合更准确"
+confidence: 低
+source:
+  title: "2019年电工杯数学建模竞赛A题"
+  url: https://www.saikr.com/vse/DGB2019

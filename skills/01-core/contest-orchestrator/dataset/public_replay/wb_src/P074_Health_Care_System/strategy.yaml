@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P074
+# 来源: 2008 ICM Problem: Health Care System
+case_id: P074
+applicable_scenarios:
+  - 卫生系统绩效评价
+  - 跨国指标比较
+  - 客观赋权评价
+strategy: "熵值法客观赋权+神经网络非线性综合评价"
+why_effective: "客观赋权保证公正, 神经网络捕捉复杂关系, 适合多国系统比较"
+confidence: 中
+source:
+  title: "2008 ICM Problem: Health Care System"
+  url: http://www.madio.net/thread-290074-1-1.html

@@ -1,0 +1,25 @@
+status: PASS
+verified_by: H6
+verification_agent_instance_id: <H6 agent_instance_id>
+task_card_path: .contest/task_cards/H6.yaml
+task_card_sha256: <H6 task card sha256>
+checks:
+  shared_symbols: true
+  units: true
+  data_versions: true
+  upstream_downstream_fields: true
+  time_scales: true
+  parameters: true
+  cross_question_constraints: true
+  conclusions: true
+  provenance: true
+per_subproblem:
+  - subproblem_id: Q1
+    interface_fields:
+      - field: shared_symbols
+        unit: <单位或量纲>
+        time_scale: <时间尺度>
+        comparison_status: pass
+        source_path: <项目内证据相对路径>
+        source_sha256: <证据文件 SHA-256>
+issues: []

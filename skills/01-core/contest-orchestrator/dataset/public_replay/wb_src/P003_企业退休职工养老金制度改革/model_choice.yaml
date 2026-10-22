@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P003
+# 来源: 全国大学生数学建模竞赛2011年C题
+case_id: P003
+candidate_models:
+  - 时间序列ARIMA
+  - 灰色预测GM(1,1)
+  - 人口Leslie矩阵模型
+  - 精算平衡模型
+final_choice: "Leslie矩阵人口预测 + 精算平衡模型计算养老金缺口"
+reason: "Leslie矩阵可预测人口结构变化, 精算模型可计算收支平衡"
+alternatives:
+  - 指数平滑
+  - 回归预测
+  - 系统动力学
+limitations:
+  - 未考虑经济波动影响
+  - 参数敏感性高
+  - 制度变革假设简化
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

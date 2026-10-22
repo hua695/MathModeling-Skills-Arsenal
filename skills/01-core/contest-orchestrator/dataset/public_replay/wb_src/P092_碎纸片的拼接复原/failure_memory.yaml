@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P092
+# 来源: 全国大学生数学建模竞赛2013年B题
+case_id: P092
+failures:
+  - method: "独立贪心配对"
+    root_cause: "局部匹配导致环路错误"
+    signal: "顺序断裂"
+    lesson: "需全局路径"
+    reference: "国赛赛题分析"
+  - method: "忽略边缘连续性"
+    root_cause: "相似度歧义误配"
+    signal: "复原错乱"
+    lesson: "需结构约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

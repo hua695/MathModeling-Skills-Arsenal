@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P037
+# 来源: 2019 ICM Problem F: Universal, Decentralized, Circulating Currency
+case_id: P037
+failures:
+  - method: "忽略网络效应"
+    root_cause: "货币价值随用户增加而增加"
+    signal: "采用预测偏低"
+    lesson: "需引入网络效应"
+    reference: "美赛赛题分析"
+  - method: "忽略安全风险"
+    root_cause: "去中心化系统有安全风险"
+    signal: "稳定性高估"
+    lesson: "需建模安全因素"
+    reference: "美赛赛题分析"
+confidence: 低
+source:
+  title: "2019 ICM Problem F: Universal, Decentralized, Circulating Currency"
+  url: https://www.contest.comap.com/undergraduate/contests/

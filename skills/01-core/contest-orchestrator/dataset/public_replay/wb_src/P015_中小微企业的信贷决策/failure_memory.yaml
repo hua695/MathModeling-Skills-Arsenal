@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P015
+# 来源: 全国大学生数学建模竞赛2020年C题
+case_id: P015
+failures:
+  - method: "逻辑回归预测违约"
+    root_cause: "特征与违约非线性关系"
+    signal: "AUC偏低"
+    lesson: "需用非线性模型"
+    reference: "国赛赛题分析"
+  - method: "忽略数据不平衡"
+    root_cause: "违约样本少导致模型偏向多数类"
+    signal: "召回率低"
+    lesson: "需过采样或调整权重"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P098
+# 来源: 全国大学生数学建模竞赛2008年C题
+case_id: P098
+failures:
+  - method: "随机游走搜索"
+    root_cause: "覆盖率低且重复"
+    signal: "发现概率小"
+    lesson: "需覆盖路径"
+    reference: "国赛赛题分析"
+  - method: "忽略概率更新"
+    root_cause: "重点区域未复查"
+    signal: "效率低下"
+    lesson: "需贝叶斯更新"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

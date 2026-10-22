@@ -1,0 +1,37 @@
+schema_version: "1.0"
+reader_evidence_version: "1.0"
+status: ready
+prepared_from_author_brief_sha256: <paper_author_brief.yaml sha256>
+chapter_id: <section-id>
+chapter_kind: modeling_question
+chapter_role: core
+reader_question: <本章问题>
+chapter_purpose: <本章作用>
+chapter_answer: <本章回答>
+opening_bridge: <问题引入与建模思路段；不单独设编号标题>
+section_structure:
+  numbered_sections: [模型建立, 模型求解与结果分析]
+  final_model_block: 模型建立小节末尾
+  summary_location: 模型建立小节末尾
+  optional_sections: []
+model_summary_card: model_summary_cards.yaml
+abstract_contribution:
+  method: <本章可进入摘要的方法概括>
+  result: <本章可进入摘要的冻结结果>
+  meaning: <本章结果对总问题的意义>
+  evidence_refs: [<与本章证据一致的路径或证据引用>]
+argument_ids: []
+evidence_refs: []
+figure_roles: []
+reads_from: [<前置章节ID>]
+feeds_to: [<后续章节ID>]
+new_claims_allowed: [<本章允许新增的argument-id>]
+handoff_question: <本章结尾交给下一章的问题>
+reader_takeaway: <读者收获>
+authoring_arc:
+  opening_tension: <本章开头要建立的矛盾或问题张力>
+  evidence_sequence: [<当前章节实际使用的证据顺序>]
+  interpretive_move: <从证据到读者理解的解释动作>
+  transition_question: <交给下一章的问题>
+writer_instruction: <以连贯学术叙事回答读者问题；只使用列出的冻结材料>
+excluded_material: []

@@ -1,0 +1,20 @@
+schema_version: "1.0"
+active_mode: full-contest-mathorcup
+status: draft
+prepared_by: academic-writing
+source_refs:
+  problem_statement: null
+  task_kpi: null
+  run_manifest: null
+  result_interpretation_cards: null
+  independent_validation: null
+  literature_sources: null
+  visual_argument_plan: null
+  competition_profile: null
+global:
+  central_thesis: null
+  reader_journey: []
+  target_length: null
+  chapter_order: []
+chapters: []
+arguments: []

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P003
+# 来源: 全国大学生数学建模竞赛2011年C题
+case_id: P003
+applicable_scenarios:
+  - 养老金/社保预测
+  - 人口结构预测
+  - 精算平衡分析
+strategy: "人口矩阵模型+精算平衡+情景分析的组合"
+why_effective: "人口矩阵捕捉年龄结构变化, 精算模型量化收支, 情景分析比较政策效果"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

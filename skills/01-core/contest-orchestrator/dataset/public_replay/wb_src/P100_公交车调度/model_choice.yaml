@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P100
+# 来源: 全国大学生数学建模竞赛2001年B题
+case_id: P100
+candidate_models:
+  - 排队论
+  - 整数规划
+  - 动态规划
+  - 仿真优化
+final_choice: "整数规划发车调度 + 客流匹配优化"
+reason: "以成本最小与服务水平为目标, 整数规划确定各时段发车间隔与车辆配置"
+alternatives:
+  - 遗传算法
+  - 滚动优化
+  - 模拟退火
+limitations:
+  - 客流随机波动
+  - 路堵未建模
+  - 排班切换成本忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2001年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,20 @@
+schema_version: "1.0"
+active_mode: full-contest-mathorcup
+competition_profile: null
+problem_scope:
+  subproblems: []
+agent_runtime_routes:
+  data: {model: gpt-6-luna, reasoning_effort: max}
+  solver: {model: gpt-6.1-sol, reasoning_effort: max}
+  verifier: {model: gpt-6.1-sol, reasoning_effort: max}
+  figure: {model: gpt-6-luna, reasoning_effort: max}
+  writer: {model: gpt-6.1-sol, reasoning_effort: max}
+agent_instances: {}
+solver_instance_id: null
+dispatch_records: []
+nodes:
+  M1: {status: not_started, review_packet: null, skill_invocations: [], problem_statement: null, data_overview: null, task_kpi: null, literature_request: null}
+  M2: {status: not_started, review_packet: null, skill_invocations: [], eda_report: null, features: null, leakage_audit: null, literature_sources: null}
+  M3: {status: not_started, review_packet: null, skill_invocations: [], run_manifest: null, model_summary_cards: null, result_interpretation_cards: null, independent_validation: null}
+  M4: {status: not_started, review_packet: null, skill_invocations: [], visual_argument_plan: null, visual_plan_review_packet: null, figure_registry: null, paper_argument_blueprint: null, writing_plan_review_packet: null, paper_material_readiness: null, paper_claim_coverage: null, paper_pdf: null, writing_started: false, chapters: []}
+  M5: {status: not_started, review_packet: null, skill_invocations: [], reproducibility_report: null, delivery_report: null, paper_pdf: null, submission_package: null}

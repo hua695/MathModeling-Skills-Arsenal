@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P066
+# 来源: 全国大学生数学建模竞赛2005年C题
+case_id: P066
+failures:
+  - method: "仅看平均误差"
+    root_cause: "忽略空间与极端偏差"
+    signal: "评价片面"
+    lesson: "需多维指标"
+    reference: "国赛赛题分析"
+  - method: "忽略分辨率差异"
+    root_cause: "栅格不匹配致误差虚高"
+    signal: "误判方法"
+    lesson: "需重采样"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

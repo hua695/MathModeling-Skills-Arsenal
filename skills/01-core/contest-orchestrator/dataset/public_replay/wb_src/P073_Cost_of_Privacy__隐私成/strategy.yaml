@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P073
+# 来源: 2018 ICM Problem F: Cost of Privacy
+case_id: P073
+applicable_scenarios:
+  - 隐私策略评价
+  - 效用-风险权衡
+  - 合规成本分析
+strategy: "成本效益+AHP多维隐私评价"
+why_effective: "成本效益给量化基准, AHP融合多维诉求, 支撑隐私策略取舍"
+confidence: 中
+source:
+  title: "2018 ICM Problem F: Cost of Privacy"
+  url: https://www.contest.comap.com/undergraduate/contests/

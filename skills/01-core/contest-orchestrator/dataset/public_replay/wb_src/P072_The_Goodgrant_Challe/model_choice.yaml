@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P072
+# 来源: 2016 MCM Problem C: The Goodgrant Challenge
+case_id: P072
+candidate_models:
+  - 主成分分析(PCA)
+  - LASSO回归
+  - 数据包络分析(DEA)
+  - 多目标规划
+final_choice: "PCA+LASSO筛选 + DEA效率评价投资"
+reason: "PCA/LASSO降维筛选关键指标, DEA评价投资效率并优选组合"
+alternatives:
+  - 层次分析法
+  - 随机森林
+  - 投资组合优化
+limitations:
+  - 回报口径不一
+  - 长期效果难估
+  - 数据缺失
+confidence: 中
+source:
+  title: "2016 MCM Problem C: The Goodgrant Challenge"
+  url: https://www.contest.comap.com/undergraduate/contests/

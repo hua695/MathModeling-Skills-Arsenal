@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P081
+# 来源: 全国大学生数学建模竞赛2010年A题
+case_id: P081
+steps:
+  - step: 1
+    action: "建立罐体截面几何模型"
+    reason: "描述液位与截面积关系"
+    abandoned: "无"
+  - step: 2
+    action: "积分计算容积-液位函数"
+    reason: "得到理论罐容表"
+    abandoned: "无"
+  - step: 3
+    action: "引入变位参数"
+    reason: "修正倾斜下的容积"
+    abandoned: "无"
+  - step: 4
+    action: "最小二乘反演变位"
+    reason: "拟合实测标定参数"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

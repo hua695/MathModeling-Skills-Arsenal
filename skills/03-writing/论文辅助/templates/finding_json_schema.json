@@ -1,0 +1,66 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Math Paper Review Finding",
+  "description": "数模论文节点审查的单条发现，三态拆分（生命周期/验证状态/新鲜度），必须严格遵循此格式",
+  "type": "object",
+  "required": [
+    "finding_id",
+    "finding_state",
+    "verification_state",
+    "freshness_state",
+    "severity",
+    "confidence",
+    "source_path",
+    "source_sha256",
+    "line_range",
+    "observed_text",
+    "evidence",
+    "impact",
+    "recommended_action",
+    "acceptance_criteria"
+  ],
+  "properties": {
+    "finding_id": {
+      "type": "string",
+      "pattern": "^REV-[A-Z0-9]+-\\d{3}$",
+      "description": "发现编号，格式 REV-<节点>-<序号>，如 REV-G4-001"
+    },
+    "finding_state": {
+      "type": "string",
+      "enum": ["OPEN", "RESOLVED", "DISMISSED", "ACCEPTED_RISK"],
+      "description": "问题生命周期：OPEN=新发现或未解决；RESOLVED=已修复并验证；DISMISSED=经核实为误报；ACCEPTED_RISK=用户确认接受该风险"
+    },
+    "verification_state": {
+      "type": "string",
+      "enum": ["VERIFIED", "PARTIALLY_VERIFIED", "UNVERIFIED"],
+      "description": "证据充分性：VERIFIED=有明确源文件证据；PARTIALLY_VERIFIED=有间接证据但需进一步确认；UNVERIFIED=无法通过当前材料验证"
+    },
+    "freshness_state": {
+      "type": "string",
+      "enum": ["CURRENT", "STALE", "UNKNOWN"],
+      "description": "与当前材料的一致性：CURRENT=基于当前源文件确认存在；STALE=基于旧版本，当前可能已修复；UNKNOWN=无法确认是否仍然存在"
+    },
+    "severity": {
+      "type": "string",
+      "enum": ["BLOCKER", "HIGH", "MEDIUM", "LOW"],
+      "description": "严重程度：BLOCKER=阻断节点放行；HIGH=严重影响质量应优先修复；MEDIUM=建议修复；LOW=可选修复（QUICK模式默认隐藏）"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["HIGH", "MEDIUM", "LOW"],
+      "description": "审查置信度：HIGH=证据充分结论明确；MEDIUM=有证据但存在不确定性；LOW=基于推测或间接证据"
+    },
+    "source_path": {"type": "string", "description": "文件相对路径"},
+    "source_sha256": {"type": "string", "pattern": "^[a-fA-F0-9]{64}$", "description": "文件SHA256哈希"},
+    "line_range": {"type": "string", "pattern": "^\\d+-\\d+$", "description": "行号范围"},
+    "observed_text": {"type": "string", "description": "观察到的原文片段"},
+    "evidence": {"type": "string", "description": "证据说明，引用当前源文件的具体内容（跨文件问题可列多项）"},
+    "impact": {"type": "string", "description": "对模型正确性/结果可信度/论文质量/节点放行的影响"},
+    "recommended_action": {"type": "string", "description": "优化建议（只提意见，不修改文件）"},
+    "acceptance_criteria": {"type": "string", "description": "修复后的验收标准"},
+    "check_category": {"type": "string", "enum": ["symbol_integrity", "language_quality", "artifact_consistency", "compile_check"], "description": "论文辅助内部检查类别（可选）"},
+    "critic_category": {"type": "string", "enum": ["Math-Critic", "Code-Critic", "Paper-Critic", "Compliance-Critic"], "description": "对应主 skill Critic 四类审查（可选）"},
+    "node": {"type": "string", "description": "所属节点或阶段（可选，依模式可为 G0-G6 / A-G / H0-H9 / 小问编号）"}
+  },
+  "additionalProperties": false
+}

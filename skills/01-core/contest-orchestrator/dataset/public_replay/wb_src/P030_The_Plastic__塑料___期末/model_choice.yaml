@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P030
+# 来源: 2020 ICM Problem E: The Plastic
+case_id: P030
+candidate_models:
+  - 系统动力学模型
+  - 物质流分析(SFA)
+  - 灰色预测
+  - 情景分析
+final_choice: "系统动力学 + 物质流分析"
+reason: "系统动力学模拟塑料全生命周期, 物质流分析量化各环节"
+alternatives:
+  - 投入产出模型
+  - LCA模型
+  - Agent-based模型
+limitations:
+  - 降解速率不确定性大
+  - 微塑料数据缺乏
+  - 全球数据不统一
+confidence: 中
+source:
+  title: "2020 ICM Problem E: The Plastic"
+  url: https://www.contest.comap.com/undergraduate/contests/

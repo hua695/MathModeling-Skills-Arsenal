@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P084
+# 来源: 全国大学生数学建模竞赛2015年C题
+case_id: P084
+steps:
+  - step: 1
+    action: "建立太阳月亮位置模型"
+    reason: "计算赤纬与赤经"
+    abandoned: "无"
+  - step: 2
+    action: "赤道到地平坐标变换"
+    reason: "得高度与方位"
+    abandoned: "无"
+  - step: 3
+    action: "求解地平高度为零时刻"
+    reason: "得到月出月落"
+    abandoned: "无"
+  - step: 4
+    action: "验证特定诗句场景"
+    reason: "比对文学描述"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

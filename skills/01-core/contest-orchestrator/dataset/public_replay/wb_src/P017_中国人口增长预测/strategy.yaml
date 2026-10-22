@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P017
+# 来源: 全国大学生数学建模竞赛2007年A题
+case_id: P017
+applicable_scenarios:
+  - 人口预测
+  - 年龄结构分析
+  - 政策效果评估
+strategy: "矩阵模型+参数校准+情景分析"
+why_effective: "矩阵模型精确模拟年龄推移, 情景分析提供政策参考"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2007年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

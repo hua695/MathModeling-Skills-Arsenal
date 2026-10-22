@@ -1,0 +1,23 @@
+# model_choice.yaml - 经验卡片 #P002
+# 来源: 全国大学生数学建模竞赛2011年A题
+case_id: P002
+candidate_models:
+  - 克里金插值(Kriging)
+  - 反距离权重插值(IDW)
+  - 主成分分析(PCA)
+  - 因子分析
+  - Nemerow污染指数法
+final_choice: "克里金插值空间可视化 + 因子分析识别污染源 + Nemerow指数评价"
+reason: "克里金插值考虑空间自相关性, 因子分析提取污染源特征, Nemerow指数兼顾极值影响"
+alternatives:
+  - 样条插值
+  - 层次分析法评价
+  - 模糊综合评价
+limitations:
+  - 采样点密度不足影响插值精度
+  - 因子分析对污染源的解释有主观性
+  - 未考虑重金属迁移转化过程
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2011年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

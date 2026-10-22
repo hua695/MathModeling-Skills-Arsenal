@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P022
+# 来源: 2016 ICM Problem D: Measuring Information in a Social Network
+case_id: P022
+candidate_models:
+  - 多层复杂网络模型
+  - 动态信息流模型
+  - 贝叶斯Logistic回归
+  - PageRank变体
+final_choice: "多层复杂网络 + 动态信息流模型"
+reason: "多层网络刻画信息传播路径, 动态流模型量化信息价值变化"
+alternatives:
+  - 独立级联模型
+  - 线性阈值模型
+  - SIR信息传播模型
+limitations:
+  - 网络结构假设简化
+  - 信息内容分析不足
+  - 计算复杂度高
+confidence: 中
+source:
+  title: "2016 ICM Problem D: Measuring Information in a Social Network"
+  url: http://www.madio.net/thread-290074-1-1.html

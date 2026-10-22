@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P066
+# 来源: 全国大学生数学建模竞赛2005年C题
+case_id: P066
+candidate_models:
+  - 均方根误差(RMSE)
+  - 偏差分析
+  - 相关系数
+  - 统计假设检验
+final_choice: "RMSE+偏差+空间相关系数综合评判"
+reason: "用RMSE量化精度, 偏差反映系统性偏移, 相关系数反映空间一致性"
+alternatives:
+  - 平均绝对误差
+  - TS评分
+  - Naive对比
+limitations:
+  - 实测点稀疏致插值误差
+  - 分辨率不一致
+  - 未考虑时效
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2005年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,23 @@
+schema_version: "1.0"
+status: ready
+paper_author_brief_sha256: <paper_author_brief.yaml sha256>
+chapter_writing_card_sha256: <chapter_writing_card.yaml sha256>
+central_thesis: <全文中心主张>
+reader_journey: <读者从问题、方法、证据到结论的理解路径>
+paper_spine:
+  core_chapters: [Q1, Q2, Q3]
+  support_chapters: [problem_analysis, assumptions, symbols, conclusion]
+  chapter_order: [problem_analysis, assumptions, symbols, Q1, Q2, Q3, conclusion]
+  chapter_edges:
+    - {from: problem_analysis, to: assumptions, relation: prepares, handoff_question: 题意分析如何转化为可接受的建模假设？}
+    - {from: assumptions, to: symbols, relation: prepares, handoff_question: 建模假设如何约束统一符号和变量口径？}
+    - {from: symbols, to: Q1, relation: feeds, handoff_question: 统一符号如何进入第一问模型？}
+    - {from: Q1, to: Q2, relation: extends, handoff_question: 第一问结果如何支撑网络结构优化？}
+    - {from: Q2, to: Q3, relation: extends, handoff_question: 网络优化结果如何进入稳健性分析？}
+    - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: 各问结果如何汇总回答总问题？}
+current_chapter_id: <当前章节 ID>
+previous_section_takeaway: <前一章节收束；首章写“无前置章节”>
+next_section_question: <下一章节将回答的问题>
+completed_chapters: []
+terminology_lock: []
+voice: 客观、连贯、面向读者的叙述口径

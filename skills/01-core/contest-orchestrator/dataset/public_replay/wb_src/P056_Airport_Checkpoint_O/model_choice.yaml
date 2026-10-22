@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P056
+# 来源: 2017 ICM Problem D: Airport Checkpoint Operations
+case_id: P056
+candidate_models:
+  - 排队论(M/M/c)
+  - 整数规划
+  - 仿真
+  - 动态规划
+final_choice: "排队论通道数优化 + 仿真验证"
+reason: "排队论确定满足等待阈值的通道数, 仿真在随机到达下验证鲁棒性"
+alternatives:
+  - M/G/c模型
+  - 遗传算法
+  - 蒙特卡洛
+limitations:
+  - 到达分布假设
+  - 未考虑团体旅客
+  - 排班切换成本忽略
+confidence: 中
+source:
+  title: "2017 ICM Problem D: Airport Checkpoint Operations"
+  url: http://www.madio.net/thread-290074-1-1.html

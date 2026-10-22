@@ -1,0 +1,37 @@
+# problem_graph.yaml - 经验卡片 #P001
+# 来源: 全国大学生数学建模竞赛2010年B题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P001
+title: "2010年上海世博会影响力的定量评估"
+competition: CUMCM
+year: 2010
+problem_code: "B"
+category: 数据预测
+domain: 社会科学/影响力评估
+objective: "选择若干指标定量评估2010年上海世博会的影响力, 并与往届世博会比较"
+variables:
+  - name: 世博会参观人数
+    type: 未指定
+    description: 未指定
+  - name: 经济指标(GDP/旅游收入/投资)
+    type: 未指定
+    description: 未指定
+  - name: 社会指标(媒体报道/网络关注度)
+    type: 未指定
+    description: 未指定
+  - name: 交通客流数据
+    type: 未指定
+    description: 未指定
+constraints:
+  - 数据可获得性约束
+  - 指标可量化性要求
+  - 历史世博会可比性
+assumptions:
+  - 各指标相对独立
+  - 历史数据趋势可延续
+  - 指标可量化表示
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2010年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2010

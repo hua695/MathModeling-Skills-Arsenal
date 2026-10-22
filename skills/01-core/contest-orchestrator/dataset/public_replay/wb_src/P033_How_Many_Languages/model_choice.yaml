@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P033
+# 来源: 2018 MCM Problem B: How Many Languages?
+case_id: P033
+candidate_models:
+  - SIR传染病模型(改进)
+  - 回归分析
+  - 系统动力学
+  - 种群竞争模型
+final_choice: "改进SIR语言消亡模型 + 回归预测"
+reason: "SIR模型描述语言消亡传播, 回归量化全球化影响"
+alternatives:
+  - Agent-based模型
+  - 马尔可夫链
+  - 神经网络
+limitations:
+  - 语言消亡机制复杂
+  - 数据不完整(小语种)
+  - 文化因素难量化
+confidence: 中
+source:
+  title: "2018 MCM Problem B: How Many Languages?"
+  url: https://www.contest.comap.com/undergraduate/contests/

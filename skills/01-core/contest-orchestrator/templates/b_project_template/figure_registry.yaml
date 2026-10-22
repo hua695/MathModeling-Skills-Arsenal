@@ -1,0 +1,69 @@
+# 图表登记：每张图的类型、生成路由、SVG/PNG 路径、QA 状态（P0-05 新增校验）
+pipeline_audit:
+  scipilot_decision:
+    status: passed
+    timestamp: '2026-09-05T10:00:00+00:00'
+  modelviz_generation:
+    status: passed
+    timestamp: '2026-09-05T10:05:00+00:00'
+  scipilot_qa:
+    status: passed
+    timestamp: '2026-09-05T10:10:00+00:00'
+figures:
+- figure_id: fig-q1-result
+  kind: data
+  generator: modelviz
+  generation_route: modelviz
+  template_status: native
+  template_id: <SciPilot/ModelViz 选定的实际模板 ID>
+  template_source: <ModelViz 选定模板源文件>
+  template_sha256: <模板源文件 SHA-256>
+  template_fixture:
+    fixture_id: modelviz/<selected-template-id>
+    status: passed
+    report: figures/q1/template_fixture.yaml
+  visible_element_map:
+  - element: <冻结结果指标>
+    role: mark
+    evidence_refs:
+    - results/result.json#/result
+  - element: <比较或趋势关系>
+    role: relation
+    evidence_refs:
+    - results/result.json#/comparison
+  canvas_profile:
+    orientation: horizontal
+    target_layout: single
+    top_level_node_limit: 7
+  semantic_qa: scipilot-figure-skill
+  subproblem: Q1
+  visual_slot_ids:
+  - Q1-result-evidence
+  information_unit_ids:
+  - Q1-U01
+  - Q1-U02
+  realized_information_unit_ids:
+  - Q1-U01
+  - Q1-U02
+  density_profile: standard
+  claim: 方案A成本低于方案B
+  source_files:
+  - results/result.json
+  script: figures/q1/plot.py
+  formats:
+  - svg
+  - png
+  insertion_format: svg
+  svg_sha256: dc507c026fbc3c89aa44a3e1a997c755b7b406688df8618accf61217ee4218b5
+  png_sha256: 733bcd879fec064966d060cf2114a9cf4c34b8162394c52597d6c033159dbcfa
+  qa_status: reviewed
+  visual_qa: passed
+  caption: 图1 两种方案成本对比
+  caption_claim: 方案A成本低于方案B，验证了模型有效性
+  reader_takeaway: 在给定约束下，方案A的成本优势具有明确的决策意义
+  paper_location: body
+  layout_mode: single
+  decision_author: scipilot-figure-skill
+  decision_card: figures/q1_decision_card.yaml
+  svg: figures/q1/plot.svg
+  png: figures/q1/plot.png

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P025
+# 来源: 2018 MCM Problem C: Energy Production
+case_id: P025
+failures:
+  - method: "仅用单一模型预测"
+    root_cause: "不同能源类型规律不同"
+    signal: "预测精度不一致"
+    lesson: "需分类预测"
+    reference: "美赛赛题分析"
+  - method: "忽略政策影响"
+    root_cause: "政策显著影响能源结构"
+    signal: "预测偏离实际"
+    lesson: "需引入政策变量"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2018 MCM Problem C: Energy Production"
+  url: https://www.contest.comap.com/undergraduate/contests/

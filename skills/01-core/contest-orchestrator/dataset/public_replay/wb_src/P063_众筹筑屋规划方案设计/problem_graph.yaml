@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P063
+# 来源: 全国大学生数学建模竞赛2015年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P063
+title: "众筹筑屋规划方案设计"
+competition: CUMCM
+year: 2015
+problem_code: "D"
+category: 评价分类
+domain: 地产规划/综合评价
+objective: "在住户满意度与开发商利益平衡下, 评价并优选众筹筑屋规划方案"
+variables:
+  - name: 房型配比
+    type: 未指定
+    description: 未指定
+  - name: 容积率
+    type: 未指定
+    description: 未指定
+  - name: 公摊
+    type: 未指定
+    description: 未指定
+  - name: 单价
+    type: 未指定
+    description: 未指定
+  - name: 住户满意度
+    type: 未指定
+    description: 未指定
+  - name: 开发商利润
+    type: 未指定
+    description: 未指定
+constraints:
+  - 用地与容积率约束
+  - 房型比例约束
+  - 满意度与利润冲突
+  - 政策约束
+assumptions:
+  - 满意度可量化
+  - 住户偏好可统计
+  - 方案指标已知
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2015

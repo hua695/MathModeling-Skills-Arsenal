@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P062
+# 来源: 全国大学生数学建模竞赛2012年A题
+case_id: P062
+applicable_scenarios:
+  - 食品质量评价
+  - 农产品分级
+  - 理化-感官关联分析
+strategy: "PCA降维+聚类分级+判别验证"
+why_effective: "PCA消除共线性, 聚类给出自然分级, 判别提供可复用规则"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

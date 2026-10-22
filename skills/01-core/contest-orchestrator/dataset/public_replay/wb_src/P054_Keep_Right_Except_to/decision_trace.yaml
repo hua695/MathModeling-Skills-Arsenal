@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P054
+# 来源: 2014 MCM Problem A: Keep-Right-Except-to-Pass Rule
+case_id: P054
+steps:
+  - step: 1
+    action: "设计元胞自动机规则"
+    reason: "实现靠右/超车行为"
+    abandoned: "无"
+  - step: 2
+    action: "构建多车道仿真环境"
+    reason: "设定到达与速度分布"
+    abandoned: "无"
+  - step: 3
+    action: "仿真比较有无规则"
+    reason: "统计通行效率指标"
+    abandoned: "无"
+  - step: 4
+    action: "给出车道管理建议"
+    reason: "基于仿真结果"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2014 MCM Problem A: Keep-Right-Except-to-Pass Rule"
+  url: https://www.contest.comap.com/undergraduate/contests/

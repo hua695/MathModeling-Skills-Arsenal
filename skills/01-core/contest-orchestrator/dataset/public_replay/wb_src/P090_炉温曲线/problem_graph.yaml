@@ -1,0 +1,45 @@
+# problem_graph.yaml - 经验卡片 #P090
+# 来源: 全国大学生数学建模竞赛2020年A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P090
+title: "炉温曲线"
+competition: CUMCM
+year: 2020
+problem_code: "A"
+category: 物理建模
+domain: 热传导/有限差分
+objective: "建立回焊炉印制板温度场模型, 优化温区设置使炉温曲线满足焊接工艺窗口"
+variables:
+  - name: 各温区温度
+    type: 未指定
+    description: 未指定
+  - name: 传送带速度
+    type: 未指定
+    description: 未指定
+  - name: 板厚/比热
+    type: 未指定
+    description: 未指定
+  - name: 环境温度
+    type: 未指定
+    description: 未指定
+  - name: 板上各点温度
+    type: 未指定
+    description: 未指定
+  - name: 升温/峰值/降温速率
+    type: 未指定
+    description: 未指定
+constraints:
+  - 峰值温度窗口
+  - 升温/降温斜率限制
+  - 回流时间约束
+  - 热流连续性
+assumptions:
+  - 一维/二维导热主导
+  - 对流换热已知
+  - 物性恒定
+  - 稳态炉温分布已知
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678
+  year: 2020

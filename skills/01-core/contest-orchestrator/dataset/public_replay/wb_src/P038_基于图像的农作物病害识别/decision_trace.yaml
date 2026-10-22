@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P038
+# 来源: 2019年亚太杯数学建模竞赛A题
+case_id: P038
+steps:
+  - step: 1
+    action: "图像数据预处理与增强"
+    reason: "扩充训练数据"
+    abandoned: "无"
+  - step: 2
+    action: "迁移学习模型选择"
+    reason: "选择适合的预训练模型"
+    abandoned: "从零训练CNN"
+  - step: 3
+    action: "模型微调与训练"
+    reason: "适应农作物病害识别任务"
+    abandoned: "无"
+  - step: 4
+    action: "模型评估与对比"
+    reason: "验证识别准确率"
+    abandoned: "无"
+confidence: 低
+source:
+  title: "2019年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/

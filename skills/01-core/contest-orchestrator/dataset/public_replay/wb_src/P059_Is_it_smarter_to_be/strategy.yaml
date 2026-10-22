@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P059
+# 来源: 2015 ICM Problem D: Is it smarter to be sustainable?
+case_id: P059
+applicable_scenarios:
+  - 可持续投资决策
+  - 三重底线评价
+  - 长期战略优化
+strategy: "三重底线建模+AHP赋权+多目标优化"
+why_effective: "三重底线全面刻画价值, AHP客观赋权, 多目标给出平衡的最优投入"
+confidence: 中
+source:
+  title: "2015 ICM Problem D: Is it smarter to be sustainable?"
+  url: http://www.madio.net/thread-290074-1-1.html

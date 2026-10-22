@@ -1,0 +1,28 @@
+# decision_trace.yaml - 经验卡片 #P017
+# 来源: 全国大学生数学建模竞赛2007年A题
+case_id: P017
+steps:
+  - step: 1
+    action: "数据分析人口结构特征"
+    reason: "了解年龄/性别分布"
+    abandoned: "无"
+  - step: 2
+    action: "建立Leslie矩阵人口预测模型"
+    reason: "模拟年龄结构推移"
+    abandoned: "简单增长率"
+  - step: 3
+    action: "参数估计与校准"
+    reason: "用历史数据标定模型"
+    abandoned: "无"
+  - step: 4
+    action: "情景分析不同政策"
+    reason: "评估人口政策效果"
+    abandoned: "单一情景"
+  - step: 5
+    action: "中长期人口预测"
+    reason: "预测未来人口变化"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2007年A题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

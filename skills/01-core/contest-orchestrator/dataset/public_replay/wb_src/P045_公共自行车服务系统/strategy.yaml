@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P045
+# 来源: 全国大学生数学建模竞赛2013年D题
+case_id: P045
+applicable_scenarios:
+  - 共享出行调度
+  - 排队系统优化
+  - 城市慢行交通管理
+strategy: "需求聚类分区+整数规划调度+容量优化"
+why_effective: "聚类降低复杂度, 整数规划精确调度, 容量优化缓解潮汐失衡"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

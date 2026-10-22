@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P096
+# 来源: 2017 MCM Problem C: Coordinating Traffic Signals
+case_id: P096
+applicable_scenarios:
+  - 干线绿波协调
+  - 信号配时优化
+  - 城市交通控制
+strategy: "绿波带模型+整数规划相位差优化"
+why_effective: "绿波模型刻画协调本质, 整数规划求得最优配时, 降低主干道延误"
+confidence: 中
+source:
+  title: "2017 MCM Problem C: Coordinating Traffic Signals"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P014
+# 来源: 全国大学生数学建模竞赛2019年E题
+case_id: P014
+applicable_scenarios:
+  - 定价策略优化
+  - 需求弹性分析
+  - 利润最大化
+strategy: "弹性分析+最优化+敏感性分析"
+why_effective: "弹性分析提供理论基础, 最优化求解最优策略, 敏感性分析评估鲁棒性"
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2019年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

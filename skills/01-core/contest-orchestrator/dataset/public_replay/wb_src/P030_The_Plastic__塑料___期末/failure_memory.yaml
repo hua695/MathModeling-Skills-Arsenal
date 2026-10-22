@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P030
+# 来源: 2020 ICM Problem E: The Plastic
+case_id: P030
+failures:
+  - method: "忽略微塑料"
+    root_cause: "微塑料是重要污染形式"
+    signal: "低估污染水平"
+    lesson: "需建模微塑料"
+    reference: "美赛赛题分析"
+  - method: "线性外推生产量"
+    root_cause: "塑料生产受政策和市场影响"
+    signal: "长期预测不准"
+    lesson: "需用系统动力学"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2020 ICM Problem E: The Plastic"
+  url: https://www.contest.comap.com/undergraduate/contests/

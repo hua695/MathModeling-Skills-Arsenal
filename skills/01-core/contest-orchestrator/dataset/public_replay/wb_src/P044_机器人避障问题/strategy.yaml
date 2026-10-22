@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P044
+# 来源: 全国大学生数学建模竞赛2012年D题
+case_id: P044
+applicable_scenarios:
+  - 移动机器人路径规划
+  - 避障导航
+  - 最短路径优化
+strategy: "障碍膨胀+切点图+Dijkstra最短路径"
+why_effective: "膨胀保证无碰撞, 切点图把连续问题离散化, 最短路高效求得全局最优"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

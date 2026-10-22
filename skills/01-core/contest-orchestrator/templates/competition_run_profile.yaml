@@ -1,0 +1,23 @@
+schema_version: "1.0"
+profile: competition_fast
+purpose: "比赛期间按变更影响选择最小安全复核范围"
+user_approval_from: H2
+visual_check_scope: figures_only
+run_skill_suite_on_project_change: false
+h9_full_delivery_required: true
+full_delivery_gate: H9
+impact_card_path: .contest/change_impact_card.yaml
+impact_levels:
+  L0:
+    recheck_nodes: [H8]
+    checks: [paper_narrative, paper_claim_coverage, process_term_scan]
+  L1:
+    recheck_nodes: [H7]
+    checks: [figure_registry, figure_format, scipilot_visual_qa]
+  L2:
+    recheck_nodes: [H5, H6, H7, H8]
+    checks: [targeted_H5, targeted_H6, affected_H7, affected_H8]
+  L3:
+    recheck_from: earliest_invalid_node
+    recheck_until: H8
+    checks: [global_interface_check, full_cross_question_check]

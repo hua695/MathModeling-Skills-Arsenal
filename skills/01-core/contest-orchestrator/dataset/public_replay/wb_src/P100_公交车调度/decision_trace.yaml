@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P100
+# 来源: 全国大学生数学建模竞赛2001年B题
+case_id: P100
+steps:
+  - step: 1
+    action: "分析客流时空分布"
+    reason: "识别高峰平峰"
+    abandoned: "无"
+  - step: 2
+    action: "建立整数规划调度模型"
+    reason: "确定各时段发车间隔"
+    abandoned: "固定间隔"
+  - step: 3
+    action: "车辆与司机排班优化"
+    reason: "在车辆上限内配置"
+    abandoned: "经验排班"
+  - step: 4
+    action: "客流匹配与服务校验"
+    reason: "评估满载与等待"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2001年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

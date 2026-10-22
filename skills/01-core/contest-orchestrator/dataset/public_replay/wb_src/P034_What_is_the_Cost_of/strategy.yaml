@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P034
+# 来源: 2019 ICM Problem E: What is the Cost of Environmental Degradation?
+case_id: P034
+applicable_scenarios:
+  - 生态系统服务评估
+  - 环境成本效益分析
+  - 土地利用规划
+strategy: "ESV量化+成本效益+敏感性分析"
+why_effective: "ESV提供价值基准, 成本效益比较得失, 敏感性分析保证鲁棒性"
+confidence: 中
+source:
+  title: "2019 ICM Problem E: What is the Cost of Environmental Degradation?"
+  url: https://www.contest.comap.com/undergraduate/contests/

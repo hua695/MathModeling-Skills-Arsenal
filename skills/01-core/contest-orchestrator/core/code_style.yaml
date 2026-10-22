@@ -1,0 +1,21 @@
+schema_version: "2.0"
+font_family: Consolas
+size: small
+line_spacing: default
+indent_spaces: 4
+background: "codebg"
+border: "gray!55"
+line_numbers: true
+line_number_color: "gray!55"
+syntax_highlighting: "vs"
+require_language_marker: true
+require_header_comment: true
+require_runnable_source: true
+allow_debug_code: false
+allow_runtime_output_in_block: false
+environment: minted
+forbid_environments: [verbatim, Verbatim, lstlisting]
+options: [bgcolor=codebg, linenos, breaklines, tabsize=4, fontsize=\small, framesep=6pt]
+paragraph_spacing: "\\medskip"
+compile: "-shell-escape"
+dependency: Pygments

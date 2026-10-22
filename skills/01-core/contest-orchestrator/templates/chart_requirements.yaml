@@ -1,0 +1,17 @@
+# H5 图表需求清单（原H4职责，已并入H5阶段一）：只登记论证需求，不预先决定数据图型、视觉编码或版式。
+schema_version: "1.0"
+status: draft                 # draft | approved
+prepared_by: 解题 agent（H5阶段一）
+source_node: H5
+items:
+  - figure_id: <fig-Q1-01>
+    subproblem_id: <Q1>
+    claim_id: <正文主张 ID>
+    paper_location: <正文落位>
+    argument_goal: <图表需要帮助读者理解的论点>
+    required_result_fields: [<结果字段>]
+    candidate_sources:
+      - path: <冻结结果或数据文件>
+        sha256: <sha256>
+    caption_claim: <图注必须支持的事实性主张>
+    # data figure 的 kind、generator、视觉编码和 layout_mode 由 H7 的 SciPilot 决策卡确定。

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P031
+# 来源: 2020 ICM Problem F: The Place I Called Home
+case_id: P031
+failures:
+  - method: "忽略接收地容量"
+    root_cause: "接收地承载力有限"
+    signal: "移民预测偏高"
+    lesson: "需引入容量约束"
+    reference: "美赛赛题分析"
+  - method: "仅用经济因素"
+    root_cause: "气候因素也是移民主因"
+    signal: "预测不全面"
+    lesson: "需引入气候变量"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2020 ICM Problem F: The Place I Called Home"
+  url: https://www.contest.comap.com/undergraduate/contests/

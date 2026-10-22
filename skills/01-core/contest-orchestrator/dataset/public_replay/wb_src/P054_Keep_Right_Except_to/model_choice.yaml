@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P054
+# 来源: 2014 MCM Problem A: Keep-Right-Except-to-Pass Rule
+case_id: P054
+candidate_models:
+  - 元胞自动机(NaSch)
+  - 交通流宏观模型
+  - 仿真
+  - 排队论
+final_choice: "元胞自动机微观仿真 + 通行效率评价"
+reason: "元胞自动机刻画单车换道与跟车行为, 仿真比较不同规则下的吞吐量"
+alternatives:
+  - 流体动力学模型
+  -  Monte Carlo
+  - 博弈论车道选择
+limitations:
+  - 规则为理想化
+  - 未考虑驾驶员异质
+  - 仿真参数标定难
+confidence: 中
+source:
+  title: "2014 MCM Problem A: Keep-Right-Except-to-Pass Rule"
+  url: https://www.contest.comap.com/undergraduate/contests/

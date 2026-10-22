@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P084
+# 来源: 全国大学生数学建模竞赛2015年C题
+case_id: P084
+candidate_models:
+  - 球面三角天文模型
+  - 坐标变换(赤道-地平)
+  - 最小二乘拟合
+  - 数值历表
+final_choice: "球面三角天文模型 + 坐标变换计算月出"
+reason: "球面三角精确描述日月位置, 坐标变换求得地平高度为零的时刻即月出"
+alternatives:
+  - 数值历表查算
+  - 蒙特卡洛
+  - 网格搜索
+limitations:
+  - 大气折射忽略
+  - 地形遮挡未考虑
+  - 历表精度依赖
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2015年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

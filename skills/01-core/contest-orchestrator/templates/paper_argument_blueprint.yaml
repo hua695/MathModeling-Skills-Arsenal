@@ -1,0 +1,41 @@
+# 论证蓝图（paper_argument_blueprint.yaml）
+# academic-writing 在 H8 写作阶段一生成；用户审查并批准后，论文 agent 才能开始正文。
+schema_version: "1.0"
+status: draft                 # draft | approved
+prepared_by: academic-writing
+narrative_sha256: <paper_narrative.yaml sha256>
+interpretation_cards_sha256: <result_interpretation_cards.yaml sha256>
+global:
+  central_thesis: <全文最重要且可由冻结证据支持的总主张>
+  reader_journey: <读者依次需要获得的理解：问题—方法—证据—结论>
+  paper_spine:
+    core_chapters: [Q1, Q2, Q3]
+    support_chapters: [problem_analysis, assumptions, symbols, conclusion]
+    chapter_order: [problem_analysis, assumptions, symbols, Q1, Q2, Q3, conclusion]
+    chapter_edges:
+      - {from: problem_analysis, to: assumptions, relation: prepares, handoff_question: <题意分析如何转化为可接受的建模假设>}
+      - {from: assumptions, to: symbols, relation: prepares, handoff_question: <建模假设如何约束统一符号和变量口径>}
+      - {from: symbols, to: Q1, relation: feeds, handoff_question: <统一符号如何进入第一问模型>}
+      - {from: Q1, to: Q2, relation: extends, handoff_question: <第一问结果如何成为第二问输入>}
+      - {from: Q2, to: Q3, relation: extends, handoff_question: <第二问结果如何支撑第三问>}
+      - {from: Q3, to: conclusion, relation: synthesizes, handoff_question: <各问结果如何汇总回答总问题>}
+chapters:
+  - section_id: <section-id>
+    reader_question: <该章必须回答的读者问题>
+    chapter_answer: <该章用已冻结证据给出的回答>
+    argument_ids: [<argument-id>]
+    evidence_refs:
+      - path: <项目相对路径>
+        sha256: <sha256>
+    figure_roles: []          # 图号及其论证职责；无图时为空列表
+    excluded_material: []     # 已冻结但不服务本章主线的材料路径
+arguments:
+  - argument_id: <argument-id>
+    subproblem_id: <Q1|global>
+    claim: <读者应当接受的、范围明确的论点>
+    result_card_id: <Q1-result-01>
+    why_it_matters: <这一结果为何能支撑论文的核心价值>
+    supported_scope: <主张适用范围>
+    evidence_refs:
+      - path: <项目相对路径>
+        sha256: <sha256>

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P024
+# 来源: 2017 MCM Problem A: Managing the Zambezi River System
+case_id: P024
+candidate_models:
+  - 时间序列流量预测
+  - 线性规划调度优化
+  - 系统动力学
+  - 蒙特卡洛模拟
+final_choice: "时间序列流量预测 + 线性规划水库调度优化"
+reason: "时间序列预测来水量, 线性规划优化多目标调度"
+alternatives:
+  - 动态规划
+  - 遗传算法
+  - 随机优化
+limitations:
+  - 流量预测精度有限
+  - 线性规划可能过于简化
+  - 未考虑气候变化
+confidence: 中
+source:
+  title: "2017 MCM Problem A: Managing the Zambezi River System"
+  url: https://www.contest.comap.com/undergraduate/contests/

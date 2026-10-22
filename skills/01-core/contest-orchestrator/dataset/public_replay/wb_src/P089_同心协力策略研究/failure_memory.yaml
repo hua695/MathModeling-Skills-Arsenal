@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P089
+# 来源: 全国大学生数学建模竞赛2019年B题
+case_id: P089
+failures:
+  - method: "忽略力矩平衡"
+    root_cause: "杆体翻转失控"
+    signal: "协同失败"
+    lesson: "需力矩约束"
+    reference: "国赛赛题分析"
+  - method: "各人发力不合成"
+    root_cause: "方向分散致抵消"
+    signal: "前移低效"
+    lesson: "需合力优化"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

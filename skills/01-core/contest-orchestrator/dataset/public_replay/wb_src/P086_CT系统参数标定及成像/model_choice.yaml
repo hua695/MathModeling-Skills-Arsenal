@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P086
+# 来源: 全国大学生数学建模竞赛2017年A题
+case_id: P086
+candidate_models:
+  - Radon变换
+  - 反投影滤波(FBP)
+  - 代数重建(ART)
+  - 最小二乘反演
+final_choice: "Radon变换建模 + 滤波反投影重建"
+reason: "Radon变换描述投影生成, 滤波反投影从投影数据稳定重建吸收系数分布"
+alternatives:
+  - 迭代重建ART
+  - SART
+  - 压缩感知重建
+limitations:
+  - 投影噪声敏感
+  - 角度有限致伪影
+  - 锥束近似误差
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2017年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

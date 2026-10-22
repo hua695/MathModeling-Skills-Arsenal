@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P004
+# 来源: 全国大学生数学建模竞赛2012年C题
+case_id: P004
+applicable_scenarios:
+  - 疾病与环境因素关联分析
+  - 发病率预测
+  - 公共卫生干预策略
+strategy: "因素筛选+计数型回归+滞后效应建模"
+why_effective: "先筛选关键因素降低维度, 再用合适回归处理计数数据, 考虑滞后更符合实际"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

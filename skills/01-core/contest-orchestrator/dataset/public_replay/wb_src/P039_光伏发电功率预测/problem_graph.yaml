@@ -1,0 +1,46 @@
+# problem_graph.yaml - 经验卡片 #P039
+# 来源: 2019年电工杯数学建模竞赛A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P039
+title: "光伏发电功率预测"
+competition: 电工杯
+year: 2019
+problem_code: "A"
+category: 数据预测
+domain: 电力系统/新能源
+objective: "建立光伏发电功率预测模型, 提高电网调度效率"
+variables:
+  - name: 太阳辐照度
+    type: 未指定
+    description: 未指定
+  - name: 温度
+    type: 未指定
+    description: 未指定
+  - name: 湿度
+    type: 未指定
+    description: 未指定
+  - name: 云量
+    type: 未指定
+    description: 未指定
+  - name: 风速
+    type: 未指定
+    description: 未指定
+  - name: 光伏板倾角
+    type: 未指定
+    description: 未指定
+  - name: 发电功率
+    type: 未指定
+    description: 未指定
+constraints:
+  - 光伏板容量约束
+  - 天气随机性约束
+  - 预测时效约束
+assumptions:
+  - 辐照度是主要影响因素
+  - 温度影响转换效率
+  - 短期预测可行
+confidence: 低
+source:
+  title: "2019年电工杯数学建模竞赛A题"
+  url: https://www.saikr.com/vse/DGB2019
+  year: 2019

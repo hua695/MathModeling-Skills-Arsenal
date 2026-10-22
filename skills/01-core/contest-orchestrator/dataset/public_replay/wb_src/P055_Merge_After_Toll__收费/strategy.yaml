@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P055
+# 来源: 2017 MCM Problem B: Merge After Toll
+case_id: P055
+applicable_scenarios:
+  - 收费站合流优化
+  - 瓶颈通行能力提升
+  - 收费车道配置
+strategy: "瓶颈定位+排队建模+合流仿真优化"
+why_effective: "先定位真瓶颈再优化, 仿真刻画合流微观行为, 提升整体吞吐"
+confidence: 中
+source:
+  title: "2017 MCM Problem B: Merge After Toll"
+  url: https://www.contest.comap.com/undergraduate/contests/

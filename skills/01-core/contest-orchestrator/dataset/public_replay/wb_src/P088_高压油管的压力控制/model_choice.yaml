@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P088
+# 来源: 全国大学生数学建模竞赛2019年A题
+case_id: P088
+candidate_models:
+  - 质量守恒微分方程
+  - 状态方程(密度-压力)
+  - 常微分方程数值求解
+  - 参数优化
+final_choice: "燃油压力ODE建模 + 数值求解控制优化"
+reason: "质量守恒与状态方程联立得到压力演化ODE, 优化阀时序使压力稳定"
+alternatives:
+  - 有限体积法
+  - 系统辨识
+  - PID控制仿真
+limitations:
+  - 一维均匀假设
+  - 弹性模量近似
+  - 瞬态非线性忽略
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2019年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

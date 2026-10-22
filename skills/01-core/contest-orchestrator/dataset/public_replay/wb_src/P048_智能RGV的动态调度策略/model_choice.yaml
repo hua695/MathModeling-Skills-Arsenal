@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P048
+# 来源: 全国大学生数学建模竞赛2018年B题
+case_id: P048
+candidate_models:
+  - 0-1规划
+  - 动态规划
+  - 排队论
+  - 遗传算法/仿真
+final_choice: "动态调度规则 + 0-1规划分配 + 仿真验证"
+reason: "以产出最大为目标, 用0-1规划分配RGV任务, 仿真验证动态调度规则"
+alternatives:
+  - 贪心调度
+  - 模拟退火
+  - Petri网
+limitations:
+  - 故障随机性建模粗
+  - 未考虑换型时间
+  - 大规模仿真耗时
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

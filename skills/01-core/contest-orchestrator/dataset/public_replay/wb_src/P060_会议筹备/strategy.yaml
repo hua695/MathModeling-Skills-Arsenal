@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P060
+# 来源: 全国大学生数学建模竞赛2009年D题
+case_id: P060
+applicable_scenarios:
+  - 会务资源预订
+  - 不确定需求下采购
+  - 整数规划配置
+strategy: "整数规划配置+蒙特卡洛应对需求不确定性"
+why_effective: "整数规划精确配置资源, 蒙特卡洛在随机需求下检验与优化方案"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

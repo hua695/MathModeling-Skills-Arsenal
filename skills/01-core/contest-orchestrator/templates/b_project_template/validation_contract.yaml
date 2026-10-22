@@ -1,0 +1,22 @@
+# 验证契约：关键核对必查项、深度抽查锚点
+schema_version: '1.0'
+status: verified
+key_conclusions:
+- 模型有效
+- 方案A更优
+interface_values:
+  乘客需求: 1000
+symbol_definitions:
+- symbol: x
+  meaning: 发车间隔
+  unit: 分钟
+- symbol: y
+  meaning: 车辆数
+  unit: 辆
+self_verified:
+- check_id: v1
+  description: 目标函数验证
+  status: passed
+- check_id: v2
+  description: 约束满足验证
+  status: passed

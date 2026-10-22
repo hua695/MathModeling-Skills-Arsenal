@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P097
+# 来源: 全国大学生数学建模竞赛1998年B题
+case_id: P097
+applicable_scenarios:
+  - 灾情/巡检巡游
+  - VRP路径规划
+  - 分区均衡调度
+strategy: "聚类分区+TSP/VRP最短回路+时限均衡"
+why_effective: "分区保证可行时限, TSP求各组最优回路, 均衡提升整体效率"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛1998年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P014
+# 来源: 全国大学生数学建模竞赛2019年E题
+case_id: P014
+candidate_models:
+  - 需求弹性模型
+  - 博弈论定价
+  - 回归分析
+  - 最优化模型
+final_choice: "需求弹性分析 + 最优化定价模型"
+reason: "弹性分析量化价格敏感度, 最优化模型求解最优定价"
+alternatives:
+  - 动态定价
+  - A/B测试
+  - 机器学习定价
+limitations:
+  - 需求函数假设简化
+  - 未考虑消费者行为差异
+  - 竞争反应未建模
+confidence: 低
+source:
+  title: "全国大学生数学建模竞赛2019年E题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

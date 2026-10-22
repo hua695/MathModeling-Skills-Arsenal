@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P075
+# 来源: 2009 MCM Problem B: Energy and Phones
+case_id: P075
+applicable_scenarios:
+  - 能源配置评价
+  - 多方案优选
+  - 灰色预测辅助决策
+strategy: "需求预测+AHP多维度方案评价"
+why_effective: "预测明确问题规模, AHP系统权衡技术经济环境多目标"
+confidence: 中
+source:
+  title: "2009 MCM Problem B: Energy and Phones"
+  url: https://www.contest.comap.com/undergraduate/contests/

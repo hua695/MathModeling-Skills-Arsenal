@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P094
+# 来源: 2019 MCM Problem D: Time to Leave the Louvre
+case_id: P094
+failures:
+  - method: "静态最短路分配"
+    root_cause: "忽略通道容量致拥堵"
+    signal: "疏散超时"
+    lesson: "需动态流"
+    reference: "美赛赛题分析"
+  - method: "忽略节点溢出"
+    root_cause: "局部堆积堵塞"
+    signal: "疏散失败"
+    lesson: "需容量约束"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2019 MCM Problem D: Time to Leave the Louvre"
+  url: https://www.contest.comap.com/undergraduate/contests/

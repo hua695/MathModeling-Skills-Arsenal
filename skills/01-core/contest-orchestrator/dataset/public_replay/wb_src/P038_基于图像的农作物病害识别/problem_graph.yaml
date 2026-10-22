@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P038
+# 来源: 2019年亚太杯数学建模竞赛A题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P038
+title: "基于图像的农作物病害识别"
+competition: 亚太杯
+year: 2019
+problem_code: "A"
+category: 数据预测
+domain: 农业AI/图像识别
+objective: "建立基于图像的农作物病害自动识别模型, 提高识别准确率"
+variables:
+  - name: 图像像素特征
+    type: 未指定
+    description: 未指定
+  - name: 病斑颜色
+    type: 未指定
+    description: 未指定
+  - name: 病斑形状
+    type: 未指定
+    description: 未指定
+  - name: 病斑面积
+    type: 未指定
+    description: 未指定
+  - name: 叶片位置
+    type: 未指定
+    description: 未指定
+  - name: 病害类别
+    type: 未指定
+    description: 未指定
+constraints:
+  - 图像质量约束
+  - 病害类别多
+  - 数据不平衡
+assumptions:
+  - 图像特征可区分病害
+  - 标注数据准确
+  - 模型可泛化
+confidence: 低
+source:
+  title: "2019年亚太杯数学建模竞赛A题"
+  url: https://www.apmcm.org/
+  year: 2019

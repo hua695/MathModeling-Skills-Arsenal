@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P053
+# 来源: 2012 MCM Problem B: Camping along the Big Long River
+case_id: P053
+failures:
+  - method: "固定营地对所有队"
+    root_cause: "容量被超引起冲突"
+    signal: "行程不可行"
+    lesson: "需动态分配"
+    reference: "美赛赛题分析"
+  - method: "忽略划行时间"
+    root_cause: "当日无法抵达计划营地"
+    signal: "行程断裂"
+    lesson: "需行程校验"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2012 MCM Problem B: Camping along the Big Long River"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P037
+# 来源: 2019 ICM Problem F: Universal, Decentralized, Circulating Currency
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P037
+title: "Universal, Decentralized, Circulating Currency (通用去中心化流通货币)"
+competition: MCM/ICM
+year: 2019
+problem_code: "F"
+category: 数据预测
+domain: 经济学/货币建模
+objective: "建立去中心化数字货币模型, 预测货币采用和稳定性"
+variables:
+  - name: 货币供应量
+    type: 未指定
+    description: 未指定
+  - name: 交易量
+    type: 未指定
+    description: 未指定
+  - name: 用户数量
+    type: 未指定
+    description: 未指定
+  - name: 汇率
+    type: 未指定
+    description: 未指定
+  - name: 通胀率
+    type: 未指定
+    description: 未指定
+  - name: 信任度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 货币总量约束
+  - 网络安全约束
+  - 经济稳定约束
+assumptions:
+  - 用户采用有网络效应
+  - 货币价值与信任相关
+  - 去中心化影响稳定性
+confidence: 低
+source:
+  title: "2019 ICM Problem F: Universal, Decentralized, Circulating Currency"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2019

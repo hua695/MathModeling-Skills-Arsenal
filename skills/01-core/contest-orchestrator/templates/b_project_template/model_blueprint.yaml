@@ -1,0 +1,12 @@
+# 模型蓝图：候选模型、理由、备选和风险
+schema_version: '1.0'
+selected_models:
+- 线性规划
+- 灵敏度分析
+rationale: B题优化决策类，目标明确，约束线性
+alternatives:
+- model: 遗传算法
+  reason: 非线性扩展时使用
+risks:
+- 参数估计误差
+- 需求波动

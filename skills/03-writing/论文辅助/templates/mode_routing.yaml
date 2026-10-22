@@ -1,0 +1,159 @@
+# 论文辅助 skill 模式路由表
+# 从用户提供的信息中识别 active_mode，按本表选择审查范围和检查项。
+# 不适用的模式直接返回说明，不做审查。
+
+# 审查深度配置（QUICK 默认，DEEP 按需）
+review_profiles:
+  QUICK:
+    description: "节点暂停时快速反馈，默认检查高风险项"
+    checks:
+      symbol_integrity: "核心符号"
+      language_quality: "BLOCKER + HIGH 候选项"
+      artifact_consistency: "核心数字跨文件一致性"
+      compile_check: "仅编译失败/缺图/缺引用"
+    output: "顶部 3-5 项，默认隐藏 LOW"
+    auto_upgrade_conditions:
+      - "核心结果与源文件不一致"
+      - "PDF 疑似过期"
+      - "干净编译失败"
+      - "上次 HIGH/BLOCKER 未关闭"
+      - "模型假设/参数/数据结构变化"
+      - "核心结论无法追溯"
+  DEEP:
+    description: "最终论文/提交包/模型重大变化时全量审查"
+    checks:
+      symbol_integrity: "全量 + 作用域 + 单位 + 类型"
+      language_quality: "全量候选项 + 人工复核"
+      artifact_consistency: "全量数字 + 图表数据源 + 代码-结果一致性"
+      compile_check: "全量 + PDF 视觉检查"
+      semantic_review: "约束重建/边界反例/数量级检查/结论-证据关系"
+    output: "全量，含详细证据和 LOW 附录"
+
+modes:
+  full-contest-4-18:
+    description: "稳定协作流程，G0–G6 节点门禁（论文辅助主战场）"
+    applicable: true
+    review_triggers: ["G0", "G1", "G2", "G3", "G4", "G5", "G6"]
+    node_focus_file: "node_check_focus.yaml"
+    checks:
+      symbol_integrity: "G0, G3, G4, G5, G6"
+      language_quality: "G4, G5, G6"
+      artifact_consistency: "G3, G4, G5"
+      compile_check: "G6"
+    output_template: "review_report_template.md"
+    notes:
+      - "G0/G1/G2 以条件账本、文献、架构审查为主，符号/元话语检查较轻"
+      - "G3 高风险题触发深度建模审查"
+      - "G4/G5 四项检查全开"
+      - "G6 增加编译检查和交付门禁"
+
+  full-contest-legacy:
+    description: "稳定版流程，A→B→C→D→E→F→G 阶段（无 G0–G6 节点）"
+    applicable: true
+    review_triggers: ["D", "E", "F"]
+    stage_mapping:
+      A: "题目理解 → 对应 G0 审查重点"
+      B: "方案与 baseline → 对应 G1/G2 审查重点"
+      C: "求解与图表 → 对应 G3 审查重点"
+      D: "论文写作 → 对应 G4/G5 审查重点"
+      E: "Critic 评审 → 对应 G6 审查重点（评审视角）"
+      F: "交付门禁 → 对应 G6 审查重点（交付视角）"
+      G: "replay → 论文辅助不适用"
+    checks:
+      symbol_integrity: "C, D, E"
+      language_quality: "D, E, F"
+      artifact_consistency: "C, D, E"
+      compile_check: "F"
+    output_template: "review_report_template.md"
+    notes:
+      - "使用 A–G 阶段标签，不使用 G0–G6 编号"
+      - "legacy 模式无节点暂停机制，审查在 D/E/F 阶段主动触发"
+      - "回流包中'当前阶段'填写 A–G 阶段名"
+
+  full-contest-harness:
+    description: "实验模式，H0–H9 节点（半自动测试流程）"
+    applicable: true
+    review_triggers: ["H3", "H4", "H5", "H8", "H9"]
+    node_focus:
+      H4: "建模完整性门：假设、符号、原始关系、中间推导、目标/约束、算法、参数、结果、校验十项闭环"
+      H5: "独立验证与结果冻结：推导、符号、单位、边界、代码—结果一致性复核"
+      H8: "论文生成与审阅：元话语、格式、页数、公式、符号、引用检查"
+      H9: "交付审计与最终确认：只读审计正式目录、PDF、支撑材料、负向回声"
+    checks:
+      symbol_integrity: "H4, H5, H8"
+      language_quality: "H8, H9"
+      artifact_consistency: "H4, H5"
+      compile_check: "H9"
+    output_template: "review_report_template.md"
+    notes:
+      - "Harness 是实验模式，审查报告需标记 experimental"
+      - "H0–H3 不涉及论文辅助（题意/规划阶段）"
+      - "H6/H7 不涉及论文辅助（图表/素材冻结阶段）"
+      - "状态使用 draft → review_pending → validated → frozen"
+
+  subproblem:
+    description: "单问处理模式，只处理用户点名的小问及其直接依赖"
+    applicable: true
+    review_triggers: ["求解完成后", "论文片段完成后"]
+    checks:
+      symbol_integrity: true
+      language_quality: false
+      artifact_consistency: true
+      compile_check: false
+    output_template: "review_report_template.md"
+    notes:
+      - "聚焦单小问建模质量：符号定义、推导链闭合、参数来源、结果可复现"
+      - "不涉及整篇论文结构、章节顺序、交付门禁"
+      - "元话语/负向回声检查默认关闭（单问片段可能包含过程性描述）"
+      - "回流包中'当前阶段'填写小问编号（如'问题二'）"
+
+  paper:
+    description: "纯论文模式，模型/数字/图表/引用已冻结，只处理论文文本"
+    applicable: true
+    review_triggers: ["初稿完成后", "交付前"]
+    checks:
+      symbol_integrity: true
+      language_quality: true
+      artifact_consistency: "verification_only"
+      compile_check: true
+    output_template: "review_report_template.md"
+    notes:
+      - "只审查论文文本质量，不建议模型修改或参数调整"
+      - "model_evidence 只做数字与结果源的一致性核验，不做建模建议"
+      - "重点：符号一致性、元话语清除、负向回声清除、引用完整、格式合规"
+      - "发现模型层面问题时，标记为'需上游确认'，不直接给出建模修改建议"
+
+  delivery-audit:
+    description: "交付审计模式，只读检查，不修改任何文件"
+    applicable: true
+    review_triggers: ["最终交付前"]
+    checks:
+      symbol_integrity: "consistency_only"
+      language_quality: true
+      artifact_consistency: "frozen_number_verification"
+      compile_check: true
+    output_template: "review_report_template.md"
+    notes:
+      - "严格只读：不修改源文件、不覆盖被审计文件"
+      - "输出：证据、影响、最小修复建议、门禁状态（PASS/WARN/FAIL）"
+      - "检查范围：PDF 文本层、页数、版式、数字、公式、符号、引用、附录、匿名、负向回声、支撑材料一致性"
+      - "自动视觉质检默认关闭"
+      - "回流包中'禁止动作'必须包含'不得修改任何被审计文件'"
+
+  figures:
+    applicable: false
+    reason: "图表专用模式，由图表 skill 处理；论文辅助仅在 paper/delivery 模式下做图表与正文一致性检查"
+
+  skills-optimization:
+    applicable: false
+    reason: "优化 contest-orchestrator 本身，论文辅助不适用"
+
+# 路由决策规则
+routing_rules:
+  - "从用户提供的信息中识别 active_mode 和当前节点"
+  - "未明确指定模式时，默认按 full-contest-4-18 处理（G0–G6）"
+  - "审查深度默认 QUICK，满足自动升级条件时受影响部分升级 DEEP"
+  - "applicable=false 的模式，直接返回说明，不执行审查"
+  - "同一任务只有一个 active_mode，不混合多模式规则"
+  - "模式确定后，只加载该模式对应的检查项和节点重点，不读取其他模式规则"
+  - "审查报告中必须标注 active_mode 和审查深度"

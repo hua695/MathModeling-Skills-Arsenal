@@ -1,0 +1,168 @@
+{
+  "competition": "2018国赛B",
+  "year": 2018,
+  "problem": "B",
+  "title": "智能RGV的动态调度策略",
+  "paper_title": "智能制造系统中轨道式自动引导车的动态调度优化研究",
+  "skill_version": "3.6",
+  "retrieved_patterns": [
+    "WR-139", "WR-001", "WR-003", "WR-067", "WR-004", "WR-043", "WR-092", "WR-112",
+    "WR-078", "WR-147", "WR-006", "WR-007", "WR-162", "WR-008", "WR-057", "WR-157",
+    "WR-009", "WR-128", "WR-671", "WR-729", "WR-010", "WR-011", "WR-052", "WR-062",
+    "WR-152", "WR-041", "WR-053", "WR-054", "WR-018", "WR-020", "WR-079", "WR-015",
+    "WR-016", "WR-047", "WR-050", "WR-055", "WR-021", "WR-074", "WR-080", "WR-082",
+    "WR-023", "WR-063", "WR-072", "WR-081", "WR-028", "WR-089", "WR-131", "WR-150",
+    "WR-097", "WR-620", "WR-048", "WR-126", "WR-029", "WR-030", "WR-031", "WR-049",
+    "WR-056", "WR-132", "WR-042", "WR-103", "WR-144", "WR-033"
+  ],
+  "adopted_patterns": [
+    "WR-139", "WR-001", "WR-003", "WR-067", "WR-004", "WR-043", "WR-006", "WR-007",
+    "WR-008", "WR-057", "WR-009", "WR-010", "WR-011", "WR-052", "WR-041", "WR-018",
+    "WR-020", "WR-015", "WR-016", "WR-021", "WR-080", "WR-082", "WR-023", "WR-028",
+    "WR-029", "WR-030", "WR-031", "WR-049", "WR-056", "WR-132", "WR-033", "WR-144"
+  ],
+  "checked_traps": [
+    {
+      "trap_id": "WR-179",
+      "status": "PASS",
+      "anchor": "figures/fig1_layout.png ~ fig6_utilization.png（图 1-6）",
+      "evidence": "matplotlib 图表全部采用英文标签（规避系统无 CJK 字体），PDF/图内无乱码方块；标题经 fig2_gantt 修正后服务段/加工段色块正确"
+    },
+    {
+      "trap_id": "WR-728",
+      "status": "PASS",
+      "anchor": "论文全文正文（摘要~结论）",
+      "evidence": "正文无『经验库/检索/呈现先验/skills/Agent/提示词』等内部流程词；滚动时域修正以『供料优先原则』自然表述，未暴露元认知痕迹"
+    },
+    {
+      "trap_id": "WR-066",
+      "status": "PASS",
+      "anchor": "1 引言 / 2 相关工作 / 3 研究方法 / 4 实验设计与分析 / 5 讨论 / 6 结论",
+      "evidence": "章节编号连续（1-6），子节编号（3.1-3.5、4.1-4.3）与所属章节序号一致，无跳号/错乱"
+    },
+    {
+      "trap_id": "WR-162",
+      "status": "SUSPECTED",
+      "anchor": "参考文献 [1]-[25]",
+      "evidence": "参考文献 25 条 ≥ 8 条，覆盖 FMS 调度/混合流水车间/滚动时域/随机规划四类方法来源；但近 5 年（2021+）占比约 8%（仅 [20][23]），不满足 ≥50% 硬指标，且部分中文期刊条目缺 DOI —— 投稿前需补近 5 年文献与 DOI"
+    },
+    {
+      "trap_id": "WR-091",
+      "status": "PASS",
+      "anchor": "3.4 事件驱动仿真器设计（伪代码）",
+      "evidence": "仿真主循环伪代码给出 while + if RGV.free 的分支结构，算法步骤完整可复现，无占位符"
+    }
+  ],
+  "triggered_traps": [
+    {
+      "wr_id": "WR-162",
+      "severity": "medium",
+      "note": "参考文献近 5 年占比不足 50%（约 8%），投稿修订需补充 2021+ 文献并补全 DOI/页码；本场论文目标为竞赛/期刊双格式兼容，数量与覆盖度已达标"
+    }
+  ],
+  "critic_issues_total": 0,
+  "meta": {
+    "source": "contest-orchestrator v3.6 paper_retrieval.py 真实运行（9 章节检索，65 条去重命中）+ 论文终稿逐章回填",
+    "n_top_sum": 65,
+    "n_adopted": 32,
+    "guosai_adopted": 0,
+    "huaweibei_adopted": 0,
+    "honesty_note": "adopted_patterns 为论文终稿真实体现的写法；WR-162 近 5 年占比不足，按评审口径如实记为 SUSPECTED 而非 PASS，不虚报规避率"
+  },
+  "sections": [
+    {
+      "section": "摘要",
+      "context_type": "优化",
+      "n_top": 8,
+      "retrieved_patterns": ["WR-139", "WR-001", "WR-003", "WR-067", "WR-004", "WR-043"],
+      "used_patterns": [
+        {"wr_id": "WR-139", "pattern": "摘要按问题一分一段，每段方法加结果落到具体数字"},
+        {"wr_id": "WR-001", "pattern": "摘要按『针对问题一…针对问题二…』逐问分段"},
+        {"wr_id": "WR-003", "pattern": "摘要中每个问题的结果必须给具体数字+单位"},
+        {"wr_id": "WR-067", "pattern": "每问独立一段，先写模型方法，再给数字结果"}
+      ]
+    },
+    {
+      "section": "引言",
+      "context_type": "优化",
+      "n_top": 5,
+      "retrieved_patterns": ["WR-078", "WR-147", "WR-006", "WR-007", "WR-162"],
+      "used_patterns": [
+        {"wr_id": "WR-006", "pattern": "引言先做概念解释与界定"},
+        {"wr_id": "WR-007", "pattern": "研究目的与意义：把每问转成明确 Target 目标"}
+      ]
+    },
+    {
+      "section": "问题分析",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-008", "WR-057", "WR-157", "WR-009", "WR-128", "WR-671"],
+      "used_patterns": [
+        {"wr_id": "WR-008", "pattern": "问题解读每问写明『本题难点在于…』"},
+        {"wr_id": "WR-009", "pattern": "解读配示意图+微型算例"}
+      ]
+    },
+    {
+      "section": "模型建立",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-010", "WR-011", "WR-052", "WR-062", "WR-152", "WR-041"],
+      "used_patterns": [
+        {"wr_id": "WR-010", "pattern": "建模前做数据侧写"},
+        {"wr_id": "WR-011", "pattern": "用数据反差支撑建模决策（移动时间线性拟合 R²=1）"},
+        {"wr_id": "WR-041", "pattern": "候选解多时用先生成后筛选流程"}
+      ]
+    },
+    {
+      "section": "模型求解",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-018", "WR-020", "WR-079", "WR-015", "WR-016", "WR-047"],
+      "used_patterns": [
+        {"wr_id": "WR-018", "pattern": "算法选择给一句话理由"},
+        {"wr_id": "WR-020", "pattern": "结果给改进百分比量化贡献"},
+        {"wr_id": "WR-015", "pattern": "算法给流程图+迭代收敛曲线"}
+      ]
+    },
+    {
+      "section": "结果分析",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-021", "WR-074", "WR-080", "WR-082", "WR-023", "WR-063"],
+      "used_patterns": [
+        {"wr_id": "WR-021", "pattern": "前后对比可视化（原始 vs 优化）"},
+        {"wr_id": "WR-023", "pattern": "结果表格表头完整+综合列"},
+        {"wr_id": "WR-082", "pattern": "多策略/多样本互证"}
+      ]
+    },
+    {
+      "section": "灵敏度分析",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-028", "WR-089", "WR-131", "WR-150", "WR-097", "WR-620"],
+      "used_patterns": [
+        {"wr_id": "WR-028", "pattern": "稳定性分析：最优解附近扰动→波动小→证明稳定"}
+      ]
+    },
+    {
+      "section": "模型评价",
+      "context_type": "优化",
+      "n_top": 6,
+      "retrieved_patterns": ["WR-029", "WR-030", "WR-031", "WR-049", "WR-056", "WR-132"],
+      "used_patterns": [
+        {"wr_id": "WR-029", "pattern": "模型评价三段式：优点/不足/推广，每条带证据"},
+        {"wr_id": "WR-030", "pattern": "不足写得具体不空泛"},
+        {"wr_id": "WR-031", "pattern": "推广给场景+价值"}
+      ]
+    },
+    {
+      "section": "结论",
+      "context_type": "优化",
+      "n_top": 3,
+      "retrieved_patterns": ["WR-144", "WR-033", "WR-162"],
+      "used_patterns": [
+        {"wr_id": "WR-033", "pattern": "结论逐问编号，每问给结果+可靠性"}
+      ]
+    }
+  ]
+}

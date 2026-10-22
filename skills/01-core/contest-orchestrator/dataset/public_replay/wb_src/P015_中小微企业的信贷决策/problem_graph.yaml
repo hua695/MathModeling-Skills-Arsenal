@@ -1,0 +1,43 @@
+# problem_graph.yaml - 经验卡片 #P015
+# 来源: 全国大学生数学建模竞赛2020年C题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P015
+title: "中小微企业的信贷决策"
+competition: CUMCM
+year: 2020
+problem_code: "C"
+category: 数据预测
+domain: 金融风控/信贷决策
+objective: "根据企业数据建立信贷风险评估模型, 给出最优信贷策略"
+variables:
+  - name: 企业年收入
+    type: 未指定
+    description: 未指定
+  - name: 负债率
+    type: 未指定
+    description: 未指定
+  - name: 信用评级
+    type: 未指定
+    description: 未指定
+  - name: 违约率
+    type: 未指定
+    description: 未指定
+  - name: 贷款利率
+    type: 未指定
+    description: 未指定
+  - name: 贷款额度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 信贷总额约束
+  - 风险约束
+  - 利率上下限约束
+assumptions:
+  - 历史信用可预测未来违约
+  - 企业数据真实有效
+  - 行业风险一致
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2020年C题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2020

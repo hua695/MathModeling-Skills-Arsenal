@@ -1,0 +1,26 @@
+# 验证契约（validation_contract.yaml）
+# 由 H5 解题完成后产出，H6 验证 agent 只读本契约与契约中的证据锚点，不重读 H5 全部推导与代码。
+# 验证分级：关键核对（接口/数字/符号/结果来源）必查，深度抽查默认，全量重读仅 L3 回流或用户要求。
+schema_version: "1.0"
+contract_id: VC-001
+source_node: H5
+target_node: H6
+status: draft                # draft(H5 产出) | verified(H6 核验) | rejected(H6 发现缺口，回流 H5)
+key_conclusions:            # 关键结论 + 证据锚点（H6 抽查用）
+  - conclusion: <关键结论>
+    evidence: <结果文件项目相对路径>
+    derivation: <推导文件项目相对路径>
+interface_values:           # 跨问接口值（H6 核对一致性）
+  Q1_to_Q2:
+    variable: <接口变量名>
+    value: <值>
+    unit: <单位>
+    source: <来源文件项目相对路径>
+symbol_definitions:         # 关键符号（H6 核对符号一致性）
+  - symbol: <符号>
+    meaning: <含义>
+    unit: <单位>
+self_verified:              # H5 自验声明（哪些已验证）
+  - <已验证的检查项>
+needs_independent_check:    # H5 不确定、需要 H6 重点确认的点
+  - <H6 重点核对项>

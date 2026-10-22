@@ -1,0 +1,7 @@
+# 统一换行：提交入库用 LF，检出时按平台（Windows 检出 CRLF）
+* text=auto
+
+# 二进制/不可换行的文件
+*.png binary
+*.jpg binary
+*.xlsx binary

@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P054
+# 来源: 2014 MCM Problem A: Keep-Right-Except-to-Pass Rule
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P054
+title: "Keep-Right-Except-to-Pass Rule (右侧通行超车规则)"
+competition: MCM/ICM
+year: 2014
+problem_code: "A"
+category: 优化决策
+domain: 交通流优化/元胞自动机
+objective: "评估'非超车靠右'规则对多车道道路通行效率的影响, 给出最优车道管理建议"
+variables:
+  - name: 车道数
+    type: 未指定
+    description: 未指定
+  - name: 车辆到达率
+    type: 未指定
+    description: 未指定
+  - name: 速度分布
+    type: 未指定
+    description: 未指定
+  - name: 超车频率
+    type: 未指定
+    description: 未指定
+  - name: 车道容量
+    type: 未指定
+    description: 未指定
+constraints:
+  - 不可逆行
+  - 车道变换安全约束
+  - 车速上限
+  - 跟车最小间距
+assumptions:
+  - 车辆按规则行驶
+  - 超车仅左侧进行
+  - 交通流可用元胞自动机模拟
+confidence: 中
+source:
+  title: "2014 MCM Problem A: Keep-Right-Except-to-Pass Rule"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2014

@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P069
+# 来源: 2014 MCM Problem B: College Coaching Legends
+case_id: P069
+failures:
+  - method: "直接合计原始指标"
+    root_cause: "量纲与相关性混淆"
+    signal: "排名失真"
+    lesson: "需降维赋权"
+    reference: "美赛赛题分析"
+  - method: "忽略项目难度"
+    root_cause: "不同项目不可比"
+    signal: "排名不公"
+    lesson: "需难度校正"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2014 MCM Problem B: College Coaching Legends"
+  url: https://www.contest.comap.com/undergraduate/contests/

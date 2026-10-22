@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P095
+# 来源: 全国大学生数学建模竞赛2009年B题
+case_id: P095
+steps:
+  - step: 1
+    action: "分析病种与住院规律"
+    reason: "建立科室流转网络"
+    abandoned: "无"
+  - step: 2
+    action: "排队模型估等待"
+    reason: "量化瓶颈科室"
+    abandoned: "无"
+  - step: 3
+    action: "整数规划排程"
+    reason: "优化入院与手术日"
+    abandoned: "经验排程"
+  - step: 4
+    action: "仿真验证等待指标"
+    reason: "评估方案改善"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2009年B题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

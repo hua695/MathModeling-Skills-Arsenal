@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P087
+# 来源: 全国大学生数学建模竞赛2018年A题
+case_id: P087
+applicable_scenarios:
+  - 防护服热设计
+  - 多层导热优化
+  - 瞬态温度场求解
+strategy: "一维导热机理建模+有限差分+厚度优化"
+why_effective: "导热方程刻画物理过程, 有限差分数值求解, 优化满足安全约束"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2018年A题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P047
+# 来源: 全国大学生数学建模竞赛2014年D题
+case_id: P047
+steps:
+  - step: 1
+    action: "统计药品规格与使用频率"
+    reason: "建立药品特征库"
+    abandoned: "无"
+  - step: 2
+    action: "建立栅格划分多目标模型"
+    reason: "权衡空间与效率"
+    abandoned: "单一目标"
+  - step: 3
+    action: "频率加权分区布局"
+    reason: "高频药品前置"
+    abandoned: "随机摆放"
+  - step: 4
+    action: "求解与布局可视化"
+    reason: "输出储药柜设计方案"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2014年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

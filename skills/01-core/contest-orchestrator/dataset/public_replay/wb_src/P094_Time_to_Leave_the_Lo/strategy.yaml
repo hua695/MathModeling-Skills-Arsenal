@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P094
+# 来源: 2019 MCM Problem D: Time to Leave the Louvre
+case_id: P094
+applicable_scenarios:
+  - 建筑应急疏散
+  - 大型场馆人流优化
+  - 网络流调度
+strategy: "动态网络流+最短路出口分配优化"
+why_effective: "网络流刻画时空流动, 最短路高效分配, 兼顾容量与最短时间"
+confidence: 中
+source:
+  title: "2019 MCM Problem D: Time to Leave the Louvre"
+  url: https://www.contest.comap.com/undergraduate/contests/

@@ -1,0 +1,22 @@
+# model_choice.yaml - 经验卡片 #P004
+# 来源: 全国大学生数学建模竞赛2012年C题
+case_id: P004
+candidate_models:
+  - 多元线性回归
+  - 广义线性模型(GLM)
+  - 时间序列ARIMA
+  - 灰色关联分析
+final_choice: "灰色关联分析筛选关键因素 + GLM建立发病预测模型"
+reason: "灰色关联分析适合小样本因素筛选, GLM可处理计数型发病数据"
+alternatives:
+  - Pearson相关分析
+  - 神经网络
+  - Poisson回归
+limitations:
+  - 滞后效应建模不够精确
+  - 未考虑个体行为因素
+  - 数据粒度为日均值
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年C题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

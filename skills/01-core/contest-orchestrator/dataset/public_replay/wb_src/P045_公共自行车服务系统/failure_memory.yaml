@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P045
+# 来源: 全国大学生数学建模竞赛2013年D题
+case_id: P045
+failures:
+  - method: "固定调度路线"
+    root_cause: "未随需求变化调整"
+    signal: "高峰缺车率高"
+    lesson: "需动态调度"
+    reference: "国赛赛题分析"
+  - method: "忽视桩位溢出"
+    root_cause: "满桩导致还车失败"
+    signal: "系统效率下降"
+    lesson: "需容量约束"
+    reference: "国赛赛题分析"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2013年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html

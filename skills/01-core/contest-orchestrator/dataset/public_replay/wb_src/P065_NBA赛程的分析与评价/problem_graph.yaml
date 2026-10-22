@@ -1,0 +1,41 @@
+# problem_graph.yaml - 经验卡片 #P065
+# 来源: 全国大学生数学建模竞赛2008年D题
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P065
+title: "NBA赛程的分析与评价"
+competition: CUMCM
+year: 2008
+problem_code: "D"
+category: 评价分类
+domain: 体育赛程/综合评价
+objective: "建立NBA赛程评价指标, 评价赛程公平性与合理程度并优化编排"
+variables:
+  - name: 各队比赛场次
+    type: 未指定
+    description: 未指定
+  - name: 连续客场数
+    type: 未指定
+    description: 未指定
+  - name: 背靠背次数
+    type: 未指定
+    description: 未指定
+  - name: 飞行距离
+    type: 未指定
+    description: 未指定
+  - name: 对手强度
+    type: 未指定
+    description: 未指定
+constraints:
+  - 每队场次相等
+  - 场馆档期约束
+  - 赛程连续性
+  - 休息公平性
+assumptions:
+  - 赛程指标可量化
+  - 疲劳随密度增加
+  - 对手强度已知
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2008年D题"
+  url: https://www.cnblogs.com/nagiyuki77/p/17090536.html
+  year: 2008

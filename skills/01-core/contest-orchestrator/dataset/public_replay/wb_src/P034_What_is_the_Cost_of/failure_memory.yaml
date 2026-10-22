@@ -1,0 +1,18 @@
+# failure_memory.yaml - 经验卡片 #P034
+# 来源: 2019 ICM Problem E: What is the Cost of Environmental Degradation?
+case_id: P034
+failures:
+  - method: "忽略间接生态价值"
+    root_cause: "仅算直接经济价值"
+    signal: "低估环境成本"
+    lesson: "需全面评估ESV"
+    reference: "美赛赛题分析"
+  - method: "不考虑时间动态"
+    root_cause: "生态价值随时间变化"
+    signal: "评估偏差"
+    lesson: "需引入时间维度"
+    reference: "美赛赛题分析"
+confidence: 中
+source:
+  title: "2019 ICM Problem E: What is the Cost of Environmental Degradation?"
+  url: https://www.contest.comap.com/undergraduate/contests/

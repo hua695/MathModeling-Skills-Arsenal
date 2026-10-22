@@ -1,0 +1,13 @@
+# strategy.yaml - 经验卡片 #P043
+# 来源: 全国大学生数学建模竞赛2012年B题
+case_id: P043
+applicable_scenarios:
+  - 光伏屋顶布置
+  - 有限面积资源优化
+  - 多目标能源设计
+strategy: "0-1布板优化+光照核算+多目标性价比评价"
+why_effective: "0-1变量刻画离散布板, 光照核算保证出力真实, 多目标平衡性能与成本"
+confidence: 中
+source:
+  title: "全国大学生数学建模竞赛2012年B题"
+  url: https://blog.csdn.net/youcans/article/details/117410678

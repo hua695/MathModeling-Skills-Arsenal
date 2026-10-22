@@ -1,0 +1,44 @@
+# problem_graph.yaml - 经验卡片 #P072
+# 来源: 2016 MCM Problem C: The Goodgrant Challenge
+# 生成规则: 仅从公开论文/赛题抽取结构化信息, 不编造实验数据
+case_id: P072
+title: "The Goodgrant Challenge (教育投资评价)"
+competition: MCM/ICM
+year: 2016
+problem_code: "C"
+category: 评价分类
+domain: 教育投资/组合评价
+objective: "在投资回报与使命约束下, 评价并优选高校/学科投资方案使社会效益最大"
+variables:
+  - name: 候选学校/学科指标
+    type: 未指定
+    description: 未指定
+  - name: 毕业率
+    type: 未指定
+    description: 未指定
+  - name: 学费
+    type: 未指定
+    description: 未指定
+  - name: 就业/收入
+    type: 未指定
+    description: 未指定
+  - name: 使命契合
+    type: 未指定
+    description: 未指定
+  - name: 投资额
+    type: 未指定
+    description: 未指定
+constraints:
+  - 预算约束
+  - 使命(公平/卓越)约束
+  - 分散投资
+  - 数据可得性
+assumptions:
+  - 回报可量化
+  - 使命可指标化
+  - 历史数据可外推
+confidence: 中
+source:
+  title: "2016 MCM Problem C: The Goodgrant Challenge"
+  url: https://www.contest.comap.com/undergraduate/contests/
+  year: 2016

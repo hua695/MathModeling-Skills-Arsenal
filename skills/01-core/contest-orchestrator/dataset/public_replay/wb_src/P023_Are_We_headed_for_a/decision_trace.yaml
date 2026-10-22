@@ -1,0 +1,24 @@
+# decision_trace.yaml - 经验卡片 #P023
+# 来源: 2016 ICM Problem E: Are We headed for a Drought?
+case_id: P023
+steps:
+  - step: 1
+    action: "水资源数据分析"
+    reason: "了解供需平衡现状"
+    abandoned: "无"
+  - step: 2
+    action: "马尔可夫链降雨预测"
+    reason: "预测未来降水概率分布"
+    abandoned: "无"
+  - step: 3
+    action: "熵值法水资源评价"
+    reason: "客观评价水资源状况"
+    abandoned: "AHP主观赋权"
+  - step: 4
+    action: "优化水资源分配"
+    reason: "在约束下最大化效益"
+    abandoned: "无"
+confidence: 中
+source:
+  title: "2016 ICM Problem E: Are We headed for a Drought?"
+  url: http://www.madio.net/thread-290074-1-1.html

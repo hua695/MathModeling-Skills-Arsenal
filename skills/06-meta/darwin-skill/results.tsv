@@ -1,0 +1,2 @@
+timestamp	commit	skill	old_score	new_score	status	dimension	note	eval_mode
+2026-08-22T20:42	baseline	contest-orchestrator	-	88.0	baseline	-	初始基线评估（结构7维+实测：prompt1真实跑problem-parser / prompt2-3干跑）；缺口：data-science-stack与heuristic-algorithms未装、problem_parser缺模板示例与retrieval.py入参	dry_run

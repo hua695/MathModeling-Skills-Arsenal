@@ -1,0 +1,23 @@
+# model_choice.yaml - 经验卡片 #P023
+# 来源: 2016 ICM Problem E: Are We headed for a Drought?
+case_id: P023
+candidate_models:
+  - 马尔可夫链降雨预测
+  - 熵值法评价
+  - 线性回归
+  - 主成分分析
+  - 遗传算法优化
+final_choice: "马尔可夫链降雨预测 + 熵值法水资源评价 + 优化分配"
+reason: "马尔可夫链适合降雨这种随机过程, 熵值法客观赋权评价"
+alternatives:
+  - ARIMA
+  - 神经网络
+  - 灰色预测
+limitations:
+  - 降雨预测精度有限
+  - 未考虑气候变化长期趋势
+  - 模型参数地区依赖性强
+confidence: 中
+source:
+  title: "2016 ICM Problem E: Are We headed for a Drought?"
+  url: http://www.madio.net/thread-290074-1-1.html
