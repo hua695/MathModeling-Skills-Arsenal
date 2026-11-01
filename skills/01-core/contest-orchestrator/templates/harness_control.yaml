@@ -1,5 +1,10 @@
 schema_version: "1.0"
 active_mode: full-contest-harness
+visual_workflow: chapter_parallel
+# `chapter_parallel`: nodes.H7.writer_preparation holds the approved writing plan,
+# per-chapter drafts, quality reviews, H7_CHAPTER approvals and immutable visual prompts.
+# H7 generation cards bind chapter_id, revision_id, prompt_sha256 and visual-plan SHA-256.
+# The final registry records chapter_id, prompt_revision_id and generation_task_id.
 reader_evidence_protocol: "1.0"
 bootstrap:
   required_skill: superpowers:using-superpowers
@@ -60,7 +65,7 @@ nodes:
   H4: {owner_role: 已并入H5（蓝图设计）, agent_policy: merged_into_h5, support_agent_policy: conditional, note: "H4节点已取消，蓝图设计职责并入H5阶段一", status: merged}
   H5: {owner_role: 解题 agent, agent_policy: required, support_agent_policy: conditional, solver_instance_id: null, method_transfer_map: null, model_blueprint: null, chart_requirements: null, paper_narrative: null, result_interpretation_cards: null, validation_contract: null, model_summary_cards: null, run_manifest: null, sensitivity_report: null, visual_evidence_packet: null, skill_invocations: [], status: not_started}
   H6: {owner_role: 验证 agent, agent_policy: required, support_agent_policy: conditional, verification_scope: null, global_interface_check: null, model_summary_cards: null, visual_evidence_packet: null, skill_invocations: [], status: not_started}
-  H7: {owner_role: 图表 agent, agent_policy: required, support_agent_policy: conditional, model_summary_cards: null, visual_evidence_packet: null, visual_argument_plan: null, visual_plan_review_packet: null, figure_registry: null, skill_invocations: [], status: not_started}
+  H7: {owner_role: 图表 agent, agent_policy: required, support_agent_policy: conditional, model_summary_cards: null, visual_evidence_packet: null, visual_argument_plan: null, visual_plan_review_packet: null, writer_preparation: {writing_plan: null, plan_review_packet: null, chapters: []}, figure_selection_review_packet: null, figure_registry: null, skill_invocations: [], status: not_started}
   # H8 status 推进后必须登记 academic-writing 与 mathmodel-latex-skill 的实际调用及 evidence_ref。
   H8: {owner_role: 论文 agent, agent_policy: required, support_agent_policy: conditional, paper_material_readiness: null, evidence_gap_matrix: null, paper_claim_coverage: null, visual_argument_plan: null, abstract_argument_card: null, abstract_contract_report: null, abstract_written: false, paper_argument_blueprint: null, paper_author_brief: null, chapter_writing_cards: [], active_chapter_card: null, paper_continuity_context: null, model_summary_cards: null, writing_plan: null, writing_plan_sha256: null, plan_review_packet: null, plan_approved: false, writing_started: false, skill_invocations: [], status: not_started}
   # H9 status 推进后必须登记 bzd-review-paper 与 mathmodel-latex-skill 的实际调用及 evidence_ref。

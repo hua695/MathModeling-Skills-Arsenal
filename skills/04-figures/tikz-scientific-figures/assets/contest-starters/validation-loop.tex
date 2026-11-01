@@ -1,0 +1,18 @@
+% contest-template-id: validation-loop
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/validation-loop.tex
+% contest-template-sha256: <computed-from-starter>
+% Use only measured baselines, declared perturbations, and observed responses.
+\begin{tikzpicture}[
+  node distance=11mm and 12mm,
+  step/.style={draw, rounded corners=2pt, align=center, text width=31mm, minimum height=11mm},
+  relation/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[step] (base) {冻结基准\\模型与指标};
+  \node[step, right=of base] (test) {验证条件\\扰动或留出集};
+  \node[step, right=of test] (measure) {观测响应\\误差与可行性};
+  \node[step, below=of test] (compare) {与基准比较\\量化差异};
+  \draw[relation] (base) -- (test);
+  \draw[relation] (test) -- (measure);
+  \draw[relation] (measure) -- (compare);
+  \draw[relation] (compare.west) -| (base.south);
+\end{tikzpicture}

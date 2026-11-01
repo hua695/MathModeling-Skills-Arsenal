@@ -1,11 +1,11 @@
 ---
 name: mathmodel-latex-skill
-description: Generate stable and competition-style LaTeX mathematical modeling paper projects for MCM/ICM and CUMCM. Use when creating, adapting, compiling, or preflighting competition paper templates for COMAP MCM/ICM, Chinese Undergraduate Mathematical Contest in Modeling (CUMCM), or similar mathematical modeling submissions, including mcmthesis, cumcmthesis, XeLaTeX, latexmk, PDF page/size checks, identity-info checks, references, appendices, and AI-use disclosure sections. 触发：国赛/美赛/中文论文/LaTeX模板/论文排版/模板编译/数学建模论文。
+description: Generate stable LaTeX mathematical-modeling paper projects for MCM/ICM, CUMCM and MathorCup. Use when creating, adapting, compiling, or preflighting competition paper templates, including XeLaTeX, latexmk, PDF checks, references, appendices and rule-dependent AI-use disclosures. 触发：国赛/美赛/MathorCup/中文论文/LaTeX模板/论文排版/模板编译/数学建模论文。
 ---
 
 # Mathematical Modeling LaTeX Projects
 
-Use this skill to create reproducible LaTeX paper projects for MCM/ICM and CUMCM. Prefer the templates in this skill, keep dependencies explicit, and avoid embedding real identity information.
+Use this skill to create reproducible LaTeX paper projects for MCM/ICM, CUMCM and MathorCup. Use the matching bundled template for MCM/ICM or CUMCM; build the MathorCup project from the verified competition profile and approved paper blueprint. Keep dependencies explicit and avoid embedding real identity information.
 
 ## Contest-Orchestrator Adapter
 
@@ -16,12 +16,14 @@ Use this skill to create reproducible LaTeX paper projects for MCM/ICM and CUMCM
 - Formal figure insertion format is SVG（图表正式插入格式为 SVG）；正文使用 `\\includesvg{figures/<figure_id>}`。PNG 仅作预览和兼容性副本，不使用图片 PDF；论文最终交付 PDF 仍按竞赛要求生成。
 - 默认只做文本层、结构、引用、编译和交付约束检查；不截图、不渲染复核，视觉检查由用户肉眼完成，除非用户明确要求。
 - 论文、附录和报告不得出现元话语、内部交流、评审记录、调试、失败、旧版本或其他负回响；AI 工具说明按竞赛规则单独生成，不把内部过程写入正文。
+- `active_mode: full-contest-mathorcup` 时，只采用当前项目 `competition_profile.yaml` 中有官方依据的版式、页数、文件大小、附录、匿名和 AI 说明要求。根据已批准 `paper_argument_blueprint.yaml` 建立中文 `ctexart` 工程；不得复制国赛专用扉页、声明、页数口径、附录清单或身份字段。M4 在批准的写作蓝图范围内排版当前批次初稿与接图稿，不要求逐章批准。`writer_first_batches` 初稿可用内部文字图位占位，不能引用不存在的 SVG；用户确认需求、选定图件后才接入正式图，完整批次须清除占位并核对选定资产。M5 在最终源文件上检查文本层、引用、编译、匿名及官方交付约束。若官方格式未核实，保持待确认，不以国赛默认值代替。
 
 ## Competition Recognition
 
 - Treat prompts mentioning MCM, ICM, COMAP, Meritorious/Winner papers, team control number, problem A-F, or "Report on Use of AI" as MCM/ICM.
 - Treat prompts mentioning CUMCM, National Undergraduate Mathematical Contest in Modeling, 国赛, 全国大学生数学建模竞赛, 承诺书, 编号专用页, 支撑材料, or 中文摘要 as CUMCM.
-- If the contest is unclear, infer from language and required fields: English + team control number usually means MCM/ICM; Chinese + 摘要页/支撑材料 usually means CUMCM.
+- Treat `active_mode: full-contest-mathorcup` or an explicit MathorCup 大数据竞赛 profile as MathorCup, even when the paper is in Chinese.
+- If the contest is unclear, infer from language and required fields: English + team control number usually means MCM/ICM; do not infer CUMCM from Chinese language alone.
 - If official rules for the current year are provided, follow them over these defaults.
 
 ## Reference Mode
@@ -37,11 +39,34 @@ Use this skill to create reproducible LaTeX paper projects for MCM/ICM and CUMCM
 
 ## Figure Insertion Contract
 
+MathorCup 图件接入使用现有 `figure_registry` 中的资产 ID、正文 label/序号、选定版本、画布/插入尺寸、实际论文副本与源文件引用，遵循 `contest-orchestrator/references/mathorcup_execution_protocol.md`。默认只同步受影响图件并编译；恢复正文后重新核对副本，不能因 PDF 仍可打开就认为新图已接入。保留一份权威正文源，通过入口开关生成含附录／无附录版本，不维护两份独立正文；两种提交版本分别检查本届格式与源码新鲜度。论文接入检查不替代图件 QA，也不重复已批准未变图件的完整 QA。
+
 - Load the `svg` package in every bundled paper template and use `\\includesvg{figures/<figure_id>}` for formal figure insertion.
 - Treat the SVG as the authoritative figure asset. Keep the matching PNG beside it for preview and visual QA; do not register or deliver an image PDF, EPS, TIFF, or JPEG.
 - Before compilation, verify that the SVG exists, is non-empty, has the expected figure identifier, and is paired with the registered PNG. Preserve the editable source and the source-to-figure mapping in the project workspace.
 - Compile with shell escape when the local `svg` package requires conversion support, for example `latexmk -xelatex -shell-escape main.tex` for CUMCM or `latexmk -pdf -shell-escape main.tex` for MCM/ICM. Use only local tools; if SVG conversion is unavailable, block compilation instead of silently replacing the figure with a PDF image.
 - This contract applies to figure assets only. The compiled paper PDF remains the formal paper deliverable.
+
+## Page-layout contract for figures
+
+For the bundled CUMCM templates, the figure generator decides the visual encoding and canvas shape; this skill decides how the finished SVG occupies the paper page. Record one `layout_mode` in the orchestrator figure registry and use the matching macro:
+
+| `layout_mode` | Macro | Use |
+|---|---|---|
+| `single` | `\PaperFigure` | Standard full-width figure, bounded by `0.76\textwidth` and `0.40\textheight` |
+| `side_by_side` | `\PaperTwoColumn` | Table + explanation, text + small figure, or algorithm box + flowchart; record `layout_group` and `layout_variant` |
+| `wrap_short` | `\PaperWrapFigure` | Small figure beside a short plain-text paragraph; record `wrap_side`; never wrap lists, equations, or long arguments |
+| `tall_constrained` | `\PaperTallFigure` | Vertical figure with an explicit maximum height; preserve aspect ratio and split it when labels become unreadable |
+
+Use `minipage` for stable two-column blocks and `adjustbox` for width/height bounds in CUMCM. MCM/ICM keeps the same SVG/PNG asset contract but uses its own template primitives. Do not use `[H]`, raw `\includegraphics`, or an image PDF. Page placement remains a source-level check; visual rendering is off by default unless the user explicitly requests it.
+
+### Reader-evidence placement
+
+排版层只执行已批准的视觉论证与 `figure_registry.layout_mode`，不自行增加图表或改变 SciPilot 的表示语义。每个 `figure` 必须在源文中有前置引导语和后置解释语；`table` 与 `text` 按登记的读者职责落位。优先使用 `single`、`side_by_side`、`wrap_short`、`tall_constrained` 四种受控入口：短图或短表可与解释文字并排，长图限制最大高度并保持宽高比，信息密度不足的图不通过缩放或留白补足。禁止用连续浮动体、强制 `[H]`、手工 `\vspace` 或重复图表制造页数；发生溢出时调整受控布局入口、尺寸或论证落位，并保留 SVG 正式资产与 PNG 预览副本。
+
+## MathorCup Generation Rules
+
+For `active_mode: full-contest-mathorcup`, select `ctexart` and XeLaTeX as the neutral Chinese implementation, then set title page, abstract, section order, bibliography, appendices and disclosure from the approved paper blueprint and verified `competition_profile.yaml`. Do not copy a CUMCM template into a MathorCup project. Keep `ref.bib` only for genuine cited sources and run `scripts/check_latex_refs.py` when using it. Compile with `latexmk -xelatex -shell-escape main.tex` when the SVG package needs local conversion; if the renderer is unavailable, report compilation as incomplete. Use `scripts/check_pdf.py` with official page/size flags only when those limits are recorded in the project profile. Preserve SVG+PNG figure assets, the text-layer paper PDF and editable source; do not create image PDFs.
 
 ## MCM/ICM Generation Rules
 
@@ -88,7 +113,7 @@ Use this skill to create reproducible LaTeX paper projects for MCM/ICM and CUMCM
 - **算法伪代码**：`algorithm` + `algorithmic` 环境，中文关键字自动汉化（输入、输出、当、则、遍历、返回等）
 - **智能引用**：`\cref{fig:1}` 输出"图1"，`\cref{tab:1,eq:2}` 输出"表1和式(2)"，支持 `\crefrange`
 - **表格增强**：`\topline`/`\midline`/`\bottomline` 三线表快捷命令，`Y`（居中 X 列）/`J`（左对齐 X 列）列类型，`longtable` 跨页表格
-- **插图宏**：`\figplot{题注}{label}{文件名}{制图说明}`，自动搜索路径，文件不存在时显示占位框，用 `[!htbp]` 浮动（禁止 `[H]`），图宽 0.76\textwidth
+- **插图宏**：`\PaperFigure`、`\PaperTwoColumn`、`\PaperWrapFigure`、`\PaperTallFigure`；正式图片使用 SVG，均保持 `[!htbp]` 或受控环绕布局（禁止 `[H]`）
 - **脱敏占位**：`\email{...}`/`\phone{...}` 编译输出 `[已脱敏]`
 - **写作标记**：`\todo{...}`（橙色）、`\draftnote{...}`（红色），终稿前必须清除
 - **浮动参数**：与 contest-orchestrator `figure_policy.md` 一致（topfraction=0.85, textfraction=0.1, topnumber=3），支持 `\FloatBarrier` 章末防跨章
@@ -161,16 +186,16 @@ latexmk -shell-escape main.tex
 
 Before writing a project:
 
-- Identify the contest as MCM/ICM or CUMCM.
+- Identify the contest as MCM/ICM, CUMCM or MathorCup from the task's `active_mode` and verified competition profile.
 - Decide whether `use_ref_bib` is true or false.
-- Choose the matching template directory.
-- Run `scripts/check_latex_env.py --contest mcm-icm` or `scripts/check_latex_env.py --contest cumcm`, adding `--use-ref-bib` when BibTeX is needed.
+- Choose the matching template directory for MCM/ICM or CUMCM; for MathorCup create a neutral `ctexart` project from the approved blueprint and official profile.
+- Run `scripts/check_latex_env.py --contest mcm-icm` or `scripts/check_latex_env.py --contest cumcm` for those contests, adding `--use-ref-bib` when BibTeX is needed. For MathorCup verify local XeLaTeX, `ctexart`, SVG conversion and bibliography tools directly; do not pass an unsupported contest value to the environment checker.
 - Decide whether class dependencies are installed locally or whether a fallback is needed.
 
 Before final submission:
 
-- Compile from a clean directory with the contest-appropriate command: `latexmk -pdf -shell-escape main.tex` for MCM/ICM, and `latexmk -xelatex -shell-escape main.tex` or `latexmk -shell-escape main.tex` with this skill's `latexmkrc` for CUMCM.
-- Run the structural and text-layer checks for the PDF. Do not perform visual inspection by default; perform visual inspection only when the user requests it. Confirm that the AI-use section and appendix file list are present in the extracted text.
+- Compile from a clean directory with the contest-appropriate command: `latexmk -pdf -shell-escape main.tex` for MCM/ICM, and `latexmk -xelatex -shell-escape main.tex` for Chinese CUMCM/MathorCup projects when SVG conversion is required.
+- Run the structural and text-layer checks for the PDF. Do not perform visual inspection by default; perform visual inspection only when the user requests it. Confirm AI-use and appendix sections in extracted text only when the current contest profile requires them.
 - If official page and file-size limits are known, run `scripts/check_pdf.py <paper.pdf> --max-pages <official-page-limit> --max-size-mb <official-size-limit-mb>`.
 - If official limits are not provided, run `scripts/check_pdf.py <paper.pdf>` without page or size flags, then note that the official current-year limits still need manual confirmation.
 - Treat default identity keyword matches from `check_pdf.py` as warnings that need human review. For the final gate, run `scripts/check_pdf.py <paper.pdf> --identity-mode strict`, using repeated `--ignore-keyword <word>` only for reviewed false positives such as institution names in references or data sources.

@@ -17,6 +17,12 @@
 
 ## 2. 共同输出契约
 
+Harness 启用 `visual_workflow: chapter_parallel` 时，图文时序以 `references/harness_chapter_parallel.md` 为准：H6 批准后论文角色先提交计划，再一次只完成一章完整正文；用户批准该章后才产生可独立转交的图表提示词。用户亲自转交给图表会话，H7 依最新提示词对应的视觉计划槽位制图，且可与下一章并行。提示词若声明 `visuals_required: false`，该章无需提示词或图件。提示词返修只形成新版本，不撤销章节批准、不阻塞后续写作；未完成返修只阻塞最终 H7 图件闭合。正式 H8 只整合选定图件、局部编辑并最后写摘要，H9 最终门不变。`writer_first_draft` 仍读取 `references/harness_writer_preparation.md`，其他模式不受此分支影响。
+
+MathorCup 新运行的角色身份、授权来源、逐问覆盖、复现等级和论文实际图件接入遵循 `references/mathorcup_execution_protocol.md`。专业细节仍由对应子 skill 负责；不把该契约当作新增主控。
+
+MathorCup 新运行启用 `chapter_parallel` 时，图文时序以 `references/mathorcup_chapter_parallel.md` 为准：writer 按依赖一章一章完成正文，用户批准该章后才生成自包含图表提示词并亲自转交 figure。图件与下一章并行；提示词返修只产生新版本，不撤销未变章节批准或阻塞后续写作。摘要最后完成，最终接图、全文审阅和交付仍要求实际资产、既有 QA 与全篇一致性。默认用户亲自转交，主控不能据此自动向另一个会话发消息。历史 `writer_first_batches` 仍按 `mathorcup_execution_protocol.md` 的兼容段执行。Harness 的 H7/H8 职责和时序不变。
+
 每次调用都必须返回一个项目相对路径的节点包，至少包含：
 
 | 字段 | 要求 |
@@ -52,9 +58,7 @@
 | **论文写作** | `academic-writing`（内含 humanizer 固定后编辑模块，为主路径；`humanizer-zh` 独立 skill 仅作兼容保留） | 冻结公式/数字/引用快照、已批准正文范围 | 普通正文补丁、去 AI 味、保护器报告 |
 | **LaTeX 排版** | `mathmodel-latex-skill` + `latex-paper-en` | 论文源文件、交付约束 | 中文/英文 LaTeX 编译与排版检查 |
 | **数据图** | `scipilot-figure-skill` → `modelviz` → `scipilot-figure-skill` | 已登记结果、数据源、图表决策卡 | SVG/PNG、语义/技术/视觉检查 |
-| **问题分析流程图** | MathorCup：`tech-route-maker`；其他模式按其已批准路由 | 题面映射、问题图 | 流程图 SVG/PNG |
-| **技术路线图** | MathorCup：`tech-route-maker`；其他模式按其已批准路由 | 模型蓝图、模型契约 | 路线图 SVG/PNG |
-| **机理/原理/受力/几何示意图** | `tikz-scientific-figures` | 符号表、推导链、模型契约 | 机制图 SVG/PNG |
+| **流程图、技术路线、模型结构、算法过程、验证及机理/几何示意图** | tikz-scientific-figures | 题面映射、模型蓝图、符号表、推导链、模型契约和验证证据 | 可编辑 .tex 源、SVG/PNG 与视觉检查 |
 | **Draw.io 编辑图** | `drawio-diagram`（仅用户显式请求，登记 `user_requested=true`） | 用户指定素材 | SVG/PNG + 可编辑源 |
 | **论文评审** | `bzd-review-paper` | 题面、论文、评分规则 | 只读逐项评分报告和证据定位 |
 

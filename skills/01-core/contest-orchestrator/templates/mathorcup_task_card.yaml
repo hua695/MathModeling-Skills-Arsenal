@@ -5,11 +5,16 @@ agent_instance_id: <current-instance-id>
 model: gpt-6-luna
 reasoning_effort: max
 objective: <one-node-objective>
+authorization:
+  source: {path: <human-message-record>, sha256: <sha256>}
+  message_id: <original-human-message-id>
 inputs:
   - {path: <project-relative-path>, sha256: <sha256>}
 scope:
   phase: node-work
-  chapter_id: null
+  batch_id: null  # Historical writer_first_batches only.
+  chapter_id: null  # M4 chapter_parallel: draft and figure_prompt bind one chapter.
+  revision_id: null  # M4 chapter_parallel figure_prompt/generate bind one immutable prompt revision.
   subproblems: []
   cross_question_interface: false
   allowed_files: []

@@ -16,7 +16,7 @@ This is the single active figure-routing and visual-argument contract for `conte
 
 The registry contract is `formats: [svg, png]` and `insertion_format: svg`. `formats` lists only rendered image outputs and must be exactly `["svg", "png"]`. Editable sources such as `.tex` and `.drawio` are recorded in `script` or `source_files`, not mixed into `formats`. A single-image PDF is not a permitted output.
 
-For `active_mode: full-contest-mathorcup`, problem-analysis, technical-roadmap and algorithm-process diagrams use `tech-route-maker` with the matching catalog starter. Mechanism, model-structure and geometry schematics use `tikz-scientific-figures`; measured data figures use the SciPilot → ModelViz → SciPilot route. This mode-specific route is checked by `check_mathorcup_control.py` and does not change Harness H7 approvals.
+For every mode, all non-data diagrams use tikz-scientific-figures with the matching catalog starter; measured data figures use the SciPilot → ModelViz → SciPilot route. MathorCup and Harness retain their existing approval gates.
 
 ## Reader-first visual argument gate
 
@@ -44,18 +44,17 @@ these fields into the registry. `visible_element_map` is a list of visible eleme
 one or more evidence locators; `canvas_profile` records `orientation`, `target_layout`, and
 `top_level_node_limit`. Standard-density figures must map at least two visible elements.
 
-For `tech-route-maker` and `tikz-scientific-figures`, the selected ID must resolve to
+For tikz-scientific-figures, the selected ID must resolve to
 `references/figure_template_catalog.yaml`. The generator must copy the catalog's `starter_source`,
 adapt that editable source, and register the catalog SHA-256 as `template_sha256`. The generated
-`tech-route.json` must carry `metadata.contest_template`; the generated TikZ source must carry the
-three `contest-template-*` source markers. A final registry entry must also contain:
+TikZ source must carry the three contest-template source markers. A final registry entry must also contain:
 
 ```yaml
 template_id: algorithm-iteration-flow
-starter_source: tech-route-maker/assets/contest-starters/algorithm-iteration-flow.json
+starter_source: tikz-scientific-figures/assets/contest-starters/algorithm-iteration-flow.tex
 template_sha256: <starter SHA-256>
 template_fixture:
-  fixture_id: tech-route-maker/algorithm-iteration-flow
+  fixture_id: tikz-scientific-figures/algorithm-iteration-flow
   status: passed
   report: figures/q1-algorithm/template_fixture.yaml
 visible_element_map: [{element: 输入, role: node, evidence_refs: [<source locator>]}, {element: 输出, role: node, evidence_refs: [<source locator>]}]
@@ -83,7 +82,7 @@ Every slot with a non-empty `planned_figure_ids` or `representation.mode: figure
 | `body_anchor` | The concrete chapter/section position where the figure is explained |
 | `pre_text_function` | The argumentative job of the paragraph before the figure |
 | `post_text_function` | The interpretation and boundary job of the paragraph after the figure |
-| `generation_route` | Exactly one of `modelviz`, `tech-route-maker`, `tikz-scientific-figures` or explicitly requested `drawio-diagram` |
+| `generation_route` | Exactly one of `modelviz`, `tikz-scientific-figures` or explicitly requested `drawio-diagram` |
 | `template_status` | `native`, `external_adapted` or `custom_required` |
 | `template_id` | Exact selected catalog/template ID; never a prose description or placeholder |
 | `visible_element_map` | Non-empty element-to-evidence map; standard figures expose at least two mapped elements |
@@ -101,8 +100,8 @@ The figure agent chooses the template only after writing this brief. The route i
 
 | Reader need | Visual archetype | Route | Content policy |
 |---|---|---|---|
-| Understand the whole contest task | Subproblem dependency map | `tech-route-maker` | Show inputs, subproblem links and outputs; no derivation or result values |
-| Understand the paper's main line | Data–model–solver–result route | `tech-route-maker` | Show the evidence flow and handoffs; no invented agent steps |
+| Understand the whole contest task | Subproblem dependency map | `tikz-scientific-figures` | Show inputs, subproblem links and outputs; no derivation or result values |
+| Understand the paper's main line | Data–model–solver–result route | `tikz-scientific-figures` | Show the evidence flow and handoffs; no invented agent steps |
 | Understand a model's composition | Variable–objective–constraint frame or model-summary frame | `tikz-scientific-figures` | Show named objects and relations; do not reproduce the full derivation |
 | Reproduce a solver | Algorithm iteration flow | `tikz-scientific-figures` | Show input, core steps, decision/loop, stop condition and output; no decorative pseudocode or unsupported parameters |
 | Understand reliability | Validation or sensitivity loop | `modelviz` for measured results; otherwise `tikz-scientific-figures` | Show the verified baseline, perturbation/validation condition and response; no unsupported robustness claim |
@@ -151,10 +150,9 @@ Before ModelViz is called, each figure must have a complete decision card contai
 ## Evidence and source rules
 
 - Data figures read only registered result files or approved raw data; the plotting script records the mapping from source columns to visual marks.
-- `tech-route-maker` reads `problem_condition_ledger.yaml`, task cards, `model_blueprint.yaml`, `model_contract.yaml`, `symbol_table.md` and `result_registry` as applicable. Every visible node and edge needs a source locator.
-- `tikz-scientific-figures` reads the relevant `model_contract.yaml`, `symbol_table.md`, derivation registry and source/result files. Every visible symbol, unit, relation and geometric object needs a source locator.
+- `tikz-scientific-figures` reads the problem condition ledger, task cards, model blueprint/contract, symbol table, derivation registry and source/result files as applicable. Every visible node, edge, symbol, unit, relation and geometric object needs a source locator.
 - Missing evidence, unresolved inferred nodes, invented variables, unsupported relations, missing source files or stale registry entries block paper use.
-- Keep the semantic source editable: `tech-route.json` for route diagrams, `.tex` for TikZ schematics, and `.drawio` for requested Draw.io artifacts.
+- Keep every non-data diagram's semantic source editable as `.tex`; retain `.drawio` only for explicitly requested Draw.io artifacts.
 
 ## Registry examples
 
@@ -163,7 +161,7 @@ Before ModelViz is called, each figure must have a complete decision card contai
 ```
 
 ```json
-{"kind":"flowchart","generator":"tech-route-maker","generation_route":"tech-route-maker","template_status":"native","template_id":"model-structure-roadmap","starter_source":"tech-route-maker/assets/contest-starters/model-structure-roadmap.json","template_sha256":"<starter SHA-256>","template_fixture":{"fixture_id":"tech-route-maker/model-structure-roadmap","status":"passed","report":"figures/model_framework/template_fixture.yaml"},"visible_element_map":[{"element":"变量与目标","role":"node","evidence_refs":["02_模型/model_contract.yaml#/formulation"]},{"element":"约束与求解接口","role":"edge","evidence_refs":["02_模型/model_contract.yaml#/solver_interface"]}],"canvas_profile":{"orientation":"horizontal","target_layout":"single","top_level_node_limit":7},"diagram_role":"technical_roadmap","source_files":["02_模型/model_blueprint.yaml","02_模型/model_contract.yaml"],"script":"figures/model_framework/tech-route.json","formats":["svg","png"],"insertion_format":"svg","layout_mode":"single","qa_status":"reviewed","visual_qa":"passed"}
+{"kind":"flowchart","generator":"tikz-scientific-figures","generation_route":"tikz-scientific-figures","template_status":"native","template_id":"model-structure-roadmap","starter_source":"tikz-scientific-figures/assets/contest-starters/model-structure-roadmap.tex","template_sha256":"<starter SHA-256>","template_fixture":{"fixture_id":"tikz-scientific-figures/model-structure-roadmap","status":"passed","report":"figures/model_framework/template_fixture.yaml"},"visible_element_map":[{"element":"变量与目标","role":"node","evidence_refs":["02_模型/model_contract.yaml#/formulation"]},{"element":"约束与求解接口","role":"edge","evidence_refs":["02_模型/model_contract.yaml#/solver_interface"]}],"canvas_profile":{"orientation":"horizontal","target_layout":"single","top_level_node_limit":7},"diagram_role":"model_structure","source_files":["02_模型/model_blueprint.yaml","02_模型/model_contract.yaml"],"script":"figures/model_framework/figure.tex","formats":["svg","png"],"insertion_format":"svg","layout_mode":"single","qa_status":"reviewed","visual_qa":"passed"}
 ```
 
 ```json
@@ -174,7 +172,7 @@ Draw.io is valid only when the user explicitly requests a Draw.io editing artifa
 
 ## Availability gate
 
-The route names must resolve to installed or otherwise explicitly available skills before generation. If `tech-route-maker`, `tikz-scientific-figures`, `ModelViz` or `scipilot-figure-skill` is unavailable, stop at the figure input gate and report the missing dependency. Do not silently substitute a different generator.
+The route names must resolve to installed or otherwise explicitly available skills before generation. If tikz-scientific-figures, ModelViz or scipilot-figure-skill is unavailable, stop at the figure input gate and report the missing dependency. Do not silently substitute a different generator.
 
 ## Page-layout metadata
 

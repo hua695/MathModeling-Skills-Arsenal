@@ -1,0 +1,5 @@
+schema_version: "2.0"
+# Persist actual creation receipts here before sending work. Never invent runtime IDs.
+# Pending asynchronous creation may be retained with client_thread_id and status: pending;
+# fill the real thread_id and registration time before any dispatch.
+instances: []

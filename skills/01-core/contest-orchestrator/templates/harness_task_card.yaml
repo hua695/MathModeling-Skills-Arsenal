@@ -11,9 +11,9 @@ inputs:
   # H1 节点：必须包含题目原文
   # H7/H8 节点：必须包含 problem_statement.md 作为只读语境输入
   # H6/H7 还必须读取 H5 产出、H6 核验的 visual_evidence_packet.yaml；图表槽位和登记表必须引用其中的信息单元。
-  # H7 阶段一必须先产出带 figure_intent 的 visual_argument_plan.yaml 和 .contest/reviews/H7_visual_plan_review_packet.yaml；
-  # approval_log.yaml 中 H7_VISUAL_PLAN 获得用户批准后才执行图型选择、生成和登记。
-  # H8 还必须读取 H7 已批准的 visual_argument_plan.yaml；论文 agent 不得新增计划外图表。
+  # 旧分支 H7 阶段一先产出全局视觉计划，并等待 H7_VISUAL_PLAN 批准。
+  # chapter_parallel 的 H7_generate 改为绑定该章节已批准正文之后生成的提示词与版本计划。
+  # 正式 H8 整合读取 H7 最终选定的计划与登记；准备写作不依赖尚未制作的图。
   # H8A：academic-writing 读取叙事、结果解释、图表和素材包，生成论证蓝图、作者简报和 abstract_argument_card.yaml。
   # H8B：论文 agent 的任务卡必须只包含 problem_statement.md、paper_author_brief.yaml、
   # chapter_writing_card.yaml、paper_continuity_context.yaml 和当前章节卡登记的冻结材料；
@@ -23,17 +23,24 @@ inputs:
   - path: <项目内权威输入相对路径>
     sha256: <输入文件SHA-256>
 scope: <允许处理的题目、小问和文件范围>
-# H7 generation cards replace the scalar above with:
+# H7 generation cards replace the scalar above with the latest approved writer prompt:
 # scope:
 #   phase: H7_generate
+#   chapter_id: <chapter_id>
+#   revision_id: <prompt revision_id>
+#   prompt_sha256: <self-contained prompt SHA-256>
 #   approved_visual_plan_sha256: <approved visual_argument_plan.yaml SHA-256>
+# Chapter-parallel writer cards use `H8_chapter_draft` or `H8_figure_prompt`, and include
+# scope.chapter_id. The latter is allowed only after H7_CHAPTER:<chapter_id> approval.
+# Both input the approved whole-paper plan and all frozen chapter evidence_refs.
+# H8_figure_prompt must additionally input the exact approved chapter draft snapshot.
 required_outputs: [<节点产物>]   # H1 节点必须包含 problem_statement.md
 verification: [<可重复的核验>]
 prohibited_actions: [<角色越权或范围外动作>]
 evidence_handoff: [<回流文件及其来源>]
 model: <agent_runtime_routes 对应模型>
 reasoning_effort: <agent_runtime_routes 对应推理强度>
-dispatch_kind: <primary_solver|conditional_support|node_specialist>
+dispatch_kind: <primary_solver|conditional_support|node_specialist|writer_preparation>
 solver_instance_id: null
 parent_solver_instance_id: null
 covered_subproblems: []

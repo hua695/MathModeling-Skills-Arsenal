@@ -1,6 +1,6 @@
 ---
 name: data-science-stack
-description: 数学建模竞赛数据科学全链路技能（C 类数据题/预测题专用）：EDA 探索性分析、数据预处理与特征工程、统计推断、机器学习建模、时间序列预测、模型评估与调参、论文输出规范。触发词：数据题、C题、EDA、数据预处理、特征工程、机器学习、回归、分类、聚类、时间序列、预测、ARIMA、XGBoost、统计检验。与 contest-orchestrator executor 阶段、math-modeling、scipilot-figure-skill 协作。
+description: 数学建模竞赛数据科学技能（C 类数据题、预测题及 MathorCup 大数据题）：EDA、预处理与特征工程、统计推断、机器学习、时间序列、模型评估与调参。触发词：数据题、C题、MathorCup、EDA、数据预处理、特征工程、机器学习、回归、分类、聚类、时间序列、预测、ARIMA、XGBoost、统计检验。与 contest-orchestrator executor 阶段、math-modeling、scipilot-figure-skill 协作。
 metadata:
   version: "1.0"
 ---
@@ -16,10 +16,14 @@ metadata:
 - 每个数据处理决定记录来源、处理原因、影响范围和可复算命令；不得静默删除样本、改动原始数据或捏造缺失结果。
 - 训练、验证、预测和敏感性结果必须绑定随机种子、数据版本、代码路径、指标定义和结果文件；模型选择遵循 baseline → 验证 → 必要复杂化。
 - 返回 `status`、`active_mode`、`task_card`、`artifacts`、`evidence`、`checks`、`blockers`、`next_node` 节点包。缺数据、缺标签、指标不适用或证据断裂时返回 `BLOCKED_INPUT`/`FAIL`。
-- 数据结果图只走 `modelviz` → `scipilot-figure-skill`；本技能不替代绘图技能执行视觉检查，进入绘图路由后按图表契约默认完成视觉检查。
+- 数据结果图只走 `scipilot-figure-skill` → `modelviz` → `scipilot-figure-skill`；本技能不替代绘图技能执行视觉检查，进入绘图路由后按图表契约默认完成视觉检查。
 - 节点包和论文可见内容不得出现元话语、内部交流、调试信息、失败过程或其他负回响。
 
+`active_mode: full-contest-mathorcup` 时，M2 的 data 实例依据 `problem_statement.md`、`data_overview.yaml`、`task_kpi.yaml` 和题面附件输出 `eda_report.md`、`features.yaml` 与分割/预处理协议；verifier 独立签署 `leakage_audit.yaml` 后才能冻结特征。M3 仅由唯一 solver 使用冻结数据管线完成各小问 baseline、同切分/同指标候选比较、参数选择和 `run_manifest.yaml`；本技能不能另起解题主线或绕过独立 `independent_validation.yaml`。填补、编码、缩放、特征选择、目标编码和调参仅在训练折拟合；时间数据按时间分割，实体相关样本按组隔离，测试集不参与拟合或路线选择。M2 不写最终模型结果，M3 的每个量化结论必须绑定数据/代码/参数/种子/结果文件与跨问接口。下文时长、阈值、图型和算法是按需参考，不是 MathorCup 的固定门禁。
+
 ## 0. 何时触发
+
+MathorCup 的评估、模型能力核对和资源恢复先读取 `references/mathorcup_experiment_protocol.md`。该协议补充现有模型卡与 run manifest，不新增固定算法、数字门槛或审批阶段。
 
 题目出现以下任一信号即进入本技能流程（典型：国赛 C 题、美赛 C/E/F 题的数据部分）：
 
@@ -56,7 +60,7 @@ Step1 EDA（1-2h）→ Step2 预处理+特征工程（1-2h）→ Step3 统计推
 
 ```python
 import pandas as pd, numpy as np
-df = pd.read_excel('附件.xlsx', sheet_name=None)  # 多 sheet 时逐个看
+df = pd.read_excel('附件.xlsx')  # 单表示例；多 sheet 时逐表选择并审计
 # 或 df = pd.read_csv('data.csv', encoding='gbk')  # 中文数据常见 gbk
 
 report = []
@@ -80,6 +84,8 @@ print(pd.DataFrame(report).to_string(index=False))
 ## 3. Step 2：预处理与特征工程
 
 按 EDA 结论执行，**每项处理都要在数据报告里留一行记录**（论文"数据预处理"节就靠它）。
+
+以下算子只表示处理方式。凡需从样本估计均值、众数、分位数、编码词表或尺度参数的操作，必须放入训练折内拟合的管线，再对验证/测试折调用同一变换；时间插值不得跨越预测时点或分割边界。
 
 | 问题 | 处理 | 代码 |
 |---|---|---|

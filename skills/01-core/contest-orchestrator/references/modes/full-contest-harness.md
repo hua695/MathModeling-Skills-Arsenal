@@ -2,6 +2,8 @@
 
 `full-contest-harness` 是带人工节点确认的多 agent 全流程。一次运行只能有一个 `active_mode`，并在项目根创建 `.contest/harness_control.yaml`、`.contest/task_cards/`、`.contest/reviews/` 和 `.contest/approval_log.yaml`。使用 `templates/harness_control.yaml`、`templates/harness_task_card.yaml`、`templates/harness_review_packet.yaml` 初始化这些记录。
 
+新运行启用 `visual_workflow: chapter_parallel`，先读取 [逐章批准写作与并行图表](../harness_chapter_parallel.md)：H6 获批后，固定 H8 论文角色先提交全篇计划，再按实际写作顺序完成一章、接受用户批准、为该章准备可转交的图表提示词；用户亲自转交后，H7 的制图可与下一章写作并行。正式 H8 只整合选定图件、完成必要编辑并最后写摘要，H9 保留完整验收。`writer_first_draft` 和未启用该字段的历史记录继续按 [论文主导的图表准备](../harness_writer_preparation.md) 的原顺序解释。
+
 ## H0 激活门禁
 
 主 agent 在 H0 必须实际调用 `superpowers:using-superpowers`，将调用的 task ID 和完成状态登记到 `harness_control.yaml.bootstrap.invocations`。仅写出技能名称不构成调用记录。该技能不可用、调用未完成或调用记录缺失时，状态为 `BLOCKED_INPUT` 或 `PAUSE`，不得进入 H1–H9、生成正式论文或交付物。
@@ -98,6 +100,16 @@ python scripts/check_harness_control.py <project-root> --through H<n>
 | `H7` | 图表 agent / `required` | `visual_argument_plan.yaml`、`.contest/reviews/H7_visual_plan_review_packet.yaml`、冻结数据对应的 SciPilot 图表决策卡、SVG、PNG、可编辑源、图表登记、图注、读者应读出的结论和质量记录 | 图表执行前必须读取 `references/modes/figures.md`，按“读者问题→视觉义务→图型/路由→生成→检查”执行。阶段一：H7 图表 agent 只基于冻结模型、结果和 H5 主张清单生成 `visual_argument_plan.yaml`，每个图槽位必须登记 `figure_intent`，逐小问完成 `orientation`、`mechanism`、`model_structure`、`algorithm_process`、`result_evidence`、`validation_robustness` 六类审计；结构化模型、迭代/启发式算法、机理/空间关系和主要结果由检查器从 H5 模型事实推断硬性视觉义务，不能用自由理由降级。多小问或跨问接口还必须登记 `global_story`。阶段一提交 `.contest/reviews/H7_visual_plan_review_packet.yaml`，在 `.contest/approval_log.yaml` 登记 `H7_VISUAL_PLAN` 的当前计划哈希并暂停等用户确认；阶段二才为已批准槽位选择图型和路由：数据结果图运行 SciPilot 决策卡→ModelViz→SciPilot QA，流程图、技术路线图、机制/几何/公式示意图统一运行 `tikz-scientific-figures`；图表确认前不得冻结论文素材，用户肉眼批准后进入 H8。**图表路由是检查器硬约束**：登记中每张图必须含 `kind`（data/flowchart/roadmap/schematic/drawio）且 `generator` 匹配路由（data→modelviz+semantic_qa=scipilot、flowchart/roadmap/schematic→tikz-scientific-figures、drawio→drawio-diagram 且 `user_requested=true`），`formats` 必须精确为 svg+png、`insertion_format=svg`、合法 `layout_mode`、`visual_qa=passed/reviewed`，并通过 `visual_slot_ids` 绑定已批准的视觉槽位；缺计划、缺独立批准、缺硬性槽位、存在计划外图表或未闭合登记即 BLOCK。页面布局由 `mathmodel-latex-skill` 执行，不由 SciPilot 或 ModelViz 改变图表语义。 |
 | `H8` | 论文 agent / `required` | `paper_material_readiness.yaml`、`paper_narrative.yaml`、`result_interpretation_cards.yaml`、经 H6 核验的 `model_summary_cards.yaml`、经用户批准的 `visual_argument_plan.yaml`、`paper_argument_blueprint.yaml`、`paper_author_brief.yaml`、`abstract_argument_card.yaml`、`chapter_writing_card.yaml`、`paper_continuity_context.yaml`、`paper_claim_coverage.yaml`、论文草稿和编辑报告 | 素材准入和主张覆盖均为 `PASS` 后进入 H8A：`academic-writing` 先生成论证蓝图、作者简报和摘要论证卡，主 agent 生成写作计划；摘要论证卡固定摘要的读者契约、统一建模主线、逐问方法—结果—意义、验证结论、总评和关键词，逐问绑定冻结证据。简报、摘要论证卡、视觉论证计划和写作计划一并提交用户审查。`paper_narrative.global.paper_spine` 规定唯一章节顺序，`core` 章节承载建模与求解，`support` 章节服务于核心论证；每章登记 `chapter_role`、`reads_from`、`feeds_to`、`new_claims_allowed` 和 `handoff_question`。H8B 由同一论文 agent 按章节写作卡、连续性包、摘要论证卡、视觉论证计划和模型总结卡逐章写作；每张章节卡必须填写 `abstract_contribution`，供 H8C 汇总摘要。建模问题章节先写不编号的问题引入与建模思路，再设“模型建立”和“模型求解与结果分析”两个编号小节，并在模型建立小节末尾呈现最终求解模型框；一级标题采用中文序号，“模型假设”和“符号说明”分设为两个全局一级章节。H8B 只能使用已批准计划中登记的图表，不得新增计划外图表或以图表填充篇幅；H8B 不写最终摘要。H8C 由 `academic-writing` 先通读完整论文、检查读者路径、章节递进和主线承接，再依据摘要论证卡和各章摘要贡献最后写摘要，并运行 `scripts/check_abstract_contract.py --strict` 登记 `abstract_contract_report`；报告未通过不得完成 H8。材料不足回到对应节点补证据，表达问题才形成局部正文补丁。H8 的 `skill_invocations` 还必须实际登记 `academic-writing` 与 `mathmodel-latex-skill`，每项带存在性可校验的 `evidence_ref`；用户批准后进入 H9 |
 | `H9` | 主 agent / `controller_only` | 最终交付审计包、门禁报告、交付清单 | 交付前必须运行 `python scripts/delivery_all.py <项目根> --strict`，全部 PASS 后才交付；H9 的 `skill_invocations` 必须实际登记 `bzd-review-paper` 与 `mathmodel-latex-skill`，每项带存在性可校验的 `evidence_ref`；用户最终批准后交付 |
+
+### `chapter_parallel` 的 H7/H8 覆盖时序
+
+当 `visual_workflow: chapter_parallel` 时，上表 H7/H8 的正式图件输入改按以下时序解释，其他科学、路由、QA、H8 整合和 H9 要求不变：
+
+1. H6 获用户批准后，H8 先提交含 `central_thesis`、`reader_journey`、`chapter_order`、`writing_order` 与依赖的全篇计划；用户以 `H7_WRITING_PLAN` 批准。
+2. H8 依 `writing_order` 逐章写完整正文并提交绑定草稿哈希的质量审查。用户以 `H7_CHAPTER:<chapter_id>` 批准当前章后，才能派发下一章。
+3. 只有当前章获批，H8 才可生成该章图表提示词和视觉计划；用户亲自转交 H7。`visuals_required: false` 表示无图的明确决定。提示词版本可返修，但不会撤销当前章节批准或阻塞下一章。
+4. H7 的每一张图必须绑定最新提示词、其视觉计划槽位、`chapter_id`、`prompt_revision_id` 和真实 `H7_generate` 派发。最终汇总计划等于所有最新章节计划的槽位集合，包含 `slots`、`global_visual_slots` 和各小问 `visual_audit`，不得加入未被论文需求覆盖的图件。
+5. 所有非摘要章节批准后，未完成的图件或返修只阻塞最终 H7 图件闭合。正式 H8 按 `chapter_order` 接入选定图件、局部编辑与排版，并最后写摘要；不得从头重写已批准正文。
 
 🔴 **CHECKPOINT · H2–H9 人工批准门**：`review_packet` 和 `user_approval` 是逐节点硬门；H1 的题意产物由 H2 的审查包统一提交用户审查。任一硬门未经用户批准不得推进下一节点。
 

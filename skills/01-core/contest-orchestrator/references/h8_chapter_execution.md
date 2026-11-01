@@ -1,12 +1,14 @@
 # H8 章节执行协议
 
+Harness 控制记录启用 `visual_workflow: chapter_parallel` 时，先按 [逐章批准写作与并行图表](harness_chapter_parallel.md) 在 H6 获批后，由同一 H8 论文实例提交计划，并按 `writing_order` 一次完成一章。`chapter_order` 只规定最终读者/目录顺序。每一章的完整正文、质量审查和 `H7_CHAPTER:<chapter_id>` 用户批准是下一章派发的前提；图件并不是。章节批准后才可生成图表提示词，用户亲自转交 H7，图件制作或返修可与下一章写作并行。`writer_first_draft` 控制记录仍按 [初稿准备协议](harness_writer_preparation.md) 处理。正式 H8 和 H9 的所有门禁保留。
+
 所有 H8B 写作先读取 [H8 写作者优先协议](h8_writer_first_protocol.md)。写作目标是形成读者可跟随的论证，不是把上游材料或任务卡字段按顺序转写。
 
 全文以 `paper_narrative.global.paper_spine` 为唯一章节顺序。作者简报、章节卡和连续性包必须复用同一份 `paper_spine`，并为每章登记 `chapter_role`、`reads_from`、`feeds_to`、`new_claims_allowed` 和 `handoff_question`。`core` 章节集中承载建模与求解；`support` 章节只负责铺垫、连接、解释或收束。检查器会阻断章节顺序、角色、前后承接或允许主张不一致的写作任务。
 
 ## H8A：作者简报与写作计划
 
-输入为题面、已核验的 `paper_narrative.yaml`、结果解释卡、素材准入、主张覆盖、经用户批准的 `visual_argument_plan.yaml`、图表登记和已冻结证据。H8A 先读取并冻结 `global.paper_spine`，再把同一主线展开为作者简报和写作计划；每一章都要说明它承接的前置回答、允许新增的主张以及交给下一章的读者问题。H8B 只能使用视觉论证计划中已批准且在图表登记中闭合的视觉槽位。
+输入为题面、已核验的 `paper_narrative.yaml`、结果解释卡、素材准入、主张覆盖和已冻结证据。H8A 先读取并冻结 `global.paper_spine`，再把同一主线展开为作者简报和写作计划；每一章都要说明它承接的前置回答、允许新增的主张以及交给下一章的读者问题。在 `chapter_parallel` 中，计划必须另列最终 `chapter_order` 与实际 `writing_order`，核心建模/求解章节置于实际写作的依赖链前端，摘要只保留为正式 H8 的最终任务。初始计划不以正式图表或已闭合登记为前提。
 
 `academic-writing` 先生成 `paper_argument_blueprint.yaml`、`paper_author_brief.yaml` 和 `abstract_argument_card.yaml`。摘要论证卡只规划摘要的读者契约、全文主张、统一建模主线、逐问方法—结果—意义、验证结论、总评和关键词，不写最终摘要正文；每个小问必须绑定可核验的冻结证据。作者简报的建模问题章节还必须登记 `chapter_kind`、问题引入段和双小节结构；每章保留读者问题、章节目的、章节回答、论证 ID、可用证据、图表职责、读者收获和排除材料。
 
@@ -14,7 +16,7 @@
 
 ## H8B：逐章写作
 
-主 agent 每次从已批准的作者简报生成一个 `chapter_writing_card.yaml`，并更新一个 `paper_continuity_context.yaml`。两者必须携带并绑定同一 `paper_spine`，明确当前章节的角色、前后章节和 `handoff_question`。每张章节卡必须填写 `abstract_contribution`，至少包含本章方法、冻结结果、结果意义和证据引用；该字段供 H8C 汇总摘要，不能由 H8B 临时改写成摘要。论文 agent 还必须读取经 H6 核验的 `model_summary_cards.yaml` 和已批准的 `abstract_argument_card.yaml`；只使用当前章节卡、连续性包、模型总结卡、摘要论证卡和卡内列出的冻结材料写当前章节。连续性包只保留中心主张、已完成章节收束、术语口径和前后章节衔接，不携带全部历史原始材料。
+主 agent 每次从已批准的作者简报生成一个 `chapter_writing_card.yaml`，并更新一个 `paper_continuity_context.yaml`。两者必须携带并绑定同一 `paper_spine`，明确当前章节的角色、前后章节和 `handoff_question`。在 `chapter_parallel` 中只可派发 `writing_order` 的下一个依赖已满足章节；其草稿与 `quality_review` 必须绑定同一 SHA-256，并由用户以 `H7_CHAPTER:<chapter_id>` 批准后才可派发下一章。每张章节卡必须填写 `abstract_contribution`，至少包含本章方法、冻结结果、结果意义和证据引用；该字段供 H8C 汇总摘要，不能由 H8B 临时改写成摘要。论文 agent 只使用当前章节卡、连续性包、模型总结卡、摘要论证卡和卡内列出的冻结材料写当前章节。连续性包只保留中心主张、已完成章节收束、术语口径和前后章节衔接，不携带全部历史原始材料。
 
 | 章节类型 | 取用材料 | 写作重心 |
 |---|---|---|
@@ -24,11 +26,11 @@
 | 图表段落 | 当前章节卡、视觉论证计划、图表登记、题注 | 说明图表如何支持当前论点；计划外图表返回证据缺口 |
 | 附录 | 附录计划与实际支撑材料 | 保留可复现细节，不重复正文论证 |
 
-写作时先写论证，完成本章的读者回答和论证链后再进行硬性检查。每段只承担一个主要沟通任务，并用自然过渡连接前后段落；章节卡字段不得直接变成正文清单。一级标题使用中文序号，模型假设与符号说明分设为两个全局一级章节；建模问题统一置于“模型建立与求解”一级章节下，每个问题先写不编号引入段，再使用“模型建立”和“模型求解与结果分析”两个编号小节。核心章节必须围绕建模与求解展开，支撑章节必须明确服务对象并回收至核心主张。任何章节缺少推导、结果、验证、图表或引用依据，或无法完成前后章节承接时，返回 `evidence_gap_matrix.yaml`；不得以重复表述、泛泛背景、空洞评价或文献堆砌补足篇幅。
+写作时先写论证，完成本章的读者回答和论证链后再进行硬性检查。每段只承担一个主要沟通任务，并用自然过渡连接前后段落；章节卡字段不得直接变成正文清单。不存在强制段落模板或固定长度配额。一级标题使用中文序号，模型假设与符号说明分设为两个全局一级章节；建模问题统一置于“模型建立与求解”一级章节下，每个问题先写不编号引入段，再使用“模型建立”和“模型求解与结果分析”两个编号小节。核心章节必须围绕建模与求解展开，支撑章节必须明确服务对象并回收至核心主张。任何章节缺少应有的推导、结果、验证、图表或引用依据，或无法完成前后章节承接时，返回 `evidence_gap_matrix.yaml`；不得以重复表述、泛泛背景、空洞评价或文献堆砌补足篇幅。若当前章 `visuals_required: false`，明确登记即可；若需要图，批准后才产生图表提示词。
 
 ## H8C：独立编辑
 
-`academic-writing` 在正文与附录定稿后先通读全文，按读者路径检查章节递进、过渡、主张回收和结论力度，再独立核验“作者简报—正文主张—冻结证据”的对应关系。随后依据 `abstract_argument_card.yaml` 汇总各章节的 `abstract_contribution`，最后写摘要；摘要必须运行 `scripts/check_abstract_contract.py --strict`，并登记 `abstract_contract_report` 及当前摘要论证卡 SHA-256。报告未通过或未绑定当前摘要论证卡时，H8C 不得完成。
+`academic-writing` 在正文与附录定稿、H7 最终图件闭合后先按 `chapter_order` 通读全文，整合已选图件，检查章节递进、过渡、主张回收和结论力度，再独立核验“作者简报—已批准正文—冻结证据”的对应关系。它只做图前图后解释、图注、排版与必要局部编辑，不从头重写已批准正文。随后依据 `abstract_argument_card.yaml` 汇总各章节的 `abstract_contribution`，最后写摘要；摘要必须运行 `scripts/check_abstract_contract.py --strict`，并登记 `abstract_contract_report` 及当前摘要论证卡 SHA-256。报告未通过或未绑定当前摘要论证卡时，H8C 不得完成。
 
 H8C 还必须逐项核对 `paper_spine`：核心章节是否构成建模与求解的连续主轴，支撑章节是否只提供必要服务，每个章节是否回答当前读者问题并完成 `handoff_question`，正文是否出现孤立章节或章节间断裂。发现结构断点时回流作者简报或章节卡；发现证据不足时回流对应产物节点。
 

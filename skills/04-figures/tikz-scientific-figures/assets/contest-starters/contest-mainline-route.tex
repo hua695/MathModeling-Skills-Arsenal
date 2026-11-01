@@ -1,0 +1,19 @@
+% contest-template-id: contest-mainline-route
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/contest-mainline-route.tex
+% contest-template-sha256: <computed-from-starter>
+% Replace each stage with frozen project evidence; omit stages without evidence.
+\begin{tikzpicture}[
+  node distance=11mm and 9mm,
+  stage/.style={draw, rounded corners=2pt, align=center, text width=28mm, minimum height=12mm},
+  relation/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[stage] (data) {数据与题意\\输入证据};
+  \node[stage, right=of data] (model) {模型表达\\假设与变量};
+  \node[stage, right=of model] (solve) {求解实验\\算法与参数};
+  \node[stage, right=of solve] (check) {独立验证\\适用边界};
+  \node[stage, right=of check] (answer) {结论输出\\决策含义};
+  \draw[relation] (data) -- (model);
+  \draw[relation] (model) -- (solve);
+  \draw[relation] (solve) -- (check);
+  \draw[relation] (check) -- (answer);
+\end{tikzpicture}

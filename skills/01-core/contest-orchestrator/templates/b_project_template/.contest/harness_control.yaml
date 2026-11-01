@@ -97,6 +97,11 @@ nodes:
     figure_registry: figure_registry.yaml
     visual_argument_plan: visual_argument_plan.yaml
     visual_plan_review_packet: .contest/reviews/H7_visual_plan_review_packet.yaml
+    writer_preparation:
+      writing_plan: null
+      plan_review_packet: null
+      chapters: []
+    figure_selection_review_packet: null
     visual_evidence_packet: visual_evidence_packet.yaml
     skill_invocations:
     - skill: scipilot-figure-skill
@@ -375,6 +380,11 @@ agent_instances:
     - references/model_summary_protocol.md
     - references/paper_author_evidence_protocol.md
 active_mode: full-contest-harness
+visual_workflow: chapter_parallel
+# `chapter_parallel`: writer_preparation stores the approved plan and per-chapter
+# drafts/quality reviews/approvals/prompts. H7 cards bind chapter_id, revision_id,
+# prompt_sha256 and approved_visual_plan_sha256; registry figures bind those values
+# through chapter_id, prompt_revision_id and generation_task_id.
 validation:
   profile: competition_fast
   change_impact_card: null

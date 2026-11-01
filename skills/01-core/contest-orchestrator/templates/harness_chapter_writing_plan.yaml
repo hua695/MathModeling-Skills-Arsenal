@@ -1,0 +1,88 @@
+# `chapter_order` is final reader/print order; `writing_order` is actual creation order.
+# Keep every chapter complete and evidence-bound. Do not use fixed paragraph counts or length quotas.
+central_thesis: <one evidence-bounded whole-paper claim>
+reader_journey:
+  - <how a reader moves from problem to supported conclusion>
+chapter_order:
+  - abstract
+  - front_matter
+  - analysis
+  - modeling_q1
+  - validation
+  - evaluation
+  - conclusion
+  - appendix
+writing_order:
+  - modeling_q1
+  - validation
+  - evaluation
+  - conclusion
+  - analysis
+  - front_matter
+  - appendix
+  - abstract
+chapters:
+  - chapter_id: modeling_q1
+    kind: modeling # modeling | validation | evaluation | conclusion | analysis | front_matter | appendix | abstract
+    depends_on: []
+    reader_question: <what must the reader understand here?>
+    expected_answer: <evidence-bounded answer this chapter will establish>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: validation
+    kind: validation
+    depends_on: [modeling_q1]
+    reader_question: <how is the solution independently supported?>
+    expected_answer: <validated scope and limits>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: evaluation
+    kind: evaluation
+    depends_on: [validation]
+    reader_question: <how do results compare and what do they mean?>
+    expected_answer: <evidence-bounded evaluation>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: conclusion
+    kind: conclusion
+    depends_on: [evaluation]
+    reader_question: <what can the completed evidence support overall?>
+    expected_answer: <synthesis without new claims>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: analysis
+    kind: analysis
+    depends_on: [conclusion]
+    reader_question: <what problem framing is needed in final reading order?>
+    expected_answer: <problem framing consistent with completed solution>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: front_matter
+    kind: front_matter
+    depends_on: [analysis]
+    reader_question: <what assumptions and symbols prepare the reader?>
+    expected_answer: <consistent assumptions and notation>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: appendix
+    kind: appendix
+    depends_on: [front_matter]
+    reader_question: <which reproducibility details belong outside the body?>
+    expected_answer: <traceable supporting material>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>
+  - chapter_id: abstract
+    kind: abstract
+    depends_on: [appendix]
+    reader_question: <what is the final concise account of the completed paper?>
+    expected_answer: <final abstract, written only in formal H8>
+    evidence_refs:
+      - path: <project-relative evidence path>
+        sha256: <current SHA-256>

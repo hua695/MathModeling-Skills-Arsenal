@@ -1,0 +1,23 @@
+% contest-template-id: coordinate-angle-coverage
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/coordinate-angle-coverage.tex
+% contest-template-sha256: <computed-at-generation>
+% contest-starter-only: true
+\documentclass[border=3pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,angles,quotes,calc}
+\begin{document}
+\begin{tikzpicture}[font=\small, >=Latex]
+  \draw[->, thick] (-0.3,0) -- (6.2,0) node[right] {$x$};
+  \draw[->, thick] (0,-0.3) -- (0,4.5) node[above] {$y$};
+  \coordinate (O) at (0,0);
+  \coordinate (P) at (4.8,2.8);
+  \coordinate (Q) at (5.4,0);
+  \draw[very thick] (O) -- (P) -- (Q);
+  \draw[dashed] (P) -- (4.8,0);
+  \fill (P) circle (1.7pt) node[above right] {$P$};
+  \fill (Q) circle (1.7pt) node[below] {$Q$};
+  \pic[draw, "$\alpha$", angle radius=8mm, angle eccentricity=1.35] {angle=Q--O--P};
+  \node[align=left, anchor=west] at (0.4,4.0) {坐标、边界、路径与必要角度};
+\end{tikzpicture}
+\end{document}

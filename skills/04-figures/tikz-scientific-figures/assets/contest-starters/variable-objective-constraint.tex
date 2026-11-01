@@ -1,0 +1,24 @@
+% contest-template-id: variable-objective-constraint
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/variable-objective-constraint.tex
+% contest-template-sha256: <computed-at-generation>
+% contest-starter-only: true
+\documentclass[border=3pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[
+  font=\small, >=Latex,
+  item/.style={draw, rounded corners=2pt, align=center, minimum width=34mm, minimum height=11mm, inner sep=5pt},
+  link/.style={-Latex, thick}
+]
+  \node[item] (v) {决策变量\\$x$};
+  \node[item, right=18mm of v] (f) {目标函数\\$F(x)$};
+  \node[item, below=11mm of v] (c) {约束条件\\$G(x)\le 0$};
+  \node[item, right=18mm of c] (s) {求解接口\\输入—输出};
+  \draw[link] (v) -- (f);
+  \draw[link] (v) -- (c);
+  \draw[link] (f) -- (s);
+  \draw[link] (c) -- (s);
+\end{tikzpicture}
+\end{document}

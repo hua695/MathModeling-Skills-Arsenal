@@ -1,0 +1,20 @@
+% contest-template-id: model-structure-roadmap
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/model-structure-roadmap.tex
+% contest-template-sha256: <computed-from-starter>
+% Replace nodes and links with the actual model components and declared dependencies.
+\begin{tikzpicture}[
+  node distance=10mm and 14mm,
+  block/.style={draw, rounded corners=2pt, align=center, text width=32mm, minimum height=11mm},
+  relation/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[block] (input) {观测输入\\已知参数};
+  \node[block, right=of input] (state) {状态或决策量\\符号定义};
+  \node[block, right=of state] (objective) {目标关系\\评价量};
+  \node[block, below=of state] (constraint) {约束与边界\\可行域};
+  \node[block, right=of objective] (solution) {模型输出\\下游接口};
+  \draw[relation] (input) -- (state);
+  \draw[relation] (state) -- (objective);
+  \draw[relation] (state) -- (constraint);
+  \draw[relation] (objective) -- (solution);
+  \draw[relation] (constraint.east) -| (solution.south);
+\end{tikzpicture}

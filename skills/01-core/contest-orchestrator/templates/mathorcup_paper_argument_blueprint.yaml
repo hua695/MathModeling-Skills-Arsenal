@@ -9,12 +9,28 @@ source_refs:
   result_interpretation_cards: null
   independent_validation: null
   literature_sources: null
-  visual_argument_plan: null
+  visual_argument_plan: null  # Optional before drafts; chapter prompts later carry exact slots.
   competition_profile: null
 global:
   central_thesis: null
   reader_journey: []
-  target_length: null
+  target_length:
+    page_range: null
+    basis: null
   chapter_order: []
-chapters: []
+  writing_order: []  # Actual creation sequence; modeling/solution dependencies first, abstract last.
+chapters:
+  - chapter_id: <chapter-id>
+    kind: modeling  # modeling|validation|evaluation|conclusion|analysis|front_matter|appendix|abstract
+    depends_on: []
+    reader_question: <reader-question>
+    expected_answer: <evidence-bounded-answer>
+    role: <reader-facing-chapter-purpose>
+    page_capacity: <recommended-pages>
+    figure_ids: []
+    visual_needs: []  # Reader needs only; exact slots are selected from each batch draft.
+    table_ids: []
+    claim_ids: []
+    evidence_refs: []
+writing_chapters: []  # One record per chapter under chapter_parallel; see mathorcup_chapter_parallel.md.
 arguments: []

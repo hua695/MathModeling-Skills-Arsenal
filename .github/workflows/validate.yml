@@ -1,0 +1,23 @@
+name: Repository checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  repository-and-workflows:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install pyyaml
+      - run: python scripts/check_repository.py
+      - run: python examples/chapter-parallel/calculate.py
+      - name: MathorCup behavior tests
+        working-directory: skills/01-core/contest-orchestrator
+        run: python -m unittest discover -s tests -p 'test_mathorcup*.py'
+      - name: Harness behavior tests
+        working-directory: skills/01-core/contest-orchestrator
+        run: python -m unittest discover -s tests -p 'test_harness*.py'

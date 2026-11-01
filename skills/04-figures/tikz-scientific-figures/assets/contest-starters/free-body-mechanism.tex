@@ -1,0 +1,18 @@
+% contest-template-id: free-body-mechanism
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/free-body-mechanism.tex
+% contest-template-sha256: <computed-at-generation>
+% contest-starter-only: true
+\documentclass[border=3pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[font=\small, >=Latex]
+  \node[draw, rounded corners=3pt, minimum width=28mm, minimum height=16mm] (body) at (0,0) {研究对象};
+  \draw[-Latex, very thick] (body.north) -- ++(0,1.25) node[midway, right] {作用方向};
+  \draw[-Latex, very thick] (body.east) -- ++(1.5,0) node[midway, above] {输出影响};
+  \draw[-Latex, very thick] (body.west) -- ++(-1.5,0) node[midway, above] {输入作用};
+  \draw[-Latex, very thick] (body.south) -- ++(0,-1.25) node[midway, right] {约束反力};
+  \node[align=center] at (0,-2.0) {对象—作用—响应关系};
+\end{tikzpicture}
+\end{document}

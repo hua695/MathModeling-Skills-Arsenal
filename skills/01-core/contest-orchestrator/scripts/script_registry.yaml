@@ -54,6 +54,8 @@ categories:
     - "scripts/regression_guard.py"
     - "scripts/coverage_matrix.py"
   paper_and_visual_tools:
+    - "scripts/mathorcup_chapter_workflow.py"
+    - "scripts/harness_chapter_workflow.py"
     - "scripts/docx_*.py"
     - "scripts/visual_critic.py"
     - "scripts/paper_check.py"

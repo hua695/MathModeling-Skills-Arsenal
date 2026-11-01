@@ -1,6 +1,6 @@
 ---
 name: math-model-selector
-description: 数学建模竞赛「题型→模型」选择路由器（国赛/美赛/华数杯/电工杯）。按题型主类、数据规模、约束特征推荐模型框架与 Python 库，输出「子问题|模型|原因|Python库|备选」选择表。触发：选题/用什么模型/模型选择/题型判断/方法推荐/怎么建模。由 contest-orchestrator 主控调用；与 topic-scorer（选题评分）分工，math-modeling 仅作兼容入口。
+description: 数学建模竞赛「题型→模型」选择路由器（国赛/美赛/华数杯/电工杯/MathorCup）。按题型主类、数据规模、约束特征推荐模型框架与 Python 库，输出「子问题|模型|原因|Python库|备选」选择表。触发：选题/用什么模型/模型选择/题型判断/方法推荐/怎么建模。由 contest-orchestrator 主控调用；与 topic-scorer（选题评分）分工，math-modeling 仅作兼容入口。
 metadata:
   version: "2.0"
 ---
@@ -17,7 +17,11 @@ metadata:
 - 模型、符号、数据和引用缺证据时返回 `BLOCKED_INPUT`；不替主控启动求解、论文或交付流程。
 - 节点包和任何项目成品不得包含负回响、元话语或内部交流内容；新符号必须在论文首用处定义。
 
+`active_mode: full-contest-mathorcup` 时，M1 只依据 `problem_statement.md`、`data_overview.yaml`、`task_kpi.yaml` 和题面证据提出逐问候选与指标/数据需求，不替用户批准最终路线；M3 由唯一 solver 结合 M2 `eda_report.md`、`features.yaml`、`leakage_audit.yaml` 和已确认文献用途确定统一 baseline、候选、分割策略、指标及计算预算。每个候选说明跨问输入输出和参数传递；题型、指标或样本结构不支持的方法不进入候选。候选表是决策依据，不是已执行结果；实际运行、数字与最终结论只由 M3 求解证据和独立验证确定。通用速查表及实现优先级仅作参考，不构成固定算法顺序。
+
 ## 定位与分工（避免与兄弟 skill 打架）
+
+MathorCup 选择路线前，按 `data-science-stack/references/mathorcup_experiment_protocol.md` 核对当前安装版本、实际估计器 API、损失、目标耦合与拟合数量。多输出接口不自动证明利用目标相关性，旧版包装器也不证明当前估计器不支持多输出。算法比较和特征变换消融分别设计；候选是否采纳以预登记标准和完整对照为依据，不为新颖性强行引入未采用的方法。
 
 | 决策 | 归属 |
 |---|---|
@@ -83,7 +87,7 @@ metadata:
 
 - **求解实现**：精确用 `pyomo`；超时/不可行切 `heuristic-algorithms`（GA/SA/PSO/蒙特卡洛/ODE）
 - **C 题数据链路**：EDA→预处理→统计→ML→时序 走 `data-science-stack`
-- **结果可视化**：数据结果图 `modelviz` → `scipilot-figure-skill`；问题分析/技术路线图 `tech-route-maker`；原理与几何示意图 `tikz-scientific-figures`；Draw.io 仅用户明确要求时使用
+- **结果可视化**：数据结果图 scipilot-figure-skill → modelviz → scipilot-figure-skill；所有非数据图 tikz-scientific-figures；Draw.io 仅用户明确要求时使用
 - **竞赛全流程**：作为 `contest-orchestrator` planner 的模型选择器调用（兼容 `math-modeling` 阶段2 入口）
 
 ## 边界（不做）

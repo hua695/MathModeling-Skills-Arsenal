@@ -1,4 +1,5 @@
 schema_version: "1.0"
+execution_protocol: "2.0"
 active_mode: full-contest-mathorcup
 competition_profile: null
 problem_scope:
@@ -16,5 +17,5 @@ nodes:
   M1: {status: not_started, review_packet: null, skill_invocations: [], problem_statement: null, data_overview: null, task_kpi: null, literature_request: null}
   M2: {status: not_started, review_packet: null, skill_invocations: [], eda_report: null, features: null, leakage_audit: null, literature_sources: null}
   M3: {status: not_started, review_packet: null, skill_invocations: [], run_manifest: null, model_summary_cards: null, result_interpretation_cards: null, independent_validation: null}
-  M4: {status: not_started, review_packet: null, skill_invocations: [], visual_argument_plan: null, visual_plan_review_packet: null, figure_registry: null, paper_argument_blueprint: null, writing_plan_review_packet: null, paper_material_readiness: null, paper_claim_coverage: null, paper_pdf: null, writing_started: false, chapters: []}
+  M4: {visual_workflow: chapter_parallel, status: not_started, review_packet: null, skill_invocations: [], visual_argument_plan: null, visual_plan_review_packet: null, figure_registry: null, paper_argument_blueprint: null, paper_language_profile: null, writing_plan_review_packet: null, paper_material_readiness: null, paper_claim_coverage: null, writing_chapters: [], abstract_framework_task_id: null, abstract_framework: null, abstract_framework_review_packet: null, integration_task_id: null, final_manuscript: null, final_review_packet: null, paper_pdf: null, writing_started: false}
   M5: {status: not_started, review_packet: null, skill_invocations: [], reproducibility_report: null, delivery_report: null, paper_pdf: null, submission_package: null}

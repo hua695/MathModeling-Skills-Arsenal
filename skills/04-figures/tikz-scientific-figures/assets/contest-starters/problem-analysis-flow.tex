@@ -1,0 +1,17 @@
+% contest-template-id: problem-analysis-flow
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/problem-analysis-flow.tex
+% contest-template-sha256: <computed-from-starter>
+% Replace every label and arrow with a traceable question, input, dependency, or output.
+\begin{tikzpicture}[
+  node distance=10mm and 12mm,
+  step/.style={draw, rounded corners=2pt, align=center, text width=31mm, minimum height=11mm},
+  relation/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[step] (q) {题面任务\\输入与目标};
+  \node[step, right=of q] (a) {关键条件\\数据与约束};
+  \node[step, right=of a] (m) {逐问建模\\必要接口};
+  \node[step, right=of m] (o) {可核验输出\\结论与边界};
+  \draw[relation] (q) -- (a);
+  \draw[relation] (a) -- (m);
+  \draw[relation] (m) -- (o);
+\end{tikzpicture}

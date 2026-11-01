@@ -1,0 +1,2 @@
+# Catalog digests are calculated over the immutable starter bytes.
+skills/04-figures/tikz-scientific-figures/assets/contest-starters/*.tex -text

@@ -1,0 +1,19 @@
+% contest-template-id: algorithm-iteration-flow
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/algorithm-iteration-flow.tex
+% contest-template-sha256: <computed-from-starter>
+% State the actual initialization, update, stopping test, and returned result.
+\begin{tikzpicture}[
+  node distance=9mm and 12mm,
+  step/.style={draw, rounded corners=2pt, align=center, text width=30mm, minimum height=10mm},
+  test/.style={draw, diamond, aspect=2, align=center, inner sep=1.5pt, text width=25mm},
+  relation/.style={-{Latex[length=2mm]}, thick}
+]
+  \node[step] (init) {输入数据\\初始化参数};
+  \node[step, right=of init] (compute) {计算候选\\更新状态};
+  \node[test, right=of compute] (stop) {满足停止条件？};
+  \node[step, right=of stop] (result) {输出解\\记录指标};
+  \draw[relation] (init) -- (compute);
+  \draw[relation] (compute) -- (stop);
+  \draw[relation] (stop) -- node[above, font=\small] {是} (result);
+  \draw[relation] (stop.south) |- ++(0,-10mm) -| node[pos=0.25, below, font=\small] {否：继续迭代} (compute.south);
+\end{tikzpicture}

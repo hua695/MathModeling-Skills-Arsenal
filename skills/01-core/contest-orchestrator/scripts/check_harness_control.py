@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Validate the project-side control record for full-contest-harness."""
 from __future__ import annotations
@@ -262,6 +262,11 @@ def validate_dispatch_order(root: Path, control: dict[str, Any], through: str,
         if not isinstance(record, dict):
             continue
         node_id = record.get("node_id")
+        if (control.get("visual_workflow") in {"writer_first_draft", "chapter_parallel"} and node_id == "H8"
+                and record.get("dispatch_kind") == "writer_preparation"):
+            # This explicit H8-role preparation is independently gated by H6 and
+            # H7_WRITING_PLAN; it does not advance the formal H8 node.
+            continue
         if node_id not in STAGE_PREDECESSORS or node_id not in NODES[:through_index + 1]:
             continue
         dispatched_at = _parse_timestamp(record.get("dispatched_at"))
@@ -1138,6 +1143,10 @@ def _validate_h7_generation_binding(root: Path, control: dict[str, Any], node: d
     matching user approval.  Plan-only H7 work has no generation binding to
     validate yet.
     """
+    if control.get("visual_workflow") == "chapter_parallel":
+        # Per-chapter prompt snapshots are validated by _validate_writer_preparation;
+        # later prompt repairs must not invalidate earlier accepted chapter text.
+        return
     raw_plan = node.get("visual_argument_plan") if isinstance(node, dict) else None
     plan_path = resolve_project_path(root, raw_plan)
     if plan_path is None or not plan_path.is_file():
@@ -1235,7 +1244,7 @@ def _validate_h7_visual_argument_plan(root: Path, node: dict[str, Any], control:
         or isinstance(registry_raw, str) and bool(registry_raw.strip())
         or plan.get("status") in {"approved", "complete"}
     )
-    if requires_plan_approval:
+    if requires_plan_approval and control.get("visual_workflow") != "chapter_parallel":
         _validate_h7_visual_plan_approval(root, node, log, plan_path, missing, failures)
 
     model_raw = node.get("model_summary_cards") or "model_summary_cards.yaml"
@@ -3237,7 +3246,155 @@ def _validate_claim_coverage(root: Path, node: dict[str, Any], readiness_path: P
             failures.append(f"H8: 主张 {claim_id} 的证据类型不完整")
 
 
-def check_harness_control(root: Path, through: str = "H9") -> dict[str, Any]:
+def _validate_writer_preparation(root: Path, control: dict[str, Any], log: dict[str, Any],
+                                  missing: list[str], failures: list[str], admission_only: bool = False) -> None:
+    if control.get("visual_workflow") == "chapter_parallel":
+        from harness_chapter_workflow import validate
+        validate(root, control, log, missing, failures, admission_only=admission_only)
+        return
+    h7 = control.get("nodes", {}).get("H7", {})
+    prep = h7.get("writer_preparation")
+    if not isinstance(prep, dict):
+        missing.append("H7: writer_preparation required before formal figures")
+        return
+
+    def reference(value: Any, label: str) -> Path | None:
+        path = resolve_project_path(root, value.get("path")) if isinstance(value, dict) else None
+        if path is None or not path.is_file():
+            missing.append(f"{label}: missing project artifact")
+            return None
+        if not same_digest(value.get("sha256"), digest(path)):
+            failures.append(f"{label}: stale artifact hash")
+        return path
+
+    h6_approval = _approval_for(log, "H6") or {}
+    h6_time = _parse_timestamp(h6_approval.get("timestamp"))
+    if h6_approval.get("decision") != "approved" or h6_time is None:
+        missing.append("writer preparation requires actual H6 user approval")
+    plan = reference(prep.get("writing_plan"), "writer_preparation.writing_plan")
+    if plan:
+        _validate_review(root, "H7", prep, log, missing, failures,
+                         packet_key="plan_review_packet", approval_gate="H7_WRITING_PLAN",
+                         packet_node_id="H7_WRITING_PLAN", min_artifact_count=1,
+                         required_artifact_paths=(plan,))
+    writing_approval = _approval_for(log, "H7_WRITING_PLAN") or {}
+    writing_time = _parse_timestamp(writing_approval.get("timestamp"))
+    records = control.get("dispatch_records", [])
+    preparation_records = [r for r in records if isinstance(r, dict) and r.get("dispatch_kind") == "writer_preparation"]
+    if admission_only and not preparation_records and prep.get("draft") is None:
+        return
+    matching = [r for r in preparation_records if r.get("task_id") == prep.get("task_id")]
+    if len(preparation_records) != 1 or len(matching) != 1:
+        failures.append("H7: one explicit accepted writer-preparation dispatch required")
+        return
+    record = matching[0]
+    h8 = control.get("nodes", {}).get("H8", {})
+    if h8.get("task_card") == record.get("task_card_path"):
+        failures.append("H8: formal integration requires a separate task card/dispatch; preparation cannot complete H8")
+    writer_id = control.get("agent_instances", {}).get("H8", {}).get("agent_instance_id")
+    route = control.get("agent_runtime_routes", {}).get("H8", {})
+    if (not writer_id or record.get("node_id") != "H8" or record.get("owner_role") != "论文 agent"
+            or record.get("agent_instance_id") != writer_id
+            or any(record.get(key) != route.get(key) for key in ("model", "reasoning_effort"))):
+        failures.append("H7: preparation must use the registered H8 writer and actual H8 runtime route")
+    card_path = reference({"path": record.get("task_card_path"), "sha256": record.get("task_card_sha256")},
+                          "writer_preparation.task_card")
+    if card_path:
+        card = load_mapping(card_path)
+        if card.get("scope", {}).get("phase") != "H8_draft_preparation":
+            failures.append("H7: preparation task must declare H8_draft_preparation")
+        if any(card.get(key) != record.get(key) for key in ("task_id", "node_id", "owner_role", "model", "reasoning_effort")):
+            failures.append("H7: preparation card identity/runtime mismatch")
+        inputs = card.get("inputs")
+        if not isinstance(inputs, list) or len(inputs) < 2:
+            failures.append("H7: preparation needs the approved writing plan and frozen scientific inputs")
+        else:
+            for item in inputs:
+                reference(item, "writer_preparation.input")
+            if prep.get("writing_plan") not in inputs:
+                failures.append("H7: preparation input must bind the approved writing plan")
+    receipt = record.get("spawn_receipt")
+    if not isinstance(receipt, dict) or any(receipt.get(key) != record.get(key) for key in
+                                           ("task_id", "agent_instance_id", "task_card_sha256")):
+        failures.append("H7: actual writer preparation receipt required")
+    called = _parse_timestamp(record.get("dispatched_at"))
+    completed = _parse_timestamp(prep.get("draft_completed_at"))
+    if called is None or h6_time is None or writing_time is None or called <= max(h6_time, writing_time):
+        failures.append("H7: writer draft dispatched before H6/writing-plan approval")
+    if completed is None or called is None or completed <= called:
+        failures.append("H7: draft completion must follow actual writer dispatch")
+    draft = reference(prep.get("draft"), "writer_preparation.draft")
+    visual_path = resolve_project_path(root, h7.get("visual_argument_plan"))
+    if visual_path is None or not visual_path.is_file():
+        missing.append("H7: writer-derived visual_argument_plan required")
+    else:
+        visual = load_mapping(visual_path)
+        prepared = _parse_timestamp(visual.get("prepared_at"))
+        if (visual.get("prepared_by_role") != "论文 agent" or visual.get("draft") != prep.get("draft")
+                or prepared is None or completed is None or prepared < completed):
+            failures.append("H7: visual requirements must be authored by writer after and bound to the draft")
+        if draft:
+            approved = _approval_for(log, "H7_VISUAL_PLAN") or {}
+            if not same_digest(approved.get("artifact_digests", {}).get(as_relative(root, draft)), digest(draft)):
+                missing.append("H7_VISUAL_PLAN: human approval must bind the writer draft as well as visual plan")
+            approved_at = _parse_timestamp(approved.get("timestamp"))
+            if approved_at is None:
+                missing.append("H7_VISUAL_PLAN: actual human approval timestamp required")
+            elif prepared is not None and approved_at < prepared:
+                failures.append("H7_VISUAL_PLAN: approval cannot predate writer visual requirements")
+    for r in records:
+        if isinstance(r, dict) and r.get("node_id") == "H7":
+            at = _parse_timestamp(r.get("dispatched_at"))
+            if completed is not None and (at is None or at <= completed):
+                failures.append("H7: figure work cannot precede completed writer draft")
+    registry_path = resolve_project_path(root, h7.get("figure_registry"))
+    if not admission_only and registry_path is not None and registry_path.is_file():
+        registry = load_mapping(registry_path)
+        selected_paths = [registry_path]
+        figures = registry.get("figures", registry.get("items", []))
+        if not isinstance(figures, list):
+            failures.append("H7: selected figure registry must contain a list")
+            figures = []
+        for figure in figures:
+            if not isinstance(figure, dict):
+                continue
+            for extension in ("svg", "png"):
+                raw = figure.get(extension)
+                if raw is None and isinstance(figure.get("outputs"), dict):
+                    raw = figure["outputs"].get(extension)
+                path = resolve_project_path(root, raw.get("path") if isinstance(raw, dict) else raw)
+                if path is None or not path.is_file():
+                    missing.append(f"H7: selected {extension} asset missing")
+                else:
+                    selected_paths.append(path)
+        _validate_review(root, "H7", h7, log, missing, failures,
+                         packet_key="figure_selection_review_packet", approval_gate="H7_FIGURE_SELECTION",
+                         packet_node_id="H7_FIGURE_SELECTION", min_artifact_count=1,
+                         required_artifact_paths=tuple(selected_paths))
+        selection = _approval_for(log, "H7_FIGURE_SELECTION") or {}
+        selected_at = _parse_timestamp(selection.get("timestamp"))
+        generation_times = [_parse_timestamp(r.get("dispatched_at")) for r in records
+                            if isinstance(r, dict) and r.get("node_id") == "H7"]
+        if selected_at is None or not generation_times or any(at is None or at >= selected_at for at in generation_times):
+            failures.append("H7: human figure selection must follow figure generation")
+        node_approval = _approval_for(log, "H7") or {}
+        node_at = _parse_timestamp(node_approval.get("timestamp"))
+        if h7.get("status") in {"approved", "frozen"} and (node_at is None or selected_at is None or node_at < selected_at):
+            failures.append("H7: final node approval cannot precede selected figure versions")
+
+
+def check_harness_control(root: Path, through: str = "H9", preflight_draft: bool = False) -> dict[str, Any]:
+    if preflight_draft:
+        report = check_harness_control(root, through="H6")
+        control = load_mapping(root / ".contest/harness_control.yaml")
+        log = load_mapping(root / ".contest/approval_log.yaml")
+        if control.get("visual_workflow") not in {"writer_first_draft", "chapter_parallel"}:
+            report["failures"].append("draft admission requires an explicit writer-led workflow")
+        else:
+            _validate_writer_preparation(root.resolve(), control, log, report["missing"], report["failures"], admission_only=True)
+        report["status"] = "BLOCK" if report["failures"] else "PAUSE" if report["missing"] or report["evidence_gaps"] else "PASS"
+        report["through"] = "H7-draft"
+        return report
     root = root.resolve()
     failures: list[str] = []
     missing: list[str] = []
@@ -3257,6 +3414,8 @@ def check_harness_control(root: Path, through: str = "H9") -> dict[str, Any]:
     failures.extend(validation_errors)
     if control.get("active_mode") != "full-contest-harness":
         failures.append("active_mode 必须为 full-contest-harness")
+    if control.get("visual_workflow") not in (None, "writer_first_draft", "chapter_parallel"):
+        failures.append("visual_workflow must select a supported writer-led workflow or be omitted for legacy runs")
     if "reader_evidence_protocol" in control and control.get("reader_evidence_protocol") != READER_EVIDENCE_VERSION:
         failures.append(f"reader_evidence_protocol 必须为 {READER_EVIDENCE_VERSION}")
     roles = control.get("roles", {})
@@ -3296,6 +3455,8 @@ def check_harness_control(root: Path, through: str = "H9") -> dict[str, Any]:
         log = {"approvals": []}
     task_ids: set[str] = set()
     checked_nodes = NODES[:NODES.index(through) + 1]
+    if control.get("visual_workflow") in {"writer_first_draft", "chapter_parallel"} and "H7" in checked_nodes:
+        _validate_writer_preparation(root, control, log, missing, failures)
     for node_id in checked_nodes:
         node = nodes.get(node_id)
         if not isinstance(node, dict):
@@ -3405,9 +3566,10 @@ def main() -> int:
     parser.add_argument("project_root", type=Path)
     parser.add_argument("--through", choices=NODES, default="H9")
     parser.add_argument("--out", type=Path, default=None)
+    parser.add_argument("--preflight-draft", action="store_true", help="Check H6 and writer-plan admission without finished figures")
     args = parser.parse_args()
     try:
-        report = check_harness_control(args.project_root, through=args.through)
+        report = check_harness_control(args.project_root, through=args.through, preflight_draft=args.preflight_draft)
     except Exception as exc:
         report = {
             "schema_version": "1.0", "status": "BLOCK", "through": args.through,

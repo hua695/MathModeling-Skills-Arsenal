@@ -27,13 +27,20 @@ description: >-
 
 ## Contest-Orchestrator Adapter
 
-在 `contest-orchestrator` 中，本技能按两个阶段运行，只负责数据结果图，不负责技术路线图、流程图、机制图或几何图。输入来自项目工作区的 `result_registry`、`numeric_source_map`、图表计划、任务卡和已批准结果。
+在 `contest-orchestrator` 及其轻量、DSH、MathorCup 模式中，本技能按两个阶段运行，只负责数据结果图，不负责技术路线图、流程图、模型结构、算法过程、机制图或几何图。数据图执行 SciPilot 决策卡 → ModelViz 生成 → SciPilot 检查；所有非数据图统一路由到 `tikz-scientific-figures`。输入来自项目工作区的 `result_registry`、`numeric_source_map`、图表计划、任务卡和已批准结果。
+
+`active_mode: full-contest-mathorcup` 时，M2 的 EDA 图读取 `data_overview.yaml`、`eda_report.md`、原始数据和当前任务卡；若图中展示冻结特征或标签关系，还需读取 `features.yaml` 与 `leakage_audit.yaml`，且不得用测试折标签决定表示方式。M4 的正式数据图读取已批准 `visual_argument_plan.yaml`、M3 `run_manifest.yaml`、`result_interpretation_cards.yaml`、`independent_validation.yaml` 及对应数据/结果文件。缺少 Harness 命名的登记文件不等于缺少证据；每个图中数字、字段、单位和图注主张仍须绑定当前项目的真实来源与哈希。M4 仅负责已批准的数据图位，不另行决定全局图表计划。
 
 ### DISCOVERY phase
 
+MathorCup 启用 `nodes.M4.visual_workflow: writer_first_batches` 时，M4 从当前任务卡读取由 writer 在批次初稿后提出、经用户确认的批次视觉计划与初稿引用，不以前置全篇正式图或全局计划为输入条件。writer 决定需要解释的读者问题与落位，本技能负责数据剖析、具体图型和视觉编码；最终 QA 与真实来源要求照常执行。全篇计划由 writer 汇总各批已批准槽位，图表 agent 不重新决定论文需要哪些图。其他模式的计划职责不变。
+
 - 对批准的数据执行数据剖析，核对字段、样本量、数据类型、分组结构、连续性、异常值和缺失情况。
-- 创建完整 `decision card`：论证主张、数据字段与结构、推荐图型、备选图型、排除图型、坐标单位、图注限制和论文落位。
+- 先从论文上下文提取 `reader_question`、`claim` 和 `reader_takeaway`，再选择 `representation_mode`：`figure`、`table` 或 `text`。只有选择 `figure` 后才确定具体图型、视觉编码和模板；如果表格或文字已经能完整传达证据，不为满足图数生成图。
+- 创建完整 `decision card`：读者问题、论证主张、数据字段与结构、表示方式及理由、推荐图型、备选图型、排除图型、信息单元、坐标单位、图注限制、前置引导语职责、后置解释语职责和论文落位。
 - 只输出决策卡和数据剖析证据，不检索模板、不执行绘图。
+
+MathorCup 或 Harness 启用 `chapter_parallel` 时，以主控对应的 `mathorcup_chapter_parallel.md` 或 `harness_chapter_parallel.md` 为时序依据：接收已批准章节绑定的提示词与视觉计划，完成本轮图表决策和 QA。提示词返修产生新版本，不撤销未变章节批准，也不阻塞后续章节；最终资产仍须绑定最新请求、来源和选定版本。此分支优先于历史批次或图件先行的描述。
 
 ### QA phase
 
@@ -70,12 +77,13 @@ description: >-
 
 ### 第 0 步：理解任务
 
-开画前**先搞清楚两件事**：
+开画前**先搞清楚三件事**：
 
-1. **这张图要论证什么观点 / 回答什么问题？** 同样数据，论点不同图就不同（详见 `references/chart_selection.md` 的"同一批数据、不同论点 → 不同图"小节）
-2. **数据在哪里？长什么样？** 文件路径 / 字段含义 / 多少行 / 是否已经清洗
+1. **读者在此处要理解什么，论文主张是什么？** 先写出一个可检验的 `reader_question` 和一个 `reader_takeaway`。同样数据，论点不同，表示方式也不同。
+2. **不出图是否会损失理解？** 在 `figure`、`table` 和 `text` 中先选择最小充分表示，并写明理由；图表数量是结果，不是任务目标。
+3. **数据在哪里？长什么样？** 文件路径 / 字段含义 / 多少行 / 是否已经清洗
 
-**如果用户没说清论证目标**，主动问一句："你这张图主要想说服读者相信什么？" 或从论文上下文推断并明确告诉用户你的假设。**不要默认"用户知道自己要什么"**。
+**如果用户没说清论证目标**，主动问一句："读者看完这一处需要理解什么？" 或从论文上下文推断并明确记录假设。**不要把用户给出的图型直接当作语义决策**；先检查它是否服务于读者问题。
 
 ### 第 1 步：剖析数据
 
@@ -98,6 +106,8 @@ python scripts/profile_data.py data.csv --group group --group condition
 
 **这是顾问职责的核心**。基于第 0、1 步的事实，查 `references/chart_selection.md` 的决策框架决定图型。要点：
 
+- 先确定 `representation_mode`，再决定图型；`table` 和 `text` 是合法且优先的结果，不得把每个视觉义务机械转成图片。
+- 每张图只承担一个核心读者问题，并列出至少两个相互独立的信息单元；单一信息单元只有在 `compact` 理由成立时才允许成图。
 - **给出推荐 + 简短理由 + 1-2 个备选**（不要只丢一个选择给用户）
 - 如果数据维度过多（如分组组合 > 12）→ **明确建议拆图**，而不是硬塞
 - 如果用户指定的图型**不适合数据**（如 n=5 要画均值柱）→ **善意指出问题并说明更好的选择**，让用户决定。详见下方"主动拦截"小节
@@ -127,6 +137,7 @@ setup_style(journal='general', lang='zh', serif_for_zh=True)   # 中文宋体混
 - `figsize=(目标宽, 目标高)` 单位英寸——直接定最终尺寸
 - 用 `seaborn.color_palette('colorblind')` 或 Okabe-Ito + 冗余编码（不同线型/marker）
 - 误差棒 / 阴影要在图注交代是 SD / SEM / 95% CI + n
+- 流程、机制、技术路线和几何关系不通过堆放公式或原始数据来“凑信息量”；竞赛模式下这些语义统一交给 `tikz-scientific-figures`，数据图只呈现其已登记的数值证据。
 
 ### 第 6 步：自检闭环（机器检查；视觉检查按适配层选择）
 
@@ -157,6 +168,10 @@ export_figure(
 ```
 
 最后跑一遍 `scripts/check_figure.py --strict` 机器审计。
+
+### 图表节点交接契约
+
+针对数据结果槽位，交给 `contest-orchestrator` 的决策卡和 `figure_registry` 必须保留 `representation_mode`、选择理由、`reader_question`、`reader_takeaway`、前置引导语职责和后置解释语职责。`figure` 才能进入 ModelViz 模板检索与生成；`table` 或 `text` 直接登记为非绘图表示并由论文 agent 落位。当前模式的图表 agent 负责汇总全局 `visual_argument_plan.yaml` 并分配流程图、技术路线图和示意图路由；本技能只处理其中的数据结果槽位。数据图生成前必须能回答“图中哪些信息单元共同支撑主张”，生成图后必须能回答“读者看图后新增了什么理解”。
 
 ## 选图速查（详细决策在 chart_selection.md）
 

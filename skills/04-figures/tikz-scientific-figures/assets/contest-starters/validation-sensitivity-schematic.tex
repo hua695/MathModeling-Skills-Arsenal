@@ -1,0 +1,23 @@
+% contest-template-id: validation-sensitivity-schematic
+% contest-template-source: tikz-scientific-figures/assets/contest-starters/validation-sensitivity-schematic.tex
+% contest-template-sha256: <computed-at-generation>
+% contest-starter-only: true
+\documentclass[border=3pt]{standalone}
+\usepackage{ctex}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+\begin{document}
+\begin{tikzpicture}[
+  font=\small, >=Latex,
+  box/.style={draw, rounded corners=2pt, align=center, minimum width=31mm, minimum height=10mm, inner sep=4pt},
+  link/.style={-Latex, thick}
+]
+  \node[box] (base) {冻结基准\\结果与指标};
+  \node[box, right=13mm of base] (cond) {验证条件\\或参数扰动};
+  \node[box, right=13mm of cond] (recalc) {复用模型\\重新计算};
+  \node[box, below=10mm of recalc] (compare) {比较响应\\误差或变化量};
+  \node[box, left=13mm of compare] (boundary) {适用边界\\可靠性判断};
+  \draw[link] (base) -- (cond) -- (recalc) -- (compare) -- (boundary);
+  \draw[link] (boundary.south) |- ++(0,-0.55) -| (base.south);
+\end{tikzpicture}
+\end{document}
